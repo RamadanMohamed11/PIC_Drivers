@@ -42,9 +42,9 @@
     rgb_led_stutes state;
  }rgb_led_t;
 
- Std_ReturnType rgb_led_initialize(const rgb_led_t* rgb_led);
- Std_ReturnType rgb_led_turn_on(const rgb_led_t* rgb_led);
- Std_ReturnType rgb_led_turn_off(const rgb_led_t* rgb_led);
- Std_ReturnType rgb_led_toggle(const rgb_led_t* rgb_led);
+ Std_ReturnType rgb_led_initialize(const rgb_led_t* RGB_LED);
+ Std_ReturnType rgb_led_turn_on(const rgb_led_t* RGB_LED);
+ Std_ReturnType rgb_led_turn_off(const rgb_led_t* RGB_LED);
+ Std_ReturnType rgb_led_toggle(const rgb_led_t* RGB_LED);
 
  #endif

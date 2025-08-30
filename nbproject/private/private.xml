@@ -3,15 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Courses/Embedded%20system/myDrivers/Code/MCAL/GPIO/hal_gpio.c</file>
-            <file>file:/D:/Courses/Embedded%20system/myDrivers/Code/application.c</file>
-            <file>file:/D:/Courses/Embedded%20system/myDrivers/Code/ECU/LED/ecu_led.h</file>
-            <file>file:/D:/Courses/Embedded%20system/myDrivers/Code/application.h</file>
-            <file>file:/D:/Courses/Embedded%20system/myDrivers/Code/ECU/LED/ecu_led.c</file>
-            <file>file:/D:/Courses/Embedded%20system/myDrivers/Code/ECU/Keypad/ecu_keypad.c</file>
-            <file>file:/D:/Courses/Embedded%20system/myDrivers/Code/ECU/7_Segment/ecu_7_segment.c</file>
-            <file>file:/D:/Courses/Embedded%20system/myDrivers/Code/ECU/Keypad/ecu_keypad.h</file>
-            <file>file:/D:/Courses/Embedded%20system/myDrivers/Code/MCAL/GPIO/hal_gpio.h</file>
+            <file>file:/D:/Embedded%202025/PIC_Drivers/application.c</file>
         </group>
     </open-files>
 </project-private>
