@@ -23,6 +23,8 @@
         <logicalFolder name="RELAY" displayName="RELAY" projectFiles="true">
           <itemPath>ECU/RELAY/ecu_relay.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="RGB_LED" displayName="RGB_LED" projectFiles="true">
+        </logicalFolder>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL_Layer" projectFiles="true">
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
@@ -60,6 +62,9 @@
         <logicalFolder name="RELAY" displayName="RELAY" projectFiles="true">
           <itemPath>ECU/RELAY/ecu_relay.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="RGB_LED" displayName="RGB_LED" projectFiles="true">
+          <itemPath>ECU/RGB_LED/ecu_rgb_led.c</itemPath>
+        </logicalFolder>
       </logicalFolder>
       <logicalFolder name="MCAL" displayName="MCAL_Layer" projectFiles="true">
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
@@ -89,7 +94,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.41</languageToolchainVersion>
+        <languageToolchainVersion>2.36</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -1154,17 +1159,6 @@
                   value=""/>
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Tool>
-      <VSMViewerPlatformTool>
-        <property key="debugoptions.debug-startup" value="Use system settings"/>
-        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
-        <property key="design.file"
-                  value="../../05 GPIO Module Device Driver (PIC Microcontroller)/New folder/New Project.pdsprj"/>
-        <property key="event.recorder.enabled" value="false"/>
-        <property key="event.recorder.scvd.files" value=""/>
-        <property key="lastid" value=""/>
-        <property key="target.ip.address" value="localhost"/>
-        <property key="target.ip.port" value="8001"/>
-      </VSMViewerPlatformTool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>

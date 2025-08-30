@@ -5,16 +5,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S272 . port pin direction logic ]
 "34 MCAL/GPIO/hal_gpio.c
 [; ;MCAL/GPIO/hal_gpio.c: 34:                 }
-[c E2804 0 1 .. ]
-[n E2804 . GPIO_LOW GPIO_HIGH  ]
+[c E2801 0 1 .. ]
+[n E2801 . GPIO_LOW GPIO_HIGH  ]
 "41
 [; ;MCAL/GPIO/hal_gpio.c: 41:         }
-[c E2808 0 1 .. ]
-[n E2808 . GPIO_OUTPUT GPIO_INPUT  ]
+[c E2805 0 1 .. ]
+[n E2805 . GPIO_OUTPUT GPIO_INPUT  ]
 "129
 [; ;MCAL/GPIO/hal_gpio.c: 129: Std_ReturnType gpio_port_direction_initialize( port_index_t _port, uint8 direction)
-[c E2822 0 1 2 3 4 .. ]
-[n E2822 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[c E2819 0 1 2 3 4 .. ]
+[n E2819 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -533,8 +533,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 279  ]
 [e :U 280 ]
-[e [\ -> . *U __pin_config 3 `i , $ . `E2804 1 281
- , $ . `E2804 0 282
+[e [\ -> . *U __pin_config 3 `i , $ . `E2801 1 281
+ , $ . `E2801 0 282
  279 ]
 [e :U 279 ]
 "35
@@ -560,8 +560,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 276  ]
 [e :U 277 ]
-[e [\ -> . *U __pin_config 2 `i , $ . `E2808 0 278
- , $ . `E2808 1 283
+[e [\ -> . *U __pin_config 2 `i , $ . `E2805 0 278
+ , $ . `E2805 1 283
  284 ]
 [e :U 276 ]
 "42
@@ -688,8 +688,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 291  ]
 [e :U 292 ]
-[e [\ -> _logic `i , $ . `E2804 1 293
- , $ . `E2804 0 294
+[e [\ -> _logic `i , $ . `E2801 1 293
+ , $ . `E2801 0 294
  295 ]
 [e :U 291 ]
 "86
@@ -797,14 +797,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "129
 [; ;MCAL/GPIO/hal_gpio.c: 129: Std_ReturnType gpio_port_direction_initialize( port_index_t _port, uint8 direction)
-[v _gpio_port_direction_initialize `(uc ~T0 @X0 1 ef2`E2822`uc ]
+[v _gpio_port_direction_initialize `(uc ~T0 @X0 1 ef2`E2819`uc ]
 "130
 [; ;MCAL/GPIO/hal_gpio.c: 130: {
 {
 [e :U _gpio_port_direction_initialize ]
 "129
 [; ;MCAL/GPIO/hal_gpio.c: 129: Std_ReturnType gpio_port_direction_initialize( port_index_t _port, uint8 direction)
-[v __port `E2822 ~T0 @X0 1 r1 ]
+[v __port `E2819 ~T0 @X0 1 r1 ]
 [v _direction `uc ~T0 @X0 1 r2 ]
 "130
 [; ;MCAL/GPIO/hal_gpio.c: 130: {
@@ -843,14 +843,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "146
 [; ;MCAL/GPIO/hal_gpio.c: 146: Std_ReturnType gpio_port_get_direction_status( port_index_t _port , uint8* direction)
-[v _gpio_port_get_direction_status `(uc ~T0 @X0 1 ef2`E2822`*uc ]
+[v _gpio_port_get_direction_status `(uc ~T0 @X0 1 ef2`E2819`*uc ]
 "147
 [; ;MCAL/GPIO/hal_gpio.c: 147: {
 {
 [e :U _gpio_port_get_direction_status ]
 "146
 [; ;MCAL/GPIO/hal_gpio.c: 146: Std_ReturnType gpio_port_get_direction_status( port_index_t _port , uint8* direction)
-[v __port `E2822 ~T0 @X0 1 r1 ]
+[v __port `E2819 ~T0 @X0 1 r1 ]
 [v _direction `*uc ~T0 @X0 1 r2 ]
 "147
 [; ;MCAL/GPIO/hal_gpio.c: 147: {
@@ -889,14 +889,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "163
 [; ;MCAL/GPIO/hal_gpio.c: 163: Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic)
-[v _gpio_port_write_logic `(uc ~T0 @X0 1 ef2`E2822`uc ]
+[v _gpio_port_write_logic `(uc ~T0 @X0 1 ef2`E2819`uc ]
 "164
 [; ;MCAL/GPIO/hal_gpio.c: 164: {
 {
 [e :U _gpio_port_write_logic ]
 "163
 [; ;MCAL/GPIO/hal_gpio.c: 163: Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic)
-[v __port `E2822 ~T0 @X0 1 r1 ]
+[v __port `E2819 ~T0 @X0 1 r1 ]
 [v _logic `uc ~T0 @X0 1 r2 ]
 "164
 [; ;MCAL/GPIO/hal_gpio.c: 164: {
@@ -935,14 +935,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "180
 [; ;MCAL/GPIO/hal_gpio.c: 180: Std_ReturnType gpio_port_read_logic( port_index_t _port , uint8* logic)
-[v _gpio_port_read_logic `(uc ~T0 @X0 1 ef2`E2822`*uc ]
+[v _gpio_port_read_logic `(uc ~T0 @X0 1 ef2`E2819`*uc ]
 "181
 [; ;MCAL/GPIO/hal_gpio.c: 181: {
 {
 [e :U _gpio_port_read_logic ]
 "180
 [; ;MCAL/GPIO/hal_gpio.c: 180: Std_ReturnType gpio_port_read_logic( port_index_t _port , uint8* logic)
-[v __port `E2822 ~T0 @X0 1 r1 ]
+[v __port `E2819 ~T0 @X0 1 r1 ]
 [v _logic `*uc ~T0 @X0 1 r2 ]
 "181
 [; ;MCAL/GPIO/hal_gpio.c: 181: {
@@ -981,14 +981,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "197
 [; ;MCAL/GPIO/hal_gpio.c: 197: Std_ReturnType gpio_port_toggle_logic( port_index_t _port)
-[v _gpio_port_toggle_logic `(uc ~T0 @X0 1 ef1`E2822 ]
+[v _gpio_port_toggle_logic `(uc ~T0 @X0 1 ef1`E2819 ]
 "198
 [; ;MCAL/GPIO/hal_gpio.c: 198: {
 {
 [e :U _gpio_port_toggle_logic ]
 "197
 [; ;MCAL/GPIO/hal_gpio.c: 197: Std_ReturnType gpio_port_toggle_logic( port_index_t _port)
-[v __port `E2822 ~T0 @X0 1 r1 ]
+[v __port `E2819 ~T0 @X0 1 r1 ]
 "198
 [; ;MCAL/GPIO/hal_gpio.c: 198: {
 [f ]
