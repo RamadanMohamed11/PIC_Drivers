@@ -17,7 +17,8 @@
 void application_initialize(void);
 
 int main(void) 
-{
+{    
+    application_initialize();
     leds_in_port_t LEDs1={.port=PORTD_INDEX,.state=GPIO_LOW};
     led_port_initialize(&LEDs1);
     keypad_t keypad={
@@ -85,10 +86,26 @@ int main(void)
     uint8 ledNUm;
     while(1)
     {
-        keypad_get_char(&keypad,&chr);
-        ledNUm=chr-48;
-        if(chr!='\0')
-            led_port_write(&LEDs1,&ledNUm);
+        rgb_led_turn_on(&rgb_led,RED);
+        __delay_ms(1000);
+        rgb_led_turn_on(&rgb_led,GREEN);
+        __delay_ms(1000);
+        rgb_led_turn_on(&rgb_led,BLUE);
+        __delay_ms(1000);
+        rgb_led_turn_on(&rgb_led,YELLOW);
+        __delay_ms(1000);
+        rgb_led_turn_on(&rgb_led,ORANGE);
+        __delay_ms(1000);
+        rgb_led_turn_on(&rgb_led,PURPLE);
+        __delay_ms(1000);
+        rgb_led_turn_on(&rgb_led,WHITE);
+        __delay_ms(1000);
+        rgb_led_turn_off(&rgb_led);
+        __delay_ms(1000);
+        // keypad_get_char(&keypad,&chr);
+        // ledNUm=chr-48;
+        // if(chr!='\0')
+        //     led_port_write(&LEDs1,&ledNUm);
         
 //        segment_write(&seg1,number/10);
 //        segment_multi_enable(&MultiSegPins[0]);
@@ -172,6 +189,6 @@ int main(void)
 
 void application_initialize(void)
 {
-    
+    rgb_led_initialize(&rgb_led);
 }
 

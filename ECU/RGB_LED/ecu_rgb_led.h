@@ -6,8 +6,8 @@
  * @date    2025-08-31
  */
 
-#ifndef ECU_LED_H
-#define ECU_LED_H
+#ifndef ECU_RGB_LED_H
+#define ECU_RGB_LED_H
 
 #include "../../MCAL/GPIO/hal_gpio.h"
 

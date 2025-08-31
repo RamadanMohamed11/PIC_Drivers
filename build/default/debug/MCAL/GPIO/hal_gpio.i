@@ -14,8 +14,9 @@
 
 
 
+
 # 1 "MCAL/GPIO/hal_gpio.h" 1
-# 13 "MCAL/GPIO/hal_gpio.h"
+# 14 "MCAL/GPIO/hal_gpio.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
 
@@ -4484,15 +4485,15 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 13 "MCAL/GPIO/hal_gpio.h" 2
+# 14 "MCAL/GPIO/hal_gpio.h" 2
 
 # 1 "MCAL/GPIO/../std_types.h" 1
-# 11 "MCAL/GPIO/../std_types.h"
+# 12 "MCAL/GPIO/../std_types.h"
 # 1 "MCAL/GPIO/../compiler.h" 1
-# 11 "MCAL/GPIO/../std_types.h" 2
+# 12 "MCAL/GPIO/../std_types.h" 2
 
 # 1 "MCAL/GPIO/../std_libraries.h" 1
-# 11 "MCAL/GPIO/../std_libraries.h"
+# 12 "MCAL/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4637,8 +4638,8 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "MCAL/GPIO/../std_libraries.h" 2
-# 12 "MCAL/GPIO/../std_types.h" 2
+# 12 "MCAL/GPIO/../std_libraries.h" 2
+# 13 "MCAL/GPIO/../std_types.h" 2
 
 
 typedef unsigned char uint8;
@@ -4650,15 +4651,15 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 Std_ReturnType;
-# 14 "MCAL/GPIO/hal_gpio.h" 2
+# 15 "MCAL/GPIO/hal_gpio.h" 2
 
 # 1 "MCAL/GPIO/../device_config.h" 1
-# 15 "MCAL/GPIO/hal_gpio.h" 2
-# 40 "MCAL/GPIO/hal_gpio.h"
+# 16 "MCAL/GPIO/hal_gpio.h" 2
+# 41 "MCAL/GPIO/hal_gpio.h"
 volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
 volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
 volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
-# 51 "MCAL/GPIO/hal_gpio.h"
+# 52 "MCAL/GPIO/hal_gpio.h"
 typedef enum
 {
     GPIO_LOW,
@@ -4711,14 +4712,7 @@ Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direct
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t _port , uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
-# 8 "MCAL/GPIO/hal_gpio.c" 2
-
-
-
-
-
-
-
+# 10 "MCAL/GPIO/hal_gpio.c" 2
 Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config)
 {
     Std_ReturnType state=(Std_ReturnType)1;
@@ -4836,12 +4830,7 @@ Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config)
 Std_ReturnType gpio_port_direction_initialize( port_index_t _port, uint8 direction)
 {
     Std_ReturnType state=(Std_ReturnType)1;
-    if(_port==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        *tris_regesters[_port]=direction;
-    }
+    *tris_regesters[_port]=direction;
     return state;
 }
 
@@ -4853,7 +4842,7 @@ Std_ReturnType gpio_port_direction_initialize( port_index_t _port, uint8 directi
 Std_ReturnType gpio_port_get_direction_status( port_index_t _port , uint8* direction)
 {
     Std_ReturnType state=(Std_ReturnType)1;
-    if(_port==((void*)0) || direction==((void*)0))
+    if(direction==((void*)0))
         state=(Std_ReturnType)0;
     else
     {
@@ -4870,12 +4859,7 @@ Std_ReturnType gpio_port_get_direction_status( port_index_t _port , uint8* direc
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic)
 {
     Std_ReturnType state=(Std_ReturnType)1;
-    if(_port==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        *lat_regesters[_port]=logic;
-    }
+    *lat_regesters[_port]=logic;
     return state;
 }
 
@@ -4887,7 +4871,7 @@ Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic)
 Std_ReturnType gpio_port_read_logic( port_index_t _port , uint8* logic)
 {
     Std_ReturnType state=(Std_ReturnType)1;
-    if(_port==((void*)0) || logic==((void*)0))
+    if(logic==((void*)0))
         state=(Std_ReturnType)0;
     else
     {
@@ -4904,11 +4888,6 @@ Std_ReturnType gpio_port_read_logic( port_index_t _port , uint8* logic)
 Std_ReturnType gpio_port_toggle_logic( port_index_t _port)
 {
     Std_ReturnType state=(Std_ReturnType)1;
-    if(_port==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        *lat_regesters[_port]^=0xff;
-    }
+    *lat_regesters[_port]^=0xff;
     return state;
 }

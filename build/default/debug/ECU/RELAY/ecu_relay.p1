@@ -1,28 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"20 ECU/RELAY/ecu_relay.h
-[; ;ECU/RELAY/ecu_relay.h: 20: {
+"21 ECU/RELAY/ecu_relay.h
+[; ;ECU/RELAY/ecu_relay.h: 21: {
 [s S273 :3 `uc 1 :3 `uc 1 ]
 [n S273 . port pin ]
-"85 ECU/RELAY/../../MCAL/GPIO/hal_gpio.h
-[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 85: {
+"86 ECU/RELAY/../../MCAL/GPIO/hal_gpio.h
+[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 86: {
 [s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S272 . port pin direction logic ]
-"24 ECU/RELAY/ecu_relay.c
-[; ;ECU/RELAY/ecu_relay.c: 24:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin,.logic=GPIO_OUTPUT};
+"26 ECU/RELAY/ecu_relay.c
+[; ;ECU/RELAY/ecu_relay.c: 26:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin,.logic=GPIO_OUTPUT};
 [c E2805 0 1 .. ]
 [n E2805 . GPIO_OUTPUT GPIO_INPUT  ]
-"92 ECU/RELAY/../../MCAL/GPIO/hal_gpio.h
-[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 92: Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config);
+"93 ECU/RELAY/../../MCAL/GPIO/hal_gpio.h
+[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 93: Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config);
 [v _gpio_pin_direction_initialize `(uc ~T0 @X0 0 ef1`*CS272 ]
-"94
-[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 94: Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic);
+"95
+[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 95: Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic);
 [v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS272`uc ]
-"44 ECU/RELAY/ecu_relay.c
-[; ;ECU/RELAY/ecu_relay.c: 44:         gpio_pin_write_logic(&relay,GPIO_HIGH);
+"47 ECU/RELAY/ecu_relay.c
+[; ;ECU/RELAY/ecu_relay.c: 47:         gpio_pin_write_logic(&relay,GPIO_HIGH);
 [c E2801 0 1 .. ]
 [n E2801 . GPIO_LOW GPIO_HIGH  ]
-"96 ECU/RELAY/../../MCAL/GPIO/hal_gpio.h
-[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 96: Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
+"97 ECU/RELAY/../../MCAL/GPIO/hal_gpio.h
+[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 97: Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
 [v _gpio_pin_toggle_logic `(uc ~T0 @X0 0 ef1`*CS272 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
@@ -435,8 +435,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"40 ECU/RELAY/../../MCAL/GPIO/hal_gpio.h
-[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 40: volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
+"41 ECU/RELAY/../../MCAL/GPIO/hal_gpio.h
+[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 41: volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
 [v _tris_regesters `*Vuc ~T0 @X0 -> 5 `i e ]
 [i _tris_regesters
 :U ..
@@ -447,8 +447,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U *U -> -> 3990 `i `*Vuc
 ..
 ]
-"41
-[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 41: volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
+"42
+[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 42: volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
 [v _lat_regesters `*Vuc ~T0 @X0 -> 5 `i e ]
 [i _lat_regesters
 :U ..
@@ -459,8 +459,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U *U -> -> 3981 `i `*Vuc
 ..
 ]
-"42
-[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 42: volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
+"43
+[; ;ECU/RELAY/../../MCAL/GPIO/hal_gpio.h: 43: volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
 [v _port_regesters `*Vuc ~T0 @X0 -> 5 `i e ]
 [i _port_regesters
 :U ..
@@ -471,48 +471,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U *U -> -> 3972 `i `*Vuc
 ..
 ]
-"15 ECU/RELAY/ecu_relay.c
-[; ;ECU/RELAY/ecu_relay.c: 15: Std_ReturnType Relay_initialize(const Relay_t* Relay)
+"17 ECU/RELAY/ecu_relay.c
+[; ;ECU/RELAY/ecu_relay.c: 17: Std_ReturnType Relay_initialize(const Relay_t* Relay)
 [v _Relay_initialize `(uc ~T0 @X0 1 ef1`*CS273 ]
-"16
-[; ;ECU/RELAY/ecu_relay.c: 16: {
+"18
+[; ;ECU/RELAY/ecu_relay.c: 18: {
 {
 [e :U _Relay_initialize ]
-"15
-[; ;ECU/RELAY/ecu_relay.c: 15: Std_ReturnType Relay_initialize(const Relay_t* Relay)
-[v _Relay `*CS273 ~T0 @X0 1 r1 ]
-"16
-[; ;ECU/RELAY/ecu_relay.c: 16: {
-[f ]
 "17
-[; ;ECU/RELAY/ecu_relay.c: 17:     Std_ReturnType state=(Std_ReturnType)1;
+[; ;ECU/RELAY/ecu_relay.c: 17: Std_ReturnType Relay_initialize(const Relay_t* Relay)
+[v _Relay `*CS273 ~T0 @X0 1 r1 ]
+"18
+[; ;ECU/RELAY/ecu_relay.c: 18: {
+[f ]
+"19
+[; ;ECU/RELAY/ecu_relay.c: 19:     Std_ReturnType state=(Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"18
-[; ;ECU/RELAY/ecu_relay.c: 18:     if(Relay==((void*)0))
-[e $ ! == _Relay -> -> -> 0 `i `*v `*CS273 275  ]
-"19
-[; ;ECU/RELAY/ecu_relay.c: 19:     {
-{
 "20
-[; ;ECU/RELAY/ecu_relay.c: 20:         state=(Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
+[; ;ECU/RELAY/ecu_relay.c: 20:     if(Relay==((void*)0))
+[e $ ! == _Relay -> -> -> 0 `i `*v `*CS273 275  ]
 "21
-[; ;ECU/RELAY/ecu_relay.c: 21:     }
+[; ;ECU/RELAY/ecu_relay.c: 21:     {
+{
+"22
+[; ;ECU/RELAY/ecu_relay.c: 22:         state=(Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"23
+[; ;ECU/RELAY/ecu_relay.c: 23:     }
 }
 [e $U 276  ]
-"22
-[; ;ECU/RELAY/ecu_relay.c: 22:     else
+"24
+[; ;ECU/RELAY/ecu_relay.c: 24:     else
 [e :U 275 ]
-"23
-[; ;ECU/RELAY/ecu_relay.c: 23:     {
+"25
+[; ;ECU/RELAY/ecu_relay.c: 25:     {
 {
 [v F2876 `S272 ~T0 @X0 1 s ]
 [i F2876
 :U ..
 :U ..
-"24
-[; ;ECU/RELAY/ecu_relay.c: 24:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin,.logic=GPIO_OUTPUT};
+"26
+[; ;ECU/RELAY/ecu_relay.c: 26:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin,.logic=GPIO_OUTPUT};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -523,59 +523,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _relay `S272 ~T0 @X0 1 a ]
 [e = _relay F2876 ]
 [e ; = . _relay 0 . *U _Relay 0 ; = . _relay 1 . *U _Relay 1 = . _relay 3 -> . `E2805 0 `uc ]
-"25
-[; ;ECU/RELAY/ecu_relay.c: 25:         gpio_pin_direction_initialize(&relay);
+"27
+[; ;ECU/RELAY/ecu_relay.c: 27:         gpio_pin_direction_initialize(&relay);
 [e ( _gpio_pin_direction_initialize (1 -> &U _relay `*CS272 ]
-"26
-[; ;ECU/RELAY/ecu_relay.c: 26:     }
+"28
+[; ;ECU/RELAY/ecu_relay.c: 28:     }
 }
 [e :U 276 ]
-"27
-[; ;ECU/RELAY/ecu_relay.c: 27: }
+"29
+[; ;ECU/RELAY/ecu_relay.c: 29:     return state;
+[e ) _state ]
+[e $UE 274  ]
+"30
+[; ;ECU/RELAY/ecu_relay.c: 30: }
 [e :UE 274 ]
 }
-"34
-[; ;ECU/RELAY/ecu_relay.c: 34: Std_ReturnType Relay_turn_on(const Relay_t* Relay)
+"37
+[; ;ECU/RELAY/ecu_relay.c: 37: Std_ReturnType Relay_turn_on(const Relay_t* Relay)
 [v _Relay_turn_on `(uc ~T0 @X0 1 ef1`*CS273 ]
-"35
-[; ;ECU/RELAY/ecu_relay.c: 35: {
+"38
+[; ;ECU/RELAY/ecu_relay.c: 38: {
 {
 [e :U _Relay_turn_on ]
-"34
-[; ;ECU/RELAY/ecu_relay.c: 34: Std_ReturnType Relay_turn_on(const Relay_t* Relay)
+"37
+[; ;ECU/RELAY/ecu_relay.c: 37: Std_ReturnType Relay_turn_on(const Relay_t* Relay)
 [v _Relay `*CS273 ~T0 @X0 1 r1 ]
-"35
-[; ;ECU/RELAY/ecu_relay.c: 35: {
+"38
+[; ;ECU/RELAY/ecu_relay.c: 38: {
 [f ]
-"36
-[; ;ECU/RELAY/ecu_relay.c: 36:     Std_ReturnType state=(Std_ReturnType)1;
+"39
+[; ;ECU/RELAY/ecu_relay.c: 39:     Std_ReturnType state=(Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"37
-[; ;ECU/RELAY/ecu_relay.c: 37:     if(Relay==((void*)0))
-[e $ ! == _Relay -> -> -> 0 `i `*v `*CS273 278  ]
-"38
-[; ;ECU/RELAY/ecu_relay.c: 38:     {
-{
-"39
-[; ;ECU/RELAY/ecu_relay.c: 39:         state=(Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
 "40
-[; ;ECU/RELAY/ecu_relay.c: 40:     }
+[; ;ECU/RELAY/ecu_relay.c: 40:     if(Relay==((void*)0))
+[e $ ! == _Relay -> -> -> 0 `i `*v `*CS273 278  ]
+"41
+[; ;ECU/RELAY/ecu_relay.c: 41:     {
+{
+"42
+[; ;ECU/RELAY/ecu_relay.c: 42:         state=(Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"43
+[; ;ECU/RELAY/ecu_relay.c: 43:     }
 }
 [e $U 279  ]
-"41
-[; ;ECU/RELAY/ecu_relay.c: 41:     else
+"44
+[; ;ECU/RELAY/ecu_relay.c: 44:     else
 [e :U 278 ]
-"42
-[; ;ECU/RELAY/ecu_relay.c: 42:     {
+"45
+[; ;ECU/RELAY/ecu_relay.c: 45:     {
 {
 [v F2881 `S272 ~T0 @X0 1 s ]
 [i F2881
 :U ..
 :U ..
-"43
-[; ;ECU/RELAY/ecu_relay.c: 43:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin};
+"46
+[; ;ECU/RELAY/ecu_relay.c: 46:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -586,59 +590,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _relay `S272 ~T0 @X0 1 a ]
 [e = _relay F2881 ]
 [e ; = . _relay 0 . *U _Relay 0 = . _relay 1 . *U _Relay 1 ]
-"44
-[; ;ECU/RELAY/ecu_relay.c: 44:         gpio_pin_write_logic(&relay,GPIO_HIGH);
+"47
+[; ;ECU/RELAY/ecu_relay.c: 47:         gpio_pin_write_logic(&relay,GPIO_HIGH);
 [e ( _gpio_pin_write_logic (2 , -> &U _relay `*CS272 -> . `E2801 1 `uc ]
-"45
-[; ;ECU/RELAY/ecu_relay.c: 45:     }
+"48
+[; ;ECU/RELAY/ecu_relay.c: 48:     }
 }
 [e :U 279 ]
-"46
-[; ;ECU/RELAY/ecu_relay.c: 46: }
+"49
+[; ;ECU/RELAY/ecu_relay.c: 49:     return state;
+[e ) _state ]
+[e $UE 277  ]
+"50
+[; ;ECU/RELAY/ecu_relay.c: 50: }
 [e :UE 277 ]
 }
-"53
-[; ;ECU/RELAY/ecu_relay.c: 53: Std_ReturnType Relay_turn_off(const Relay_t* Relay)
+"57
+[; ;ECU/RELAY/ecu_relay.c: 57: Std_ReturnType Relay_turn_off(const Relay_t* Relay)
 [v _Relay_turn_off `(uc ~T0 @X0 1 ef1`*CS273 ]
-"54
-[; ;ECU/RELAY/ecu_relay.c: 54: {
+"58
+[; ;ECU/RELAY/ecu_relay.c: 58: {
 {
 [e :U _Relay_turn_off ]
-"53
-[; ;ECU/RELAY/ecu_relay.c: 53: Std_ReturnType Relay_turn_off(const Relay_t* Relay)
+"57
+[; ;ECU/RELAY/ecu_relay.c: 57: Std_ReturnType Relay_turn_off(const Relay_t* Relay)
 [v _Relay `*CS273 ~T0 @X0 1 r1 ]
-"54
-[; ;ECU/RELAY/ecu_relay.c: 54: {
+"58
+[; ;ECU/RELAY/ecu_relay.c: 58: {
 [f ]
-"55
-[; ;ECU/RELAY/ecu_relay.c: 55:     Std_ReturnType state=(Std_ReturnType)1;
+"59
+[; ;ECU/RELAY/ecu_relay.c: 59:     Std_ReturnType state=(Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"56
-[; ;ECU/RELAY/ecu_relay.c: 56:     if(Relay==((void*)0))
-[e $ ! == _Relay -> -> -> 0 `i `*v `*CS273 281  ]
-"57
-[; ;ECU/RELAY/ecu_relay.c: 57:     {
-{
-"58
-[; ;ECU/RELAY/ecu_relay.c: 58:         state=(Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
-"59
-[; ;ECU/RELAY/ecu_relay.c: 59:     }
-}
-[e $U 282  ]
 "60
-[; ;ECU/RELAY/ecu_relay.c: 60:     else
-[e :U 281 ]
+[; ;ECU/RELAY/ecu_relay.c: 60:     if(Relay==((void*)0))
+[e $ ! == _Relay -> -> -> 0 `i `*v `*CS273 281  ]
 "61
 [; ;ECU/RELAY/ecu_relay.c: 61:     {
+{
+"62
+[; ;ECU/RELAY/ecu_relay.c: 62:         state=(Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"63
+[; ;ECU/RELAY/ecu_relay.c: 63:     }
+}
+[e $U 282  ]
+"64
+[; ;ECU/RELAY/ecu_relay.c: 64:     else
+[e :U 281 ]
+"65
+[; ;ECU/RELAY/ecu_relay.c: 65:     {
 {
 [v F2886 `S272 ~T0 @X0 1 s ]
 [i F2886
 :U ..
 :U ..
-"62
-[; ;ECU/RELAY/ecu_relay.c: 62:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin};
+"66
+[; ;ECU/RELAY/ecu_relay.c: 66:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -649,59 +657,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _relay `S272 ~T0 @X0 1 a ]
 [e = _relay F2886 ]
 [e ; = . _relay 0 . *U _Relay 0 = . _relay 1 . *U _Relay 1 ]
-"63
-[; ;ECU/RELAY/ecu_relay.c: 63:         gpio_pin_write_logic(&relay,GPIO_LOW);
+"67
+[; ;ECU/RELAY/ecu_relay.c: 67:         gpio_pin_write_logic(&relay,GPIO_LOW);
 [e ( _gpio_pin_write_logic (2 , -> &U _relay `*CS272 -> . `E2801 0 `uc ]
-"64
-[; ;ECU/RELAY/ecu_relay.c: 64:     }
+"68
+[; ;ECU/RELAY/ecu_relay.c: 68:     }
 }
 [e :U 282 ]
-"65
-[; ;ECU/RELAY/ecu_relay.c: 65: }
+"69
+[; ;ECU/RELAY/ecu_relay.c: 69:     return state;
+[e ) _state ]
+[e $UE 280  ]
+"70
+[; ;ECU/RELAY/ecu_relay.c: 70: }
 [e :UE 280 ]
 }
-"72
-[; ;ECU/RELAY/ecu_relay.c: 72: Std_ReturnType Relay_toggle(const Relay_t* Relay)
+"77
+[; ;ECU/RELAY/ecu_relay.c: 77: Std_ReturnType Relay_toggle(const Relay_t* Relay)
 [v _Relay_toggle `(uc ~T0 @X0 1 ef1`*CS273 ]
-"73
-[; ;ECU/RELAY/ecu_relay.c: 73: {
+"78
+[; ;ECU/RELAY/ecu_relay.c: 78: {
 {
 [e :U _Relay_toggle ]
-"72
-[; ;ECU/RELAY/ecu_relay.c: 72: Std_ReturnType Relay_toggle(const Relay_t* Relay)
+"77
+[; ;ECU/RELAY/ecu_relay.c: 77: Std_ReturnType Relay_toggle(const Relay_t* Relay)
 [v _Relay `*CS273 ~T0 @X0 1 r1 ]
-"73
-[; ;ECU/RELAY/ecu_relay.c: 73: {
+"78
+[; ;ECU/RELAY/ecu_relay.c: 78: {
 [f ]
-"74
-[; ;ECU/RELAY/ecu_relay.c: 74:     Std_ReturnType state=(Std_ReturnType)1;
+"79
+[; ;ECU/RELAY/ecu_relay.c: 79:     Std_ReturnType state=(Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"75
-[; ;ECU/RELAY/ecu_relay.c: 75:     if(Relay==((void*)0))
+"80
+[; ;ECU/RELAY/ecu_relay.c: 80:     if(Relay==((void*)0))
 [e $ ! == _Relay -> -> -> 0 `i `*v `*CS273 284  ]
-"76
-[; ;ECU/RELAY/ecu_relay.c: 76:     {
+"81
+[; ;ECU/RELAY/ecu_relay.c: 81:     {
 {
-"77
-[; ;ECU/RELAY/ecu_relay.c: 77:         state=(Std_ReturnType)0;
+"82
+[; ;ECU/RELAY/ecu_relay.c: 82:         state=(Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"78
-[; ;ECU/RELAY/ecu_relay.c: 78:     }
+"83
+[; ;ECU/RELAY/ecu_relay.c: 83:     }
 }
 [e $U 285  ]
-"79
-[; ;ECU/RELAY/ecu_relay.c: 79:     else
+"84
+[; ;ECU/RELAY/ecu_relay.c: 84:     else
 [e :U 284 ]
-"80
-[; ;ECU/RELAY/ecu_relay.c: 80:     {
+"85
+[; ;ECU/RELAY/ecu_relay.c: 85:     {
 {
 [v F2891 `S272 ~T0 @X0 1 s ]
 [i F2891
 :U ..
 :U ..
-"81
-[; ;ECU/RELAY/ecu_relay.c: 81:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin};
+"86
+[; ;ECU/RELAY/ecu_relay.c: 86:         pin_config_t relay={.port=Relay->port,.pin=Relay->pin};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -712,14 +724,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _relay `S272 ~T0 @X0 1 a ]
 [e = _relay F2891 ]
 [e ; = . _relay 0 . *U _Relay 0 = . _relay 1 . *U _Relay 1 ]
-"82
-[; ;ECU/RELAY/ecu_relay.c: 82:         gpio_pin_toggle_logic(&relay);
+"87
+[; ;ECU/RELAY/ecu_relay.c: 87:         gpio_pin_toggle_logic(&relay);
 [e ( _gpio_pin_toggle_logic (1 -> &U _relay `*CS272 ]
-"83
-[; ;ECU/RELAY/ecu_relay.c: 83:     }
+"88
+[; ;ECU/RELAY/ecu_relay.c: 88:     }
 }
 [e :U 285 ]
-"84
-[; ;ECU/RELAY/ecu_relay.c: 84: }
+"89
+[; ;ECU/RELAY/ecu_relay.c: 89:     return state;
+[e ) _state ]
+[e $UE 283  ]
+"90
+[; ;ECU/RELAY/ecu_relay.c: 90: }
 [e :UE 283 ]
 }

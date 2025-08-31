@@ -14,12 +14,13 @@
 
 
 
+
 # 1 "./application.h" 1
-# 11 "./application.h"
+# 12 "./application.h"
 # 1 "./ECU/LED/ecu_led.h" 1
-# 11 "./ECU/LED/ecu_led.h"
+# 12 "./ECU/LED/ecu_led.h"
 # 1 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h" 1
-# 13 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h"
+# 14 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
 
@@ -4488,15 +4489,15 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 13 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h" 2
+# 14 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h" 2
 
 # 1 "./ECU/LED/../../MCAL/GPIO/../std_types.h" 1
-# 11 "./ECU/LED/../../MCAL/GPIO/../std_types.h"
+# 12 "./ECU/LED/../../MCAL/GPIO/../std_types.h"
 # 1 "./ECU/LED/../../MCAL/GPIO/../compiler.h" 1
-# 11 "./ECU/LED/../../MCAL/GPIO/../std_types.h" 2
+# 12 "./ECU/LED/../../MCAL/GPIO/../std_types.h" 2
 
 # 1 "./ECU/LED/../../MCAL/GPIO/../std_libraries.h" 1
-# 11 "./ECU/LED/../../MCAL/GPIO/../std_libraries.h"
+# 12 "./ECU/LED/../../MCAL/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4641,8 +4642,8 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "./ECU/LED/../../MCAL/GPIO/../std_libraries.h" 2
-# 12 "./ECU/LED/../../MCAL/GPIO/../std_types.h" 2
+# 12 "./ECU/LED/../../MCAL/GPIO/../std_libraries.h" 2
+# 13 "./ECU/LED/../../MCAL/GPIO/../std_types.h" 2
 
 
 typedef unsigned char uint8;
@@ -4654,15 +4655,15 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 Std_ReturnType;
-# 14 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h" 2
+# 15 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h" 2
 
 # 1 "./ECU/LED/../../MCAL/GPIO/../device_config.h" 1
-# 15 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h" 2
-# 40 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h"
+# 16 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h" 2
+# 41 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h"
 volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
 volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
 volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
-# 51 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h"
+# 52 "./ECU/LED/../../MCAL/GPIO/hal_gpio.h"
 typedef enum
 {
     GPIO_LOW,
@@ -4715,7 +4716,7 @@ Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direct
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t _port , uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
-# 11 "./ECU/LED/ecu_led.h" 2
+# 12 "./ECU/LED/ecu_led.h" 2
 
 
 typedef enum
@@ -4744,10 +4745,10 @@ Std_ReturnType led_toggle(const led_t* LED);
 
 Std_ReturnType led_port_initialize(const leds_in_port_t* LEDs);
 Std_ReturnType led_port_write(const leds_in_port_t* LEDs,const uint8* val);
-# 11 "./application.h" 2
+# 12 "./application.h" 2
 
 # 1 "./ECU/7_Segment/ecu_7_segment.h" 1
-# 13 "./ECU/7_Segment/ecu_7_segment.h"
+# 14 "./ECU/7_Segment/ecu_7_segment.h"
 typedef enum
 {
     segment_common_cathode,
@@ -4778,10 +4779,10 @@ Std_ReturnType segment_write(const segment_t* segment,uint8 number);
 Std_ReturnType segment_multi_initialize(const segment_multi_pin_t* segment);
 Std_ReturnType segment_multi_enable(const segment_multi_pin_t* segment);
 Std_ReturnType segment_multi_disable(const segment_multi_pin_t* segment);
-# 12 "./application.h" 2
+# 13 "./application.h" 2
 
 # 1 "./ECU/BUTTON/ecu_button.h" 1
-# 13 "./ECU/BUTTON/ecu_button.h"
+# 14 "./ECU/BUTTON/ecu_button.h"
 typedef enum
 {
     BUTTON_RELEASED,
@@ -4803,10 +4804,10 @@ typedef struct
 
 Std_ReturnType button_initialize(const button_t* BUTTON);
 Std_ReturnType button_read_state(const button_t* BUTTON , button_state_t* state);
-# 13 "./application.h" 2
+# 14 "./application.h" 2
 
 # 1 "./ECU/DC_MOTOR/ecu_dc_motor.h" 1
-# 13 "./ECU/DC_MOTOR/ecu_dc_motor.h"
+# 14 "./ECU/DC_MOTOR/ecu_dc_motor.h"
 typedef enum
 {
     dc_motor_off,
@@ -4824,10 +4825,10 @@ typedef struct
 Std_ReturnType dc_motor_initialize(const dc_motor_t* dc_motor);
 Std_ReturnType dc_motor_move_right(const dc_motor_t* dc_motor);
 Std_ReturnType dc_motor_move_left(const dc_motor_t* dc_motor);
-# 14 "./application.h" 2
+# 15 "./application.h" 2
 
 # 1 "./ECU/RELAY/ecu_relay.h" 1
-# 13 "./ECU/RELAY/ecu_relay.h"
+# 14 "./ECU/RELAY/ecu_relay.h"
 typedef enum
 {
     Relay_ON,
@@ -4843,10 +4844,10 @@ typedef struct
 Std_ReturnType Relay_initialize(const Relay_t* Relay);
 Std_ReturnType Relay_turn_on(const Relay_t* Relay);
 Std_ReturnType Relay_turn_off(const Relay_t* Relay);
-# 15 "./application.h" 2
+# 16 "./application.h" 2
 
 # 1 "./ECU/Keypad/ecu_keypad.h" 1
-# 16 "./ECU/Keypad/ecu_keypad.h"
+# 17 "./ECU/Keypad/ecu_keypad.h"
 uint8 local_keypad_chars[4][4];
 
 typedef struct
@@ -4857,8 +4858,49 @@ typedef struct
 
 Std_ReturnType keypad_initialize(const keypad_t* keypad , const uint8 keypad_chars[4][4]);
 Std_ReturnType keypad_get_char(const keypad_t* keypad , uint8* chr);
-# 16 "./application.h" 2
-# 8 "application.c" 2
+# 17 "./application.h" 2
+
+# 1 "./ECU/RGB_LED/ecu_rgb_led.h" 1
+# 14 "./ECU/RGB_LED/ecu_rgb_led.h"
+ typedef enum
+ {
+    rgb_led_on,
+    rgb_led_off
+ }rgb_led_stutes;
+
+ typedef enum
+ {
+    RED,
+    GREEN,
+    BLUE,
+    YELLOW,
+    ORANGE,
+    PURPLE,
+    WHITE,
+ }rgb_color_t;
+
+ typedef struct
+ {
+    uint8 port : 3;
+    uint8 pin : 3;
+ }rgb_led_channel_t;
+
+ typedef struct
+ {
+    rgb_led_channel_t red_channel;
+    rgb_led_channel_t green_channel;
+    rgb_led_channel_t blue_channel;
+    rgb_led_stutes state;
+ }rgb_led_t;
+
+ Std_ReturnType rgb_led_initialize(const rgb_led_t* RGB_LED);
+ Std_ReturnType rgb_led_turn_on(const rgb_led_t* RGB_LED, rgb_color_t color);
+ Std_ReturnType rgb_led_turn_off(const rgb_led_t* RGB_LED);
+# 18 "./application.h" 2
+
+
+rgb_led_t rgb_led={.red_channel.port=PORTC_INDEX,.red_channel.pin=PIN0,.green_channel.port=PORTC_INDEX,.green_channel.pin=PIN1,.blue_channel.port=PORTC_INDEX,.blue_channel.pin=PIN2,.state=rgb_led_off};
+# 9 "application.c" 2
 
 
 
@@ -4869,8 +4911,9 @@ Std_ReturnType keypad_get_char(const keypad_t* keypad , uint8* chr);
 
 void application_initialize(void);
 
-int main()
+int main(void)
 {
+    application_initialize();
     leds_in_port_t LEDs1={.port=PORTD_INDEX,.state=GPIO_LOW};
     led_port_initialize(&LEDs1);
     keypad_t keypad={
@@ -4887,21 +4930,33 @@ int main()
     uint8 keypad_chars[4][4]={{'7','8','9','/'},{'4','5','6','X'},{'1','2','3','-'},{'#','0','=','+'}};
 
     keypad_initialize(&keypad,keypad_chars);
-# 83 "application.c"
+# 85 "application.c"
     uint8 chr;
     uint8 ledNUm;
     while(1)
     {
-        keypad_get_char(&keypad,&chr);
-        ledNUm=chr-48;
-        if(chr!='\0')
-            led_port_write(&LEDs1,&ledNUm);
-# 168 "application.c"
+        rgb_led_turn_on(&rgb_led,RED);
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        rgb_led_turn_on(&rgb_led,GREEN);
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        rgb_led_turn_on(&rgb_led,BLUE);
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        rgb_led_turn_on(&rgb_led,YELLOW);
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        rgb_led_turn_on(&rgb_led,ORANGE);
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        rgb_led_turn_on(&rgb_led,PURPLE);
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        rgb_led_turn_on(&rgb_led,WHITE);
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+        rgb_led_turn_off(&rgb_led);
+        _delay((unsigned long)((1000)*(8000000/4000.0)));
+# 186 "application.c"
     }
     return (0);
 }
 
 void application_initialize(void)
 {
-
+    rgb_led_initialize(&rgb_led);
 }

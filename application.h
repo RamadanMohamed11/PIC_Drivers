@@ -15,6 +15,11 @@
 #include "ECU/DC_MOTOR/ecu_dc_motor.h"
 #include "ECU/RELAY/ecu_relay.h"
 #include "ECU/Keypad/ecu_keypad.h"
+#include "ECU/RGB_LED/ecu_rgb_led.h"
+
+rgb_led_t rgb_led={.red_channel.port=PORTC_INDEX,.red_channel.pin=PIN0,.green_channel.port=PORTC_INDEX,.green_channel.pin=PIN1,.blue_channel.port=PORTC_INDEX,.blue_channel.pin=PIN2,.state=rgb_led_off};
+
+
 
 #endif	/* APPLICATION_H */
 

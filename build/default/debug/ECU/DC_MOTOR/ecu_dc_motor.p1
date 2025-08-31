@@ -1,24 +1,24 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"20 ECU/DC_MOTOR/ecu_dc_motor.h
-[; ;ECU/DC_MOTOR/ecu_dc_motor.h: 20: {
+"21 ECU/DC_MOTOR/ecu_dc_motor.h
+[; ;ECU/DC_MOTOR/ecu_dc_motor.h: 21: {
 [s S273 :3 `uc 1 :3 `uc 1 :3 `uc 1 :3 `uc 1 ]
 [n S273 . portIN1 portIN2 pin1 pin2 ]
-"85 ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h
-[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 85: {
+"86 ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h
+[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 86: {
 [s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S272 . port pin direction logic ]
-"24 ECU/DC_MOTOR/ecu_dc_motor.c
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 24:         pin_config_t dc_motor_pin1={.port=dc_motor->portIN1,.pin=dc_motor->pin1,.direction=GPIO_OUTPUT};
+"25 ECU/DC_MOTOR/ecu_dc_motor.c
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 25:         pin_config_t dc_motor_pin1={.port=dc_motor->portIN1,.pin=dc_motor->pin1,.direction=GPIO_OUTPUT};
 [c E2805 0 1 .. ]
 [n E2805 . GPIO_OUTPUT GPIO_INPUT  ]
-"92 ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h
-[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 92: Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config);
+"93 ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h
+[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 93: Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config);
 [v _gpio_pin_direction_initialize `(uc ~T0 @X0 0 ef1`*CS272 ]
-"94
-[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 94: Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic);
+"95
+[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 95: Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic);
 [v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS272`uc ]
-"48 ECU/DC_MOTOR/ecu_dc_motor.c
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 48:         gpio_pin_write_logic(&dc_motor_pin1,GPIO_HIGH);
+"49 ECU/DC_MOTOR/ecu_dc_motor.c
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 49:         gpio_pin_write_logic(&dc_motor_pin1,GPIO_HIGH);
 [c E2801 0 1 .. ]
 [n E2801 . GPIO_LOW GPIO_HIGH  ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
@@ -432,8 +432,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"40 ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h
-[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 40: volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
+"41 ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h
+[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 41: volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
 [v _tris_regesters `*Vuc ~T0 @X0 -> 5 `i e ]
 [i _tris_regesters
 :U ..
@@ -444,8 +444,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U *U -> -> 3990 `i `*Vuc
 ..
 ]
-"41
-[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 41: volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
+"42
+[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 42: volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
 [v _lat_regesters `*Vuc ~T0 @X0 -> 5 `i e ]
 [i _lat_regesters
 :U ..
@@ -456,8 +456,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U *U -> -> 3981 `i `*Vuc
 ..
 ]
-"42
-[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 42: volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
+"43
+[; ;ECU/DC_MOTOR/../../MCAL/GPIO/hal_gpio.h: 43: volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
 [v _port_regesters `*Vuc ~T0 @X0 -> 5 `i e ]
 [i _port_regesters
 :U ..
@@ -468,48 +468,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U *U -> -> 3972 `i `*Vuc
 ..
 ]
-"15 ECU/DC_MOTOR/ecu_dc_motor.c
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 15: Std_ReturnType dc_motor_initialize(const dc_motor_t* dc_motor)
+"16 ECU/DC_MOTOR/ecu_dc_motor.c
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 16: Std_ReturnType dc_motor_initialize(const dc_motor_t* dc_motor)
 [v _dc_motor_initialize `(uc ~T0 @X0 1 ef1`*CS273 ]
-"16
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 16: {
+"17
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 17: {
 {
 [e :U _dc_motor_initialize ]
-"15
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 15: Std_ReturnType dc_motor_initialize(const dc_motor_t* dc_motor)
-[v _dc_motor `*CS273 ~T0 @X0 1 r1 ]
 "16
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 16: {
-[f ]
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 16: Std_ReturnType dc_motor_initialize(const dc_motor_t* dc_motor)
+[v _dc_motor `*CS273 ~T0 @X0 1 r1 ]
 "17
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 17:     Std_ReturnType state=(Std_ReturnType)1;
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 17: {
+[f ]
+"18
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 18:     Std_ReturnType state=(Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"18
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 18:     if(dc_motor==((void*)0))
-[e $ ! == _dc_motor -> -> -> 0 `i `*v `*CS273 275  ]
 "19
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 19:     {
-{
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 19:     if(dc_motor==((void*)0))
+[e $ ! == _dc_motor -> -> -> 0 `i `*v `*CS273 275  ]
 "20
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 20:         state=(Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 20:     {
+{
 "21
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 21:     }
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 21:         state=(Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"22
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 22:     }
 }
 [e $U 276  ]
-"22
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 22:     else
-[e :U 275 ]
 "23
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 23:     {
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 23:     else
+[e :U 275 ]
+"24
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 24:     {
 {
 [v F2878 `S272 ~T0 @X0 1 s ]
 [i F2878
 :U ..
 :U ..
-"24
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 24:         pin_config_t dc_motor_pin1={.port=dc_motor->portIN1,.pin=dc_motor->pin1,.direction=GPIO_OUTPUT};
+"25
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 25:         pin_config_t dc_motor_pin1={.port=dc_motor->portIN1,.pin=dc_motor->pin1,.direction=GPIO_OUTPUT};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -524,8 +524,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i F2880
 :U ..
 :U ..
-"25
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 25:         pin_config_t dc_motor_pin2={.port=dc_motor->portIN2,.pin=dc_motor->pin2,.direction=GPIO_OUTPUT};
+"26
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 26:         pin_config_t dc_motor_pin2={.port=dc_motor->portIN2,.pin=dc_motor->pin2,.direction=GPIO_OUTPUT};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -536,66 +536,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _dc_motor_pin2 `S272 ~T0 @X0 1 a ]
 [e = _dc_motor_pin2 F2880 ]
 [e ; = . _dc_motor_pin2 0 . *U _dc_motor 1 ; = . _dc_motor_pin2 1 . *U _dc_motor 3 = . _dc_motor_pin2 2 -> . `E2805 0 `uc ]
-"26
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 26:         gpio_pin_direction_initialize(&dc_motor_pin1);
-[e ( _gpio_pin_direction_initialize (1 -> &U _dc_motor_pin1 `*CS272 ]
 "27
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 27:         gpio_pin_direction_initialize(&dc_motor_pin2);
-[e ( _gpio_pin_direction_initialize (1 -> &U _dc_motor_pin2 `*CS272 ]
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 27:         gpio_pin_direction_initialize(&dc_motor_pin1);
+[e ( _gpio_pin_direction_initialize (1 -> &U _dc_motor_pin1 `*CS272 ]
 "28
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 28:     }
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 28:         gpio_pin_direction_initialize(&dc_motor_pin2);
+[e ( _gpio_pin_direction_initialize (1 -> &U _dc_motor_pin2 `*CS272 ]
+"29
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 29:     }
 }
 [e :U 276 ]
-"29
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 29:     return state;
+"30
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 30:     return state;
 [e ) _state ]
 [e $UE 274  ]
-"30
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 30: }
+"31
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 31: }
 [e :UE 274 ]
 }
-"37
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 37: Std_ReturnType dc_motor_move_right(const dc_motor_t* dc_motor)
-[v _dc_motor_move_right `(uc ~T0 @X0 1 ef1`*CS273 ]
 "38
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 38: {
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 38: Std_ReturnType dc_motor_move_right(const dc_motor_t* dc_motor)
+[v _dc_motor_move_right `(uc ~T0 @X0 1 ef1`*CS273 ]
+"39
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 39: {
 {
 [e :U _dc_motor_move_right ]
-"37
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 37: Std_ReturnType dc_motor_move_right(const dc_motor_t* dc_motor)
-[v _dc_motor `*CS273 ~T0 @X0 1 r1 ]
 "38
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 38: {
-[f ]
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 38: Std_ReturnType dc_motor_move_right(const dc_motor_t* dc_motor)
+[v _dc_motor `*CS273 ~T0 @X0 1 r1 ]
 "39
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 39:     Std_ReturnType state=(Std_ReturnType)1;
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 39: {
+[f ]
+"40
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 40:     Std_ReturnType state=(Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"40
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 40:     if(dc_motor==((void*)0))
-[e $ ! == _dc_motor -> -> -> 0 `i `*v `*CS273 278  ]
 "41
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 41:     {
-{
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 41:     if(dc_motor==((void*)0))
+[e $ ! == _dc_motor -> -> -> 0 `i `*v `*CS273 278  ]
 "42
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 42:         state=(Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 42:     {
+{
 "43
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 43:     }
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 43:         state=(Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"44
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 44:     }
 }
 [e $U 279  ]
-"44
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 44:     else
-[e :U 278 ]
 "45
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 45:     {
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 45:     else
+[e :U 278 ]
+"46
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 46:     {
 {
 [v F2885 `S272 ~T0 @X0 1 s ]
 [i F2885
 :U ..
 :U ..
-"46
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 46:         pin_config_t dc_motor_pin1={.port=dc_motor->portIN1,.pin=dc_motor->pin1,.direction=GPIO_OUTPUT};
+"47
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 47:         pin_config_t dc_motor_pin1={.port=dc_motor->portIN1,.pin=dc_motor->pin1,.direction=GPIO_OUTPUT};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -610,8 +610,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i F2887
 :U ..
 :U ..
-"47
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 47:         pin_config_t dc_motor_pin2={.port=dc_motor->portIN2,.pin=dc_motor->pin2,.direction=GPIO_OUTPUT};
+"48
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 48:         pin_config_t dc_motor_pin2={.port=dc_motor->portIN2,.pin=dc_motor->pin2,.direction=GPIO_OUTPUT};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -622,66 +622,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _dc_motor_pin2 `S272 ~T0 @X0 1 a ]
 [e = _dc_motor_pin2 F2887 ]
 [e ; = . _dc_motor_pin2 0 . *U _dc_motor 1 ; = . _dc_motor_pin2 1 . *U _dc_motor 3 = . _dc_motor_pin2 2 -> . `E2805 0 `uc ]
-"48
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 48:         gpio_pin_write_logic(&dc_motor_pin1,GPIO_HIGH);
-[e ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin1 `*CS272 -> . `E2801 1 `uc ]
 "49
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 49:         gpio_pin_write_logic(&dc_motor_pin2,GPIO_LOW);
-[e ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin2 `*CS272 -> . `E2801 0 `uc ]
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 49:         gpio_pin_write_logic(&dc_motor_pin1,GPIO_HIGH);
+[e ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin1 `*CS272 -> . `E2801 1 `uc ]
 "50
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 50:     }
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 50:         gpio_pin_write_logic(&dc_motor_pin2,GPIO_LOW);
+[e ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin2 `*CS272 -> . `E2801 0 `uc ]
+"51
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 51:     }
 }
 [e :U 279 ]
-"51
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 51:     return state;
+"52
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 52:     return state;
 [e ) _state ]
 [e $UE 277  ]
-"52
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 52: }
+"53
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 53: }
 [e :UE 277 ]
 }
-"59
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 59: Std_ReturnType dc_motor_move_left(const dc_motor_t* dc_motor)
-[v _dc_motor_move_left `(uc ~T0 @X0 1 ef1`*CS273 ]
 "60
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 60: {
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 60: Std_ReturnType dc_motor_move_left(const dc_motor_t* dc_motor)
+[v _dc_motor_move_left `(uc ~T0 @X0 1 ef1`*CS273 ]
+"61
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 61: {
 {
 [e :U _dc_motor_move_left ]
-"59
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 59: Std_ReturnType dc_motor_move_left(const dc_motor_t* dc_motor)
-[v _dc_motor `*CS273 ~T0 @X0 1 r1 ]
 "60
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 60: {
-[f ]
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 60: Std_ReturnType dc_motor_move_left(const dc_motor_t* dc_motor)
+[v _dc_motor `*CS273 ~T0 @X0 1 r1 ]
 "61
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 61:     Std_ReturnType state=(Std_ReturnType)1;
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 61: {
+[f ]
+"62
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 62:     Std_ReturnType state=(Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"62
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 62:     if(dc_motor==((void*)0))
-[e $ ! == _dc_motor -> -> -> 0 `i `*v `*CS273 281  ]
 "63
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 63:     {
-{
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 63:     if(dc_motor==((void*)0))
+[e $ ! == _dc_motor -> -> -> 0 `i `*v `*CS273 281  ]
 "64
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 64:         state=(Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 64:     {
+{
 "65
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 65:     }
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 65:         state=(Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"66
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 66:     }
 }
 [e $U 282  ]
-"66
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 66:     else
-[e :U 281 ]
 "67
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 67:     {
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 67:     else
+[e :U 281 ]
+"68
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 68:     {
 {
 [v F2892 `S272 ~T0 @X0 1 s ]
 [i F2892
 :U ..
 :U ..
-"68
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 68:         pin_config_t dc_motor_pin1={.port=dc_motor->portIN1,.pin=dc_motor->pin1,.direction=GPIO_OUTPUT};
+"69
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 69:         pin_config_t dc_motor_pin1={.port=dc_motor->portIN1,.pin=dc_motor->pin1,.direction=GPIO_OUTPUT};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -696,8 +696,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i F2894
 :U ..
 :U ..
-"69
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 69:         pin_config_t dc_motor_pin2={.port=dc_motor->portIN2,.pin=dc_motor->pin2,.direction=GPIO_OUTPUT};
+"70
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 70:         pin_config_t dc_motor_pin2={.port=dc_motor->portIN2,.pin=dc_motor->pin2,.direction=GPIO_OUTPUT};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -708,21 +708,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _dc_motor_pin2 `S272 ~T0 @X0 1 a ]
 [e = _dc_motor_pin2 F2894 ]
 [e ; = . _dc_motor_pin2 0 . *U _dc_motor 1 ; = . _dc_motor_pin2 1 . *U _dc_motor 3 = . _dc_motor_pin2 2 -> . `E2805 0 `uc ]
-"70
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 70:         gpio_pin_write_logic(&dc_motor_pin1,GPIO_LOW);
-[e ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin1 `*CS272 -> . `E2801 0 `uc ]
 "71
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 71:         gpio_pin_write_logic(&dc_motor_pin2,GPIO_HIGH);
-[e ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin2 `*CS272 -> . `E2801 1 `uc ]
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 71:         gpio_pin_write_logic(&dc_motor_pin1,GPIO_LOW);
+[e ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin1 `*CS272 -> . `E2801 0 `uc ]
 "72
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 72:     }
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 72:         gpio_pin_write_logic(&dc_motor_pin2,GPIO_HIGH);
+[e ( _gpio_pin_write_logic (2 , -> &U _dc_motor_pin2 `*CS272 -> . `E2801 1 `uc ]
+"73
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 73:     }
 }
 [e :U 282 ]
-"73
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 73:     return state;
+"74
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 74:     return state;
 [e ) _state ]
 [e $UE 280  ]
-"74
-[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 74: }
+"75
+[; ;ECU/DC_MOTOR/ecu_dc_motor.c: 75: }
 [e :UE 280 ]
 }

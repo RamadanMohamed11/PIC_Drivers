@@ -1,4 +1,4 @@
-# 1 "ECU/BUTTON/ecu_button.c"
+# 1 "ECU/RGB_LED/ecu_rgb_led.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,19 +6,11 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ECU/BUTTON/ecu_button.c" 2
-
-
-
-
-
-
-
-
-# 1 "ECU/BUTTON/ecu_button.h" 1
-# 12 "ECU/BUTTON/ecu_button.h"
-# 1 "ECU/BUTTON/../../MCAL/GPIO/hal_gpio.h" 1
-# 14 "ECU/BUTTON/../../MCAL/GPIO/hal_gpio.h"
+# 1 "ECU/RGB_LED/ecu_rgb_led.c" 2
+# 1 "ECU/RGB_LED/ecu_rgb_led.h" 1
+# 12 "ECU/RGB_LED/ecu_rgb_led.h"
+# 1 "ECU/RGB_LED/../../MCAL/GPIO/hal_gpio.h" 1
+# 14 "ECU/RGB_LED/../../MCAL/GPIO/hal_gpio.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
 
@@ -4487,15 +4479,15 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 14 "ECU/BUTTON/../../MCAL/GPIO/hal_gpio.h" 2
+# 14 "ECU/RGB_LED/../../MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "ECU/BUTTON/../../MCAL/GPIO/../std_types.h" 1
-# 12 "ECU/BUTTON/../../MCAL/GPIO/../std_types.h"
-# 1 "ECU/BUTTON/../../MCAL/GPIO/../compiler.h" 1
-# 12 "ECU/BUTTON/../../MCAL/GPIO/../std_types.h" 2
+# 1 "ECU/RGB_LED/../../MCAL/GPIO/../std_types.h" 1
+# 12 "ECU/RGB_LED/../../MCAL/GPIO/../std_types.h"
+# 1 "ECU/RGB_LED/../../MCAL/GPIO/../compiler.h" 1
+# 12 "ECU/RGB_LED/../../MCAL/GPIO/../std_types.h" 2
 
-# 1 "ECU/BUTTON/../../MCAL/GPIO/../std_libraries.h" 1
-# 12 "ECU/BUTTON/../../MCAL/GPIO/../std_libraries.h"
+# 1 "ECU/RGB_LED/../../MCAL/GPIO/../std_libraries.h" 1
+# 12 "ECU/RGB_LED/../../MCAL/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4640,8 +4632,8 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "ECU/BUTTON/../../MCAL/GPIO/../std_libraries.h" 2
-# 13 "ECU/BUTTON/../../MCAL/GPIO/../std_types.h" 2
+# 12 "ECU/RGB_LED/../../MCAL/GPIO/../std_libraries.h" 2
+# 13 "ECU/RGB_LED/../../MCAL/GPIO/../std_types.h" 2
 
 
 typedef unsigned char uint8;
@@ -4653,15 +4645,15 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 Std_ReturnType;
-# 15 "ECU/BUTTON/../../MCAL/GPIO/hal_gpio.h" 2
+# 15 "ECU/RGB_LED/../../MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "ECU/BUTTON/../../MCAL/GPIO/../device_config.h" 1
-# 16 "ECU/BUTTON/../../MCAL/GPIO/hal_gpio.h" 2
-# 41 "ECU/BUTTON/../../MCAL/GPIO/hal_gpio.h"
+# 1 "ECU/RGB_LED/../../MCAL/GPIO/../device_config.h" 1
+# 16 "ECU/RGB_LED/../../MCAL/GPIO/hal_gpio.h" 2
+# 41 "ECU/RGB_LED/../../MCAL/GPIO/hal_gpio.h"
 volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
 volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
 volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
-# 52 "ECU/BUTTON/../../MCAL/GPIO/hal_gpio.h"
+# 52 "ECU/RGB_LED/../../MCAL/GPIO/hal_gpio.h"
 typedef enum
 {
     GPIO_LOW,
@@ -4714,62 +4706,134 @@ Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direct
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t _port , uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
-# 12 "ECU/BUTTON/ecu_button.h" 2
+# 13 "ECU/RGB_LED/ecu_rgb_led.h" 2
 
+ typedef enum
+ {
+    rgb_led_on,
+    rgb_led_off
+ }rgb_led_stutes;
 
-typedef enum
-{
-    BUTTON_RELEASED,
-    BUTTON_PRESSED
-}button_state_t;
+ typedef enum
+ {
+    RED,
+    GREEN,
+    BLUE,
+    YELLOW,
+    ORANGE,
+    PURPLE,
+    WHITE,
+ }rgb_color_t;
 
-typedef enum
-{
-    BUTTON_ACTIVE_LOW,
-    BUTTON_ACTIVE_HIGH
-}button_config_t;
-
-typedef struct
-{
+ typedef struct
+ {
     uint8 port : 3;
     uint8 pin : 3;
-    button_config_t button_config;
-}button_t;
+ }rgb_led_channel_t;
 
-Std_ReturnType button_initialize(const button_t* BUTTON);
-Std_ReturnType button_read_state(const button_t* BUTTON , button_state_t* state);
-# 10 "ECU/BUTTON/ecu_button.c" 2
+ typedef struct
+ {
+    rgb_led_channel_t red_channel;
+    rgb_led_channel_t green_channel;
+    rgb_led_channel_t blue_channel;
+    rgb_led_stutes state;
+ }rgb_led_t;
 
-Std_ReturnType button_initialize(const button_t* BUTTON)
+ Std_ReturnType rgb_led_initialize(const rgb_led_t* RGB_LED);
+ Std_ReturnType rgb_led_turn_on(const rgb_led_t* RGB_LED, rgb_color_t color);
+ Std_ReturnType rgb_led_turn_off(const rgb_led_t* RGB_LED);
+# 1 "ECU/RGB_LED/ecu_rgb_led.c" 2
+
+
+Std_ReturnType rgb_led_initialize(const rgb_led_t* RGB_LED)
 {
     Std_ReturnType state=(Std_ReturnType)1;
-    if(BUTTON==((void*)0))
+    if(RGB_LED==((void*)0))
+    {
         state=(Std_ReturnType)0;
+    }
     else
     {
-        pin_config_t button={.port=BUTTON->port,.pin=BUTTON->pin,.direction=GPIO_INPUT};
-        gpio_pin_direction_initialize(&button);
+        pin_config_t red={.port=RGB_LED->red_channel.port,.pin=RGB_LED->red_channel.pin,.direction=GPIO_OUTPUT,.logic=RGB_LED->state};
+        gpio_pin_direction_initialize(&red);
+        pin_config_t green={.port=RGB_LED->green_channel.port,.pin=RGB_LED->green_channel.pin,.direction=GPIO_OUTPUT,.logic=RGB_LED->state};
+        gpio_pin_direction_initialize(&green);
+        pin_config_t blue={.port=RGB_LED->blue_channel.port,.pin=RGB_LED->blue_channel.pin,.direction=GPIO_OUTPUT,.logic=RGB_LED->state};
+        gpio_pin_direction_initialize(&blue);
     }
     return state;
 }
-
-
-
-
-
-
-
-Std_ReturnType button_read_state(const button_t* BUTTON , button_state_t* button_state)
+Std_ReturnType rgb_led_turn_on(const rgb_led_t* RGB_LED, rgb_color_t color)
 {
     Std_ReturnType state=(Std_ReturnType)1;
-    if(BUTTON==((void*)0))
+    if(RGB_LED==((void*)0))
+    {
         state=(Std_ReturnType)0;
+    }
     else
     {
-        pin_config_t button={.port=BUTTON->port,.pin=BUTTON->pin,.direction=GPIO_INPUT};
-        gpio_pin_read_logic(&button,(uint8 *)button_state);
-        if(BUTTON->button_config==BUTTON_ACTIVE_LOW)
-            *button_state=!*button_state;
+        pin_config_t red={.port=RGB_LED->red_channel.port,.pin=RGB_LED->red_channel.pin,.direction=GPIO_OUTPUT,.logic=RGB_LED->state};
+        pin_config_t green={.port=RGB_LED->green_channel.port,.pin=RGB_LED->green_channel.pin,.direction=GPIO_OUTPUT,.logic=RGB_LED->state};
+        pin_config_t blue={.port=RGB_LED->blue_channel.port,.pin=RGB_LED->blue_channel.pin,.direction=GPIO_OUTPUT,.logic=RGB_LED->state};
+
+        switch(color)
+        {
+            case RED:
+                gpio_pin_write_logic(&red, GPIO_HIGH);
+                gpio_pin_write_logic(&green,GPIO_LOW);
+                gpio_pin_write_logic(&blue,GPIO_LOW);
+                break;
+            case GREEN:
+                gpio_pin_write_logic(&green,GPIO_HIGH);
+                gpio_pin_write_logic(&red,GPIO_LOW);
+                gpio_pin_write_logic(&blue,GPIO_LOW);
+                break;
+            case BLUE:
+                gpio_pin_write_logic(&blue,GPIO_HIGH);
+                gpio_pin_write_logic(&red,GPIO_LOW);
+                gpio_pin_write_logic(&green,GPIO_LOW);
+                break;
+            case YELLOW:
+                gpio_pin_write_logic(&red,GPIO_HIGH);
+                gpio_pin_write_logic(&green,GPIO_HIGH);
+                gpio_pin_write_logic(&blue,GPIO_LOW);
+                break;
+            case ORANGE:
+                gpio_pin_write_logic(&red,GPIO_HIGH);
+                gpio_pin_write_logic(&green,GPIO_HIGH);
+                gpio_pin_write_logic(&blue,GPIO_LOW);
+                break;
+            case PURPLE:
+                gpio_pin_write_logic(&red,GPIO_HIGH);
+                gpio_pin_write_logic(&blue,GPIO_HIGH);
+                gpio_pin_write_logic(&green,GPIO_LOW);
+                break;
+            case WHITE:
+                gpio_pin_write_logic(&red,GPIO_HIGH);
+                gpio_pin_write_logic(&green,GPIO_HIGH);
+                gpio_pin_write_logic(&blue,GPIO_HIGH);
+                break;
+            default:
+                break;
+        }
+    }
+    return state;
+}
+Std_ReturnType rgb_led_turn_off(const rgb_led_t* RGB_LED)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(RGB_LED==((void*)0))
+    {
+        state=(Std_ReturnType)0;
+    }
+    else
+    {
+        pin_config_t red={.port=RGB_LED->red_channel.port,.pin=RGB_LED->red_channel.pin,.direction=GPIO_OUTPUT,.logic=RGB_LED->state};
+        pin_config_t green={.port=RGB_LED->green_channel.port,.pin=RGB_LED->green_channel.pin,.direction=GPIO_OUTPUT,.logic=RGB_LED->state};
+        pin_config_t blue={.port=RGB_LED->blue_channel.port,.pin=RGB_LED->blue_channel.pin,.direction=GPIO_OUTPUT,.logic=RGB_LED->state};
+        gpio_pin_write_logic(&red,GPIO_LOW);
+        gpio_pin_write_logic(&green,GPIO_LOW);
+        gpio_pin_write_logic(&blue,GPIO_LOW);
     }
     return state;
 }
