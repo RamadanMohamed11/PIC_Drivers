@@ -1,17 +1,12 @@
-/* 
- * File:   hal_gpio.c
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 02:05 ?
+/**
+ * @file    hal_gpio.c
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Source file for the GPIO driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #include "hal_gpio.h"
-
-/**
- * 
- * @param _pin_config
- * @return 
- */
 Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config)
 {
     Std_ReturnType state=E_OK;

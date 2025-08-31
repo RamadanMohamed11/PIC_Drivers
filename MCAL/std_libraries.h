@@ -1,8 +1,9 @@
-/* 
- * File:   std_libraries.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 02:13 ?
+/**
+ * @file    std_libraries.h
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Includes standard C library headers.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #ifndef STD_LIBRARIES_H

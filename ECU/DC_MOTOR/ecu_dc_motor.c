@@ -1,8 +1,9 @@
-/* 
- * File:   ecu_dc_motor.c
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 25 ????, 2024, 04:22 ?
+/**
+ * @file    ecu_dc_motor.c
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Source file for the DC Motor driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #include "ecu_dc_motor.h"

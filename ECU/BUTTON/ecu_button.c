@@ -1,14 +1,9 @@
-/* 
- * File:   ecu_button.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 25 ????, 2024, 02:37 ?
- */
-
 /**
- * 
- * @param BUTTON
- * @return 
+ * @file    ecu_button.c
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Source file for the Button driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #include "ecu_button.h"

@@ -1,8 +1,9 @@
-/* 
- * File:   application.c
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 01:40 ?
+/**
+ * @file    application.c
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Main application file.
+ * @version 0.1
+ * @date    2025-09-01
  */
 
 #include "application.h"
@@ -15,7 +16,7 @@
 
 void application_initialize(void);
 
-int main() 
+int main(void) 
 {
     leds_in_port_t LEDs1={.port=PORTD_INDEX,.state=GPIO_LOW};
     led_port_initialize(&LEDs1);

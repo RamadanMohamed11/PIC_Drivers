@@ -1,8 +1,9 @@
-/* 
- * File:   ecu_7_segment.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 25 ????, 2024, 04:20 ?
+/**
+ * @file    ecu_7_segment.h
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Header file for the 7-Segment display driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #ifndef ECU_7_SEGMENT_H

@@ -1,8 +1,9 @@
-/* 
- * File:   compiler.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 02:12 ?
+/**
+ * @file    compiler.h
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Compiler-specific definitions and configurations.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #ifndef COMPILER_H

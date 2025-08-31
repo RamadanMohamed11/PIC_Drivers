@@ -1,9 +1,11 @@
-/* 
- * File:   ecu_relay.c
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 25 ????, 2024, 04:24 ?
+/**
+ * @file    ecu_relay.c
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Source file for the Relay driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
+
 
 #include "ecu_relay.h"
 

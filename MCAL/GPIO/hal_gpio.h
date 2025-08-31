@@ -1,8 +1,9 @@
-/* 
- * File:   hal_gpio.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 02:05 ?
+/**
+ * @file    hal_gpio.h
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Header file for the GPIO driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 

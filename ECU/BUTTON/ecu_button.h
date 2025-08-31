@@ -1,8 +1,9 @@
-/* 
- * File:   ecu_button.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 25 ????, 2024, 02:37 ?
+/**
+ * @file    ecu_button.h
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Header file for the Button driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #ifndef ECU_BUTTON_H

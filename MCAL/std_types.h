@@ -1,8 +1,9 @@
-/* 
- * File:   std_types.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 02:10 ?
+/**
+ * @file    std_types.h
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Contains standard data type definitions.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #ifndef STD_TYPES_H

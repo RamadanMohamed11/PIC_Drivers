@@ -1,8 +1,9 @@
-/* 
- * File:   ecu_led.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 02:17 ?
+/**
+ * @file    ecu_led.h
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Header file for the LED driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #ifndef ECU_LED_H

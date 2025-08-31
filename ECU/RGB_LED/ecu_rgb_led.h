@@ -1,14 +1,15 @@
-/* 
- * File:   ecu_rgb_led.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 02:17 ?
+/**
+ * @file    ecu_rgb_led.h
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Header file for the RGB LED driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
- #ifndef ECU_LED_H
- #define ECU_LED_H
+#ifndef ECU_LED_H
+#define ECU_LED_H
 
- #include "../../MCAL/GPIO/hal_gpio.h"
+#include "../../MCAL/GPIO/hal_gpio.h"
 
  typedef enum
  {

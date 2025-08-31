@@ -1,8 +1,9 @@
-/* 
- * File:   ecu_keypad.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 29 ????, 2024, 02:13 ?
+/**
+ * @file    ecu_keypad.c
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Source file for the Keypad driver.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #include "ecu_keypad.h"

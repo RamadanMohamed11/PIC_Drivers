@@ -1,8 +1,9 @@
-/* 
- * File:   device_config.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 02:25 ?
+/**
+ * @file    device_config.c
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Device configuration implementation file.
+ * @version 0.1
+ * @date    2025-08-31
  */
 
 #include "device_config.h"

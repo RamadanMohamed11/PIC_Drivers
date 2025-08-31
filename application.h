@@ -1,8 +1,9 @@
-/* 
- * File:   application.h
- * Author: Eng_Ramadan_Mohamed
- *
- * Created on 16 ????, 2024, 02:21 ?
+/**
+ * @file    application.h
+ * @author  Eng_Ramadan_Mohamed
+ * @brief   Header file for the main application.
+ * @version 0.1
+ * @date    2025-09-01
  */
 
 #ifndef APPLICATION_H
