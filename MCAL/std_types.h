@@ -25,6 +25,12 @@ typedef uint8 Std_ReturnType;
 #define STD_HIGH (Std_ReturnType)1
 #define STD_LOW (Std_ReturnType)0
 
+#define STD_ON  1
+#define STD_OFF 0
+
+#define STD_ACTIVE  1
+#define STD_IDLE    0
+
 #define E_OK (Std_ReturnType)1
 #define E_NOT_OK (Std_ReturnType)0
 
