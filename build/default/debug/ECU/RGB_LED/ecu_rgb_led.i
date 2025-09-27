@@ -4704,7 +4704,7 @@ Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
 Std_ReturnType gpio_port_direction_initialize(port_index_t _port , uint8 direction);
 Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direction);
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
-Std_ReturnType gpio_port_read_logic(port_index_t _port , uint8* logic);
+Std_ReturnType gpio_port_read_logic(port_index_t _port , volatile uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
 # 13 "ECU/RGB_LED/ecu_rgb_led.h" 2
 

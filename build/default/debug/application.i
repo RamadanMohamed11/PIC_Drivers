@@ -4714,7 +4714,7 @@ Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
 Std_ReturnType gpio_port_direction_initialize(port_index_t _port , uint8 direction);
 Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direction);
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
-Std_ReturnType gpio_port_read_logic(port_index_t _port , uint8* logic);
+Std_ReturnType gpio_port_read_logic(port_index_t _port , volatile uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
 # 12 "./ECU/LED/ecu_led.h" 2
 
@@ -4898,19 +4898,77 @@ Std_ReturnType keypad_get_char(const keypad_t* keypad , uint8* chr);
  Std_ReturnType rgb_led_turn_off(const rgb_led_t* RGB_LED);
 # 18 "./application.h" 2
 
+# 1 "./ECU/LCD/ecu_lcd.h" 1
+# 44 "./ECU/LCD/ecu_lcd.h"
+typedef struct
+{
+    uint8 port:3;
+    uint8 pin:3;
+}lcd_pin_t;
+
+typedef struct
+{
+    lcd_pin_t lcd_rs_pin;
+    lcd_pin_t lcd_en_pin;
+    lcd_pin_t lcd_data_pins[4];
+}lcd_4bit_t;
+
+typedef struct
+{
+    lcd_pin_t lcd_rs_pin;
+    lcd_pin_t lcd_en_pin;
+    lcd_pin_t lcd_data_pins[8];
+}lcd_8bit_t;
+
+Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit);
+Std_ReturnType lcd_4bit_send_command(const lcd_4bit_t* lcd_4bit, const uint8 command);
+Std_ReturnType lcd_4bit_send_char_data(const lcd_4bit_t* lcd_4bit, const uint8 ch);
+Std_ReturnType lcd_4bit_send_char_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8 ch);
+Std_ReturnType lcd_4bit_send_string_data(const lcd_4bit_t* lcd_4bit, const uint8* str);
+Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str);
+Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos);
+Std_ReturnType lcd_4bit_set_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col);
+
+
+Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit);
+Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 command);
+Std_ReturnType lcd_8bit_send_char_data(const lcd_8bit_t* lcd_8bit, const uint8 ch);
+Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch);
+Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const uint8* str);
+Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str);
+Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos);
+Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col);
+# 19 "./application.h" 2
+
+
 
 rgb_led_t rgb_led={.red_channel.port=PORTC_INDEX,.red_channel.pin=PIN0,.green_channel.port=PORTC_INDEX,.green_channel.pin=PIN1,.blue_channel.port=PORTC_INDEX,.blue_channel.pin=PIN2,.state=rgb_led_off};
+extern lcd_4bit_t lcd_4bit;
+extern lcd_8bit_t lcd_8bit;
+
+
+Std_ReturnType application_initialize(void);
 # 9 "application.c" 2
 
 
+lcd_4bit_t lcd_4bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
+                    .lcd_en_pin.port=PORTC_INDEX,.lcd_en_pin.pin=PIN1,
+                    .lcd_data_pins[0].port=PORTC_INDEX,.lcd_data_pins[0].pin=PIN2,
+                    .lcd_data_pins[1].port=PORTC_INDEX,.lcd_data_pins[1].pin=PIN3,
+                    .lcd_data_pins[2].port=PORTC_INDEX,.lcd_data_pins[2].pin=PIN4,
+                    .lcd_data_pins[3].port=PORTC_INDEX,.lcd_data_pins[3].pin=PIN5};
 
-
-
-
-
-
-void application_initialize(void);
-
+lcd_8bit_t lcd_8bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
+                    .lcd_en_pin.port=PORTC_INDEX,.lcd_en_pin.pin=PIN1,
+                    .lcd_data_pins[0].port=PORTD_INDEX,.lcd_data_pins[0].pin=PIN0,
+                    .lcd_data_pins[1].port=PORTD_INDEX,.lcd_data_pins[1].pin=PIN1,
+                    .lcd_data_pins[2].port=PORTD_INDEX,.lcd_data_pins[2].pin=PIN2,
+                    .lcd_data_pins[3].port=PORTD_INDEX,.lcd_data_pins[3].pin=PIN3,
+                    .lcd_data_pins[4].port=PORTD_INDEX,.lcd_data_pins[4].pin=PIN4,
+                    .lcd_data_pins[5].port=PORTD_INDEX,.lcd_data_pins[5].pin=PIN5,
+                    .lcd_data_pins[6].port=PORTD_INDEX,.lcd_data_pins[6].pin=PIN6,
+                    .lcd_data_pins[7].port=PORTD_INDEX,.lcd_data_pins[7].pin=PIN7};
+# 37 "application.c"
 int main(void)
 {
     application_initialize();
@@ -4930,7 +4988,7 @@ int main(void)
     uint8 keypad_chars[4][4]={{'7','8','9','/'},{'4','5','6','X'},{'1','2','3','-'},{'#','0','=','+'}};
 
     keypad_initialize(&keypad,keypad_chars);
-# 85 "application.c"
+# 103 "application.c"
     uint8 chr;
     uint8 ledNUm;
     while(1)
@@ -4951,12 +5009,15 @@ int main(void)
         _delay((unsigned long)((1000)*(8000000/4000.0)));
         rgb_led_turn_off(&rgb_led);
         _delay((unsigned long)((1000)*(8000000/4000.0)));
-# 186 "application.c"
+# 204 "application.c"
     }
     return (0);
 }
 
-void application_initialize(void)
+Std_ReturnType application_initialize(void)
 {
-    rgb_led_initialize(&rgb_led);
+    Std_ReturnType state = (Std_ReturnType)1;
+    state &= lcd_4bit_initialize(&lcd_4bit);
+    state &= lcd_8bit_initialize(&lcd_8bit);
+    return state;
 }

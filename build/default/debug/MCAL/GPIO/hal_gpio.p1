@@ -900,16 +900,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 306 ]
 }
 "165
-[; ;MCAL/GPIO/hal_gpio.c: 165: Std_ReturnType gpio_port_read_logic( port_index_t _port , uint8* logic)
-[v _gpio_port_read_logic `(uc ~T0 @X0 1 ef2`E2819`*uc ]
+[; ;MCAL/GPIO/hal_gpio.c: 165: Std_ReturnType gpio_port_read_logic( port_index_t _port , volatile uint8* logic)
+[v _gpio_port_read_logic `(uc ~T0 @X0 1 ef2`E2819`*Vuc ]
 "166
 [; ;MCAL/GPIO/hal_gpio.c: 166: {
 {
 [e :U _gpio_port_read_logic ]
 "165
-[; ;MCAL/GPIO/hal_gpio.c: 165: Std_ReturnType gpio_port_read_logic( port_index_t _port , uint8* logic)
+[; ;MCAL/GPIO/hal_gpio.c: 165: Std_ReturnType gpio_port_read_logic( port_index_t _port , volatile uint8* logic)
 [v __port `E2819 ~T0 @X0 1 r1 ]
-[v _logic `*uc ~T0 @X0 1 r2 ]
+[v _logic `*Vuc ~T0 @X0 1 r2 ]
 "166
 [; ;MCAL/GPIO/hal_gpio.c: 166: {
 [f ]
@@ -919,7 +919,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _state -> -> 1 `i `uc ]
 "168
 [; ;MCAL/GPIO/hal_gpio.c: 168:     if(logic==((void*)0))
-[e $ ! == _logic -> -> -> 0 `i `*v `*uc 308  ]
+[e $ ! == _logic -> -> -> 0 `i `*v `*Vuc 308  ]
 "169
 [; ;MCAL/GPIO/hal_gpio.c: 169:         state=(Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]

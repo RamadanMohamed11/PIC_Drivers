@@ -11,30 +11,31 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
+$C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
 init CODE 0 4 4 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 E 1 1
 $dist/default/debug\PIC_Drivers.debug.o
-cinit CODE 0 F49A F49A 62 1 2
-text0 CODE 0 F998 F998 180 1 2
+cinit CODE 0 F350 F350 62 1 2
+text0 CODE 0 F98E F98E 180 1 2
 text1 CODE 0 FD30 FD30 2D0 1 2
-text2 CODE 0 F826 F826 172 1 2
-text3 CODE 0 F5C0 F5C0 100 1 2
-text4 CODE 0 F44E F44E 4C 1 2
-text5 CODE 0 F3FA F3FA 28 1 2
-text6 CODE 0 F3D2 F3D2 28 1 2
-text7 CODE 0 F4FC F4FC C4 1 2
-text8 CODE 0 F3B4 F3B4 E 1 2
-text9 CODE 0 F6C0 F6C0 166 1 2
-text10 CODE 0 FB18 FB18 218 1 2
-idataCOMRAM CODE 0 F423 F423 2B 1 1
-cstackCOMRAM COMRAM 1 1 1 2D 1 1
-bssBANK0 BANK0 1 80 80 10 1 1
-idataBANK0 CODE 0 F3C2 F3C2 10 1 1
-dataBANK0 BANK0 1 90 90 10 1 1
-dataCOMRAM COMRAM 1 2E 2E 2B 1 1
-bssCOMRAM COMRAM 1 59 59 24 1 1
+text2 CODE 0 F81C F81C 172 1 2
+text3 CODE 0 F47E F47E 10A 1 2
+text4 CODE 0 F304 F304 4C 1 2
+text5 CODE 0 F2B0 F2B0 28 1 2
+text6 CODE 0 F288 F288 28 1 2
+text7 CODE 0 F3B2 F3B2 CC 1 2
+text8 CODE 0 F266 F266 22 1 2
+text9 CODE 0 F6D2 F6D2 14A 1 2
+text10 CODE 0 F588 F588 14A 1 2
+text11 CODE 0 FB0E FB0E 222 1 2
+idataCOMRAM CODE 0 F247 F247 1F 1 1
+cstackCOMRAM COMRAM 1 1 1 2F 1 1
+bssBANK0 BANK0 1 AC AC 10 1 1
+idataBANK0 CODE 0 F2D8 F2D8 2C 1 1
+dataBANK0 BANK0 1 80 80 2C 1 1
+dataCOMRAM COMRAM 1 5B 5B 1F 1 1
+bssCOMRAM COMRAM 1 30 30 2B 1 1
 config CONFIG 4 300000 300000 E 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -42,9 +43,9 @@ config CONFIG 4 300000 300000 E 1 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM A0-F7F 1
+RAM BC-F7F 1
 SFR F80-FFF 1
-BANK0 A0-FF 1
+BANK0 BC-FF 1
 BANK1 100-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
@@ -54,26 +55,22 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 8-F3B3 1
-CONST F422-F422 1
+CONST 8-F246 1
 IDLOC 200000-200007 1
-SMALLCONST 1000-F3B3 1
-SMALLCONST F422-F422 1
-CODE 8-F3B3 1
-CODE F422-F422 1
+SMALLCONST 1000-F246 1
+CODE 8-F246 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DFF 1
 BANK14 E00-EFF 1
 BANK15 F00-F7F 1
-BIGRAM 7D-7F 1
-BIGRAM A0-F7F 1
+BIGRAM 7A-7F 1
+BIGRAM BC-F7F 1
 BIGSFR F80-FFF 1
-COMRAM 7D-7F 1
+COMRAM 7A-7F 1
 EEDATA F00000-F003FF 1
-MEDIUMCONST 1000-F3B3 1
-MEDIUMCONST F422-F422 1
+MEDIUMCONST 1000-F246 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -88,99 +85,120 @@ MEDIUMCONST F422-F422 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/debug\PIC_Drivers.debug.o
-FB18 text10 CODE >10:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FB18 text10 CODE >12:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FB18 text10 CODE >13:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FB2A text10 CODE >14:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FB2E text10 CODE >20:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FB8C text10 CODE >21:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FB90 text10 CODE >24:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FBE8 text10 CODE >25:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FBEC text10 CODE >27:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FC4A text10 CODE >28:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FC4E text10 CODE >29:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FC70 text10 CODE >29:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FC7E text10 CODE >29:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FC86 text10 CODE >29:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FC90 text10 CODE >32:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FCE8 text10 CODE >33:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FCEC text10 CODE >36:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FD0E text10 CODE >36:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FD1C text10 CODE >36:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FD24 text10 CODE >36:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-FD2E text10 CODE >39:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F6C0 text9 CODE >3:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F6C0 text9 CODE >5:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F6C0 text9 CODE >6:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F6D2 text9 CODE >8:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F6D2 text9 CODE >9:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F6D6 text9 CODE >10:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F6D6 text9 CODE >12:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F734 text9 CODE >13:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F740 text9 CODE >14:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F7A6 text9 CODE >15:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F7B2 text9 CODE >16:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F818 text9 CODE >17:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F824 text9 CODE >20:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F3B4 text8 CODE >190:D:\Embedded 2025\PIC_Drivers\application.c
-F3B4 text8 CODE >192:D:\Embedded 2025\PIC_Drivers\application.c
-F3C0 text8 CODE >193:D:\Embedded 2025\PIC_Drivers\application.c
-F4FC text7 CODE >16:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F4FC text7 CODE >18:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F4FC text7 CODE >19:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F50E text7 CODE >21:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F50E text7 CODE >22:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F512 text7 CODE >25:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F516 text7 CODE >27:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F526 text7 CODE >28:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F52A text7 CODE >30:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F53A text7 CODE >31:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F556 text7 CODE >32:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F59A text7 CODE >33:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F5AC text7 CODE >34:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F5BE text7 CODE >37:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-F3D2 text6 CODE >124:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F3D4 text6 CODE >126:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F3D4 text6 CODE >127:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F3F8 text6 CODE >129:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F3FA text5 CODE >153:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F3FC text5 CODE >155:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F3FC text5 CODE >156:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F420 text5 CODE >158:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F44E text4 CODE >96:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-F44E text4 CODE >98:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-F44E text4 CODE >99:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-F460 text4 CODE >101:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-F460 text4 CODE >102:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-F464 text4 CODE >105:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-F478 text4 CODE >106:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-F498 text4 CODE >109:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-F5C0 text3 CODE >63:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F5C0 text3 CODE >65:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F5C0 text3 CODE >66:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F5D2 text3 CODE >67:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F5D6 text3 CODE >73:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F62E text3 CODE >74:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F632 text3 CODE >76:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F690 text3 CODE >77:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F694 text3 CODE >80:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F69E text3 CODE >80:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F6AC text3 CODE >80:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F6B4 text3 CODE >80:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F6BE text3 CODE >83:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-F826 text2 CODE >77:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F826 text2 CODE >79:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F826 text2 CODE >80:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F838 text2 CODE >82:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F838 text2 CODE >83:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F83C text2 CODE >84:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F83C text2 CODE >86:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F89A text2 CODE >87:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F900 text2 CODE >88:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F966 text2 CODE >89:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F976 text2 CODE >90:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F986 text2 CODE >91:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F996 text2 CODE >94:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+FB0E text11 CODE >10:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FB0E text11 CODE >12:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FB12 text11 CODE >13:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FB24 text11 CODE >14:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FB2C text11 CODE >20:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FB8A text11 CODE >21:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FB8E text11 CODE >24:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FBE6 text11 CODE >25:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FBEA text11 CODE >27:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FC48 text11 CODE >28:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FC4C text11 CODE >29:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FC6E text11 CODE >29:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FC7C text11 CODE >29:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FC84 text11 CODE >29:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FC8E text11 CODE >32:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FCE6 text11 CODE >33:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FCEA text11 CODE >36:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FD0C text11 CODE >36:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FD1A text11 CODE >36:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FD22 text11 CODE >36:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FD2C text11 CODE >38:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+FD2E text11 CODE >39:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F588 text10 CODE >15:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F588 text10 CODE >17:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F58C text10 CODE >18:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F59E text10 CODE >20:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F59E text10 CODE >21:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F5A2 text10 CODE >22:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F5A2 text10 CODE >24:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F5E4 text10 CODE >28:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F5F2 text10 CODE >29:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F63C text10 CODE >33:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F64A text10 CODE >35:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F64E text10 CODE >37:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6B0 text10 CODE >41:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6BE text10 CODE >42:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6D0 text10 CODE >44:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6D2 text9 CODE >138:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6D2 text9 CODE >140:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6D6 text9 CODE >141:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6E8 text9 CODE >143:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6E8 text9 CODE >144:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6EC text9 CODE >145:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F6EC text9 CODE >148:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F72E text9 CODE >152:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F73C text9 CODE >153:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F786 text9 CODE >157:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F794 text9 CODE >159:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F798 text9 CODE >161:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F7FA text9 CODE >165:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F808 text9 CODE >166:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F81A text9 CODE >168:D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+F266 text8 CODE >208:D:\Embedded 2025\PIC_Drivers\application.c
+F266 text8 CODE >210:D:\Embedded 2025\PIC_Drivers\application.c
+F26A text8 CODE >211:D:\Embedded 2025\PIC_Drivers\application.c
+F278 text8 CODE >212:D:\Embedded 2025\PIC_Drivers\application.c
+F286 text8 CODE >214:D:\Embedded 2025\PIC_Drivers\application.c
+F3B2 text7 CODE >16:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F3B2 text7 CODE >18:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F3B6 text7 CODE >19:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F3C8 text7 CODE >21:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F3C8 text7 CODE >22:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F3CC text7 CODE >25:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F3D0 text7 CODE >27:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F3E2 text7 CODE >28:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F3E6 text7 CODE >30:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F3F6 text7 CODE >31:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F414 text7 CODE >32:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F458 text7 CODE >33:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F46A text7 CODE >34:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F47C text7 CODE >37:D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
+F288 text6 CODE >124:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F28A text6 CODE >126:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F28A text6 CODE >127:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F2AE text6 CODE >129:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F2B0 text5 CODE >153:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F2B2 text5 CODE >155:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F2B2 text5 CODE >156:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F2D6 text5 CODE >158:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F304 text4 CODE >96:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
+F304 text4 CODE >98:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
+F304 text4 CODE >99:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
+F316 text4 CODE >101:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
+F316 text4 CODE >102:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
+F31A text4 CODE >105:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
+F32E text4 CODE >106:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
+F34E text4 CODE >109:D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
+F47E text3 CODE >63:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F47E text3 CODE >65:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F482 text3 CODE >66:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F494 text3 CODE >67:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F49C text3 CODE >73:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F4F4 text3 CODE >74:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F4F8 text3 CODE >76:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F556 text3 CODE >77:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F55A text3 CODE >80:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F564 text3 CODE >80:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F572 text3 CODE >80:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F57A text3 CODE >80:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F584 text3 CODE >82:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F586 text3 CODE >83:D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+F81C text2 CODE >77:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F81C text2 CODE >79:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F81C text2 CODE >80:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F82E text2 CODE >82:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F82E text2 CODE >83:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F832 text2 CODE >84:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F832 text2 CODE >86:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F890 text2 CODE >87:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F8F6 text2 CODE >88:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F95C text2 CODE >89:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F96C text2 CODE >90:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F97C text2 CODE >91:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
+F98C text2 CODE >94:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
 FD30 text1 CODE >21:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
 FD30 text1 CODE >23:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
 FD30 text1 CODE >24:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
@@ -225,77 +243,77 @@ FFE4 text1 CODE >73:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
 FFEC text1 CODE >73:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
 FFF4 text1 CODE >73:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
 FFFE text1 CODE >76:D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-F998 text0 CODE >19:D:\Embedded 2025\PIC_Drivers\application.c
-F998 text0 CODE >21:D:\Embedded 2025\PIC_Drivers\application.c
-F99C text0 CODE >22:D:\Embedded 2025\PIC_Drivers\application.c
-F9A0 text0 CODE >23:D:\Embedded 2025\PIC_Drivers\application.c
-F9AC text0 CODE >24:D:\Embedded 2025\PIC_Drivers\application.c
-F9BE text0 CODE >35:D:\Embedded 2025\PIC_Drivers\application.c
-F9D0 text0 CODE >37:D:\Embedded 2025\PIC_Drivers\application.c
-F9E4 text0 CODE >89:D:\Embedded 2025\PIC_Drivers\application.c
-F9F4 text0 CODE >90:D:\Embedded 2025\PIC_Drivers\application.c
-FA0A text0 CODE >91:D:\Embedded 2025\PIC_Drivers\application.c
-FA1A text0 CODE >92:D:\Embedded 2025\PIC_Drivers\application.c
-FA30 text0 CODE >93:D:\Embedded 2025\PIC_Drivers\application.c
-FA40 text0 CODE >94:D:\Embedded 2025\PIC_Drivers\application.c
-FA56 text0 CODE >95:D:\Embedded 2025\PIC_Drivers\application.c
-FA66 text0 CODE >96:D:\Embedded 2025\PIC_Drivers\application.c
-FA7C text0 CODE >97:D:\Embedded 2025\PIC_Drivers\application.c
-FA8C text0 CODE >98:D:\Embedded 2025\PIC_Drivers\application.c
-FAA2 text0 CODE >99:D:\Embedded 2025\PIC_Drivers\application.c
-FAB2 text0 CODE >100:D:\Embedded 2025\PIC_Drivers\application.c
-FAC8 text0 CODE >101:D:\Embedded 2025\PIC_Drivers\application.c
-FAD8 text0 CODE >102:D:\Embedded 2025\PIC_Drivers\application.c
-FAEE text0 CODE >103:D:\Embedded 2025\PIC_Drivers\application.c
-FAFA text0 CODE >104:D:\Embedded 2025\PIC_Drivers\application.c
-F49A cinit CODE >2772:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F49A cinit CODE >2774:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F49A cinit CODE >2777:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F49A cinit CODE >2896:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F49C cinit CODE >2897:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F49E cinit CODE >2898:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4A0 cinit CODE >2899:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4A2 cinit CODE >2900:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4A4 cinit CODE >2901:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4A6 cinit CODE >2902:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4AA cinit CODE >2903:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4AE cinit CODE >2904:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4AE cinit CODE >2905:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4B0 cinit CODE >2906:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4B4 cinit CODE >2907:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4B6 cinit CODE >2908:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4B8 cinit CODE >2909:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4BA cinit CODE >2913:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4BC cinit CODE >2914:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4BE cinit CODE >2915:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4C0 cinit CODE >2916:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4C2 cinit CODE >2917:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4C4 cinit CODE >2918:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4C6 cinit CODE >2919:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4CA cinit CODE >2920:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4CE cinit CODE >2921:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4CE cinit CODE >2922:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4D0 cinit CODE >2923:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4D4 cinit CODE >2924:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4D6 cinit CODE >2925:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4D8 cinit CODE >2926:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4DA cinit CODE >2930:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4DE cinit CODE >2931:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4E0 cinit CODE >2932:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4E0 cinit CODE >2933:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4E2 cinit CODE >2934:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4E4 cinit CODE >2935:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4E6 cinit CODE >2938:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4EA cinit CODE >2939:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4EC cinit CODE >2940:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4EC cinit CODE >2941:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4EE cinit CODE >2942:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4F0 cinit CODE >2943:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4F2 cinit CODE >2949:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4F2 cinit CODE >2952:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4F4 cinit CODE >2953:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4F6 cinit CODE >2954:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
-F4F8 cinit CODE >2955:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
+F98E text0 CODE >37:D:\Embedded 2025\PIC_Drivers\application.c
+F98E text0 CODE >39:D:\Embedded 2025\PIC_Drivers\application.c
+F992 text0 CODE >40:D:\Embedded 2025\PIC_Drivers\application.c
+F996 text0 CODE >41:D:\Embedded 2025\PIC_Drivers\application.c
+F9A2 text0 CODE >42:D:\Embedded 2025\PIC_Drivers\application.c
+F9B4 text0 CODE >53:D:\Embedded 2025\PIC_Drivers\application.c
+F9C6 text0 CODE >55:D:\Embedded 2025\PIC_Drivers\application.c
+F9DA text0 CODE >107:D:\Embedded 2025\PIC_Drivers\application.c
+F9EA text0 CODE >108:D:\Embedded 2025\PIC_Drivers\application.c
+FA00 text0 CODE >109:D:\Embedded 2025\PIC_Drivers\application.c
+FA10 text0 CODE >110:D:\Embedded 2025\PIC_Drivers\application.c
+FA26 text0 CODE >111:D:\Embedded 2025\PIC_Drivers\application.c
+FA36 text0 CODE >112:D:\Embedded 2025\PIC_Drivers\application.c
+FA4C text0 CODE >113:D:\Embedded 2025\PIC_Drivers\application.c
+FA5C text0 CODE >114:D:\Embedded 2025\PIC_Drivers\application.c
+FA72 text0 CODE >115:D:\Embedded 2025\PIC_Drivers\application.c
+FA82 text0 CODE >116:D:\Embedded 2025\PIC_Drivers\application.c
+FA98 text0 CODE >117:D:\Embedded 2025\PIC_Drivers\application.c
+FAA8 text0 CODE >118:D:\Embedded 2025\PIC_Drivers\application.c
+FABE text0 CODE >119:D:\Embedded 2025\PIC_Drivers\application.c
+FACE text0 CODE >120:D:\Embedded 2025\PIC_Drivers\application.c
+FAE4 text0 CODE >121:D:\Embedded 2025\PIC_Drivers\application.c
+FAF0 text0 CODE >122:D:\Embedded 2025\PIC_Drivers\application.c
+F350 cinit CODE >3081:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F350 cinit CODE >3083:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F350 cinit CODE >3086:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F350 cinit CODE >3231:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F352 cinit CODE >3232:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F354 cinit CODE >3233:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F356 cinit CODE >3234:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F358 cinit CODE >3235:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F35A cinit CODE >3236:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F35C cinit CODE >3237:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F360 cinit CODE >3238:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F364 cinit CODE >3239:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F364 cinit CODE >3240:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F366 cinit CODE >3241:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F36A cinit CODE >3242:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F36C cinit CODE >3243:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F36E cinit CODE >3244:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F370 cinit CODE >3248:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F372 cinit CODE >3249:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F374 cinit CODE >3250:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F376 cinit CODE >3251:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F378 cinit CODE >3252:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F37A cinit CODE >3253:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F37C cinit CODE >3254:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F380 cinit CODE >3255:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F384 cinit CODE >3256:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F384 cinit CODE >3257:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F386 cinit CODE >3258:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F38A cinit CODE >3259:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F38C cinit CODE >3260:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F38E cinit CODE >3261:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F390 cinit CODE >3265:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F394 cinit CODE >3266:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F396 cinit CODE >3267:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F396 cinit CODE >3268:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F398 cinit CODE >3269:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F39A cinit CODE >3270:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F39C cinit CODE >3273:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3A0 cinit CODE >3274:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3A2 cinit CODE >3275:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3A2 cinit CODE >3276:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3A4 cinit CODE >3277:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3A6 cinit CODE >3278:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3A8 cinit CODE >3284:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3A8 cinit CODE >3287:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3AA cinit CODE >3288:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3AC cinit CODE >3289:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
+F3AE cinit CODE >3290:C:\Users\elkin\AppData\Local\Temp\xcAs1kno.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -308,88 +326,99 @@ F4F8 cinit CODE >2955:C:\Users\elkin\AppData\Local\Temp\xcAsgcg.s
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-rgb_led_turn_on@F2902 66 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_on@F2904 65 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_on@F2906 64 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_on@F2902 44 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_on@F2904 43 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_on@F2906 42 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/debug\PIC_Drivers.debug.o
-_lat_regesters 38 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
+_lat_regesters 5B 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/debug\PIC_Drivers.debug.o
 __Hspace_0 10000 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
-__Hspace_1 A0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
+__Hspace_1 BC 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
 __Hspace_2 0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
 __Hspace_4 60000E 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_on@color C 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_on@green 10 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_on@color D 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_on@green 11 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/debug\PIC_Drivers.debug.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/debug\PIC_Drivers.debug.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+lcd_8bit_initialize@F2992 3B 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_8bit_initialize@F2994 3A 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_8bit_initialize@F2997 39 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug\PIC_Drivers.debug.o
-button_initialize@F2880 79 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-led_toggle@F2903 6E 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_8bit_initialize@lcd_8bit A 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+button_initialize@F2880 57 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_8bit_initialize@state F 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+led_toggle@F2903 4C 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/debug\PIC_Drivers.debug.o
-___sp 0 0 STACK 2 stack C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-_main F998 0 CODE 0 text0 dist/default/debug\PIC_Drivers.debug.o
-start 4 0 CODE 0 init C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-dc_motor_initialize@F2878 77 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-dc_motor_initialize@F2880 76 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+___sp 0 0 STACK 2 stack C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+_main F98E 0 CODE 0 text0 dist/default/debug\PIC_Drivers.debug.o
+start 4 0 CODE 0 init C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+dc_motor_initialize@F2878 55 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+dc_motor_initialize@F2880 54 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-segment_multi_disable@F2912 7A 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-_application_initialize F3B4 0 CODE 0 text8 dist/default/debug\PIC_Drivers.debug.o
+_lcd_8bit_initialize F6D2 0 CODE 0 text9 dist/default/debug\PIC_Drivers.debug.o
+segment_multi_disable@F2912 58 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+_application_initialize F266 0 CODE 0 text8 dist/default/debug\PIC_Drivers.debug.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/debug\PIC_Drivers.debug.o
 __Hpowerup 4 0 CODE 0 powerup dist/default/debug\PIC_Drivers.debug.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
-__accesstop 80 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-intlevel0 0 0 CODE 0 text C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-intlevel1 0 0 CODE 0 text C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-intlevel2 0 0 CODE 0 text C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-intlevel3 0 0 CODE 0 text C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-led_initialize@F2888 71 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__accesstop 80 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+intlevel0 0 0 CODE 0 text C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+intlevel1 0 0 CODE 0 text C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+intlevel2 0 0 CODE 0 text C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+intlevel3 0 0 CODE 0 text C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+led_initialize@F2888 4F 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-dc_motor_move_right@F2885 75 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-dc_motor_move_right@F2887 74 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+dc_motor_move_right@F2885 53 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+dc_motor_move_right@F2887 52 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_off@F2911 63 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_off@F2913 62 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_off@F2915 61 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_off@green E 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_off@F2911 41 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_off@F2913 40 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_off@F2915 3F 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_off@green F 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/debug\PIC_Drivers.debug.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/debug\PIC_Drivers.debug.o
-__pidataCOMRAM F423 0 CODE 0 idataCOMRAM dist/default/debug\PIC_Drivers.debug.o
-_keypad_initialize F4FC 0 CODE 0 text7 dist/default/debug\PIC_Drivers.debug.o
-Relay_toggle@F2891 6A 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_on@red F 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
+lcd_4bit_initialize@local_index 10 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__pidataCOMRAM F247 0 CODE 0 idataCOMRAM dist/default/debug\PIC_Drivers.debug.o
+_keypad_initialize F3B2 0 CODE 0 text7 dist/default/debug\PIC_Drivers.debug.o
+Relay_toggle@F2891 48 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_on@red 10 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_8bit_initialize@data_pin 13 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/debug\PIC_Drivers.debug.o
 gpio_port_direction_initialize@direction 1 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug\PIC_Drivers.debug.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/debug\PIC_Drivers.debug.o
 __Hintcodelo 4 0 CODE 0 intcodelo dist/default/debug\PIC_Drivers.debug.o
-keypad_initialize@keypad_chars B 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-_port_regesters 2E 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
+keypad_initialize@keypad_chars C 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+_port_regesters 90 0 BANK0 1 dataBANK0 dist/default/debug\PIC_Drivers.debug.o
 __end_of_rgb_led_turn_on 10000 0 CODE 0 text1 dist/default/debug\PIC_Drivers.debug.o
-Relay_initialize@F2876 6D 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+Relay_initialize@F2876 4B 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 gpio_port_write_logic@_port 4 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 gpio_port_write_logic@logic 1 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-__end_of_gpio_pin_write_logic F6C0 0 CODE 0 text3 dist/default/debug\PIC_Drivers.debug.o
+__end_of_lcd_8bit_initialize F81C 0 CODE 0 text9 dist/default/debug\PIC_Drivers.debug.o
+__end_of_gpio_pin_write_logic F588 0 CODE 0 text3 dist/default/debug\PIC_Drivers.debug.o
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lintcodelo 4 0 CODE 0 intcodelo dist/default/debug\PIC_Drivers.debug.o
-start_initialization F49A 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
-main@keypad_chars 15 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+start_initialization F350 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
+gpio_pin_direction_initialize@state 9 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+main@keypad_chars 17 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug\PIC_Drivers.debug.o
-Relay_turn_on@F2881 6C 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-button_read_state@F2886 78 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+Relay_turn_on@F2881 4A 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+button_read_state@F2886 56 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 ___rparam_used 1 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
+keypad_initialize@state 12 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 gpio_pin_direction_initialize@_pin_config 1 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-dc_motor_move_left@F2892 73 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-dc_motor_move_left@F2894 72 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-__end_of_gpio_port_direction_initialize F3FA 0 CODE 0 text6 dist/default/debug\PIC_Drivers.debug.o
-_gpio_pin_direction_initialize FB18 0 CODE 0 text10 dist/default/debug\PIC_Drivers.debug.o
+dc_motor_move_left@F2892 51 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+dc_motor_move_left@F2894 50 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__end_of_gpio_port_direction_initialize F2B0 0 CODE 0 text6 dist/default/debug\PIC_Drivers.debug.o
+_gpio_pin_direction_initialize FB0E 0 CODE 0 text11 dist/default/debug\PIC_Drivers.debug.o
 _rgb_led_turn_on FD30 0 CODE 0 text1 dist/default/debug\PIC_Drivers.debug.o
-isa$xinst 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-__end_of_application_initialize F3C2 0 CODE 0 text8 dist/default/debug\PIC_Drivers.debug.o
-_rgb_led 55 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
+isa$xinst 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+__end_of_application_initialize F288 0 CODE 0 text8 dist/default/debug\PIC_Drivers.debug.o
+_rgb_led 76 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
 gpio_pin_write_logic@_pin_config 1 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/debug\PIC_Drivers.debug.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/debug\PIC_Drivers.debug.o
@@ -419,7 +448,7 @@ __Htext6 0 0 ABS 0 text6 dist/default/debug\PIC_Drivers.debug.o
 __Htext7 0 0 ABS 0 text7 dist/default/debug\PIC_Drivers.debug.o
 __Htext8 0 0 ABS 0 text8 dist/default/debug\PIC_Drivers.debug.o
 __Htext9 0 0 ABS 0 text9 dist/default/debug\PIC_Drivers.debug.o
-_local_keypad_chars 80 0 BANK0 1 bssBANK0 dist/default/debug\PIC_Drivers.debug.o
+_local_keypad_chars AC 0 BANK0 1 bssBANK0 dist/default/debug\PIC_Drivers.debug.o
 __Hbank10 0 0 ABS 0 bank10 dist/default/debug\PIC_Drivers.debug.o
 __Hbank11 0 0 ABS 0 bank11 dist/default/debug\PIC_Drivers.debug.o
 __Hbank12 0 0 ABS 0 bank12 dist/default/debug\PIC_Drivers.debug.o
@@ -429,8 +458,8 @@ __Hbank15 0 0 ABS 0 bank15 dist/default/debug\PIC_Drivers.debug.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/debug\PIC_Drivers.debug.o
 __Hbigram 0 0 ABS 0 bigram dist/default/debug\PIC_Drivers.debug.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/debug\PIC_Drivers.debug.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-segment_multi_initialize@F2902 7C 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+segment_multi_initialize@F2902 5A 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Hcomram 0 0 ABS 0 comram dist/default/debug\PIC_Drivers.debug.o
 __Hconfig 30000E 0 CONFIG 4 config dist/default/debug\PIC_Drivers.debug.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/debug\PIC_Drivers.debug.o
@@ -447,6 +476,7 @@ __Lcinit 0 0 ABS 0 cinit dist/default/debug\PIC_Drivers.debug.o
 __Lconst 0 0 CONST 0 const dist/default/debug\PIC_Drivers.debug.o
 __Lidata 0 0 CODE 0 idata dist/default/debug\PIC_Drivers.debug.o
 __Lidloc 0 0 ABS 0 idloc dist/default/debug\PIC_Drivers.debug.o
+lcd_8bit_initialize@en_pin 12 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lnvbit 0 0 COMRAM 1 nvbit dist/default/debug\PIC_Drivers.debug.o
 __Lparam 0 0 COMRAM 1 rparam dist/default/debug\PIC_Drivers.debug.o
 __Lrdata 0 0 COMRAM 1 rdata dist/default/debug\PIC_Drivers.debug.o
@@ -463,8 +493,9 @@ __Ltext8 0 0 ABS 0 text8 dist/default/debug\PIC_Drivers.debug.o
 __Ltext9 0 0 ABS 0 text9 dist/default/debug\PIC_Drivers.debug.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/debug\PIC_Drivers.debug.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/debug\PIC_Drivers.debug.o
-_led_port_initialize F44E 0 CODE 0 text4 dist/default/debug\PIC_Drivers.debug.o
-keypad_initialize@row_counter 12 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+LCD_send_4bits@F3040 38 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+_led_port_initialize F304 0 CODE 0 text4 dist/default/debug\PIC_Drivers.debug.o
+keypad_initialize@row_counter 14 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Habs1 0 0 ABS 0 abs1 dist/default/debug\PIC_Drivers.debug.o
 __Hdata 0 0 ABS 0 data dist/default/debug\PIC_Drivers.debug.o
 __Hheap 0 0 HEAP 7 heap dist/default/debug\PIC_Drivers.debug.o
@@ -481,42 +512,46 @@ __Lrbit 0 0 COMRAM 1 rbit dist/default/debug\PIC_Drivers.debug.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/debug\PIC_Drivers.debug.o
 __Ltemp 0 0 COMRAM 1 temp dist/default/debug\PIC_Drivers.debug.o
 __Ltext 0 0 ABS 0 text dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_off@RGB_LED A 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_off@RGB_LED B 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_8bit_initialize@local_index 10 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Hintret 0 0 ABS 0 intret dist/default/debug\PIC_Drivers.debug.o
 __Hirdata 0 0 CODE 0 irdata dist/default/debug\PIC_Drivers.debug.o
 __S0 10000 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
-__S1 A0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
+__S1 BC 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
 __S4 0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
 __S5 0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
+application_initialize@state 14 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 gpio_pin_write_logic@logic 3 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_off@red D 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_initialize@F2892 69 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_initialize@F2894 68 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_initialize@F2896 67 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-__end_of_rgb_led_initialize F826 0 CODE 0 text9 dist/default/debug\PIC_Drivers.debug.o
-rgb_led_initialize@green D 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-rgb_led_initialize@RGB_LED 9 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+gpio_pin_write_logic@state A 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_off@red E 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_initialize@F2892 47 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_initialize@F2894 46 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_initialize@F2896 45 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/debug\PIC_Drivers.debug.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/debug\PIC_Drivers.debug.o
-__end_of_gpio_port_write_logic F422 0 CODE 0 text5 dist/default/debug\PIC_Drivers.debug.o
+_lcd_4bit_initialize F588 0 CODE 0 text10 dist/default/debug\PIC_Drivers.debug.o
+__end_of_gpio_port_write_logic F2D8 0 CODE 0 text5 dist/default/debug\PIC_Drivers.debug.o
+_lcd_4bit 70 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
+_lcd_8bit A2 0 BANK0 1 dataBANK0 dist/default/debug\PIC_Drivers.debug.o
 __Lintentry 0 0 ABS 0 intentry dist/default/debug\PIC_Drivers.debug.o
 __Hramtop 1000 0 RAM 0 ramtop dist/default/debug\PIC_Drivers.debug.o
+lcd_8bit_initialize@rs_pin 11 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/debug\PIC_Drivers.debug.o
-keypad_initialize@keypad 9 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-__pdataBANK0 90 0 BANK0 1 dataBANK0 dist/default/debug\PIC_Drivers.debug.o
+keypad_initialize@keypad A 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__pdataBANK0 80 0 BANK0 1 dataBANK0 dist/default/debug\PIC_Drivers.debug.o
 __activetblptr 2 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_on@blue 11 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_on@blue 12 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/debug\PIC_Drivers.debug.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/debug\PIC_Drivers.debug.o
 __Htext10 0 0 ABS 0 text10 dist/default/debug\PIC_Drivers.debug.o
-_gpio_port_direction_initialize F3D2 0 CODE 0 text6 dist/default/debug\PIC_Drivers.debug.o
-rgb_led_initialize@red C 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-_gpio_port_write_logic F3FA 0 CODE 0 text5 dist/default/debug\PIC_Drivers.debug.o
-_rgb_led_initialize F6C0 0 CODE 0 text9 dist/default/debug\PIC_Drivers.debug.o
-_rgb_led_turn_off F826 0 CODE 0 text2 dist/default/debug\PIC_Drivers.debug.o
-__ptext10 FB18 0 CODE 0 text10 dist/default/debug\PIC_Drivers.debug.o
+__Htext11 0 0 ABS 0 text11 dist/default/debug\PIC_Drivers.debug.o
+_gpio_port_direction_initialize F288 0 CODE 0 text6 dist/default/debug\PIC_Drivers.debug.o
+_gpio_port_write_logic F2B0 0 CODE 0 text5 dist/default/debug\PIC_Drivers.debug.o
+_rgb_led_turn_off F81C 0 CODE 0 text2 dist/default/debug\PIC_Drivers.debug.o
+__ptext10 F588 0 CODE 0 text10 dist/default/debug\PIC_Drivers.debug.o
+__ptext11 FB0E 0 CODE 0 text11 dist/default/debug\PIC_Drivers.debug.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/debug\PIC_Drivers.debug.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/debug\PIC_Drivers.debug.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/debug\PIC_Drivers.debug.o
@@ -528,18 +563,19 @@ __Lbigram 0 0 ABS 0 bigram dist/default/debug\PIC_Drivers.debug.o
 __Lbigsfr 0 0 ABS 0 bigsfr dist/default/debug\PIC_Drivers.debug.o
 __Lcomram 0 0 ABS 0 comram dist/default/debug\PIC_Drivers.debug.o
 __Lconfig 0 0 CONFIG 4 config dist/default/debug\PIC_Drivers.debug.o
-keypad_initialize@col_counter 11 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-main@F3007 54 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
-main@F3009 4C 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
-main@F3011 90 0 BANK0 1 dataBANK0 dist/default/debug\PIC_Drivers.debug.o
-main@LEDs1 25 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+keypad_initialize@col_counter 13 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+main@F3087 6F 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
+main@F3089 9A 0 BANK0 1 dataBANK0 dist/default/debug\PIC_Drivers.debug.o
+main@F3091 80 0 BANK0 1 dataBANK0 dist/default/debug\PIC_Drivers.debug.o
+main@LEDs1 27 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_4bit_initialize@en_pin 12 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/debug\PIC_Drivers.debug.o
-__end_of_led_port_initialize F49A 0 CODE 0 text4 dist/default/debug\PIC_Drivers.debug.o
+__end_of_led_port_initialize F350 0 CODE 0 text4 dist/default/debug\PIC_Drivers.debug.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/debug\PIC_Drivers.debug.o
-isa$std 1 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
+isa$std 1 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
 led_port_initialize@LEDs 5 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-stackhi 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-stacklo 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
+stackhi 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+stacklo 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
 __Lintcode 4 0 CODE 0 intcode dist/default/debug\PIC_Drivers.debug.o
 __Lintret 0 0 ABS 0 intret dist/default/debug\PIC_Drivers.debug.o
 __Lirdata 0 0 CODE 0 irdata dist/default/debug\PIC_Drivers.debug.o
@@ -547,54 +583,61 @@ __Lspace_0 0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
 __Lspace_1 0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
 __Lspace_2 0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
 __Lspace_4 0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
-__pbssCOMRAM 59 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-_gpio_pin_write_logic F5C0 0 CODE 0 text3 dist/default/debug\PIC_Drivers.debug.o
+__pbssCOMRAM 30 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+_gpio_pin_write_logic F47E 0 CODE 0 text3 dist/default/debug\PIC_Drivers.debug.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-end_of_initialization F4F2 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
+end_of_initialization F3A8 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
+__end_of_lcd_4bit_initialize F6D2 0 CODE 0 text10 dist/default/debug\PIC_Drivers.debug.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/debug\PIC_Drivers.debug.o
 __Hintentry 0 0 ABS 0 intentry dist/default/debug\PIC_Drivers.debug.o
-__end_of_gpio_pin_direction_initialize FD30 0 CODE 0 text10 dist/default/debug\PIC_Drivers.debug.o
-led_turn_off@F2898 6F 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__end_of_gpio_pin_direction_initialize FD30 0 CODE 0 text11 dist/default/debug\PIC_Drivers.debug.o
+led_turn_off@F2898 4D 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/debug\PIC_Drivers.debug.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/debug\PIC_Drivers.debug.o
 __Lramtop 1000 0 RAM 0 ramtop dist/default/debug\PIC_Drivers.debug.o
+lcd_4bit_initialize@F2946 3E 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_4bit_initialize@F2948 3D 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_4bit_initialize@F2951 3C 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/debug\PIC_Drivers.debug.o
-__pcinit F49A 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
-rgb_led_initialize@blue E 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-__ptext0 F998 0 CODE 0 text0 dist/default/debug\PIC_Drivers.debug.o
+__pcinit F350 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
+lcd_4bit_initialize@rs_pin 11 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__ptext0 F98E 0 CODE 0 text0 dist/default/debug\PIC_Drivers.debug.o
 __ptext1 FD30 0 CODE 0 text1 dist/default/debug\PIC_Drivers.debug.o
-__ptext2 F826 0 CODE 0 text2 dist/default/debug\PIC_Drivers.debug.o
-__ptext3 F5C0 0 CODE 0 text3 dist/default/debug\PIC_Drivers.debug.o
-__ptext4 F44E 0 CODE 0 text4 dist/default/debug\PIC_Drivers.debug.o
-__ptext5 F3FA 0 CODE 0 text5 dist/default/debug\PIC_Drivers.debug.o
-__ptext6 F3D2 0 CODE 0 text6 dist/default/debug\PIC_Drivers.debug.o
-__ptext7 F4FC 0 CODE 0 text7 dist/default/debug\PIC_Drivers.debug.o
-__ptext8 F3B4 0 CODE 0 text8 dist/default/debug\PIC_Drivers.debug.o
-__ptext9 F6C0 0 CODE 0 text9 dist/default/debug\PIC_Drivers.debug.o
-main@keypad 26 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__ptext2 F81C 0 CODE 0 text2 dist/default/debug\PIC_Drivers.debug.o
+__ptext3 F47E 0 CODE 0 text3 dist/default/debug\PIC_Drivers.debug.o
+__ptext4 F304 0 CODE 0 text4 dist/default/debug\PIC_Drivers.debug.o
+__ptext5 F2B0 0 CODE 0 text5 dist/default/debug\PIC_Drivers.debug.o
+__ptext6 F288 0 CODE 0 text6 dist/default/debug\PIC_Drivers.debug.o
+__ptext7 F3B2 0 CODE 0 text7 dist/default/debug\PIC_Drivers.debug.o
+__ptext8 F266 0 CODE 0 text8 dist/default/debug\PIC_Drivers.debug.o
+__ptext9 F6D2 0 CODE 0 text9 dist/default/debug\PIC_Drivers.debug.o
+main@keypad 28 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/debug\PIC_Drivers.debug.o
-__end_of_rgb_led_turn_off F998 0 CODE 0 text2 dist/default/debug\PIC_Drivers.debug.o
+lcd_4bit_initialize@state F 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__end_of_rgb_led_turn_off F98E 0 CODE 0 text2 dist/default/debug\PIC_Drivers.debug.o
 __Ltext10 0 0 ABS 0 text10 dist/default/debug\PIC_Drivers.debug.o
-__ramtop 1000 0 RAM 0 ramtop C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
+__Ltext11 0 0 ABS 0 text11 dist/default/debug\PIC_Drivers.debug.o
+__ramtop 1000 0 RAM 0 ramtop C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
 __Lpowerup 4 0 CODE 0 powerup dist/default/debug\PIC_Drivers.debug.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug\PIC_Drivers.debug.o
-led_turn_on@F2893 70 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_4bit_initialize@lcd_4bit A 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+led_turn_on@F2893 4E 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/debug\PIC_Drivers.debug.o
-___heap_hi 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-___heap_lo 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAsgcg.o
-rgb_led_turn_on@RGB_LED A 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+___heap_hi 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+___heap_lo 0 0 ABS 0 - C:\Users\elkin\AppData\Local\Temp\xcAs1kno.o
+rgb_led_turn_on@RGB_LED B 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 ___param_bank 0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/debug\PIC_Drivers.debug.o
-__end_of__initialization F4F2 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
+__end_of__initialization F3A8 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
 gpio_port_direction_initialize@_port 4 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/debug\PIC_Drivers.debug.o
-segment_multi_enable@F2907 7B 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-__pidataBANK0 F3C2 0 CODE 0 idataBANK0 dist/default/debug\PIC_Drivers.debug.o
+segment_multi_enable@F2907 59 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__pidataBANK0 F2D8 0 CODE 0 idataBANK0 dist/default/debug\PIC_Drivers.debug.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/debug\PIC_Drivers.debug.o
-_tris_regesters 42 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
+_tris_regesters 65 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-Relay_turn_off@F2886 6B 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
-__end_of_main FB18 0 CODE 0 text0 dist/default/debug\PIC_Drivers.debug.o
+Relay_turn_off@F2886 49 0 COMRAM 1 bssCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__end_of_main FB0E 0 CODE 0 text0 dist/default/debug\PIC_Drivers.debug.o
 __HRAM 0 0 ABS 0 - dist/default/debug\PIC_Drivers.debug.o
 __Hbss 0 0 RAM 1 bss dist/default/debug\PIC_Drivers.debug.o
 __Hram 0 0 ABS 0 ram dist/default/debug\PIC_Drivers.debug.o
@@ -604,16 +647,17 @@ __Lbss 0 0 RAM 1 bss dist/default/debug\PIC_Drivers.debug.o
 __Lram 0 0 ABS 0 ram dist/default/debug\PIC_Drivers.debug.o
 __Lsfr 0 0 ABS 0 sfr dist/default/debug\PIC_Drivers.debug.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/debug\PIC_Drivers.debug.o
-rgb_led_turn_off@blue F 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
-__initialization F49A 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
-__pbssBANK0 80 0 BANK0 1 bssBANK0 dist/default/debug\PIC_Drivers.debug.o
-__pdataCOMRAM 2E 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
+rgb_led_turn_off@blue 10 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
+__initialization F350 0 CODE 0 cinit dist/default/debug\PIC_Drivers.debug.o
+__pbssBANK0 AC 0 BANK0 1 bssBANK0 dist/default/debug\PIC_Drivers.debug.o
+__pdataCOMRAM 5B 0 COMRAM 1 dataCOMRAM dist/default/debug\PIC_Drivers.debug.o
+lcd_4bit_initialize@data_pin 13 0 COMRAM 1 cstackCOMRAM dist/default/debug\PIC_Drivers.debug.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/debug\PIC_Drivers.debug.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/debug\PIC_Drivers.debug.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/debug\PIC_Drivers.debug.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug\PIC_Drivers.debug.o
 __Hintcode 4 0 CODE 0 intcode dist/default/debug\PIC_Drivers.debug.o
-__end_of_keypad_initialize F5C0 0 CODE 0 text7 dist/default/debug\PIC_Drivers.debug.o
+__end_of_keypad_initialize F47E 0 CODE 0 text7 dist/default/debug\PIC_Drivers.debug.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -638,23 +682,24 @@ __end_of_keypad_initialize F5C0 0 CODE 0 text7 dist/default/debug\PIC_Drivers.de
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 F49A F49A 62 1
-text0 0 F998 F998 180 1
+cinit 0 F350 F350 62 1
+text0 0 F98E F98E 180 1
 text1 0 FD30 FD30 2D0 1
-text2 0 F826 F826 172 1
-text3 0 F5C0 F5C0 100 1
-text4 0 F44E F44E 4C 1
-text5 0 F3FA F3FA 28 1
-text6 0 F3D2 F3D2 28 1
-text7 0 F4FC F4FC C4 1
-text8 0 F3B4 F3B4 E 1
-text9 0 F6C0 F6C0 166 1
-text10 0 FB18 FB18 218 1
-idataCOMRAM 0 F423 F423 2B 1
-cstackCOMRAM 1 1 1 7C 1
+text2 0 F81C F81C 172 1
+text3 0 F47E F47E 10A 1
+text4 0 F304 F304 4C 1
+text5 0 F2B0 F2B0 28 1
+text6 0 F288 F288 28 1
+text7 0 F3B2 F3B2 CC 1
+text8 0 F266 F266 22 1
+text9 0 F6D2 F6D2 14A 1
+text10 0 F588 F588 14A 1
+text11 0 FB0E FB0E 222 1
+idataCOMRAM 0 F247 F247 1F 1
+cstackCOMRAM 1 1 1 79 1
 reset_vec 0 0 0 8 1
-bssBANK0 1 80 80 20 1
-idataBANK0 0 F3C2 F3C2 10 1
+idataBANK0 0 F2D8 F2D8 2C 1
+dataBANK0 1 80 80 3C 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

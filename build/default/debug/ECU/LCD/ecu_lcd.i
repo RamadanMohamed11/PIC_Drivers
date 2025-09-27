@@ -1,4 +1,4 @@
-# 1 "ECU/LED/ecu_led.c"
+# 1 "ECU/LCD/ecu_lcd.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ECU/LED/ecu_led.c" 2
+# 1 "ECU/LCD/ecu_lcd.c" 2
 
 
 
@@ -15,10 +15,10 @@
 
 
 
-# 1 "ECU/LED/ecu_led.h" 1
-# 12 "ECU/LED/ecu_led.h"
-# 1 "ECU/LED/../../MCAL/GPIO/hal_gpio.h" 1
-# 14 "ECU/LED/../../MCAL/GPIO/hal_gpio.h"
+# 1 "ECU/LCD/ecu_lcd.h" 1
+# 12 "ECU/LCD/ecu_lcd.h"
+# 1 "ECU/LCD/../../MCAL/GPIO/hal_gpio.h" 1
+# 14 "ECU/LCD/../../MCAL/GPIO/hal_gpio.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\proc\\../pic18.h" 1 3
 
 
@@ -4487,15 +4487,15 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 14 "ECU/LED/../../MCAL/GPIO/hal_gpio.h" 2
+# 14 "ECU/LCD/../../MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "ECU/LED/../../MCAL/GPIO/../std_types.h" 1
-# 12 "ECU/LED/../../MCAL/GPIO/../std_types.h"
-# 1 "ECU/LED/../../MCAL/GPIO/../compiler.h" 1
-# 12 "ECU/LED/../../MCAL/GPIO/../std_types.h" 2
+# 1 "ECU/LCD/../../MCAL/GPIO/../std_types.h" 1
+# 12 "ECU/LCD/../../MCAL/GPIO/../std_types.h"
+# 1 "ECU/LCD/../../MCAL/GPIO/../compiler.h" 1
+# 12 "ECU/LCD/../../MCAL/GPIO/../std_types.h" 2
 
-# 1 "ECU/LED/../../MCAL/GPIO/../std_libraries.h" 1
-# 12 "ECU/LED/../../MCAL/GPIO/../std_libraries.h"
+# 1 "ECU/LCD/../../MCAL/GPIO/../std_libraries.h" 1
+# 12 "ECU/LCD/../../MCAL/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4640,8 +4640,8 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "ECU/LED/../../MCAL/GPIO/../std_libraries.h" 2
-# 13 "ECU/LED/../../MCAL/GPIO/../std_types.h" 2
+# 12 "ECU/LCD/../../MCAL/GPIO/../std_libraries.h" 2
+# 13 "ECU/LCD/../../MCAL/GPIO/../std_types.h" 2
 
 
 typedef unsigned char uint8;
@@ -4653,15 +4653,15 @@ typedef signed short sint16;
 typedef signed int sint32;
 
 typedef uint8 Std_ReturnType;
-# 15 "ECU/LED/../../MCAL/GPIO/hal_gpio.h" 2
+# 15 "ECU/LCD/../../MCAL/GPIO/hal_gpio.h" 2
 
-# 1 "ECU/LED/../../MCAL/GPIO/../device_config.h" 1
-# 16 "ECU/LED/../../MCAL/GPIO/hal_gpio.h" 2
-# 41 "ECU/LED/../../MCAL/GPIO/hal_gpio.h"
+# 1 "ECU/LCD/../../MCAL/GPIO/../device_config.h" 1
+# 16 "ECU/LCD/../../MCAL/GPIO/hal_gpio.h" 2
+# 41 "ECU/LCD/../../MCAL/GPIO/hal_gpio.h"
 volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
 volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
 volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
-# 52 "ECU/LED/../../MCAL/GPIO/hal_gpio.h"
+# 52 "ECU/LCD/../../MCAL/GPIO/hal_gpio.h"
 typedef enum
 {
     GPIO_LOW,
@@ -4714,152 +4714,339 @@ Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direct
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t _port , volatile uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
-# 12 "ECU/LED/ecu_led.h" 2
-
-
-typedef enum
+# 12 "ECU/LCD/ecu_lcd.h" 2
+# 44 "ECU/LCD/ecu_lcd.h"
+typedef struct
 {
-    LED_OFF,
-    LED_ON
-}led_stutes;
+    uint8 port:3;
+    uint8 pin:3;
+}lcd_pin_t;
 
 typedef struct
 {
-    uint8 port : 3;
-    uint8 pin : 3;
-    uint8 state : 1;
-}led_t;
+    lcd_pin_t lcd_rs_pin;
+    lcd_pin_t lcd_en_pin;
+    lcd_pin_t lcd_data_pins[4];
+}lcd_4bit_t;
 
 typedef struct
 {
-    uint8 port : 3;
-    uint8 state : 1;
-}leds_in_port_t;
+    lcd_pin_t lcd_rs_pin;
+    lcd_pin_t lcd_en_pin;
+    lcd_pin_t lcd_data_pins[8];
+}lcd_8bit_t;
 
-Std_ReturnType led_initialize(const led_t* LED);
-Std_ReturnType led_turn_on(const led_t* LED);
-Std_ReturnType led_turn_off(const led_t* LED);
-Std_ReturnType led_toggle(const led_t* LED);
-
-Std_ReturnType led_port_initialize(const leds_in_port_t* LEDs);
-Std_ReturnType led_port_write(const leds_in_port_t* LEDs,const uint8* val);
-# 10 "ECU/LED/ecu_led.c" 2
-
-
-
+Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit);
+Std_ReturnType lcd_4bit_send_command(const lcd_4bit_t* lcd_4bit, const uint8 command);
+Std_ReturnType lcd_4bit_send_char_data(const lcd_4bit_t* lcd_4bit, const uint8 ch);
+Std_ReturnType lcd_4bit_send_char_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8 ch);
+Std_ReturnType lcd_4bit_send_string_data(const lcd_4bit_t* lcd_4bit, const uint8* str);
+Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str);
+Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos);
+Std_ReturnType lcd_4bit_set_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col);
 
 
+Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit);
+Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 command);
+Std_ReturnType lcd_8bit_send_char_data(const lcd_8bit_t* lcd_8bit, const uint8 ch);
+Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch);
+Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const uint8* str);
+Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str);
+Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos);
+Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col);
+# 9 "ECU/LCD/ecu_lcd.c" 2
 
-Std_ReturnType led_initialize(const led_t* LED)
+
+static Std_ReturnType LCD_send_4bits(const lcd_4bit_t *lcd_4bit, uint8 data_or_command);
+static Std_ReturnType LCD_send_4bit_enable_signal(const lcd_4bit_t *lcd_4bit);
+static Std_ReturnType LCD_convert_number_to_string(int value, uint8 *str);
+
+Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit)
 {
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(LED==((void*)0))
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0))
     {
-        state=(Std_ReturnType)0;
+        state = (Std_ReturnType)0;
     }
     else
     {
-        pin_config_t led={.port=LED->port,.pin=LED->pin,.direction=GPIO_OUTPUT,.logic=LED->state};
-        gpio_pin_direction_initialize(&led);
+        pin_config_t rs_pin = {.port = lcd_4bit->lcd_rs_pin.port,
+                               .pin = lcd_4bit->lcd_rs_pin.pin,
+                               .direction = GPIO_OUTPUT,
+                               .logic = GPIO_LOW};
+        state &= gpio_pin_direction_initialize(&rs_pin);
+        pin_config_t en_pin = {.port = lcd_4bit->lcd_en_pin.port,
+                               .pin = lcd_4bit->lcd_en_pin.pin,
+                               .direction = GPIO_OUTPUT,
+                               .logic = GPIO_LOW};
+        state &= gpio_pin_direction_initialize(&en_pin);
+
+        for(uint8 local_index=0; local_index<4; local_index++)
+        {
+            pin_config_t data_pin = {.port = lcd_4bit->lcd_data_pins[local_index].port,
+                                     .pin = lcd_4bit->lcd_data_pins[local_index].pin,
+                                     .direction = GPIO_OUTPUT,
+                                     .logic = GPIO_LOW};
+            state &= gpio_pin_direction_initialize(&data_pin);
+        }
     }
-    return state;
+}
+
+Std_ReturnType lcd_4bit_send_command(const lcd_4bit_t* lcd_4bit, const uint8 command)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+
+Std_ReturnType lcd_4bit_send_char_data(const lcd_4bit_t* lcd_4bit, const uint8 ch)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+
+Std_ReturnType lcd_4bit_send_char_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8 ch)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0) || row > 4 || col > 80)
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+
+Std_ReturnType lcd_4bit_send_string_data(const lcd_4bit_t* lcd_4bit, const uint8* str)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0) || str == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+
+Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0) || row > 4 || col > 80 || str == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+
+Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+
+Std_ReturnType lcd_4bit_set_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0) || row > 4 || col > 80)
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
 }
 
 
-
-
-
-
-Std_ReturnType led_turn_on(const led_t* LED)
+Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit)
 {
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(LED==((void*)0))
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_8bit == ((void*)0))
     {
-        state=(Std_ReturnType)0;
+        state = (Std_ReturnType)0;
     }
     else
     {
-        pin_config_t led={.port=LED->port,.pin=LED->pin,.direction=GPIO_OUTPUT,.logic=LED->state};
-        gpio_pin_write_logic(&led,GPIO_HIGH);
+
+        pin_config_t rs_pin = { .port = lcd_8bit->lcd_rs_pin.port,
+                                .pin = lcd_8bit->lcd_rs_pin.pin,
+                                .direction = GPIO_OUTPUT,
+                                .logic = GPIO_LOW};
+        state &= gpio_pin_direction_initialize(&rs_pin);
+        pin_config_t en_pin = { .port = lcd_8bit->lcd_en_pin.port,
+                                .pin = lcd_8bit->lcd_en_pin.pin,
+                                .direction = GPIO_OUTPUT,
+                                .logic = GPIO_LOW};
+        state &= gpio_pin_direction_initialize(&en_pin);
+
+        for(uint8 local_index=0; local_index<8; local_index++)
+        {
+            pin_config_t data_pin = { .port = lcd_8bit->lcd_data_pins[local_index].port,
+                                      .pin = lcd_8bit->lcd_data_pins[local_index].pin,
+                                      .direction = GPIO_OUTPUT,
+                                      .logic = GPIO_LOW};
+            state &= gpio_pin_direction_initialize(&data_pin);
+        }
     }
-    return state;
 }
 
-
-
-
-
-
-Std_ReturnType led_turn_off(const led_t* LED)
+Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 command)
 {
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(LED==((void*)0))
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_8bit == ((void*)0))
     {
-        state=(Std_ReturnType)0;
+        state = (Std_ReturnType)0;
     }
     else
     {
-        pin_config_t led={.port=LED->port,.pin=LED->pin,.direction=GPIO_OUTPUT,.logic=LED->state};
-        gpio_pin_write_logic(&led,GPIO_LOW);
+
     }
-    return state;
 }
 
-
-
-
-
-
-Std_ReturnType led_toggle(const led_t* LED)
+Std_ReturnType lcd_8bit_send_char_data(const lcd_8bit_t* lcd_8bit, const uint8 ch)
 {
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(LED==((void*)0))
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_8bit == ((void*)0))
     {
-        state=(Std_ReturnType)0;
+        state = (Std_ReturnType)0;
     }
     else
     {
-        pin_config_t led={.port=LED->port,.pin=LED->pin,.direction=GPIO_OUTPUT,.logic=LED->state};
-        gpio_pin_toggle_logic(&led);
+
     }
-    return state;
 }
 
-
-
-
-
-
-Std_ReturnType led_port_initialize(const leds_in_port_t* LEDs)
+Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch)
 {
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(LEDs==((void*)0))
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_8bit == ((void*)0) || row > 4 || col > 80)
     {
-        state=(Std_ReturnType)0;
+        state = (Std_ReturnType)0;
     }
     else
     {
-        gpio_port_direction_initialize(LEDs->port,0x00);
-        gpio_port_write_logic(LEDs->port,LEDs->state);
+
     }
-    return state;
 }
 
-
-
-
-
-
-Std_ReturnType led_port_write(const leds_in_port_t* LEDs,const uint8* val)
+Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const uint8* str)
 {
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(LEDs==((void*)0))
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_8bit == ((void*)0) || str == ((void*)0))
     {
-        state=(Std_ReturnType)0;
+        state = (Std_ReturnType)0;
     }
     else
     {
-        gpio_port_write_logic(LEDs->port,*val);
+
     }
-    return state;
+}
+
+Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_8bit == ((void*)0) || row > 4 || col > 80 || str == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+
+Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_8bit == ((void*)0) || row > 4 || col > 80 || str == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+
+Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_8bit == ((void*)0) || row > 4 || col > 80)
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+
+static Std_ReturnType LCD_send_4bits(const lcd_4bit_t *lcd_4bit, uint8 data_or_command)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+        for(uint8 local_index=0; local_index<4; local_index++)
+        {
+            pin_config_t data_pin = {.port = lcd_4bit->lcd_data_pins[local_index].port,
+                                     .pin = lcd_4bit->lcd_data_pins[local_index].pin
+                                    };
+            state &= gpio_pin_write_logic(&data_pin, (data_or_command >> local_index) & 0x01);
+        }
+    }
+}
+
+static Std_ReturnType LCD_send_4bit_enable_signal(const lcd_4bit_t *lcd_4bit)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(lcd_4bit == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
+}
+static Std_ReturnType LCD_convert_number_to_string(int value,uint8 *str)
+{
+    Std_ReturnType state = (Std_ReturnType)1;
+    if(str == ((void*)0))
+    {
+        state = (Std_ReturnType)0;
+    }
+    else
+    {
+
+    }
 }

@@ -12,4 +12,5 @@ ECU/BUTTON/ecu_button.h  \
 ECU/DC_MOTOR/ecu_dc_motor.h  \
 ECU/RELAY/ecu_relay.h  \
 ECU/Keypad/ecu_keypad.h  \
-ECU/RGB_LED/ecu_rgb_led.h 
+ECU/RGB_LED/ecu_rgb_led.h  \
+ECU/LCD/ecu_lcd.h 

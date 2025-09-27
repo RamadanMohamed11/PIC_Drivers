@@ -33,7 +33,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S275 :3 `uc 1 :3 `uc 1 ]
 [n S275 . port pin ]
 "101 ECU/7_Segment/ecu_7_segment.c
-[; ;ECU/7_Segment/ecu_7_segment.c: 101:         gpio_pin_write_logic(&seg,GPIO_LOW);
+[; ;ECU/7_Segment/ecu_7_segment.c: 101:         state |= gpio_pin_write_logic(&seg,GPIO_LOW);
 [c E2801 0 1 .. ]
 [n E2801 . GPIO_LOW GPIO_HIGH  ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
@@ -565,8 +565,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/7_Segment/ecu_7_segment.c: 30:         {
 {
 "31
-[; ;ECU/7_Segment/ecu_7_segment.c: 31:             gpio_pin_direction_initialize(&seg[i]);
-[e ( _gpio_pin_direction_initialize (1 -> &U *U + &U _seg * -> -> _i `ui `ux -> -> # *U &U _seg `ui `ux `*CS272 ]
+[; ;ECU/7_Segment/ecu_7_segment.c: 31:             state |= gpio_pin_direction_initialize(&seg[i]);
+[e =| _state -> ( _gpio_pin_direction_initialize (1 -> &U *U + &U _seg * -> -> _i `ui `ux -> -> # *U &U _seg `ui `ux `*CS272 `uc ]
 "32
 [; ;ECU/7_Segment/ecu_7_segment.c: 32:         }
 }
@@ -672,8 +672,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/7_Segment/ecu_7_segment.c: 58:         {
 {
 "59
-[; ;ECU/7_Segment/ecu_7_segment.c: 59:             gpio_pin_write_logic(&seg[i],number & 1);
-[e ( _gpio_pin_write_logic (2 , -> &U *U + &U _seg * -> -> _i `ui `ux -> -> # *U &U _seg `ui `ux `*CS272 -> & -> _number `i -> 1 `i `uc ]
+[; ;ECU/7_Segment/ecu_7_segment.c: 59:             state |= gpio_pin_write_logic(&seg[i],number & 1);
+[e =| _state -> ( _gpio_pin_write_logic (2 , -> &U *U + &U _seg * -> -> _i `ui `ux -> -> # *U &U _seg `ui `ux `*CS272 -> & -> _number `i -> 1 `i `uc `uc ]
 "60
 [; ;ECU/7_Segment/ecu_7_segment.c: 60:             number>>=1;
 [e =>> _number -> -> 1 `i `uc ]
@@ -749,8 +749,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _seg F2902 ]
 [e ; = . _seg 0 . *U _segment 0 ; = . _seg 1 . *U _segment 1 = . _seg 2 -> . `E2805 0 `uc ]
 "81
-[; ;ECU/7_Segment/ecu_7_segment.c: 81:         gpio_pin_direction_initialize(&seg);
-[e ( _gpio_pin_direction_initialize (1 -> &U _seg `*CS272 ]
+[; ;ECU/7_Segment/ecu_7_segment.c: 81:         state |= gpio_pin_direction_initialize(&seg);
+[e =| _state -> ( _gpio_pin_direction_initialize (1 -> &U _seg `*CS272 `uc ]
 "82
 [; ;ECU/7_Segment/ecu_7_segment.c: 82:     }
 }
@@ -816,8 +816,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _seg F2907 ]
 [e ; = . _seg 0 . *U _segment 0 = . _seg 1 . *U _segment 1 ]
 "101
-[; ;ECU/7_Segment/ecu_7_segment.c: 101:         gpio_pin_write_logic(&seg,GPIO_LOW);
-[e ( _gpio_pin_write_logic (2 , -> &U _seg `*CS272 -> . `E2801 0 `uc ]
+[; ;ECU/7_Segment/ecu_7_segment.c: 101:         state |= gpio_pin_write_logic(&seg,GPIO_LOW);
+[e =| _state -> ( _gpio_pin_write_logic (2 , -> &U _seg `*CS272 -> . `E2801 0 `uc `uc ]
 "102
 [; ;ECU/7_Segment/ecu_7_segment.c: 102:     }
 }
@@ -883,8 +883,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _seg F2912 ]
 [e ; = . _seg 0 . *U _segment 0 = . _seg 1 . *U _segment 1 ]
 "121
-[; ;ECU/7_Segment/ecu_7_segment.c: 121:         gpio_pin_write_logic(&seg,GPIO_HIGH);
-[e ( _gpio_pin_write_logic (2 , -> &U _seg `*CS272 -> . `E2801 1 `uc ]
+[; ;ECU/7_Segment/ecu_7_segment.c: 121:         state |= gpio_pin_write_logic(&seg,GPIO_HIGH);
+[e =| _state -> ( _gpio_pin_write_logic (2 , -> &U _seg `*CS272 -> . `E2801 1 `uc `uc ]
 "122
 [; ;ECU/7_Segment/ecu_7_segment.c: 122:     }
 }

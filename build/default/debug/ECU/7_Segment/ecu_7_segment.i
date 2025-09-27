@@ -4712,7 +4712,7 @@ Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
 Std_ReturnType gpio_port_direction_initialize(port_index_t _port , uint8 direction);
 Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direction);
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
-Std_ReturnType gpio_port_read_logic(port_index_t _port , uint8* logic);
+Std_ReturnType gpio_port_read_logic(port_index_t _port , volatile uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
 # 12 "ECU/7_Segment/ecu_7_segment.h" 2
 
@@ -4769,7 +4769,7 @@ Std_ReturnType segment_initialize(const segment_t* segment)
                             ,{.port=segment->segment_pins[3].port,.pin=segment->segment_pins[3].pin,.direction=GPIO_OUTPUT}};
         for(int i=0;i<4;i++)
         {
-            gpio_pin_direction_initialize(&seg[i]);
+            state &= gpio_pin_direction_initialize(&seg[i]);
         }
         segment_write(segment,0);
     }
@@ -4797,7 +4797,7 @@ Std_ReturnType segment_write(const segment_t* segment,uint8 number)
                             ,{.port=segment->segment_pins[3].port,.pin=segment->segment_pins[3].pin}};
         for(int i=0;i<4;i++)
         {
-            gpio_pin_write_logic(&seg[i],number & 1);
+            state &= gpio_pin_write_logic(&seg[i],number & 1);
             number>>=1;
         }
     }
@@ -4819,7 +4819,7 @@ Std_ReturnType segment_multi_initialize(const segment_multi_pin_t* segment)
     else
     {
         pin_config_t seg={.port=segment->port,.pin=segment->pin,.direction=GPIO_OUTPUT};
-        gpio_pin_direction_initialize(&seg);
+        state &= gpio_pin_direction_initialize(&seg);
     }
     return state;
 }
@@ -4839,7 +4839,7 @@ Std_ReturnType segment_multi_enable(const segment_multi_pin_t* segment)
     else
     {
         pin_config_t seg={.port=segment->port,.pin=segment->pin};
-        gpio_pin_write_logic(&seg,GPIO_LOW);
+        state &= gpio_pin_write_logic(&seg,GPIO_LOW);
     }
     return state;
 }
@@ -4859,7 +4859,7 @@ Std_ReturnType segment_multi_disable(const segment_multi_pin_t* segment)
     else
     {
         pin_config_t seg={.port=segment->port,.pin=segment->pin};
-        gpio_pin_write_logic(&seg,GPIO_HIGH);
+        state &= gpio_pin_write_logic(&seg,GPIO_HIGH);
     }
     return state;
 }

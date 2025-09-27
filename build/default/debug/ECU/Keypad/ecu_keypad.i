@@ -4712,7 +4712,7 @@ Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
 Std_ReturnType gpio_port_direction_initialize(port_index_t _port , uint8 direction);
 Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direction);
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
-Std_ReturnType gpio_port_read_logic(port_index_t _port , uint8* logic);
+Std_ReturnType gpio_port_read_logic(port_index_t _port , volatile uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
 # 12 "ECU/Keypad/ecu_keypad.h" 2
 
@@ -4748,11 +4748,11 @@ Std_ReturnType keypad_initialize(const keypad_t* keypad , const uint8 keypad_cha
     {
         for(uint8 row_counter=0;row_counter<4;row_counter++)
         {
-            gpio_pin_direction_initialize(&(keypad->Keypad_row_pins[row_counter]));
+            state &= gpio_pin_direction_initialize(&(keypad->Keypad_row_pins[row_counter]));
             for(uint8 col_counter=0;col_counter<4;col_counter++)
             {
                 if(row_counter==0)
-                    gpio_pin_direction_initialize(&(keypad->Keypad_col_pins[col_counter]));
+                state &= gpio_pin_direction_initialize(&(keypad->Keypad_col_pins[col_counter]));
                 local_keypad_chars[row_counter][col_counter]=((keypad_chars[row_counter][col_counter]));
             }
         }
@@ -4778,10 +4778,10 @@ Std_ReturnType keypad_get_char(const keypad_t* keypad , uint8* chr)
         uint8 logic;
         for(uint8 row_counter=0;row_counter<4;row_counter++)
         {
-            gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter]),GPIO_HIGH);
+            state &= gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter]),GPIO_HIGH);
             for(uint8 col_counter=0;col_counter<4;col_counter++)
             {
-                gpio_pin_read_logic(&(keypad->Keypad_col_pins[col_counter]),&logic);
+                state &= gpio_pin_read_logic(&(keypad->Keypad_col_pins[col_counter]),&logic);
                 if(logic==GPIO_HIGH)
                 {
                     *chr=local_keypad_chars[row_counter][col_counter];
@@ -4790,7 +4790,7 @@ Std_ReturnType keypad_get_char(const keypad_t* keypad , uint8* chr)
             }
             for(uint8 row_counter_in=0;row_counter_in<4;row_counter_in++)
             {
-                gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter_in]),GPIO_LOW);
+                state &= gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter_in]),GPIO_LOW);
             }
         }
     }

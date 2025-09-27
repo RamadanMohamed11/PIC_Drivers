@@ -51,14 +51,14 @@ typedef struct
 {
     lcd_pin_t lcd_rs_pin;
     lcd_pin_t lcd_en_pin;
-    lcd_pin_t lcd_data_pins[FOUR_DATA_PINS_NUMBER]
+    lcd_pin_t lcd_data_pins[FOUR_DATA_PINS_NUMBER];
 }lcd_4bit_t;
 
 typedef struct
 {
     lcd_pin_t lcd_rs_pin;
     lcd_pin_t lcd_en_pin;
-    lcd_pin_t lcd_data_pins[EIGHT_DATA_PINS_NUMBER]
+    lcd_pin_t lcd_data_pins[EIGHT_DATA_PINS_NUMBER];
 }lcd_8bit_t;
 
 Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit);
@@ -76,7 +76,7 @@ Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 com
 Std_ReturnType lcd_8bit_send_char_data(const lcd_8bit_t* lcd_8bit, const uint8 ch);
 Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch);
 Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const uint8* str);
-Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* ch);
+Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str);
 Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos);
 Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col);
 

@@ -162,7 +162,7 @@ Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic)
  * @param _pin_config
  * @return 
  */
-Std_ReturnType gpio_port_read_logic( port_index_t _port , uint8* logic)
+Std_ReturnType gpio_port_read_logic( port_index_t _port , volatile uint8* logic)
 {
     Std_ReturnType state=E_OK;
     if(logic==NULL)

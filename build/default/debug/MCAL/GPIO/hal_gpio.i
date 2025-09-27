@@ -4710,7 +4710,7 @@ Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
 Std_ReturnType gpio_port_direction_initialize(port_index_t _port , uint8 direction);
 Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direction);
 Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
-Std_ReturnType gpio_port_read_logic(port_index_t _port , uint8* logic);
+Std_ReturnType gpio_port_read_logic(port_index_t _port , volatile uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
 # 10 "MCAL/GPIO/hal_gpio.c" 2
 Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config)
@@ -4868,7 +4868,7 @@ Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic)
 
 
 
-Std_ReturnType gpio_port_read_logic( port_index_t _port , uint8* logic)
+Std_ReturnType gpio_port_read_logic( port_index_t _port , volatile uint8* logic)
 {
     Std_ReturnType state=(Std_ReturnType)1;
     if(logic==((void*)0))
