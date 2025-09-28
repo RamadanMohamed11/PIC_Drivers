@@ -8,6 +8,14 @@
 
 #include "application.h"
 
+uint8 customChars[][8] = {{0x0E,0x0A,0x1B,0x11,0x11,0x11,0x1F,0x00},
+                         {0x0E,0x0A,0x1B,0x11,0x11,0x1F,0x1F,0x00},
+                         {0x0E,0x0A,0x1B,0x11,0x1F,0x1F,0x1F,0x00},
+                         {0x0E,0x0A,0x1B,0x1F,0x1F,0x1F,0x1F,0x00},
+                         {0x0E,0x0A,0x1B,0x1F,0x1F,0x1F,0x1F,0x00},
+                         {0x0E,0x0A,0x1F,0x1F,0x1F,0x1F,0x1F,0x00},
+                         {0x0E,0x0E,0x1F,0x1F,0x1F,0x1F,0x1F,0x00}};
+
 lcd_4bit_t lcd_4bit={.lcd_rs_pin.port=PORTB_INDEX,.lcd_rs_pin.pin=PIN0,
                     .lcd_en_pin.port=PORTB_INDEX,.lcd_en_pin.pin=PIN1,
                     .lcd_data_pins[0].port=PORTB_INDEX,.lcd_data_pins[0].pin=PIN2,
@@ -37,21 +45,24 @@ lcd_8bit_t lcd_8bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
 int main(void) 
 {    
     application_initialize();
-    lcd_8bit_send_string_at_position(&lcd_8bit, 1, 4, "Hello World");
-    lcd_4bit_send_string_at_position(&lcd_4bit, 1, 4, "Hello World");
+    // lcd_8bit_send_string_at_position(&lcd_8bit, 1, 4, "Hello World");
+    // lcd_4bit_send_string_at_position(&lcd_4bit, 1, 4, "Hello World");
+    for(uint8 local_index=0; local_index<7; local_index++)
+    {
+        lcd_8bit_send_custome_char(&lcd_8bit, 1, 1, customChars[local_index], local_index);
+        lcd_4bit_send_custome_char(&lcd_4bit, 1, 1, customChars[local_index], local_index);
+    }
 
-    lcd_8bit_send_string_at_position(&lcd_8bit, 2, 5, "Counter = ");
-    lcd_4bit_send_string_at_position(&lcd_4bit, 2, 5, "Counter = ");
-
-    sint32 counter1 = 0;
-    sint32 counter2 = 0;
     while(1)
     {
-        counter1++;
-        counter2--;
-        lcd_8bit_send_number_at_position(&lcd_8bit, 2, 15, counter1);
-        lcd_4bit_send_number_at_position(&lcd_4bit, 2, 15, counter2);
-        __delay_ms(50);
+        for(uint8 local_index=0; local_index<7; local_index++)
+        {
+//            lcd_4bit_send_command(&lcd_4bit, LCD_CGRAM_START + 0);
+//            lcd_8bit_send_command(&lcd_8bit, LCD_CGRAM_START + 0);
+            lcd_4bit_send_char_at_position(&lcd_4bit, 4, 4, local_index);
+            lcd_8bit_send_char_at_position(&lcd_8bit, 4, 4, local_index);
+            __delay_ms(500);
+        }
     }
     return (EXIT_SUCCESS);
 }

@@ -33,18 +33,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27 ./application.h
 [; ;./application.h: 27: Std_ReturnType application_initialize(void);
 [v _application_initialize `(uc ~T0 @X0 0 ef ]
-"87 ./ECU/LCD/ecu_lcd.h
-[; ;./ECU/LCD/ecu_lcd.h: 87: Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const char* str);
-[v _lcd_8bit_send_string_at_position `(uc ~T0 @X0 0 ef4`*CS286`Cuc`Cuc`*Cuc ]
-"75
-[; ;./ECU/LCD/ecu_lcd.h: 75: Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const char* str);
-[v _lcd_4bit_send_string_at_position `(uc ~T0 @X0 0 ef4`*CS285`Cuc`Cuc`*Cuc ]
-"91
-[; ;./ECU/LCD/ecu_lcd.h: 91: Std_ReturnType lcd_8bit_send_number_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, sint32 value);
-[v _lcd_8bit_send_number_at_position `(uc ~T0 @X0 0 ef4`*CS286`Cuc`Cuc`l ]
-"79
-[; ;./ECU/LCD/ecu_lcd.h: 79: Std_ReturnType lcd_4bit_send_number_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, sint32 value);
-[v _lcd_4bit_send_number_at_position `(uc ~T0 @X0 0 ef4`*CS285`Cuc`Cuc`l ]
+"88 ./ECU/LCD/ecu_lcd.h
+[; ;./ECU/LCD/ecu_lcd.h: 88: Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const char* str, uint8 mem_pos);
+[v _lcd_8bit_send_custome_char `(uc ~T0 @X0 0 ef5`*CS286`Cuc`Cuc`*Cuc`uc ]
+"76
+[; ;./ECU/LCD/ecu_lcd.h: 76: Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const char* str, uint8 mem_pos);
+[v _lcd_4bit_send_custome_char `(uc ~T0 @X0 0 ef5`*CS285`Cuc`Cuc`*Cuc`uc ]
+"73
+[; ;./ECU/LCD/ecu_lcd.h: 73: Std_ReturnType lcd_4bit_send_char_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8 ch);
+[v _lcd_4bit_send_char_at_position `(uc ~T0 @X0 0 ef4`*CS285`Cuc`Cuc`Cuc ]
+"85
+[; ;./ECU/LCD/ecu_lcd.h: 85: Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch);
+[v _lcd_8bit_send_char_at_position `(uc ~T0 @X0 0 ef4`*CS286`Cuc`Cuc`Cuc ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
@@ -531,8 +531,86 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
+[v F3101 `uc ~T0 @X0 -> 8 `i t ]
 "11 application.c
-[; ;application.c: 11: lcd_4bit_t lcd_4bit={.lcd_rs_pin.port=PORTB_INDEX,.lcd_rs_pin.pin=PIN0,
+[; ;application.c: 11: uint8 customChars[][8] = {{0x0E,0x0A,0x1B,0x11,0x11,0x11,0x1F,0x00},
+[v _customChars `F3101 ~T0 @X0 -> 7 `i e ]
+[i _customChars
+:U ..
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 27 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 27 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 27 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 27 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 27 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+:U ..
+-> -> 14 `i `uc
+-> -> 14 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+"19
+[; ;application.c: 19: lcd_4bit_t lcd_4bit={.lcd_rs_pin.port=PORTB_INDEX,.lcd_rs_pin.pin=PIN0,
 [v _lcd_4bit `S285 ~T0 @X0 1 e ]
 [i _lcd_4bit
 :U ..
@@ -570,8 +648,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"18
-[; ;application.c: 18: lcd_8bit_t lcd_8bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
+"26
+[; ;application.c: 26: lcd_8bit_t lcd_8bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
 [v _lcd_8bit `S286 ~T0 @X0 1 e ]
 [i _lcd_8bit
 :U ..
@@ -626,99 +704,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"37
-[; ;application.c: 37: int main(void)
+"45
+[; ;application.c: 45: int main(void)
 [v _main `(i ~T0 @X0 1 ef ]
-"38
-[; ;application.c: 38: {
+"46
+[; ;application.c: 46: {
 {
 [e :U _main ]
 [f ]
-"39
-[; ;application.c: 39:     application_initialize();
-[e ( _application_initialize ..  ]
-"40
-[; ;application.c: 40:     lcd_8bit_send_string_at_position(&lcd_8bit, 1, 4, "Hello World");
-[e ( _lcd_8bit_send_string_at_position (4 , , , -> &U _lcd_8bit `*CS286 -> -> 1 `i `uc -> -> 4 `i `uc :s 1C ]
-"41
-[; ;application.c: 41:     lcd_4bit_send_string_at_position(&lcd_4bit, 1, 4, "Hello World");
-[e ( _lcd_4bit_send_string_at_position (4 , , , -> &U _lcd_4bit `*CS285 -> -> 1 `i `uc -> -> 4 `i `uc :s 2C ]
-"43
-[; ;application.c: 43:     lcd_8bit_send_string_at_position(&lcd_8bit, 2, 5, "Counter = ");
-[e ( _lcd_8bit_send_string_at_position (4 , , , -> &U _lcd_8bit `*CS286 -> -> 2 `i `uc -> -> 5 `i `uc :s 3C ]
-"44
-[; ;application.c: 44:     lcd_4bit_send_string_at_position(&lcd_4bit, 2, 5, "Counter = ");
-[e ( _lcd_4bit_send_string_at_position (4 , , , -> &U _lcd_4bit `*CS285 -> -> 2 `i `uc -> -> 5 `i `uc :s 4C ]
-"46
-[; ;application.c: 46:     sint32 counter1 = 0;
-[v _counter1 `l ~T0 @X0 1 a ]
-[e = _counter1 -> -> 0 `i `l ]
 "47
-[; ;application.c: 47:     sint32 counter2 = 0;
-[v _counter2 `l ~T0 @X0 1 a ]
-[e = _counter2 -> -> 0 `i `l ]
-"48
-[; ;application.c: 48:     while(1)
-[e :U 289 ]
-"49
-[; ;application.c: 49:     {
-{
+[; ;application.c: 47:     application_initialize();
+[e ( _application_initialize ..  ]
 "50
-[; ;application.c: 50:         counter1++;
-[e ++ _counter1 -> -> 1 `i `l ]
-"51
-[; ;application.c: 51:         counter2--;
-[e -- _counter2 -> -> 1 `i `l ]
-"52
-[; ;application.c: 52:         lcd_8bit_send_number_at_position(&lcd_8bit, 2, 15, counter1);
-[e ( _lcd_8bit_send_number_at_position (4 , , , -> &U _lcd_8bit `*CS286 -> -> 2 `i `uc -> -> 15 `i `uc _counter1 ]
-"53
-[; ;application.c: 53:         lcd_4bit_send_number_at_position(&lcd_4bit, 2, 15, counter2);
-[e ( _lcd_4bit_send_number_at_position (4 , , , -> &U _lcd_4bit `*CS285 -> -> 2 `i `uc -> -> 15 `i `uc _counter2 ]
-"54
-[; ;application.c: 54:         _delay((unsigned long)((50)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"55
-[; ;application.c: 55:     }
-}
-[e :U 288 ]
+[; ;application.c: 50:     for(uint8 local_index=0; local_index<7; local_index++)
+{
+[v _local_index `uc ~T0 @X0 1 a ]
+[e = _local_index -> -> 0 `i `uc ]
+[e $ < -> _local_index `i -> 7 `i 288  ]
 [e $U 289  ]
-[e :U 290 ]
+[e :U 288 ]
+"51
+[; ;application.c: 51:     {
+{
+"52
+[; ;application.c: 52:         lcd_8bit_send_custome_char(&lcd_8bit, 1, 1, customChars[local_index], local_index);
+[e ( _lcd_8bit_send_custome_char (4 , , , , -> &U _lcd_8bit `*CS286 -> -> 1 `i `uc -> -> 1 `i `uc -> &U *U + &U _customChars * -> _local_index `ux -> * -> # *U &U *U &U _customChars `ui -> -> 8 `i `ui `ux `*Cuc _local_index ]
+"53
+[; ;application.c: 53:         lcd_4bit_send_custome_char(&lcd_4bit, 1, 1, customChars[local_index], local_index);
+[e ( _lcd_4bit_send_custome_char (4 , , , , -> &U _lcd_4bit `*CS285 -> -> 1 `i `uc -> -> 1 `i `uc -> &U *U + &U _customChars * -> _local_index `ux -> * -> # *U &U *U &U _customChars `ui -> -> 8 `i `ui `ux `*Cuc _local_index ]
+"54
+[; ;application.c: 54:     }
+}
+[e ++ _local_index -> -> 1 `i `uc ]
+[e $ < -> _local_index `i -> 7 `i 288  ]
+[e :U 289 ]
+}
 "56
-[; ;application.c: 56:     return (0);
+[; ;application.c: 56:     while(1)
+[e :U 292 ]
+"57
+[; ;application.c: 57:     {
+{
+"58
+[; ;application.c: 58:         for(uint8 local_index=0; local_index<7; local_index++)
+{
+[v _local_index `uc ~T0 @X0 1 a ]
+[e = _local_index -> -> 0 `i `uc ]
+[e $ < -> _local_index `i -> 7 `i 294  ]
+[e $U 295  ]
+[e :U 294 ]
+"59
+[; ;application.c: 59:         {
+{
+"62
+[; ;application.c: 62:             lcd_4bit_send_char_at_position(&lcd_4bit, 4, 4, local_index);
+[e ( _lcd_4bit_send_char_at_position (4 , , , -> &U _lcd_4bit `*CS285 -> -> 4 `i `uc -> -> 4 `i `uc _local_index ]
+"63
+[; ;application.c: 63:             lcd_8bit_send_char_at_position(&lcd_8bit, 4, 4, local_index);
+[e ( _lcd_8bit_send_char_at_position (4 , , , -> &U _lcd_8bit `*CS286 -> -> 4 `i `uc -> -> 4 `i `uc _local_index ]
+"64
+[; ;application.c: 64:             _delay((unsigned long)((500)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"65
+[; ;application.c: 65:         }
+}
+[e ++ _local_index -> -> 1 `i `uc ]
+[e $ < -> _local_index `i -> 7 `i 294  ]
+[e :U 295 ]
+}
+"66
+[; ;application.c: 66:     }
+}
+[e :U 291 ]
+[e $U 292  ]
+[e :U 293 ]
+"67
+[; ;application.c: 67:     return (0);
 [e ) -> 0 `i ]
 [e $UE 287  ]
-"57
-[; ;application.c: 57: }
+"68
+[; ;application.c: 68: }
 [e :UE 287 ]
 }
-"59
-[; ;application.c: 59: Std_ReturnType application_initialize(void)
+"70
+[; ;application.c: 70: Std_ReturnType application_initialize(void)
 [v _application_initialize `(uc ~T0 @X0 1 ef ]
-"60
-[; ;application.c: 60: {
+"71
+[; ;application.c: 71: {
 {
 [e :U _application_initialize ]
 [f ]
-"61
-[; ;application.c: 61:     Std_ReturnType state = (Std_ReturnType)1;
+"72
+[; ;application.c: 72:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"62
-[; ;application.c: 62:     state &= lcd_4bit_initialize(&lcd_4bit);
+"73
+[; ;application.c: 73:     state &= lcd_4bit_initialize(&lcd_4bit);
 [e =& _state -> ( _lcd_4bit_initialize (1 -> &U _lcd_4bit `*CS285 `uc ]
-"63
-[; ;application.c: 63:     state &= lcd_8bit_initialize(&lcd_8bit);
+"74
+[; ;application.c: 74:     state &= lcd_8bit_initialize(&lcd_8bit);
 [e =& _state -> ( _lcd_8bit_initialize (1 -> &U _lcd_8bit `*CS286 `uc ]
-"64
-[; ;application.c: 64:     return state;
+"75
+[; ;application.c: 75:     return state;
 [e ) _state ]
-[e $UE 291  ]
-"65
-[; ;application.c: 65: }
-[e :UE 291 ]
+[e $UE 297  ]
+"76
+[; ;application.c: 76: }
+[e :UE 297 ]
 }
-[a 1C 72 101 108 108 111 32 87 111 114 108 100 0 ]
-[a 2C 72 101 108 108 111 32 87 111 114 108 100 0 ]
-[a 3C 67 111 117 110 116 101 114 32 61 32 0 ]
-[a 4C 67 111 117 110 116 101 114 32 61 32 0 ]

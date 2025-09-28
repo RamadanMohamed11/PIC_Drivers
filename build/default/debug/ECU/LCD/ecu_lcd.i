@@ -4911,7 +4911,12 @@ Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint
     }
     else
     {
-
+        state &= lcd_4bit_send_command(lcd_4bit, 0x40 + (mem_pos * 8));
+        for(uint8 local_index=0; local_index<8; local_index++)
+        {
+            state &= lcd_4bit_send_char_data(lcd_4bit, str[local_index]);
+        }
+        state &= lcd_4bit_send_char_at_position(lcd_4bit, row, col, mem_pos);
     }
     return state;
 }
@@ -5115,7 +5120,12 @@ Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint
     }
     else
     {
-
+        state &= lcd_8bit_send_command(lcd_8bit, 0x40 + (mem_pos * 8));
+        for(uint8 local_index=0; local_index<8; local_index++)
+        {
+            state &= lcd_8bit_send_char_data(lcd_8bit, str[local_index]);
+        }
+        state &= lcd_8bit_send_char_at_position(lcd_8bit, row, col, mem_pos);
     }
     return state;
 }
@@ -5236,7 +5246,8 @@ static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *lcd_4bit)
     }
     return state;
 }
-static Std_ReturnType lcd_convert_number_to_string(sint32 value,uint8 *str)
+
+static Std_ReturnType lcd_convert_number_to_string(sint32 value, uint8 *str)
 {
     Std_ReturnType state = (Std_ReturnType)1;
     if (str == ((void*)0)) {
@@ -5244,26 +5255,29 @@ static Std_ReturnType lcd_convert_number_to_string(sint32 value,uint8 *str)
     } else {
         uint8 local_index = 0;
         uint8 is_negative = 0;
+        uint32 temp_val;
+
         if (value < 0) {
             is_negative = 1;
-            value = -value;
-            str[local_index++] = '-';
+            temp_val = -value;
+        } else {
+            temp_val = value;
         }
 
-        if (value == 0) {
+        if (temp_val == 0) {
             str[local_index++] = '0';
         } else {
-            while (value > 0) {
-                str[local_index++] = (value % 10) + '0';
-                value /= 10;
+            while (temp_val > 0) {
+                str[local_index++] = (temp_val % 10) + '0';
+                temp_val /= 10;
             }
         }
 
         if (is_negative) {
-            reverse_string(str + 1, local_index - 1);
-        } else {
-            reverse_string(str, local_index);
+            str[local_index++] = '-';
         }
+
+        reverse_string(str, local_index);
         str[local_index] = '\0';
     }
     return state;
@@ -5280,7 +5294,7 @@ static void reverse_string(uint8 *str, uint8 len)
         j--;
     }
 }
-# 571 "ECU/LCD/ecu_lcd.c"
+# 585 "ECU/LCD/ecu_lcd.c"
 static Std_ReturnType lcd_send_8bits(const lcd_8bit_t *lcd_8bit, uint8 data_or_command)
 {
     Std_ReturnType state = (Std_ReturnType)1;
