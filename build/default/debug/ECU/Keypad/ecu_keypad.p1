@@ -15,7 +15,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/Keypad/../../MCAL/GPIO/hal_gpio.h: 95: Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic);
 [v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS272`uc ]
 "57 ECU/Keypad/ecu_keypad.c
-[; ;ECU/Keypad/ecu_keypad.c: 57:             state |= gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter]),GPIO_HIGH);
+[; ;ECU/Keypad/ecu_keypad.c: 57:             state &= gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter]),GPIO_HIGH);
 [c E2801 0 1 .. ]
 [n E2801 . GPIO_LOW GPIO_HIGH  ]
 "96 ECU/Keypad/../../MCAL/GPIO/hal_gpio.h
@@ -522,8 +522,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/Keypad/ecu_keypad.c: 26:         {
 {
 "27
-[; ;ECU/Keypad/ecu_keypad.c: 27:             state |= gpio_pin_direction_initialize(&(keypad->Keypad_row_pins[row_counter]));
-[e =| _state -> ( _gpio_pin_direction_initialize (1 &U *U + &U . *U _keypad 0 * -> _row_counter `ux -> -> # *U &U . *U _keypad 0 `ui `ux `uc ]
+[; ;ECU/Keypad/ecu_keypad.c: 27:             state &= gpio_pin_direction_initialize(&(keypad->Keypad_row_pins[row_counter]));
+[e =& _state -> ( _gpio_pin_direction_initialize (1 &U *U + &U . *U _keypad 0 * -> _row_counter `ux -> -> # *U &U . *U _keypad 0 `ui `ux `uc ]
 "28
 [; ;ECU/Keypad/ecu_keypad.c: 28:             for(uint8 col_counter=0;col_counter<4;col_counter++)
 {
@@ -539,8 +539,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/Keypad/ecu_keypad.c: 30:                 if(row_counter==0)
 [e $ ! == -> _row_counter `i -> 0 `i 283  ]
 "31
-[; ;ECU/Keypad/ecu_keypad.c: 31:                 state |= gpio_pin_direction_initialize(&(keypad->Keypad_col_pins[col_counter]));
-[e =| _state -> ( _gpio_pin_direction_initialize (1 &U *U + &U . *U _keypad 1 * -> _col_counter `ux -> -> # *U &U . *U _keypad 1 `ui `ux `uc ]
+[; ;ECU/Keypad/ecu_keypad.c: 31:                 state &= gpio_pin_direction_initialize(&(keypad->Keypad_col_pins[col_counter]));
+[e =& _state -> ( _gpio_pin_direction_initialize (1 &U *U + &U . *U _keypad 1 * -> _col_counter `ux -> -> # *U &U . *U _keypad 1 `ui `ux `uc ]
 [e :U 283 ]
 "32
 [; ;ECU/Keypad/ecu_keypad.c: 32:                 local_keypad_chars[row_counter][col_counter]=((keypad_chars[row_counter][col_counter]));
@@ -623,8 +623,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/Keypad/ecu_keypad.c: 56:         {
 {
 "57
-[; ;ECU/Keypad/ecu_keypad.c: 57:             state |= gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter]),GPIO_HIGH);
-[e =| _state -> ( _gpio_pin_write_logic (2 , &U *U + &U . *U _keypad 0 * -> _row_counter `ux -> -> # *U &U . *U _keypad 0 `ui `ux -> . `E2801 1 `uc `uc ]
+[; ;ECU/Keypad/ecu_keypad.c: 57:             state &= gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter]),GPIO_HIGH);
+[e =& _state -> ( _gpio_pin_write_logic (2 , &U *U + &U . *U _keypad 0 * -> _row_counter `ux -> -> # *U &U . *U _keypad 0 `ui `ux -> . `E2801 1 `uc `uc ]
 "58
 [; ;ECU/Keypad/ecu_keypad.c: 58:             for(uint8 col_counter=0;col_counter<4;col_counter++)
 {
@@ -637,8 +637,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/Keypad/ecu_keypad.c: 59:             {
 {
 "60
-[; ;ECU/Keypad/ecu_keypad.c: 60:                 state |= gpio_pin_read_logic(&(keypad->Keypad_col_pins[col_counter]),&logic);
-[e =| _state -> ( _gpio_pin_read_logic (2 , &U *U + &U . *U _keypad 1 * -> _col_counter `ux -> -> # *U &U . *U _keypad 1 `ui `ux &U _logic `uc ]
+[; ;ECU/Keypad/ecu_keypad.c: 60:                 state &= gpio_pin_read_logic(&(keypad->Keypad_col_pins[col_counter]),&logic);
+[e =& _state -> ( _gpio_pin_read_logic (2 , &U *U + &U . *U _keypad 1 * -> _col_counter `ux -> -> # *U &U . *U _keypad 1 `ui `ux &U _logic `uc ]
 "61
 [; ;ECU/Keypad/ecu_keypad.c: 61:                 if(logic==GPIO_HIGH)
 [e $ ! == -> _logic `i -> . `E2801 1 `i 293  ]
@@ -674,8 +674,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU/Keypad/ecu_keypad.c: 68:             {
 {
 "69
-[; ;ECU/Keypad/ecu_keypad.c: 69:                 state |= gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter_in]),GPIO_LOW);
-[e =| _state -> ( _gpio_pin_write_logic (2 , &U *U + &U . *U _keypad 0 * -> _row_counter_in `ux -> -> # *U &U . *U _keypad 0 `ui `ux -> . `E2801 0 `uc `uc ]
+[; ;ECU/Keypad/ecu_keypad.c: 69:                 state &= gpio_pin_write_logic(&(keypad->Keypad_row_pins[row_counter_in]),GPIO_LOW);
+[e =& _state -> ( _gpio_pin_write_logic (2 , &U *U + &U . *U _keypad 0 * -> _row_counter_in `ux -> -> # *U &U . *U _keypad 0 `ui `ux -> . `E2801 0 `uc `uc ]
 "70
 [; ;ECU/Keypad/ecu_keypad.c: 70:             }
 }

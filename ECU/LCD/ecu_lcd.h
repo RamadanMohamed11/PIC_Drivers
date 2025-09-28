@@ -15,6 +15,12 @@
 #define ROW2 2
 #define ROW3 3
 #define ROW4 4
+#define ROW1_BEGIN 0x80
+#define ROW2_BEGIN 0xC0
+#define ROW3_BEGIN 0x94
+#define ROW4_BEGIN 0xD4
+
+
 #define FOUR_DATA_PINS_NUMBER 4
 #define EIGHT_DATA_PINS_NUMBER 8
 
@@ -65,19 +71,23 @@ Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit);
 Std_ReturnType lcd_4bit_send_command(const lcd_4bit_t* lcd_4bit, const uint8 command);
 Std_ReturnType lcd_4bit_send_char_data(const lcd_4bit_t* lcd_4bit, const uint8 ch);
 Std_ReturnType lcd_4bit_send_char_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8 ch);
-Std_ReturnType lcd_4bit_send_string_data(const lcd_4bit_t* lcd_4bit, const uint8* str);
-Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str);
-Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos);
+Std_ReturnType lcd_4bit_send_string_data(const lcd_4bit_t* lcd_4bit, const char* str);
+Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const char* str);
+Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const char* str, uint8 mem_pos);
 Std_ReturnType lcd_4bit_set_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col);
+Std_ReturnType lcd_4bit_send_number_data(const lcd_4bit_t* lcd_4bit, sint32 value);
+Std_ReturnType lcd_4bit_send_number_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, sint32 value);
 
 
 Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit);
 Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 command);
 Std_ReturnType lcd_8bit_send_char_data(const lcd_8bit_t* lcd_8bit, const uint8 ch);
 Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch);
-Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const uint8* str);
-Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str);
-Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos);
+Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const char* str);
+Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const char* str);
+Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const char* str, uint8 mem_pos);
 Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col);
+Std_ReturnType lcd_8bit_send_number_data(const lcd_8bit_t* lcd_8bit, sint32 value);
+Std_ReturnType lcd_8bit_send_number_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, sint32 value);
 
  #endif	/* ECU_LCD_H */

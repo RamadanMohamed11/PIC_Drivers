@@ -141,27 +141,7 @@ PIN5 5
 PIN6 6
 PIN7 7
 ]
-"40 D:\Embedded 2025\PIC_Drivers\application.c
-[e E2801 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"42
-[e E2805 . `uc
-GPIO_OUTPUT 0
-GPIO_INPUT 1
-]
-"107
-[e E2978 . `uc
-RED 0
-GREEN 1
-BLUE 2
-YELLOW 3
-ORANGE 4
-PURPLE 5
-WHITE 6
-]
-"24 D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+"28 D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
 [e E2805 . `uc
 GPIO_OUTPUT 0
 GPIO_INPUT 1
@@ -172,8 +152,12 @@ GPIO_HIGH 1
 ]
 "37 D:\Embedded 2025\PIC_Drivers\application.c
 [v _main main `(i  1 e 2 0 ]
-"208
+"59
 [v _application_initialize application_initialize `(uc  1 e 1 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\float.c
@@ -200,18 +184,48 @@ GPIO_HIGH 1
 [v ___omul __omul `(uo  1 e 8 0 ]
 "44 D:\Embedded 2025\PIC_Drivers\ECU/7_Segment/ecu_7_segment.c
 [v _segment_write segment_write `(uc  1 e 1 0 ]
-"16 D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-[v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
-"15 D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+"19 D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
 [v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
-"138
-[v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
-"96 D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-[v _led_port_initialize led_port_initialize `(uc  1 e 1 0 ]
-"21 D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-[v _rgb_led_turn_on rgb_led_turn_on `(uc  1 e 1 0 ]
 "77
-[v _rgb_led_turn_off rgb_led_turn_off `(uc  1 e 1 0 ]
+[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
+"97
+[v _lcd_4bit_send_char_data lcd_4bit_send_char_data `(uc  1 e 1 0 ]
+"132
+[v _lcd_4bit_send_string_data lcd_4bit_send_string_data `(uc  1 e 1 0 ]
+"150
+[v _lcd_4bit_send_string_at_position lcd_4bit_send_string_at_position `(uc  1 e 1 0 ]
+"179
+[v _lcd_4bit_set_position lcd_4bit_set_position `(uc  1 e 1 0 ]
+"224
+[v _lcd_4bit_send_number_at_position lcd_4bit_send_number_at_position `(uc  1 e 1 0 ]
+"242
+[v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
+"285
+[v _lcd_8bit_send_command lcd_8bit_send_command `(uc  1 e 1 0 ]
+"303
+[v _lcd_8bit_send_char_data lcd_8bit_send_char_data `(uc  1 e 1 0 ]
+"336
+[v _lcd_8bit_send_string_data lcd_8bit_send_string_data `(uc  1 e 1 0 ]
+"354
+[v _lcd_8bit_send_string_at_position lcd_8bit_send_string_at_position `(uc  1 e 1 0 ]
+"383
+[v _lcd_8bit_set_position lcd_8bit_set_position `(uc  1 e 1 0 ]
+"428
+[v _lcd_8bit_send_number_at_position lcd_8bit_send_number_at_position `(uc  1 e 1 0 ]
+"444
+[v _lcd_send_higher_nibble lcd_send_higher_nibble `(uc  1 s 1 lcd_send_higher_nibble ]
+"463
+[v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
+"482
+[v _lcd_4bit_send_enable_signal lcd_4bit_send_enable_signal `(uc  1 s 1 lcd_4bit_send_enable_signal ]
+"499
+[v _lcd_convert_number_to_string lcd_convert_number_to_string `(uc  1 s 1 lcd_convert_number_to_string ]
+"532
+[v _reverse_string reverse_string `(v  1 s 1 reverse_string ]
+"571
+[v _lcd_send_8bits lcd_send_8bits `(uc  1 s 1 lcd_send_8bits ]
+"590
+[v _lcd_8bit_send_enable_signal lcd_8bit_send_enable_signal `(uc  1 s 1 lcd_8bit_send_enable_signal ]
 "10 D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
 "63
@@ -224,14 +238,11 @@ GPIO_HIGH 1
 [v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
 "153
 [v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
+"17 D:\Embedded 2025\PIC_Drivers/ECU/Keypad/ecu_keypad.h
+[v _local_keypad_chars local_keypad_chars `[4][4]uc  1 e 16 0 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 ]
-"22 D:\Embedded 2025\PIC_Drivers/application.h
-[s S552 . 4 `S24 1 red_channel 1 0 `S24 1 green_channel 1 1 `S24 1 blue_channel 1 2 `E2859 1 state 1 3 ]
-[v _rgb_led rgb_led `S552  1 e 4 0 ]
-"17 D:\Embedded 2025\PIC_Drivers/ECU/Keypad/ecu_keypad.h
-[v _local_keypad_chars local_keypad_chars `[4][4]uc  1 e 16 0 ]
 "11 D:\Embedded 2025\PIC_Drivers\application.c
 [s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
 [v _lcd_4bit lcd_4bit `S817  1 e 6 0 ]
@@ -247,85 +258,477 @@ GPIO_HIGH 1
 "37 D:\Embedded 2025\PIC_Drivers\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"53
-[v main@keypad_chars keypad_chars `[4][4]uc  1 a 16 22 ]
+"47
+[v main@counter2 counter2 `l  1 a 4 65 ]
+"46
+[v main@counter1 counter1 `l  1 a 4 61 ]
+"57
+} 0
+"428 D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+[v _lcd_8bit_send_number_at_position lcd_8bit_send_number_at_position `(uc  1 e 1 0 ]
+{
+"437
+[v lcd_8bit_send_number_at_position@str str `[12]uc  1 a 12 47 ]
+"430
+[v lcd_8bit_send_number_at_position@state state `uc  1 a 1 59 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"428
+[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
+[v lcd_8bit_send_number_at_position@lcd_8bit lcd_8bit `*.39CS821  1 p 2 39 ]
+[v lcd_8bit_send_number_at_position@row row `Cuc  1 p 1 41 ]
+[v lcd_8bit_send_number_at_position@col col `Cuc  1 p 1 42 ]
+[v lcd_8bit_send_number_at_position@value value `l  1 p 4 43 ]
+"442
+} 0
+"354
+[v _lcd_8bit_send_string_at_position lcd_8bit_send_string_at_position `(uc  1 e 1 0 ]
+{
+"356
+[v lcd_8bit_send_string_at_position@state state `uc  1 a 1 38 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"354
+[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
+[v lcd_8bit_send_string_at_position@lcd_8bit lcd_8bit `*.39CS821  1 p 2 32 ]
+[v lcd_8bit_send_string_at_position@row row `Cuc  1 p 1 34 ]
+[v lcd_8bit_send_string_at_position@col col `Cuc  1 p 1 35 ]
+[v lcd_8bit_send_string_at_position@str str `*.35Cuc  1 p 2 36 ]
+"367
+} 0
+"383
+[v _lcd_8bit_set_position lcd_8bit_set_position `(uc  1 e 1 0 ]
+{
+"385
+[v lcd_8bit_set_position@state state `uc  1 a 1 31 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"383
+[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
+[v lcd_8bit_set_position@lcd_8bit lcd_8bit `*.39CS821  1 p 2 25 ]
+[v lcd_8bit_set_position@row row `uc  1 p 1 27 ]
+[v lcd_8bit_set_position@col col `uc  1 p 1 28 ]
+"410
+} 0
+"336
+[v _lcd_8bit_send_string_data lcd_8bit_send_string_data `(uc  1 e 1 0 ]
+{
+"338
+[v lcd_8bit_send_string_data@state state `uc  1 a 1 29 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"336
+[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
+[v lcd_8bit_send_string_data@lcd_8bit lcd_8bit `*.39CS821  1 p 2 25 ]
+[v lcd_8bit_send_string_data@str str `*.35Cuc  1 p 2 27 ]
+"352
+} 0
+"303
+[v _lcd_8bit_send_char_data lcd_8bit_send_char_data `(uc  1 e 1 0 ]
+{
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"42
-[s S311 . 8 `[4]S33 1 Keypad_row_pins 4 0 `[4]S33 1 Keypad_col_pins 4 4 ]
-[v main@keypad keypad `S311  1 a 8 39 ]
-[s S367 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 state 1 0 :1:3 
+"312
+[v lcd_8bit_send_char_data@rs_pin rs_pin `S33  1 a 1 24 ]
+"305
+[v lcd_8bit_send_char_data@state state `uc  1 a 1 23 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
 ]
-"40
-[v main@LEDs1 LEDs1 `S367  1 a 1 38 ]
-"39
-[v main@F3087 F3087 `S367  1 s 1 F3087 ]
+"303
+[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
+[v lcd_8bit_send_char_data@lcd_8bit lcd_8bit `*.39CS821  1 p 2 19 ]
+[v lcd_8bit_send_char_data@ch ch `Cuc  1 p 1 21 ]
+"311
+[v lcd_8bit_send_char_data@F3054 F3054 `S33  1 s 1 F3054 ]
+"319
+} 0
+"224
+[v _lcd_4bit_send_number_at_position lcd_4bit_send_number_at_position `(uc  1 e 1 0 ]
+{
+"233
+[v lcd_4bit_send_number_at_position@str str `[12]uc  1 a 12 47 ]
+"226
+[v lcd_4bit_send_number_at_position@state state `uc  1 a 1 59 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"224
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_number_at_position@lcd_4bit lcd_4bit `*.39CS817  1 p 2 39 ]
+[v lcd_4bit_send_number_at_position@row row `Cuc  1 p 1 41 ]
+[v lcd_4bit_send_number_at_position@col col `Cuc  1 p 1 42 ]
+[v lcd_4bit_send_number_at_position@value value `l  1 p 4 43 ]
+"239
+} 0
+"499
+[v _lcd_convert_number_to_string lcd_convert_number_to_string `(uc  1 s 1 lcd_convert_number_to_string ]
+{
+"505
+[v lcd_convert_number_to_string@local_index local_index `uc  1 a 1 22 ]
+"506
+[v lcd_convert_number_to_string@is_negative is_negative `uc  1 a 1 21 ]
+"501
+[v lcd_convert_number_to_string@state state `uc  1 a 1 20 ]
+"499
+[v lcd_convert_number_to_string@value value `l  1 p 4 14 ]
+[v lcd_convert_number_to_string@str str `*.39uc  1 p 2 18 ]
+"530
+} 0
+"532
+[v _reverse_string reverse_string `(v  1 s 1 reverse_string ]
+{
+"534
+[v reverse_string@j j `uc  1 a 1 5 ]
+[v reverse_string@i i `uc  1 a 1 4 ]
+[v reverse_string@temp temp `uc  1 a 1 3 ]
+"532
+[v reverse_string@str str `*.39uc  1 p 2 0 ]
+[v reverse_string@len len `uc  1 p 1 2 ]
+"542
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+{
+"10
+[v ___almod@sign sign `uc  1 a 1 9 ]
+[v ___almod@counter counter `uc  1 a 1 8 ]
+"7
+[v ___almod@dividend dividend `l  1 p 4 0 ]
+[v ___almod@divisor divisor `l  1 p 4 4 ]
+"34
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"10
+[v ___aldiv@quotient quotient `l  1 a 4 10 ]
+"11
+[v ___aldiv@sign sign `uc  1 a 1 9 ]
+[v ___aldiv@counter counter `uc  1 a 1 8 ]
+"7
+[v ___aldiv@dividend dividend `l  1 p 4 0 ]
+[v ___aldiv@divisor divisor `l  1 p 4 4 ]
 "41
-[v main@F3089 F3089 `S311  1 s 8 F3089 ]
-"42
-[v main@F3091 F3091 `[4][4]uc  1 s 16 F3091 ]
+} 0
+"150 D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+[v _lcd_4bit_send_string_at_position lcd_4bit_send_string_at_position `(uc  1 e 1 0 ]
+{
+"152
+[v lcd_4bit_send_string_at_position@state state `uc  1 a 1 38 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"150
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_string_at_position@lcd_4bit lcd_4bit `*.39CS817  1 p 2 32 ]
+[v lcd_4bit_send_string_at_position@row row `Cuc  1 p 1 34 ]
+[v lcd_4bit_send_string_at_position@col col `Cuc  1 p 1 35 ]
+[v lcd_4bit_send_string_at_position@str str `*.35Cuc  1 p 2 36 ]
+"163
+} 0
+"179
+[v _lcd_4bit_set_position lcd_4bit_set_position `(uc  1 e 1 0 ]
+{
+"181
+[v lcd_4bit_set_position@state state `uc  1 a 1 31 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"179
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_set_position@lcd_4bit lcd_4bit `*.39CS817  1 p 2 25 ]
+[v lcd_4bit_set_position@row row `uc  1 p 1 27 ]
+[v lcd_4bit_set_position@col col `uc  1 p 1 28 ]
 "206
 } 0
-"21 D:\Embedded 2025\PIC_Drivers\ECU/RGB_LED/ecu_rgb_led.c
-[v _rgb_led_turn_on rgb_led_turn_on `(uc  1 e 1 0 ]
+"132
+[v _lcd_4bit_send_string_data lcd_4bit_send_string_data `(uc  1 e 1 0 ]
+{
+"134
+[v lcd_4bit_send_string_data@state state `uc  1 a 1 29 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"132
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_string_data@lcd_4bit lcd_4bit `*.39CS817  1 p 2 25 ]
+[v lcd_4bit_send_string_data@str str `*.35Cuc  1 p 2 27 ]
+"148
+} 0
+"97
+[v _lcd_4bit_send_char_data lcd_4bit_send_char_data `(uc  1 e 1 0 ]
 {
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"32
-[v rgb_led_turn_on@blue blue `S33  1 a 1 17 ]
-"31
-[v rgb_led_turn_on@green green `S33  1 a 1 16 ]
-"30
-[v rgb_led_turn_on@red red `S33  1 a 1 15 ]
+"106
+[v lcd_4bit_send_char_data@rs_pin rs_pin `S33  1 a 1 24 ]
+"99
+[v lcd_4bit_send_char_data@state state `uc  1 a 1 23 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 ]
+"97
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_char_data@lcd_4bit lcd_4bit `*.39CS817  1 p 2 19 ]
+[v lcd_4bit_send_char_data@ch ch `Cuc  1 p 1 21 ]
+"105
+[v lcd_4bit_send_char_data@F2990 F2990 `S33  1 s 1 F2990 ]
+"115
+} 0
+"59 D:\Embedded 2025\PIC_Drivers\application.c
+[v _application_initialize application_initialize `(uc  1 e 1 0 ]
+{
+"61
+[v application_initialize@state state `uc  1 a 1 35 ]
+"65
+} 0
+"242 D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
+[v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
+{
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"264
+[v lcd_8bit_initialize@data_pin data_pin `S33  1 a 1 34 ]
+"262
+[v lcd_8bit_initialize@local_index local_index `uc  1 a 1 31 ]
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"256
+[v lcd_8bit_initialize@en_pin en_pin `S33  1 a 1 33 ]
+"251
+[v lcd_8bit_initialize@rs_pin rs_pin `S33  1 a 1 32 ]
+"244
+[v lcd_8bit_initialize@state state `uc  1 a 1 30 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"242
+[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
+[v lcd_8bit_initialize@lcd_8bit lcd_8bit `*.39CS821  1 p 2 25 ]
+"250
+[v lcd_8bit_initialize@F3037 F3037 `S33  1 s 1 F3037 ]
+"255
+[v lcd_8bit_initialize@F3039 F3039 `S33  1 s 1 F3039 ]
+"263
+[v lcd_8bit_initialize@F3042 F3042 `S33  1 s 1 F3042 ]
+"283
+} 0
+"285
+[v _lcd_8bit_send_command lcd_8bit_send_command `(uc  1 e 1 0 ]
+{
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"294
+[v lcd_8bit_send_command@rs_pin rs_pin `S33  1 a 1 24 ]
+"287
+[v lcd_8bit_send_command@state state `uc  1 a 1 23 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"285
+[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
+[v lcd_8bit_send_command@lcd_8bit lcd_8bit `*.39CS821  1 p 2 19 ]
+[v lcd_8bit_send_command@command command `Cuc  1 p 1 21 ]
+"293
+[v lcd_8bit_send_command@F3048 F3048 `S33  1 s 1 F3048 ]
+"301
+} 0
+"571
+[v _lcd_send_8bits lcd_send_8bits `(uc  1 s 1 lcd_send_8bits ]
+{
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"582
+[v lcd_send_8bits@data_pin data_pin `S33  1 a 1 17 ]
+"580
+[v lcd_send_8bits@local_index local_index `uc  1 a 1 18 ]
+"573
+[v lcd_send_8bits@state state `uc  1 a 1 16 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"571
+[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
+[v lcd_send_8bits@lcd_8bit lcd_8bit `*.39CS821  1 p 2 10 ]
+[v lcd_send_8bits@data_or_command data_or_command `uc  1 p 1 12 ]
+"581
+[v lcd_send_8bits@F3133 F3133 `S33  1 s 1 F3133 ]
+"588
+} 0
+"590
+[v _lcd_8bit_send_enable_signal lcd_8bit_send_enable_signal `(uc  1 s 1 lcd_8bit_send_enable_signal ]
+{
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"599
+[v lcd_8bit_send_enable_signal@en_pin en_pin `S33  1 a 1 14 ]
+"592
+[v lcd_8bit_send_enable_signal@state state `uc  1 a 1 13 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"590
+[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
+[v lcd_8bit_send_enable_signal@lcd_8bit lcd_8bit `*.39CS821  1 p 2 10 ]
+"598
+[v lcd_8bit_send_enable_signal@F3138 F3138 `S33  1 s 1 F3138 ]
+"606
+} 0
+"19
+[v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
+{
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"41
+[v lcd_4bit_initialize@data_pin data_pin `S33  1 a 1 34 ]
+"39
+[v lcd_4bit_initialize@local_index local_index `uc  1 a 1 31 ]
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"33
+[v lcd_4bit_initialize@en_pin en_pin `S33  1 a 1 33 ]
+"28
+[v lcd_4bit_initialize@rs_pin rs_pin `S33  1 a 1 32 ]
 "21
-[s S552 . 4 `S24 1 red_channel 1 0 `S24 1 green_channel 1 1 `S24 1 blue_channel 1 2 `E2859 1 state 1 3 ]
-[v rgb_led_turn_on@RGB_LED RGB_LED `*.39CS552  1 p 2 10 ]
-[v rgb_led_turn_on@color color `E2863  1 p 1 12 ]
-"29
-[v rgb_led_turn_on@F2902 F2902 `S33  1 s 1 F2902 ]
-"30
-[v rgb_led_turn_on@F2904 F2904 `S33  1 s 1 F2904 ]
-"31
-[v rgb_led_turn_on@F2906 F2906 `S33  1 s 1 F2906 ]
-"76
+[v lcd_4bit_initialize@state state `uc  1 a 1 30 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"19
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_initialize@lcd_4bit lcd_4bit `*.39CS817  1 p 2 25 ]
+"27
+[v lcd_4bit_initialize@F2973 F2973 `S33  1 s 1 F2973 ]
+"32
+[v lcd_4bit_initialize@F2975 F2975 `S33  1 s 1 F2975 ]
+"40
+[v lcd_4bit_initialize@F2978 F2978 `S33  1 s 1 F2978 ]
+"75
+} 0
+"444
+[v _lcd_send_higher_nibble lcd_send_higher_nibble `(uc  1 s 1 lcd_send_higher_nibble ]
+{
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"449
+[v lcd_send_higher_nibble@rs_pin rs_pin `S33  1 a 1 24 ]
+"446
+[v lcd_send_higher_nibble@state state `uc  1 a 1 23 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"444
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_send_higher_nibble@lcd_4bit lcd_4bit `*.39CS817  1 p 2 19 ]
+[v lcd_send_higher_nibble@data data `uc  1 p 1 21 ]
+"447
+[v lcd_send_higher_nibble@F3102 F3102 `S33  1 s 1 F3102 ]
+"460
 } 0
 "77
-[v _rgb_led_turn_off rgb_led_turn_off `(uc  1 e 1 0 ]
+[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
 {
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"88
-[v rgb_led_turn_off@blue blue `S33  1 a 1 15 ]
-"87
-[v rgb_led_turn_off@green green `S33  1 a 1 14 ]
 "86
-[v rgb_led_turn_off@red red `S33  1 a 1 13 ]
+[v lcd_4bit_send_command@rs_pin rs_pin `S33  1 a 1 24 ]
+"79
+[v lcd_4bit_send_command@state state `uc  1 a 1 23 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 ]
 "77
-[s S552 . 4 `S24 1 red_channel 1 0 `S24 1 green_channel 1 1 `S24 1 blue_channel 1 2 `E2859 1 state 1 3 ]
-[v rgb_led_turn_off@RGB_LED RGB_LED `*.39CS552  1 p 2 10 ]
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_command@lcd_4bit lcd_4bit `*.39CS817  1 p 2 19 ]
+[v lcd_4bit_send_command@command command `Cuc  1 p 1 21 ]
 "85
-[v rgb_led_turn_off@F2911 F2911 `S33  1 s 1 F2911 ]
-"86
-[v rgb_led_turn_off@F2913 F2913 `S33  1 s 1 F2913 ]
-"87
-[v rgb_led_turn_off@F2915 F2915 `S33  1 s 1 F2915 ]
-"94
+[v lcd_4bit_send_command@F2984 F2984 `S33  1 s 1 F2984 ]
+"95
+} 0
+"463
+[v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
+{
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"474
+[v lcd_send_4bits@data_pin data_pin `S33  1 a 1 17 ]
+"472
+[v lcd_send_4bits@local_index local_index `uc  1 a 1 18 ]
+"465
+[v lcd_send_4bits@state state `uc  1 a 1 16 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"463
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_send_4bits@lcd_4bit lcd_4bit `*.39CS817  1 p 2 10 ]
+[v lcd_send_4bits@data_or_command data_or_command `uc  1 p 1 12 ]
+"473
+[v lcd_send_4bits@F3109 F3109 `S33  1 s 1 F3109 ]
+"480
+} 0
+"482
+[v _lcd_4bit_send_enable_signal lcd_4bit_send_enable_signal `(uc  1 s 1 lcd_4bit_send_enable_signal ]
+{
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"491
+[v lcd_4bit_send_enable_signal@en_pin en_pin `S33  1 a 1 14 ]
+"484
+[v lcd_4bit_send_enable_signal@state state `uc  1 a 1 13 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+]
+"482
+[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
+[v lcd_4bit_send_enable_signal@lcd_4bit lcd_4bit `*.39CS817  1 p 2 10 ]
+"490
+[v lcd_4bit_send_enable_signal@F3114 F3114 `S33  1 s 1 F3114 ]
+"498
 } 0
 "63 D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
@@ -342,135 +745,7 @@ GPIO_HIGH 1
 [v gpio_pin_write_logic@logic logic `uc  1 p 1 2 ]
 "83
 } 0
-"96 D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
-[v _led_port_initialize led_port_initialize `(uc  1 e 1 0 ]
-{
-[s S367 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 state 1 0 :1:3 
-]
-[v led_port_initialize@LEDs LEDs `*.39CS367  1 p 2 4 ]
-"109
-} 0
-"153 D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
-[v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
-{
-[v gpio_port_write_logic@_port _port `E2819  1 a 1 wreg ]
-[v gpio_port_write_logic@_port _port `E2819  1 a 1 wreg ]
-[v gpio_port_write_logic@logic logic `uc  1 p 1 0 ]
-[v gpio_port_write_logic@_port _port `E2819  1 a 1 3 ]
-"158
-} 0
-"124
-[v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
-{
-[v gpio_port_direction_initialize@_port _port `E2819  1 a 1 wreg ]
-[v gpio_port_direction_initialize@_port _port `E2819  1 a 1 wreg ]
-[v gpio_port_direction_initialize@direction direction `uc  1 p 1 0 ]
-[v gpio_port_direction_initialize@_port _port `E2819  1 a 1 3 ]
-"129
-} 0
-"16 D:\Embedded 2025\PIC_Drivers\ECU/Keypad/ecu_keypad.c
-[v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
-{
-"28
-[v keypad_initialize@col_counter col_counter `uc  1 a 1 18 ]
-"25
-[v keypad_initialize@row_counter row_counter `uc  1 a 1 19 ]
-"18
-[v keypad_initialize@state state `uc  1 a 1 17 ]
-[s S33 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"16
-[s S311 . 8 `[4]S33 1 Keypad_row_pins 4 0 `[4]S33 1 Keypad_col_pins 4 4 ]
-[v keypad_initialize@keypad keypad `*.39CS311  1 p 2 9 ]
-[v keypad_initialize@keypad_chars keypad_chars `*.39C[4]uc  1 p 2 11 ]
-"37
-} 0
-"208 D:\Embedded 2025\PIC_Drivers\application.c
-[v _application_initialize application_initialize `(uc  1 e 1 0 ]
-{
-"210
-[v application_initialize@state state `uc  1 a 1 19 ]
-"214
-} 0
-"138 D:\Embedded 2025\PIC_Drivers\ECU/LCD/ecu_lcd.c
-[v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
-{
-[s S33 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"161
-[v lcd_8bit_initialize@data_pin data_pin `S33  1 a 1 18 ]
-"159
-[v lcd_8bit_initialize@local_index local_index `uc  1 a 1 15 ]
-[s S33 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"153
-[v lcd_8bit_initialize@en_pin en_pin `S33  1 a 1 17 ]
-"148
-[v lcd_8bit_initialize@rs_pin rs_pin `S33  1 a 1 16 ]
-"140
-[v lcd_8bit_initialize@state state `uc  1 a 1 14 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-]
-"138
-[s S821 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
-[v lcd_8bit_initialize@lcd_8bit lcd_8bit `*.39CS821  1 p 2 9 ]
-"146
-[v lcd_8bit_initialize@F2992 F2992 `S33  1 s 1 F2992 ]
-"152
-[v lcd_8bit_initialize@F2994 F2994 `S33  1 s 1 F2994 ]
-"160
-[v lcd_8bit_initialize@F2997 F2997 `S33  1 s 1 F2997 ]
-"168
-} 0
-"15
-[v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
-{
-[s S33 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"37
-[v lcd_4bit_initialize@data_pin data_pin `S33  1 a 1 18 ]
-"35
-[v lcd_4bit_initialize@local_index local_index `uc  1 a 1 15 ]
-[s S33 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"29
-[v lcd_4bit_initialize@en_pin en_pin `S33  1 a 1 17 ]
-"24
-[v lcd_4bit_initialize@rs_pin rs_pin `S33  1 a 1 16 ]
-"17
-[v lcd_4bit_initialize@state state `uc  1 a 1 14 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-]
-"15
-[s S817 . 6 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[4]S24 1 lcd_data_pins 4 2 ]
-[v lcd_4bit_initialize@lcd_4bit lcd_4bit `*.39CS817  1 p 2 9 ]
-"23
-[v lcd_4bit_initialize@F2946 F2946 `S33  1 s 1 F2946 ]
-"28
-[v lcd_4bit_initialize@F2948 F2948 `S33  1 s 1 F2948 ]
-"36
-[v lcd_4bit_initialize@F2951 F2951 `S33  1 s 1 F2951 ]
-"44
-} 0
-"10 D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
+"10
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
 {
 "12

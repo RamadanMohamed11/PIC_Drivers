@@ -1,18 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"45 ECU/LCD/ecu_lcd.h
-[; ;ECU/LCD/ecu_lcd.h: 45: {
+"51 ECU/LCD/ecu_lcd.h
+[; ;ECU/LCD/ecu_lcd.h: 51: {
 [s S273 :3 `uc 1 :3 `uc 1 ]
 [n S273 . port pin ]
-"51
-[; ;ECU/LCD/ecu_lcd.h: 51: {
+"57
+[; ;ECU/LCD/ecu_lcd.h: 57: {
 [s S274 `S273 1 `S273 1 `S273 -> 4 `i ]
 [n S274 . lcd_rs_pin lcd_en_pin lcd_data_pins ]
 "86 ECU/LCD/../../MCAL/GPIO/hal_gpio.h
 [; ;ECU/LCD/../../MCAL/GPIO/hal_gpio.h: 86: {
 [s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S272 . port pin direction logic ]
-"24 ECU/LCD/ecu_lcd.c
-[; ;ECU/LCD/ecu_lcd.c: 24:         pin_config_t rs_pin = {.port = lcd_4bit->lcd_rs_pin.port,
+"28 ECU/LCD/ecu_lcd.c
+[; ;ECU/LCD/ecu_lcd.c: 28:         pin_config_t rs_pin = {.port = lcd_4bit->lcd_rs_pin.port,
 [c E2805 0 1 .. ]
 [n E2805 . GPIO_OUTPUT GPIO_INPUT  ]
 [c E2801 0 1 .. ]
@@ -20,13 +20,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 "93 ECU/LCD/../../MCAL/GPIO/hal_gpio.h
 [; ;ECU/LCD/../../MCAL/GPIO/hal_gpio.h: 93: Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config);
 [v _gpio_pin_direction_initialize `(uc ~T0 @X0 0 ef1`*CS272 ]
-"58 ECU/LCD/ecu_lcd.h
-[; ;ECU/LCD/ecu_lcd.h: 58: {
-[s S275 `S273 1 `S273 1 `S273 -> 8 `i ]
-[n S275 . lcd_rs_pin lcd_en_pin lcd_data_pins ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
+"17 ECU/LCD/ecu_lcd.c
+[; ;ECU/LCD/ecu_lcd.c: 17: static Std_ReturnType lcd_send_higher_nibble(const lcd_4bit_t *lcd_4bit, uint8 data);
+[v _lcd_send_higher_nibble `(uc ~T0 @X0 0 sf2`*CS274`uc ]
+"71 ECU/LCD/ecu_lcd.h
+[; ;ECU/LCD/ecu_lcd.h: 71: Std_ReturnType lcd_4bit_send_command(const lcd_4bit_t* lcd_4bit, const uint8 command);
+[v _lcd_4bit_send_command `(uc ~T0 @X0 0 ef2`*CS274`Cuc ]
 "95 ECU/LCD/../../MCAL/GPIO/hal_gpio.h
 [; ;ECU/LCD/../../MCAL/GPIO/hal_gpio.h: 95: Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic);
 [v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS272`uc ]
+"11 ECU/LCD/ecu_lcd.c
+[; ;ECU/LCD/ecu_lcd.c: 11: static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *lcd_4bit, uint8 data_or_command);
+[v _lcd_send_4bits `(uc ~T0 @X0 0 sf2`*CS274`uc ]
+"12
+[; ;ECU/LCD/ecu_lcd.c: 12: static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *lcd_4bit);
+[v _lcd_4bit_send_enable_signal `(uc ~T0 @X0 0 sf1`*CS274 ]
+"77 ECU/LCD/ecu_lcd.h
+[; ;ECU/LCD/ecu_lcd.h: 77: Std_ReturnType lcd_4bit_set_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col);
+[v _lcd_4bit_set_position `(uc ~T0 @X0 0 ef3`*CS274`Cuc`Cuc ]
+"15 ECU/LCD/ecu_lcd.c
+[; ;ECU/LCD/ecu_lcd.c: 15: static Std_ReturnType lcd_convert_number_to_string(sint32 value, uint8 *str);
+[v _lcd_convert_number_to_string `(uc ~T0 @X0 0 sf2`l`*uc ]
+"64 ECU/LCD/ecu_lcd.h
+[; ;ECU/LCD/ecu_lcd.h: 64: {
+[s S275 `S273 1 `S273 1 `S273 -> 8 `i ]
+[n S275 . lcd_rs_pin lcd_en_pin lcd_data_pins ]
+"83
+[; ;ECU/LCD/ecu_lcd.h: 83: Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 command);
+[v _lcd_8bit_send_command `(uc ~T0 @X0 0 ef2`*CS275`Cuc ]
+"13 ECU/LCD/ecu_lcd.c
+[; ;ECU/LCD/ecu_lcd.c: 13: static Std_ReturnType lcd_send_8bits(const lcd_8bit_t *lcd_8bit, uint8 data_or_command);
+[v _lcd_send_8bits `(uc ~T0 @X0 0 sf2`*CS275`uc ]
+"14
+[; ;ECU/LCD/ecu_lcd.c: 14: static Std_ReturnType lcd_8bit_send_enable_signal(const lcd_8bit_t *lcd_8bit);
+[v _lcd_8bit_send_enable_signal `(uc ~T0 @X0 0 sf1`*CS275 ]
+"89 ECU/LCD/ecu_lcd.h
+[; ;ECU/LCD/ecu_lcd.h: 89: Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col);
+[v _lcd_8bit_set_position `(uc ~T0 @X0 0 ef3`*CS275`Cuc`Cuc ]
+"16 ECU/LCD/ecu_lcd.c
+[; ;ECU/LCD/ecu_lcd.c: 16: static void reverse_string(uint8 *str, uint8 len);
+[v _reverse_string `(v ~T0 @X0 0 sf2`*uc`uc ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -474,48 +511,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 &U *U -> -> 3972 `i `*Vuc
 ..
 ]
-"15 ECU/LCD/ecu_lcd.c
-[; ;ECU/LCD/ecu_lcd.c: 15: Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit)
+"19 ECU/LCD/ecu_lcd.c
+[; ;ECU/LCD/ecu_lcd.c: 19: Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit)
 [v _lcd_4bit_initialize `(uc ~T0 @X0 1 ef1`*CS274 ]
-"16
-[; ;ECU/LCD/ecu_lcd.c: 16: {
+"20
+[; ;ECU/LCD/ecu_lcd.c: 20: {
 {
 [e :U _lcd_4bit_initialize ]
-"15
-[; ;ECU/LCD/ecu_lcd.c: 15: Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit)
+"19
+[; ;ECU/LCD/ecu_lcd.c: 19: Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit)
 [v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
-"16
-[; ;ECU/LCD/ecu_lcd.c: 16: {
+"20
+[; ;ECU/LCD/ecu_lcd.c: 20: {
 [f ]
-"17
-[; ;ECU/LCD/ecu_lcd.c: 17:     Std_ReturnType state = (Std_ReturnType)1;
+"21
+[; ;ECU/LCD/ecu_lcd.c: 21:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"18
-[; ;ECU/LCD/ecu_lcd.c: 18:     if(lcd_4bit == ((void*)0))
-[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 277  ]
-"19
-[; ;ECU/LCD/ecu_lcd.c: 19:     {
-{
-"20
-[; ;ECU/LCD/ecu_lcd.c: 20:         state = (Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
-"21
-[; ;ECU/LCD/ecu_lcd.c: 21:     }
-}
-[e $U 278  ]
 "22
-[; ;ECU/LCD/ecu_lcd.c: 22:     else
-[e :U 277 ]
+[; ;ECU/LCD/ecu_lcd.c: 22:     if(lcd_4bit == ((void*)0))
+[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 277  ]
 "23
 [; ;ECU/LCD/ecu_lcd.c: 23:     {
 {
-[v F2946 `S272 ~T0 @X0 1 s ]
-[i F2946
-:U ..
-:U ..
 "24
-[; ;ECU/LCD/ecu_lcd.c: 24:         pin_config_t rs_pin = {.port = lcd_4bit->lcd_rs_pin.port,
+[; ;ECU/LCD/ecu_lcd.c: 24:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"25
+[; ;ECU/LCD/ecu_lcd.c: 25:     }
+}
+[e $U 278  ]
+"26
+[; ;ECU/LCD/ecu_lcd.c: 26:     else
+[e :U 277 ]
+"27
+[; ;ECU/LCD/ecu_lcd.c: 27:     {
+{
+[v F2973 `S272 ~T0 @X0 1 s ]
+[i F2973
+:U ..
+:U ..
+"28
+[; ;ECU/LCD/ecu_lcd.c: 28:         pin_config_t rs_pin = {.port = lcd_4bit->lcd_rs_pin.port,
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -524,17 +561,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _rs_pin `S272 ~T0 @X0 1 a ]
-[e = _rs_pin F2946 ]
+[e = _rs_pin F2973 ]
 [e ; = . _rs_pin 0 . . *U _lcd_4bit 0 0 ; = . _rs_pin 1 . . *U _lcd_4bit 0 1 ; = . _rs_pin 2 -> . `E2805 0 `uc = . _rs_pin 3 -> . `E2801 0 `uc ]
-"28
-[; ;ECU/LCD/ecu_lcd.c: 28:         state &= gpio_pin_direction_initialize(&rs_pin);
+"32
+[; ;ECU/LCD/ecu_lcd.c: 32:         state &= gpio_pin_direction_initialize(&rs_pin);
 [e =& _state -> ( _gpio_pin_direction_initialize (1 -> &U _rs_pin `*CS272 `uc ]
-[v F2948 `S272 ~T0 @X0 1 s ]
-[i F2948
+[v F2975 `S272 ~T0 @X0 1 s ]
+[i F2975
 :U ..
 :U ..
-"29
-[; ;ECU/LCD/ecu_lcd.c: 29:         pin_config_t en_pin = {.port = lcd_4bit->lcd_en_pin.port,
+"33
+[; ;ECU/LCD/ecu_lcd.c: 33:         pin_config_t en_pin = {.port = lcd_4bit->lcd_en_pin.port,
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -543,28 +580,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _en_pin `S272 ~T0 @X0 1 a ]
-[e = _en_pin F2948 ]
+[e = _en_pin F2975 ]
 [e ; = . _en_pin 0 . . *U _lcd_4bit 1 0 ; = . _en_pin 1 . . *U _lcd_4bit 1 1 ; = . _en_pin 2 -> . `E2805 0 `uc = . _en_pin 3 -> . `E2801 0 `uc ]
-"33
-[; ;ECU/LCD/ecu_lcd.c: 33:         state &= gpio_pin_direction_initialize(&en_pin);
+"37
+[; ;ECU/LCD/ecu_lcd.c: 37:         state &= gpio_pin_direction_initialize(&en_pin);
 [e =& _state -> ( _gpio_pin_direction_initialize (1 -> &U _en_pin `*CS272 `uc ]
-"35
-[; ;ECU/LCD/ecu_lcd.c: 35:         for(uint8 local_index=0; local_index<4; local_index++)
+"39
+[; ;ECU/LCD/ecu_lcd.c: 39:         for(uint8 local_index=0; local_index<4; local_index++)
 {
 [v _local_index `uc ~T0 @X0 1 a ]
 [e = _local_index -> -> 0 `i `uc ]
 [e $ < -> _local_index `i -> 4 `i 279  ]
 [e $U 280  ]
 [e :U 279 ]
-"36
-[; ;ECU/LCD/ecu_lcd.c: 36:         {
+"40
+[; ;ECU/LCD/ecu_lcd.c: 40:         {
 {
-[v F2951 `S272 ~T0 @X0 1 s ]
-[i F2951
+[v F2978 `S272 ~T0 @X0 1 s ]
+[i F2978
 :U ..
 :U ..
-"37
-[; ;ECU/LCD/ecu_lcd.c: 37:             pin_config_t data_pin = {.port = lcd_4bit->lcd_data_pins[local_index].port,
+"41
+[; ;ECU/LCD/ecu_lcd.c: 41:             pin_config_t data_pin = {.port = lcd_4bit->lcd_data_pins[local_index].port,
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -573,391 +610,109 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _data_pin `S272 ~T0 @X0 1 a ]
-[e = _data_pin F2951 ]
+[e = _data_pin F2978 ]
 [e ; = . _data_pin 0 . *U + &U . *U _lcd_4bit 2 * -> _local_index `ux -> -> # *U &U . *U _lcd_4bit 2 `ui `ux 0 ; = . _data_pin 1 . *U + &U . *U _lcd_4bit 2 * -> _local_index `ux -> -> # *U &U . *U _lcd_4bit 2 `ui `ux 1 ; = . _data_pin 2 -> . `E2805 0 `uc = . _data_pin 3 -> . `E2801 0 `uc ]
-"41
-[; ;ECU/LCD/ecu_lcd.c: 41:             state &= gpio_pin_direction_initialize(&data_pin);
+"45
+[; ;ECU/LCD/ecu_lcd.c: 45:             state &= gpio_pin_direction_initialize(&data_pin);
 [e =& _state -> ( _gpio_pin_direction_initialize (1 -> &U _data_pin `*CS272 `uc ]
-"42
-[; ;ECU/LCD/ecu_lcd.c: 42:         }
+"46
+[; ;ECU/LCD/ecu_lcd.c: 46:         }
 }
 [e ++ _local_index -> -> 1 `i `uc ]
 [e $ < -> _local_index `i -> 4 `i 279  ]
 [e :U 280 ]
 }
-"43
-[; ;ECU/LCD/ecu_lcd.c: 43:     }
+"47
+[; ;ECU/LCD/ecu_lcd.c: 47:         _delay((unsigned long)((20)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"48
+[; ;ECU/LCD/ecu_lcd.c: 48:         state &= lcd_send_higher_nibble(lcd_4bit, 0x38);
+[e =& _state -> ( _lcd_send_higher_nibble (2 , _lcd_4bit -> -> 56 `i `uc `uc ]
+"49
+[; ;ECU/LCD/ecu_lcd.c: 49:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"50
+[; ;ECU/LCD/ecu_lcd.c: 50:         state &= lcd_send_higher_nibble(lcd_4bit, 0x38);
+[e =& _state -> ( _lcd_send_higher_nibble (2 , _lcd_4bit -> -> 56 `i `uc `uc ]
+"51
+[; ;ECU/LCD/ecu_lcd.c: 51:         _delay((unsigned long)((150)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"52
+[; ;ECU/LCD/ecu_lcd.c: 52:         state &= lcd_send_higher_nibble(lcd_4bit, 0x38);
+[e =& _state -> ( _lcd_send_higher_nibble (2 , _lcd_4bit -> -> 56 `i `uc `uc ]
+"53
+[; ;ECU/LCD/ecu_lcd.c: 53:         state &= lcd_send_higher_nibble(lcd_4bit, 0x28);
+[e =& _state -> ( _lcd_send_higher_nibble (2 , _lcd_4bit -> -> 40 `i `uc `uc ]
+"55
+[; ;ECU/LCD/ecu_lcd.c: 55:         state &= lcd_4bit_send_command(lcd_4bit, 0x28);
+[e =& _state -> ( _lcd_4bit_send_command (2 , _lcd_4bit -> -> 40 `i `uc `uc ]
+"56
+[; ;ECU/LCD/ecu_lcd.c: 56:         state &= lcd_4bit_send_command(lcd_4bit, 0x01);
+[e =& _state -> ( _lcd_4bit_send_command (2 , _lcd_4bit -> -> 1 `i `uc `uc ]
+"57
+[; ;ECU/LCD/ecu_lcd.c: 57:         state &= lcd_4bit_send_command(lcd_4bit, 0x02);
+[e =& _state -> ( _lcd_4bit_send_command (2 , _lcd_4bit -> -> 2 `i `uc `uc ]
+"58
+[; ;ECU/LCD/ecu_lcd.c: 58:         state &= lcd_4bit_send_command(lcd_4bit, 0x0c);
+[e =& _state -> ( _lcd_4bit_send_command (2 , _lcd_4bit -> -> 12 `i `uc `uc ]
+"59
+[; ;ECU/LCD/ecu_lcd.c: 59:         state &= lcd_4bit_send_command(lcd_4bit, 0x06);
+[e =& _state -> ( _lcd_4bit_send_command (2 , _lcd_4bit -> -> 6 `i `uc `uc ]
+"73
+[; ;ECU/LCD/ecu_lcd.c: 73:     }
 }
 [e :U 278 ]
-"44
-[; ;ECU/LCD/ecu_lcd.c: 44: }
+"74
+[; ;ECU/LCD/ecu_lcd.c: 74:     return state;
+[e ) _state ]
+[e $UE 276  ]
+"75
+[; ;ECU/LCD/ecu_lcd.c: 75: }
 [e :UE 276 ]
 }
-"46
-[; ;ECU/LCD/ecu_lcd.c: 46: Std_ReturnType lcd_4bit_send_command(const lcd_4bit_t* lcd_4bit, const uint8 command)
+"77
+[; ;ECU/LCD/ecu_lcd.c: 77: Std_ReturnType lcd_4bit_send_command(const lcd_4bit_t* lcd_4bit, const uint8 command)
 [v _lcd_4bit_send_command `(uc ~T0 @X0 1 ef2`*CS274`Cuc ]
-"47
-[; ;ECU/LCD/ecu_lcd.c: 47: {
+"78
+[; ;ECU/LCD/ecu_lcd.c: 78: {
 {
 [e :U _lcd_4bit_send_command ]
-"46
-[; ;ECU/LCD/ecu_lcd.c: 46: Std_ReturnType lcd_4bit_send_command(const lcd_4bit_t* lcd_4bit, const uint8 command)
+"77
+[; ;ECU/LCD/ecu_lcd.c: 77: Std_ReturnType lcd_4bit_send_command(const lcd_4bit_t* lcd_4bit, const uint8 command)
 [v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
 [v _command `Cuc ~T0 @X0 1 r2 ]
-"47
-[; ;ECU/LCD/ecu_lcd.c: 47: {
-[f ]
-"48
-[; ;ECU/LCD/ecu_lcd.c: 48:     Std_ReturnType state = (Std_ReturnType)1;
-[v _state `uc ~T0 @X0 1 a ]
-[e = _state -> -> 1 `i `uc ]
-"49
-[; ;ECU/LCD/ecu_lcd.c: 49:     if(lcd_4bit == ((void*)0))
-[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 283  ]
-"50
-[; ;ECU/LCD/ecu_lcd.c: 50:     {
-{
-"51
-[; ;ECU/LCD/ecu_lcd.c: 51:         state = (Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
-"52
-[; ;ECU/LCD/ecu_lcd.c: 52:     }
-}
-[e $U 284  ]
-"53
-[; ;ECU/LCD/ecu_lcd.c: 53:     else
-[e :U 283 ]
-"54
-[; ;ECU/LCD/ecu_lcd.c: 54:     {
-{
-"56
-[; ;ECU/LCD/ecu_lcd.c: 56:     }
-}
-[e :U 284 ]
-"57
-[; ;ECU/LCD/ecu_lcd.c: 57: }
-[e :UE 282 ]
-}
-"59
-[; ;ECU/LCD/ecu_lcd.c: 59: Std_ReturnType lcd_4bit_send_char_data(const lcd_4bit_t* lcd_4bit, const uint8 ch)
-[v _lcd_4bit_send_char_data `(uc ~T0 @X0 1 ef2`*CS274`Cuc ]
-"60
-[; ;ECU/LCD/ecu_lcd.c: 60: {
-{
-[e :U _lcd_4bit_send_char_data ]
-"59
-[; ;ECU/LCD/ecu_lcd.c: 59: Std_ReturnType lcd_4bit_send_char_data(const lcd_4bit_t* lcd_4bit, const uint8 ch)
-[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
-[v _ch `Cuc ~T0 @X0 1 r2 ]
-"60
-[; ;ECU/LCD/ecu_lcd.c: 60: {
-[f ]
-"61
-[; ;ECU/LCD/ecu_lcd.c: 61:     Std_ReturnType state = (Std_ReturnType)1;
-[v _state `uc ~T0 @X0 1 a ]
-[e = _state -> -> 1 `i `uc ]
-"62
-[; ;ECU/LCD/ecu_lcd.c: 62:     if(lcd_4bit == ((void*)0))
-[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 286  ]
-"63
-[; ;ECU/LCD/ecu_lcd.c: 63:     {
-{
-"64
-[; ;ECU/LCD/ecu_lcd.c: 64:         state = (Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
-"65
-[; ;ECU/LCD/ecu_lcd.c: 65:     }
-}
-[e $U 287  ]
-"66
-[; ;ECU/LCD/ecu_lcd.c: 66:     else
-[e :U 286 ]
-"67
-[; ;ECU/LCD/ecu_lcd.c: 67:     {
-{
-"69
-[; ;ECU/LCD/ecu_lcd.c: 69:     }
-}
-[e :U 287 ]
-"70
-[; ;ECU/LCD/ecu_lcd.c: 70: }
-[e :UE 285 ]
-}
-"72
-[; ;ECU/LCD/ecu_lcd.c: 72: Std_ReturnType lcd_4bit_send_char_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8 ch)
-[v _lcd_4bit_send_char_at_position `(uc ~T0 @X0 1 ef4`*CS274`Cuc`Cuc`Cuc ]
-"73
-[; ;ECU/LCD/ecu_lcd.c: 73: {
-{
-[e :U _lcd_4bit_send_char_at_position ]
-"72
-[; ;ECU/LCD/ecu_lcd.c: 72: Std_ReturnType lcd_4bit_send_char_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8 ch)
-[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
-[v _row `Cuc ~T0 @X0 1 r2 ]
-[v _col `Cuc ~T0 @X0 1 r3 ]
-[v _ch `Cuc ~T0 @X0 1 r4 ]
-"73
-[; ;ECU/LCD/ecu_lcd.c: 73: {
-[f ]
-"74
-[; ;ECU/LCD/ecu_lcd.c: 74:     Std_ReturnType state = (Std_ReturnType)1;
-[v _state `uc ~T0 @X0 1 a ]
-[e = _state -> -> 1 `i `uc ]
-"75
-[; ;ECU/LCD/ecu_lcd.c: 75:     if(lcd_4bit == ((void*)0) || row > 4 || col > 80)
-[e $ ! || || == _lcd_4bit -> -> -> 0 `i `*v `*CS274 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 289  ]
-"76
-[; ;ECU/LCD/ecu_lcd.c: 76:     {
-{
-"77
-[; ;ECU/LCD/ecu_lcd.c: 77:         state = (Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
 "78
-[; ;ECU/LCD/ecu_lcd.c: 78:     }
-}
-[e $U 290  ]
+[; ;ECU/LCD/ecu_lcd.c: 78: {
+[f ]
 "79
-[; ;ECU/LCD/ecu_lcd.c: 79:     else
-[e :U 289 ]
+[; ;ECU/LCD/ecu_lcd.c: 79:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
 "80
-[; ;ECU/LCD/ecu_lcd.c: 80:     {
+[; ;ECU/LCD/ecu_lcd.c: 80:     if(lcd_4bit == ((void*)0))
+[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 283  ]
+"81
+[; ;ECU/LCD/ecu_lcd.c: 81:     {
 {
 "82
-[; ;ECU/LCD/ecu_lcd.c: 82:     }
-}
-[e :U 290 ]
+[; ;ECU/LCD/ecu_lcd.c: 82:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
 "83
-[; ;ECU/LCD/ecu_lcd.c: 83: }
-[e :UE 288 ]
+[; ;ECU/LCD/ecu_lcd.c: 83:     }
 }
+[e $U 284  ]
+"84
+[; ;ECU/LCD/ecu_lcd.c: 84:     else
+[e :U 283 ]
 "85
-[; ;ECU/LCD/ecu_lcd.c: 85: Std_ReturnType lcd_4bit_send_string_data(const lcd_4bit_t* lcd_4bit, const uint8* str)
-[v _lcd_4bit_send_string_data `(uc ~T0 @X0 1 ef2`*CS274`*Cuc ]
-"86
-[; ;ECU/LCD/ecu_lcd.c: 86: {
+[; ;ECU/LCD/ecu_lcd.c: 85:     {
 {
-[e :U _lcd_4bit_send_string_data ]
-"85
-[; ;ECU/LCD/ecu_lcd.c: 85: Std_ReturnType lcd_4bit_send_string_data(const lcd_4bit_t* lcd_4bit, const uint8* str)
-[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
-[v _str `*Cuc ~T0 @X0 1 r2 ]
-"86
-[; ;ECU/LCD/ecu_lcd.c: 86: {
-[f ]
-"87
-[; ;ECU/LCD/ecu_lcd.c: 87:     Std_ReturnType state = (Std_ReturnType)1;
-[v _state `uc ~T0 @X0 1 a ]
-[e = _state -> -> 1 `i `uc ]
-"88
-[; ;ECU/LCD/ecu_lcd.c: 88:     if(lcd_4bit == ((void*)0) || str == ((void*)0))
-[e $ ! || == _lcd_4bit -> -> -> 0 `i `*v `*CS274 == _str -> -> -> 0 `i `*v `*Cuc 292  ]
-"89
-[; ;ECU/LCD/ecu_lcd.c: 89:     {
-{
-"90
-[; ;ECU/LCD/ecu_lcd.c: 90:         state = (Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
-"91
-[; ;ECU/LCD/ecu_lcd.c: 91:     }
-}
-[e $U 293  ]
-"92
-[; ;ECU/LCD/ecu_lcd.c: 92:     else
-[e :U 292 ]
-"93
-[; ;ECU/LCD/ecu_lcd.c: 93:     {
-{
-"95
-[; ;ECU/LCD/ecu_lcd.c: 95:     }
-}
-[e :U 293 ]
-"96
-[; ;ECU/LCD/ecu_lcd.c: 96: }
-[e :UE 291 ]
-}
-"98
-[; ;ECU/LCD/ecu_lcd.c: 98: Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str)
-[v _lcd_4bit_send_string_at_position `(uc ~T0 @X0 1 ef4`*CS274`Cuc`Cuc`*Cuc ]
-"99
-[; ;ECU/LCD/ecu_lcd.c: 99: {
-{
-[e :U _lcd_4bit_send_string_at_position ]
-"98
-[; ;ECU/LCD/ecu_lcd.c: 98: Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str)
-[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
-[v _row `Cuc ~T0 @X0 1 r2 ]
-[v _col `Cuc ~T0 @X0 1 r3 ]
-[v _str `*Cuc ~T0 @X0 1 r4 ]
-"99
-[; ;ECU/LCD/ecu_lcd.c: 99: {
-[f ]
-"100
-[; ;ECU/LCD/ecu_lcd.c: 100:     Std_ReturnType state = (Std_ReturnType)1;
-[v _state `uc ~T0 @X0 1 a ]
-[e = _state -> -> 1 `i `uc ]
-"101
-[; ;ECU/LCD/ecu_lcd.c: 101:     if(lcd_4bit == ((void*)0) || row > 4 || col > 80 || str == ((void*)0))
-[e $ ! || || || == _lcd_4bit -> -> -> 0 `i `*v `*CS274 > -> _row `i -> 4 `i > -> _col `i -> 80 `i == _str -> -> -> 0 `i `*v `*Cuc 295  ]
-"102
-[; ;ECU/LCD/ecu_lcd.c: 102:     {
-{
-"103
-[; ;ECU/LCD/ecu_lcd.c: 103:         state = (Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
-"104
-[; ;ECU/LCD/ecu_lcd.c: 104:     }
-}
-[e $U 296  ]
-"105
-[; ;ECU/LCD/ecu_lcd.c: 105:     else
-[e :U 295 ]
-"106
-[; ;ECU/LCD/ecu_lcd.c: 106:     {
-{
-"108
-[; ;ECU/LCD/ecu_lcd.c: 108:     }
-}
-[e :U 296 ]
-"109
-[; ;ECU/LCD/ecu_lcd.c: 109: }
-[e :UE 294 ]
-}
-"111
-[; ;ECU/LCD/ecu_lcd.c: 111: Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos)
-[v _lcd_4bit_send_custome_char `(uc ~T0 @X0 1 ef5`*CS274`Cuc`Cuc`*Cuc`uc ]
-"112
-[; ;ECU/LCD/ecu_lcd.c: 112: {
-{
-[e :U _lcd_4bit_send_custome_char ]
-"111
-[; ;ECU/LCD/ecu_lcd.c: 111: Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos)
-[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
-[v _row `Cuc ~T0 @X0 1 r2 ]
-[v _col `Cuc ~T0 @X0 1 r3 ]
-[v _str `*Cuc ~T0 @X0 1 r4 ]
-[v _mem_pos `uc ~T0 @X0 1 r5 ]
-"112
-[; ;ECU/LCD/ecu_lcd.c: 112: {
-[f ]
-"113
-[; ;ECU/LCD/ecu_lcd.c: 113:     Std_ReturnType state = (Std_ReturnType)1;
-[v _state `uc ~T0 @X0 1 a ]
-[e = _state -> -> 1 `i `uc ]
-"114
-[; ;ECU/LCD/ecu_lcd.c: 114:     if(lcd_4bit == ((void*)0))
-[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 298  ]
-"115
-[; ;ECU/LCD/ecu_lcd.c: 115:     {
-{
-"116
-[; ;ECU/LCD/ecu_lcd.c: 116:         state = (Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
-"117
-[; ;ECU/LCD/ecu_lcd.c: 117:     }
-}
-[e $U 299  ]
-"118
-[; ;ECU/LCD/ecu_lcd.c: 118:     else
-[e :U 298 ]
-"119
-[; ;ECU/LCD/ecu_lcd.c: 119:     {
-{
-"121
-[; ;ECU/LCD/ecu_lcd.c: 121:     }
-}
-[e :U 299 ]
-"122
-[; ;ECU/LCD/ecu_lcd.c: 122: }
-[e :UE 297 ]
-}
-"124
-[; ;ECU/LCD/ecu_lcd.c: 124: Std_ReturnType lcd_4bit_set_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col)
-[v _lcd_4bit_set_position `(uc ~T0 @X0 1 ef3`*CS274`Cuc`Cuc ]
-"125
-[; ;ECU/LCD/ecu_lcd.c: 125: {
-{
-[e :U _lcd_4bit_set_position ]
-"124
-[; ;ECU/LCD/ecu_lcd.c: 124: Std_ReturnType lcd_4bit_set_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col)
-[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
-[v _row `Cuc ~T0 @X0 1 r2 ]
-[v _col `Cuc ~T0 @X0 1 r3 ]
-"125
-[; ;ECU/LCD/ecu_lcd.c: 125: {
-[f ]
-"126
-[; ;ECU/LCD/ecu_lcd.c: 126:     Std_ReturnType state = (Std_ReturnType)1;
-[v _state `uc ~T0 @X0 1 a ]
-[e = _state -> -> 1 `i `uc ]
-"127
-[; ;ECU/LCD/ecu_lcd.c: 127:     if(lcd_4bit == ((void*)0) || row > 4 || col > 80)
-[e $ ! || || == _lcd_4bit -> -> -> 0 `i `*v `*CS274 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 301  ]
-"128
-[; ;ECU/LCD/ecu_lcd.c: 128:     {
-{
-"129
-[; ;ECU/LCD/ecu_lcd.c: 129:         state = (Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
-"130
-[; ;ECU/LCD/ecu_lcd.c: 130:     }
-}
-[e $U 302  ]
-"131
-[; ;ECU/LCD/ecu_lcd.c: 131:     else
-[e :U 301 ]
-"132
-[; ;ECU/LCD/ecu_lcd.c: 132:     {
-{
-"134
-[; ;ECU/LCD/ecu_lcd.c: 134:     }
-}
-[e :U 302 ]
-"135
-[; ;ECU/LCD/ecu_lcd.c: 135: }
-[e :UE 300 ]
-}
-"138
-[; ;ECU/LCD/ecu_lcd.c: 138: Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit)
-[v _lcd_8bit_initialize `(uc ~T0 @X0 1 ef1`*CS275 ]
-"139
-[; ;ECU/LCD/ecu_lcd.c: 139: {
-{
-[e :U _lcd_8bit_initialize ]
-"138
-[; ;ECU/LCD/ecu_lcd.c: 138: Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit)
-[v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
-"139
-[; ;ECU/LCD/ecu_lcd.c: 139: {
-[f ]
-"140
-[; ;ECU/LCD/ecu_lcd.c: 140:     Std_ReturnType state = (Std_ReturnType)1;
-[v _state `uc ~T0 @X0 1 a ]
-[e = _state -> -> 1 `i `uc ]
-"141
-[; ;ECU/LCD/ecu_lcd.c: 141:     if(lcd_8bit == ((void*)0))
-[e $ ! == _lcd_8bit -> -> -> 0 `i `*v `*CS275 304  ]
-"142
-[; ;ECU/LCD/ecu_lcd.c: 142:     {
-{
-"143
-[; ;ECU/LCD/ecu_lcd.c: 143:         state = (Std_ReturnType)0;
-[e = _state -> -> 0 `i `uc ]
-"144
-[; ;ECU/LCD/ecu_lcd.c: 144:     }
-}
-[e $U 305  ]
-"145
-[; ;ECU/LCD/ecu_lcd.c: 145:     else
-[e :U 304 ]
-"146
-[; ;ECU/LCD/ecu_lcd.c: 146:     {
-{
-[v F2992 `S272 ~T0 @X0 1 s ]
-[i F2992
+[v F2984 `S272 ~T0 @X0 1 s ]
+[i F2984
 :U ..
 :U ..
-"148
-[; ;ECU/LCD/ecu_lcd.c: 148:         pin_config_t rs_pin = { .port = lcd_8bit->lcd_rs_pin.port,
+"86
+[; ;ECU/LCD/ecu_lcd.c: 86:         pin_config_t rs_pin={.port=lcd_4bit->lcd_rs_pin.port,.pin=lcd_4bit->lcd_rs_pin.pin,.direction=GPIO_OUTPUT,.logic=GPIO_LOW};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -966,17 +721,650 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _rs_pin `S272 ~T0 @X0 1 a ]
-[e = _rs_pin F2992 ]
-[e ; = . _rs_pin 0 . . *U _lcd_8bit 0 0 ; = . _rs_pin 1 . . *U _lcd_8bit 0 1 ; = . _rs_pin 2 -> . `E2805 0 `uc = . _rs_pin 3 -> . `E2801 0 `uc ]
+[e = _rs_pin F2984 ]
+[e ; = . _rs_pin 0 . . *U _lcd_4bit 0 0 ; = . _rs_pin 1 . . *U _lcd_4bit 0 1 ; = . _rs_pin 2 -> . `E2805 0 `uc = . _rs_pin 3 -> . `E2801 0 `uc ]
+"87
+[; ;ECU/LCD/ecu_lcd.c: 87:         state &= gpio_pin_write_logic(&rs_pin,GPIO_LOW);
+[e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _rs_pin `*CS272 -> . `E2801 0 `uc `uc ]
+"89
+[; ;ECU/LCD/ecu_lcd.c: 89:         state &= lcd_send_4bits(lcd_4bit,command >> 4);
+[e =& _state -> ( _lcd_send_4bits (2 , _lcd_4bit -> >> -> _command `i -> 4 `i `uc `uc ]
+"90
+[; ;ECU/LCD/ecu_lcd.c: 90:         state &= lcd_4bit_send_enable_signal(lcd_4bit);
+[e =& _state -> ( _lcd_4bit_send_enable_signal (1 _lcd_4bit `uc ]
+"91
+[; ;ECU/LCD/ecu_lcd.c: 91:         state &= lcd_send_4bits(lcd_4bit,command);
+[e =& _state -> ( _lcd_send_4bits (2 , _lcd_4bit _command `uc ]
+"92
+[; ;ECU/LCD/ecu_lcd.c: 92:         state &= lcd_4bit_send_enable_signal(lcd_4bit);
+[e =& _state -> ( _lcd_4bit_send_enable_signal (1 _lcd_4bit `uc ]
+"93
+[; ;ECU/LCD/ecu_lcd.c: 93:     }
+}
+[e :U 284 ]
+"94
+[; ;ECU/LCD/ecu_lcd.c: 94:     return state;
+[e ) _state ]
+[e $UE 282  ]
+"95
+[; ;ECU/LCD/ecu_lcd.c: 95: }
+[e :UE 282 ]
+}
+"97
+[; ;ECU/LCD/ecu_lcd.c: 97: Std_ReturnType lcd_4bit_send_char_data(const lcd_4bit_t* lcd_4bit, const uint8 ch)
+[v _lcd_4bit_send_char_data `(uc ~T0 @X0 1 ef2`*CS274`Cuc ]
+"98
+[; ;ECU/LCD/ecu_lcd.c: 98: {
+{
+[e :U _lcd_4bit_send_char_data ]
+"97
+[; ;ECU/LCD/ecu_lcd.c: 97: Std_ReturnType lcd_4bit_send_char_data(const lcd_4bit_t* lcd_4bit, const uint8 ch)
+[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
+[v _ch `Cuc ~T0 @X0 1 r2 ]
+"98
+[; ;ECU/LCD/ecu_lcd.c: 98: {
+[f ]
+"99
+[; ;ECU/LCD/ecu_lcd.c: 99:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"100
+[; ;ECU/LCD/ecu_lcd.c: 100:     if(lcd_4bit == ((void*)0))
+[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 286  ]
+"101
+[; ;ECU/LCD/ecu_lcd.c: 101:     {
+{
+"102
+[; ;ECU/LCD/ecu_lcd.c: 102:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"103
+[; ;ECU/LCD/ecu_lcd.c: 103:     }
+}
+[e $U 287  ]
+"104
+[; ;ECU/LCD/ecu_lcd.c: 104:     else
+[e :U 286 ]
+"105
+[; ;ECU/LCD/ecu_lcd.c: 105:     {
+{
+[v F2990 `S272 ~T0 @X0 1 s ]
+[i F2990
+:U ..
+:U ..
+"106
+[; ;ECU/LCD/ecu_lcd.c: 106:         pin_config_t rs_pin={.port=lcd_4bit->lcd_rs_pin.port,.pin=lcd_4bit->lcd_rs_pin.pin,.direction=GPIO_OUTPUT,.logic=GPIO_LOW};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _rs_pin `S272 ~T0 @X0 1 a ]
+[e = _rs_pin F2990 ]
+[e ; = . _rs_pin 0 . . *U _lcd_4bit 0 0 ; = . _rs_pin 1 . . *U _lcd_4bit 0 1 ; = . _rs_pin 2 -> . `E2805 0 `uc = . _rs_pin 3 -> . `E2801 0 `uc ]
+"107
+[; ;ECU/LCD/ecu_lcd.c: 107:         state &= gpio_pin_write_logic(&rs_pin,GPIO_HIGH);
+[e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _rs_pin `*CS272 -> . `E2801 1 `uc `uc ]
+"109
+[; ;ECU/LCD/ecu_lcd.c: 109:         state &= lcd_send_4bits(lcd_4bit,ch >> 4);
+[e =& _state -> ( _lcd_send_4bits (2 , _lcd_4bit -> >> -> _ch `i -> 4 `i `uc `uc ]
+"110
+[; ;ECU/LCD/ecu_lcd.c: 110:         state &= lcd_4bit_send_enable_signal(lcd_4bit);
+[e =& _state -> ( _lcd_4bit_send_enable_signal (1 _lcd_4bit `uc ]
+"111
+[; ;ECU/LCD/ecu_lcd.c: 111:         state &= lcd_send_4bits(lcd_4bit,ch);
+[e =& _state -> ( _lcd_send_4bits (2 , _lcd_4bit _ch `uc ]
+"112
+[; ;ECU/LCD/ecu_lcd.c: 112:         state &= lcd_4bit_send_enable_signal(lcd_4bit);
+[e =& _state -> ( _lcd_4bit_send_enable_signal (1 _lcd_4bit `uc ]
+"113
+[; ;ECU/LCD/ecu_lcd.c: 113:     }
+}
+[e :U 287 ]
+"114
+[; ;ECU/LCD/ecu_lcd.c: 114:     return state;
+[e ) _state ]
+[e $UE 285  ]
+"115
+[; ;ECU/LCD/ecu_lcd.c: 115: }
+[e :UE 285 ]
+}
+"117
+[; ;ECU/LCD/ecu_lcd.c: 117: Std_ReturnType lcd_4bit_send_char_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8 ch)
+[v _lcd_4bit_send_char_at_position `(uc ~T0 @X0 1 ef4`*CS274`Cuc`Cuc`Cuc ]
+"118
+[; ;ECU/LCD/ecu_lcd.c: 118: {
+{
+[e :U _lcd_4bit_send_char_at_position ]
+"117
+[; ;ECU/LCD/ecu_lcd.c: 117: Std_ReturnType lcd_4bit_send_char_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const uint8 ch)
+[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
+[v _row `Cuc ~T0 @X0 1 r2 ]
+[v _col `Cuc ~T0 @X0 1 r3 ]
+[v _ch `Cuc ~T0 @X0 1 r4 ]
+"118
+[; ;ECU/LCD/ecu_lcd.c: 118: {
+[f ]
+"119
+[; ;ECU/LCD/ecu_lcd.c: 119:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"120
+[; ;ECU/LCD/ecu_lcd.c: 120:     if(lcd_4bit == ((void*)0) || row > 4 || col > 80)
+[e $ ! || || == _lcd_4bit -> -> -> 0 `i `*v `*CS274 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 289  ]
+"121
+[; ;ECU/LCD/ecu_lcd.c: 121:     {
+{
+"122
+[; ;ECU/LCD/ecu_lcd.c: 122:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"123
+[; ;ECU/LCD/ecu_lcd.c: 123:     }
+}
+[e $U 290  ]
+"124
+[; ;ECU/LCD/ecu_lcd.c: 124:     else
+[e :U 289 ]
+"125
+[; ;ECU/LCD/ecu_lcd.c: 125:     {
+{
+"126
+[; ;ECU/LCD/ecu_lcd.c: 126:         state &= lcd_4bit_set_position(lcd_4bit,row,col);
+[e =& _state -> ( _lcd_4bit_set_position (3 , , _lcd_4bit _row _col `uc ]
+"127
+[; ;ECU/LCD/ecu_lcd.c: 127:         state &= lcd_4bit_send_char_data(lcd_4bit,ch);
+[e =& _state -> ( _lcd_4bit_send_char_data (2 , _lcd_4bit _ch `uc ]
+"128
+[; ;ECU/LCD/ecu_lcd.c: 128:     }
+}
+[e :U 290 ]
+"129
+[; ;ECU/LCD/ecu_lcd.c: 129:     return state;
+[e ) _state ]
+[e $UE 288  ]
+"130
+[; ;ECU/LCD/ecu_lcd.c: 130: }
+[e :UE 288 ]
+}
+"132
+[; ;ECU/LCD/ecu_lcd.c: 132: Std_ReturnType lcd_4bit_send_string_data(const lcd_4bit_t* lcd_4bit, const char* str)
+[v _lcd_4bit_send_string_data `(uc ~T0 @X0 1 ef2`*CS274`*Cuc ]
+"133
+[; ;ECU/LCD/ecu_lcd.c: 133: {
+{
+[e :U _lcd_4bit_send_string_data ]
+"132
+[; ;ECU/LCD/ecu_lcd.c: 132: Std_ReturnType lcd_4bit_send_string_data(const lcd_4bit_t* lcd_4bit, const char* str)
+[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
+[v _str `*Cuc ~T0 @X0 1 r2 ]
+"133
+[; ;ECU/LCD/ecu_lcd.c: 133: {
+[f ]
+"134
+[; ;ECU/LCD/ecu_lcd.c: 134:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"135
+[; ;ECU/LCD/ecu_lcd.c: 135:     if(lcd_4bit == ((void*)0) || str == ((void*)0))
+[e $ ! || == _lcd_4bit -> -> -> 0 `i `*v `*CS274 == _str -> -> -> 0 `i `*v `*Cuc 292  ]
+"136
+[; ;ECU/LCD/ecu_lcd.c: 136:     {
+{
+"137
+[; ;ECU/LCD/ecu_lcd.c: 137:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"138
+[; ;ECU/LCD/ecu_lcd.c: 138:     }
+}
+[e $U 293  ]
+"139
+[; ;ECU/LCD/ecu_lcd.c: 139:     else
+[e :U 292 ]
+"140
+[; ;ECU/LCD/ecu_lcd.c: 140:     {
+{
+"141
+[; ;ECU/LCD/ecu_lcd.c: 141:         while(*str != '\0')
+[e $U 294  ]
+[e :U 295 ]
+"142
+[; ;ECU/LCD/ecu_lcd.c: 142:         {
+{
+"143
+[; ;ECU/LCD/ecu_lcd.c: 143:             state &= lcd_4bit_send_char_data(lcd_4bit, *str);
+[e =& _state -> ( _lcd_4bit_send_char_data (2 , _lcd_4bit -> *U _str `uc `uc ]
+"144
+[; ;ECU/LCD/ecu_lcd.c: 144:             str++;
+[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
+"145
+[; ;ECU/LCD/ecu_lcd.c: 145:         }
+}
+[e :U 294 ]
+"141
+[; ;ECU/LCD/ecu_lcd.c: 141:         while(*str != '\0')
+[e $ != -> *U _str `ui -> 0 `ui 295  ]
+[e :U 296 ]
+"146
+[; ;ECU/LCD/ecu_lcd.c: 146:     }
+}
+[e :U 293 ]
+"147
+[; ;ECU/LCD/ecu_lcd.c: 147:     return state;
+[e ) _state ]
+[e $UE 291  ]
+"148
+[; ;ECU/LCD/ecu_lcd.c: 148: }
+[e :UE 291 ]
+}
+"150
+[; ;ECU/LCD/ecu_lcd.c: 150: Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const char* str)
+[v _lcd_4bit_send_string_at_position `(uc ~T0 @X0 1 ef4`*CS274`Cuc`Cuc`*Cuc ]
+"151
+[; ;ECU/LCD/ecu_lcd.c: 151: {
+{
+[e :U _lcd_4bit_send_string_at_position ]
+"150
+[; ;ECU/LCD/ecu_lcd.c: 150: Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const char* str)
+[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
+[v _row `Cuc ~T0 @X0 1 r2 ]
+[v _col `Cuc ~T0 @X0 1 r3 ]
+[v _str `*Cuc ~T0 @X0 1 r4 ]
+"151
+[; ;ECU/LCD/ecu_lcd.c: 151: {
+[f ]
 "152
-[; ;ECU/LCD/ecu_lcd.c: 152:         state &= gpio_pin_direction_initialize(&rs_pin);
-[e =& _state -> ( _gpio_pin_direction_initialize (1 -> &U _rs_pin `*CS272 `uc ]
-[v F2994 `S272 ~T0 @X0 1 s ]
-[i F2994
-:U ..
-:U ..
+[; ;ECU/LCD/ecu_lcd.c: 152:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
 "153
-[; ;ECU/LCD/ecu_lcd.c: 153:         pin_config_t en_pin = { .port = lcd_8bit->lcd_en_pin.port,
+[; ;ECU/LCD/ecu_lcd.c: 153:     if(lcd_4bit == ((void*)0) || row > 4 || col > 80 || str == ((void*)0))
+[e $ ! || || || == _lcd_4bit -> -> -> 0 `i `*v `*CS274 > -> _row `i -> 4 `i > -> _col `i -> 80 `i == _str -> -> -> 0 `i `*v `*Cuc 298  ]
+"154
+[; ;ECU/LCD/ecu_lcd.c: 154:     {
+{
+"155
+[; ;ECU/LCD/ecu_lcd.c: 155:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"156
+[; ;ECU/LCD/ecu_lcd.c: 156:     }
+}
+[e $U 299  ]
+"157
+[; ;ECU/LCD/ecu_lcd.c: 157:     else
+[e :U 298 ]
+"158
+[; ;ECU/LCD/ecu_lcd.c: 158:     {
+{
+"159
+[; ;ECU/LCD/ecu_lcd.c: 159:         state &= lcd_4bit_set_position(lcd_4bit, row, col);
+[e =& _state -> ( _lcd_4bit_set_position (3 , , _lcd_4bit _row _col `uc ]
+"160
+[; ;ECU/LCD/ecu_lcd.c: 160:         state &= lcd_4bit_send_string_data(lcd_4bit, str);
+[e =& _state -> ( _lcd_4bit_send_string_data (2 , _lcd_4bit _str `uc ]
+"161
+[; ;ECU/LCD/ecu_lcd.c: 161:     }
+}
+[e :U 299 ]
+"162
+[; ;ECU/LCD/ecu_lcd.c: 162:     return state;
+[e ) _state ]
+[e $UE 297  ]
+"163
+[; ;ECU/LCD/ecu_lcd.c: 163: }
+[e :UE 297 ]
+}
+"165
+[; ;ECU/LCD/ecu_lcd.c: 165: Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const char* str, uint8 mem_pos)
+[v _lcd_4bit_send_custome_char `(uc ~T0 @X0 1 ef5`*CS274`Cuc`Cuc`*Cuc`uc ]
+"166
+[; ;ECU/LCD/ecu_lcd.c: 166: {
+{
+[e :U _lcd_4bit_send_custome_char ]
+"165
+[; ;ECU/LCD/ecu_lcd.c: 165: Std_ReturnType lcd_4bit_send_custome_char(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const char* str, uint8 mem_pos)
+[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
+[v _row `Cuc ~T0 @X0 1 r2 ]
+[v _col `Cuc ~T0 @X0 1 r3 ]
+[v _str `*Cuc ~T0 @X0 1 r4 ]
+[v _mem_pos `uc ~T0 @X0 1 r5 ]
+"166
+[; ;ECU/LCD/ecu_lcd.c: 166: {
+[f ]
+"167
+[; ;ECU/LCD/ecu_lcd.c: 167:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"168
+[; ;ECU/LCD/ecu_lcd.c: 168:     if(lcd_4bit == ((void*)0))
+[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 301  ]
+"169
+[; ;ECU/LCD/ecu_lcd.c: 169:     {
+{
+"170
+[; ;ECU/LCD/ecu_lcd.c: 170:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"171
+[; ;ECU/LCD/ecu_lcd.c: 171:     }
+}
+[e $U 302  ]
+"172
+[; ;ECU/LCD/ecu_lcd.c: 172:     else
+[e :U 301 ]
+"173
+[; ;ECU/LCD/ecu_lcd.c: 173:     {
+{
+"175
+[; ;ECU/LCD/ecu_lcd.c: 175:     }
+}
+[e :U 302 ]
+"176
+[; ;ECU/LCD/ecu_lcd.c: 176:     return state;
+[e ) _state ]
+[e $UE 300  ]
+"177
+[; ;ECU/LCD/ecu_lcd.c: 177: }
+[e :UE 300 ]
+}
+"179
+[; ;ECU/LCD/ecu_lcd.c: 179: Std_ReturnType lcd_4bit_set_position(const lcd_4bit_t* lcd_4bit, uint8 row, uint8 col)
+[v _lcd_4bit_set_position `(uc ~T0 @X0 1 ef3`*CS274`Cuc`Cuc ]
+"180
+[; ;ECU/LCD/ecu_lcd.c: 180: {
+{
+[e :U _lcd_4bit_set_position ]
+"179
+[; ;ECU/LCD/ecu_lcd.c: 179: Std_ReturnType lcd_4bit_set_position(const lcd_4bit_t* lcd_4bit, uint8 row, uint8 col)
+[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
+[v _row `uc ~T0 @X0 1 r2 ]
+[v _col `uc ~T0 @X0 1 r3 ]
+"180
+[; ;ECU/LCD/ecu_lcd.c: 180: {
+[f ]
+"181
+[; ;ECU/LCD/ecu_lcd.c: 181:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"182
+[; ;ECU/LCD/ecu_lcd.c: 182:     if(lcd_4bit == ((void*)0) || row > 4 || col > 80)
+[e $ ! || || == _lcd_4bit -> -> -> 0 `i `*v `*CS274 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 304  ]
+"183
+[; ;ECU/LCD/ecu_lcd.c: 183:     {
+{
+"184
+[; ;ECU/LCD/ecu_lcd.c: 184:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"185
+[; ;ECU/LCD/ecu_lcd.c: 185:     }
+}
+[e $U 305  ]
+"186
+[; ;ECU/LCD/ecu_lcd.c: 186:     else
+[e :U 304 ]
+"187
+[; ;ECU/LCD/ecu_lcd.c: 187:     {
+{
+"188
+[; ;ECU/LCD/ecu_lcd.c: 188:         col--;
+[e -- _col -> -> 1 `i `uc ]
+"189
+[; ;ECU/LCD/ecu_lcd.c: 189:         switch(row)
+[e $U 307  ]
+"190
+[; ;ECU/LCD/ecu_lcd.c: 190:         {
+{
+"191
+[; ;ECU/LCD/ecu_lcd.c: 191:             case 1:
+[e :U 308 ]
+"192
+[; ;ECU/LCD/ecu_lcd.c: 192:                 state &= lcd_4bit_send_command(lcd_4bit, (0x80 + col));
+[e =& _state -> ( _lcd_4bit_send_command (2 , _lcd_4bit -> + -> 128 `i -> _col `i `uc `uc ]
+"193
+[; ;ECU/LCD/ecu_lcd.c: 193:                 break;
+[e $U 306  ]
+"194
+[; ;ECU/LCD/ecu_lcd.c: 194:             case 2:
+[e :U 309 ]
+"195
+[; ;ECU/LCD/ecu_lcd.c: 195:                 state &= lcd_4bit_send_command(lcd_4bit, (0xC0 + col));
+[e =& _state -> ( _lcd_4bit_send_command (2 , _lcd_4bit -> + -> 192 `i -> _col `i `uc `uc ]
+"196
+[; ;ECU/LCD/ecu_lcd.c: 196:                 break;
+[e $U 306  ]
+"197
+[; ;ECU/LCD/ecu_lcd.c: 197:             case 3:
+[e :U 310 ]
+"198
+[; ;ECU/LCD/ecu_lcd.c: 198:                 state &= lcd_4bit_send_command(lcd_4bit, (0x94 + col));
+[e =& _state -> ( _lcd_4bit_send_command (2 , _lcd_4bit -> + -> 148 `i -> _col `i `uc `uc ]
+"199
+[; ;ECU/LCD/ecu_lcd.c: 199:                 break;
+[e $U 306  ]
+"200
+[; ;ECU/LCD/ecu_lcd.c: 200:             case 4:
+[e :U 311 ]
+"201
+[; ;ECU/LCD/ecu_lcd.c: 201:                 state &= lcd_4bit_send_command(lcd_4bit, (0xD4 + col));
+[e =& _state -> ( _lcd_4bit_send_command (2 , _lcd_4bit -> + -> 212 `i -> _col `i `uc `uc ]
+"202
+[; ;ECU/LCD/ecu_lcd.c: 202:                 break;
+[e $U 306  ]
+"203
+[; ;ECU/LCD/ecu_lcd.c: 203:         }
+}
+[e $U 306  ]
+[e :U 307 ]
+[e [\ -> _row `i , $ -> 1 `i 308
+ , $ -> 2 `i 309
+ , $ -> 3 `i 310
+ , $ -> 4 `i 311
+ 306 ]
+[e :U 306 ]
+"204
+[; ;ECU/LCD/ecu_lcd.c: 204:     }
+}
+[e :U 305 ]
+"205
+[; ;ECU/LCD/ecu_lcd.c: 205:     return state;
+[e ) _state ]
+[e $UE 303  ]
+"206
+[; ;ECU/LCD/ecu_lcd.c: 206: }
+[e :UE 303 ]
+}
+"208
+[; ;ECU/LCD/ecu_lcd.c: 208: Std_ReturnType lcd_4bit_send_number_data(const lcd_4bit_t* lcd_4bit, sint32 value)
+[v _lcd_4bit_send_number_data `(uc ~T0 @X0 1 ef2`*CS274`l ]
+"209
+[; ;ECU/LCD/ecu_lcd.c: 209: {
+{
+[e :U _lcd_4bit_send_number_data ]
+"208
+[; ;ECU/LCD/ecu_lcd.c: 208: Std_ReturnType lcd_4bit_send_number_data(const lcd_4bit_t* lcd_4bit, sint32 value)
+[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
+[v _value `l ~T0 @X0 1 r2 ]
+"209
+[; ;ECU/LCD/ecu_lcd.c: 209: {
+[f ]
+"210
+[; ;ECU/LCD/ecu_lcd.c: 210:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"211
+[; ;ECU/LCD/ecu_lcd.c: 211:     if(lcd_4bit == ((void*)0))
+[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 313  ]
+"212
+[; ;ECU/LCD/ecu_lcd.c: 212:     {
+{
+"213
+[; ;ECU/LCD/ecu_lcd.c: 213:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"214
+[; ;ECU/LCD/ecu_lcd.c: 214:     }
+}
+[e $U 314  ]
+"215
+[; ;ECU/LCD/ecu_lcd.c: 215:     else
+[e :U 313 ]
+"216
+[; ;ECU/LCD/ecu_lcd.c: 216:     {
+{
+[v F3024 `uc ~T0 @X0 -> 12 `i s ]
+[i F3024
+:U ..
+"217
+[; ;ECU/LCD/ecu_lcd.c: 217:          uint8 str[12] = {0};
+-> -> 0 `i `uc
+..
+]
+[v _str `uc ~T0 @X0 -> 12 `i a ]
+[e = _str F3024 ]
+"218
+[; ;ECU/LCD/ecu_lcd.c: 218:          state &= lcd_convert_number_to_string(value, str);
+[e =& _state -> ( _lcd_convert_number_to_string (2 , _value &U _str `uc ]
+"219
+[; ;ECU/LCD/ecu_lcd.c: 219:          state &= lcd_4bit_send_string_data(lcd_4bit, str);
+[e =& _state -> ( _lcd_4bit_send_string_data (2 , _lcd_4bit -> &U _str `*Cuc `uc ]
+"220
+[; ;ECU/LCD/ecu_lcd.c: 220:     }
+}
+[e :U 314 ]
+"221
+[; ;ECU/LCD/ecu_lcd.c: 221:     return state;
+[e ) _state ]
+[e $UE 312  ]
+"222
+[; ;ECU/LCD/ecu_lcd.c: 222: }
+[e :UE 312 ]
+}
+"224
+[; ;ECU/LCD/ecu_lcd.c: 224: Std_ReturnType lcd_4bit_send_number_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, sint32 value)
+[v _lcd_4bit_send_number_at_position `(uc ~T0 @X0 1 ef4`*CS274`Cuc`Cuc`l ]
+"225
+[; ;ECU/LCD/ecu_lcd.c: 225: {
+{
+[e :U _lcd_4bit_send_number_at_position ]
+"224
+[; ;ECU/LCD/ecu_lcd.c: 224: Std_ReturnType lcd_4bit_send_number_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, sint32 value)
+[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
+[v _row `Cuc ~T0 @X0 1 r2 ]
+[v _col `Cuc ~T0 @X0 1 r3 ]
+[v _value `l ~T0 @X0 1 r4 ]
+"225
+[; ;ECU/LCD/ecu_lcd.c: 225: {
+[f ]
+"226
+[; ;ECU/LCD/ecu_lcd.c: 226:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"227
+[; ;ECU/LCD/ecu_lcd.c: 227:     if(lcd_4bit == ((void*)0) || row > 4 || col > 80)
+[e $ ! || || == _lcd_4bit -> -> -> 0 `i `*v `*CS274 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 316  ]
+"228
+[; ;ECU/LCD/ecu_lcd.c: 228:     {
+{
+"229
+[; ;ECU/LCD/ecu_lcd.c: 229:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"230
+[; ;ECU/LCD/ecu_lcd.c: 230:     }
+}
+[e $U 317  ]
+"231
+[; ;ECU/LCD/ecu_lcd.c: 231:     else
+[e :U 316 ]
+"232
+[; ;ECU/LCD/ecu_lcd.c: 232:     {
+{
+[v F3032 `uc ~T0 @X0 -> 12 `i s ]
+[i F3032
+:U ..
+"233
+[; ;ECU/LCD/ecu_lcd.c: 233:          uint8 str[12] = {0};
+-> -> 0 `i `uc
+..
+]
+[v _str `uc ~T0 @X0 -> 12 `i a ]
+[e = _str F3032 ]
+"234
+[; ;ECU/LCD/ecu_lcd.c: 234:          state &= lcd_convert_number_to_string(value, str);
+[e =& _state -> ( _lcd_convert_number_to_string (2 , _value &U _str `uc ]
+"235
+[; ;ECU/LCD/ecu_lcd.c: 235:          state &= lcd_4bit_send_string_at_position(lcd_4bit, row, col, str);
+[e =& _state -> ( _lcd_4bit_send_string_at_position (4 , , , _lcd_4bit _row _col -> &U _str `*Cuc `uc ]
+"237
+[; ;ECU/LCD/ecu_lcd.c: 237:     }
+}
+[e :U 317 ]
+"238
+[; ;ECU/LCD/ecu_lcd.c: 238:     return state;
+[e ) _state ]
+[e $UE 315  ]
+"239
+[; ;ECU/LCD/ecu_lcd.c: 239: }
+[e :UE 315 ]
+}
+"242
+[; ;ECU/LCD/ecu_lcd.c: 242: Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit)
+[v _lcd_8bit_initialize `(uc ~T0 @X0 1 ef1`*CS275 ]
+"243
+[; ;ECU/LCD/ecu_lcd.c: 243: {
+{
+[e :U _lcd_8bit_initialize ]
+"242
+[; ;ECU/LCD/ecu_lcd.c: 242: Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit)
+[v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
+"243
+[; ;ECU/LCD/ecu_lcd.c: 243: {
+[f ]
+"244
+[; ;ECU/LCD/ecu_lcd.c: 244:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"245
+[; ;ECU/LCD/ecu_lcd.c: 245:     if(lcd_8bit == ((void*)0))
+[e $ ! == _lcd_8bit -> -> -> 0 `i `*v `*CS275 319  ]
+"246
+[; ;ECU/LCD/ecu_lcd.c: 246:     {
+{
+"247
+[; ;ECU/LCD/ecu_lcd.c: 247:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"248
+[; ;ECU/LCD/ecu_lcd.c: 248:     }
+}
+[e $U 320  ]
+"249
+[; ;ECU/LCD/ecu_lcd.c: 249:     else
+[e :U 319 ]
+"250
+[; ;ECU/LCD/ecu_lcd.c: 250:     {
+{
+[v F3037 `S272 ~T0 @X0 1 s ]
+[i F3037
+:U ..
+:U ..
+"251
+[; ;ECU/LCD/ecu_lcd.c: 251:         pin_config_t rs_pin = { .port = lcd_8bit->lcd_rs_pin.port,
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _rs_pin `S272 ~T0 @X0 1 a ]
+[e = _rs_pin F3037 ]
+[e ; = . _rs_pin 0 . . *U _lcd_8bit 0 0 ; = . _rs_pin 1 . . *U _lcd_8bit 0 1 ; = . _rs_pin 2 -> . `E2805 0 `uc = . _rs_pin 3 -> . `E2801 0 `uc ]
+"255
+[; ;ECU/LCD/ecu_lcd.c: 255:         state &= gpio_pin_direction_initialize(&rs_pin);
+[e =& _state -> ( _gpio_pin_direction_initialize (1 -> &U _rs_pin `*CS272 `uc ]
+[v F3039 `S272 ~T0 @X0 1 s ]
+[i F3039
+:U ..
+:U ..
+"256
+[; ;ECU/LCD/ecu_lcd.c: 256:         pin_config_t en_pin = { .port = lcd_8bit->lcd_en_pin.port,
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -985,28 +1373,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _en_pin `S272 ~T0 @X0 1 a ]
-[e = _en_pin F2994 ]
+[e = _en_pin F3039 ]
 [e ; = . _en_pin 0 . . *U _lcd_8bit 1 0 ; = . _en_pin 1 . . *U _lcd_8bit 1 1 ; = . _en_pin 2 -> . `E2805 0 `uc = . _en_pin 3 -> . `E2801 0 `uc ]
-"157
-[; ;ECU/LCD/ecu_lcd.c: 157:         state &= gpio_pin_direction_initialize(&en_pin);
+"260
+[; ;ECU/LCD/ecu_lcd.c: 260:         state &= gpio_pin_direction_initialize(&en_pin);
 [e =& _state -> ( _gpio_pin_direction_initialize (1 -> &U _en_pin `*CS272 `uc ]
-"159
-[; ;ECU/LCD/ecu_lcd.c: 159:         for(uint8 local_index=0; local_index<8; local_index++)
+"262
+[; ;ECU/LCD/ecu_lcd.c: 262:         for(uint8 local_index=0; local_index<8; local_index++)
 {
 [v _local_index `uc ~T0 @X0 1 a ]
 [e = _local_index -> -> 0 `i `uc ]
-[e $ < -> _local_index `i -> 8 `i 306  ]
-[e $U 307  ]
-[e :U 306 ]
-"160
-[; ;ECU/LCD/ecu_lcd.c: 160:         {
+[e $ < -> _local_index `i -> 8 `i 321  ]
+[e $U 322  ]
+[e :U 321 ]
+"263
+[; ;ECU/LCD/ecu_lcd.c: 263:         {
 {
-[v F2997 `S272 ~T0 @X0 1 s ]
-[i F2997
+[v F3042 `S272 ~T0 @X0 1 s ]
+[i F3042
 :U ..
 :U ..
-"161
-[; ;ECU/LCD/ecu_lcd.c: 161:             pin_config_t data_pin = { .port = lcd_8bit->lcd_data_pins[local_index].port,
+"264
+[; ;ECU/LCD/ecu_lcd.c: 264:             pin_config_t data_pin = { .port = lcd_8bit->lcd_data_pins[local_index].port,
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -1015,403 +1403,793 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _data_pin `S272 ~T0 @X0 1 a ]
-[e = _data_pin F2997 ]
+[e = _data_pin F3042 ]
 [e ; = . _data_pin 0 . *U + &U . *U _lcd_8bit 2 * -> _local_index `ux -> -> # *U &U . *U _lcd_8bit 2 `ui `ux 0 ; = . _data_pin 1 . *U + &U . *U _lcd_8bit 2 * -> _local_index `ux -> -> # *U &U . *U _lcd_8bit 2 `ui `ux 1 ; = . _data_pin 2 -> . `E2805 0 `uc = . _data_pin 3 -> . `E2801 0 `uc ]
-"165
-[; ;ECU/LCD/ecu_lcd.c: 165:             state &= gpio_pin_direction_initialize(&data_pin);
+"268
+[; ;ECU/LCD/ecu_lcd.c: 268:             state &= gpio_pin_direction_initialize(&data_pin);
 [e =& _state -> ( _gpio_pin_direction_initialize (1 -> &U _data_pin `*CS272 `uc ]
-"166
-[; ;ECU/LCD/ecu_lcd.c: 166:         }
+"269
+[; ;ECU/LCD/ecu_lcd.c: 269:         }
 }
 [e ++ _local_index -> -> 1 `i `uc ]
-[e $ < -> _local_index `i -> 8 `i 306  ]
-[e :U 307 ]
+[e $ < -> _local_index `i -> 8 `i 321  ]
+[e :U 322 ]
 }
-"167
-[; ;ECU/LCD/ecu_lcd.c: 167:     }
+"270
+[; ;ECU/LCD/ecu_lcd.c: 270:         _delay((unsigned long)((20)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"271
+[; ;ECU/LCD/ecu_lcd.c: 271:         state &= lcd_8bit_send_command(lcd_8bit, 0x38);
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> -> 56 `i `uc `uc ]
+"272
+[; ;ECU/LCD/ecu_lcd.c: 272:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"273
+[; ;ECU/LCD/ecu_lcd.c: 273:         state &= lcd_8bit_send_command(lcd_8bit, 0x38);
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> -> 56 `i `uc `uc ]
+"274
+[; ;ECU/LCD/ecu_lcd.c: 274:         _delay((unsigned long)((150)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"275
+[; ;ECU/LCD/ecu_lcd.c: 275:         state &= lcd_8bit_send_command(lcd_8bit, 0x38);
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> -> 56 `i `uc `uc ]
+"277
+[; ;ECU/LCD/ecu_lcd.c: 277:         state &= lcd_8bit_send_command(lcd_8bit, 0x01);
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> -> 1 `i `uc `uc ]
+"278
+[; ;ECU/LCD/ecu_lcd.c: 278:         state &= lcd_8bit_send_command(lcd_8bit, 0x02);
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> -> 2 `i `uc `uc ]
+"279
+[; ;ECU/LCD/ecu_lcd.c: 279:         state &= lcd_8bit_send_command(lcd_8bit, 0x0c);
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> -> 12 `i `uc `uc ]
+"280
+[; ;ECU/LCD/ecu_lcd.c: 280:         state &= lcd_8bit_send_command(lcd_8bit, 0x06);
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> -> 6 `i `uc `uc ]
+"281
+[; ;ECU/LCD/ecu_lcd.c: 281:     }
 }
-[e :U 305 ]
-"168
-[; ;ECU/LCD/ecu_lcd.c: 168: }
-[e :UE 303 ]
+[e :U 320 ]
+"282
+[; ;ECU/LCD/ecu_lcd.c: 282:     return state;
+[e ) _state ]
+[e $UE 318  ]
+"283
+[; ;ECU/LCD/ecu_lcd.c: 283: }
+[e :UE 318 ]
 }
-"170
-[; ;ECU/LCD/ecu_lcd.c: 170: Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 command)
+"285
+[; ;ECU/LCD/ecu_lcd.c: 285: Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 command)
 [v _lcd_8bit_send_command `(uc ~T0 @X0 1 ef2`*CS275`Cuc ]
-"171
-[; ;ECU/LCD/ecu_lcd.c: 171: {
+"286
+[; ;ECU/LCD/ecu_lcd.c: 286: {
 {
 [e :U _lcd_8bit_send_command ]
-"170
-[; ;ECU/LCD/ecu_lcd.c: 170: Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 command)
+"285
+[; ;ECU/LCD/ecu_lcd.c: 285: Std_ReturnType lcd_8bit_send_command(const lcd_8bit_t* lcd_8bit, const uint8 command)
 [v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
 [v _command `Cuc ~T0 @X0 1 r2 ]
-"171
-[; ;ECU/LCD/ecu_lcd.c: 171: {
+"286
+[; ;ECU/LCD/ecu_lcd.c: 286: {
 [f ]
-"172
-[; ;ECU/LCD/ecu_lcd.c: 172:     Std_ReturnType state = (Std_ReturnType)1;
+"287
+[; ;ECU/LCD/ecu_lcd.c: 287:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"173
-[; ;ECU/LCD/ecu_lcd.c: 173:     if(lcd_8bit == ((void*)0))
-[e $ ! == _lcd_8bit -> -> -> 0 `i `*v `*CS275 310  ]
-"174
-[; ;ECU/LCD/ecu_lcd.c: 174:     {
+"288
+[; ;ECU/LCD/ecu_lcd.c: 288:     if(lcd_8bit == ((void*)0))
+[e $ ! == _lcd_8bit -> -> -> 0 `i `*v `*CS275 325  ]
+"289
+[; ;ECU/LCD/ecu_lcd.c: 289:     {
 {
-"175
-[; ;ECU/LCD/ecu_lcd.c: 175:         state = (Std_ReturnType)0;
+"290
+[; ;ECU/LCD/ecu_lcd.c: 290:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"176
-[; ;ECU/LCD/ecu_lcd.c: 176:     }
+"291
+[; ;ECU/LCD/ecu_lcd.c: 291:     }
 }
-[e $U 311  ]
-"177
-[; ;ECU/LCD/ecu_lcd.c: 177:     else
-[e :U 310 ]
-"178
-[; ;ECU/LCD/ecu_lcd.c: 178:     {
+[e $U 326  ]
+"292
+[; ;ECU/LCD/ecu_lcd.c: 292:     else
+[e :U 325 ]
+"293
+[; ;ECU/LCD/ecu_lcd.c: 293:     {
 {
-"180
-[; ;ECU/LCD/ecu_lcd.c: 180:     }
+[v F3048 `S272 ~T0 @X0 1 s ]
+[i F3048
+:U ..
+:U ..
+"294
+[; ;ECU/LCD/ecu_lcd.c: 294:         pin_config_t rs_pin={.port=lcd_8bit->lcd_rs_pin.port,.pin=lcd_8bit->lcd_rs_pin.pin,.direction=GPIO_OUTPUT,.logic=GPIO_LOW};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _rs_pin `S272 ~T0 @X0 1 a ]
+[e = _rs_pin F3048 ]
+[e ; = . _rs_pin 0 . . *U _lcd_8bit 0 0 ; = . _rs_pin 1 . . *U _lcd_8bit 0 1 ; = . _rs_pin 2 -> . `E2805 0 `uc = . _rs_pin 3 -> . `E2801 0 `uc ]
+"295
+[; ;ECU/LCD/ecu_lcd.c: 295:         state &= gpio_pin_write_logic(&rs_pin,GPIO_LOW);
+[e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _rs_pin `*CS272 -> . `E2801 0 `uc `uc ]
+"297
+[; ;ECU/LCD/ecu_lcd.c: 297:         state &= lcd_send_8bits(lcd_8bit,command);
+[e =& _state -> ( _lcd_send_8bits (2 , _lcd_8bit _command `uc ]
+"298
+[; ;ECU/LCD/ecu_lcd.c: 298:         state &= lcd_8bit_send_enable_signal(lcd_8bit);
+[e =& _state -> ( _lcd_8bit_send_enable_signal (1 _lcd_8bit `uc ]
+"299
+[; ;ECU/LCD/ecu_lcd.c: 299:     }
 }
-[e :U 311 ]
-"181
-[; ;ECU/LCD/ecu_lcd.c: 181: }
-[e :UE 309 ]
+[e :U 326 ]
+"300
+[; ;ECU/LCD/ecu_lcd.c: 300:     return state;
+[e ) _state ]
+[e $UE 324  ]
+"301
+[; ;ECU/LCD/ecu_lcd.c: 301: }
+[e :UE 324 ]
 }
-"183
-[; ;ECU/LCD/ecu_lcd.c: 183: Std_ReturnType lcd_8bit_send_char_data(const lcd_8bit_t* lcd_8bit, const uint8 ch)
+"303
+[; ;ECU/LCD/ecu_lcd.c: 303: Std_ReturnType lcd_8bit_send_char_data(const lcd_8bit_t* lcd_8bit, const uint8 ch)
 [v _lcd_8bit_send_char_data `(uc ~T0 @X0 1 ef2`*CS275`Cuc ]
-"184
-[; ;ECU/LCD/ecu_lcd.c: 184: {
+"304
+[; ;ECU/LCD/ecu_lcd.c: 304: {
 {
 [e :U _lcd_8bit_send_char_data ]
-"183
-[; ;ECU/LCD/ecu_lcd.c: 183: Std_ReturnType lcd_8bit_send_char_data(const lcd_8bit_t* lcd_8bit, const uint8 ch)
+"303
+[; ;ECU/LCD/ecu_lcd.c: 303: Std_ReturnType lcd_8bit_send_char_data(const lcd_8bit_t* lcd_8bit, const uint8 ch)
 [v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
 [v _ch `Cuc ~T0 @X0 1 r2 ]
-"184
-[; ;ECU/LCD/ecu_lcd.c: 184: {
+"304
+[; ;ECU/LCD/ecu_lcd.c: 304: {
 [f ]
-"185
-[; ;ECU/LCD/ecu_lcd.c: 185:     Std_ReturnType state = (Std_ReturnType)1;
+"305
+[; ;ECU/LCD/ecu_lcd.c: 305:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"186
-[; ;ECU/LCD/ecu_lcd.c: 186:     if(lcd_8bit == ((void*)0))
-[e $ ! == _lcd_8bit -> -> -> 0 `i `*v `*CS275 313  ]
-"187
-[; ;ECU/LCD/ecu_lcd.c: 187:     {
+"306
+[; ;ECU/LCD/ecu_lcd.c: 306:     if(lcd_8bit == ((void*)0))
+[e $ ! == _lcd_8bit -> -> -> 0 `i `*v `*CS275 328  ]
+"307
+[; ;ECU/LCD/ecu_lcd.c: 307:     {
 {
-"188
-[; ;ECU/LCD/ecu_lcd.c: 188:         state = (Std_ReturnType)0;
+"308
+[; ;ECU/LCD/ecu_lcd.c: 308:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"189
-[; ;ECU/LCD/ecu_lcd.c: 189:     }
+"309
+[; ;ECU/LCD/ecu_lcd.c: 309:     }
 }
-[e $U 314  ]
-"190
-[; ;ECU/LCD/ecu_lcd.c: 190:     else
-[e :U 313 ]
-"191
-[; ;ECU/LCD/ecu_lcd.c: 191:     {
+[e $U 329  ]
+"310
+[; ;ECU/LCD/ecu_lcd.c: 310:     else
+[e :U 328 ]
+"311
+[; ;ECU/LCD/ecu_lcd.c: 311:     {
 {
-"193
-[; ;ECU/LCD/ecu_lcd.c: 193:     }
+[v F3054 `S272 ~T0 @X0 1 s ]
+[i F3054
+:U ..
+:U ..
+"312
+[; ;ECU/LCD/ecu_lcd.c: 312:         pin_config_t rs_pin={.port=lcd_8bit->lcd_rs_pin.port,.pin=lcd_8bit->lcd_rs_pin.pin,.direction=GPIO_OUTPUT,.logic=GPIO_LOW};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _rs_pin `S272 ~T0 @X0 1 a ]
+[e = _rs_pin F3054 ]
+[e ; = . _rs_pin 0 . . *U _lcd_8bit 0 0 ; = . _rs_pin 1 . . *U _lcd_8bit 0 1 ; = . _rs_pin 2 -> . `E2805 0 `uc = . _rs_pin 3 -> . `E2801 0 `uc ]
+"313
+[; ;ECU/LCD/ecu_lcd.c: 313:         state &= gpio_pin_write_logic(&rs_pin,GPIO_HIGH);
+[e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _rs_pin `*CS272 -> . `E2801 1 `uc `uc ]
+"315
+[; ;ECU/LCD/ecu_lcd.c: 315:         state &= lcd_send_8bits(lcd_8bit,ch);
+[e =& _state -> ( _lcd_send_8bits (2 , _lcd_8bit _ch `uc ]
+"316
+[; ;ECU/LCD/ecu_lcd.c: 316:         state &= lcd_8bit_send_enable_signal(lcd_8bit);
+[e =& _state -> ( _lcd_8bit_send_enable_signal (1 _lcd_8bit `uc ]
+"317
+[; ;ECU/LCD/ecu_lcd.c: 317:     }
 }
-[e :U 314 ]
-"194
-[; ;ECU/LCD/ecu_lcd.c: 194: }
-[e :UE 312 ]
+[e :U 329 ]
+"318
+[; ;ECU/LCD/ecu_lcd.c: 318:     return state;
+[e ) _state ]
+[e $UE 327  ]
+"319
+[; ;ECU/LCD/ecu_lcd.c: 319: }
+[e :UE 327 ]
 }
-"196
-[; ;ECU/LCD/ecu_lcd.c: 196: Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch)
+"321
+[; ;ECU/LCD/ecu_lcd.c: 321: Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch)
 [v _lcd_8bit_send_char_at_position `(uc ~T0 @X0 1 ef4`*CS275`Cuc`Cuc`Cuc ]
-"197
-[; ;ECU/LCD/ecu_lcd.c: 197: {
+"322
+[; ;ECU/LCD/ecu_lcd.c: 322: {
 {
 [e :U _lcd_8bit_send_char_at_position ]
-"196
-[; ;ECU/LCD/ecu_lcd.c: 196: Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch)
+"321
+[; ;ECU/LCD/ecu_lcd.c: 321: Std_ReturnType lcd_8bit_send_char_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8 ch)
 [v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
 [v _row `Cuc ~T0 @X0 1 r2 ]
 [v _col `Cuc ~T0 @X0 1 r3 ]
 [v _ch `Cuc ~T0 @X0 1 r4 ]
-"197
-[; ;ECU/LCD/ecu_lcd.c: 197: {
+"322
+[; ;ECU/LCD/ecu_lcd.c: 322: {
 [f ]
-"198
-[; ;ECU/LCD/ecu_lcd.c: 198:     Std_ReturnType state = (Std_ReturnType)1;
+"323
+[; ;ECU/LCD/ecu_lcd.c: 323:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"199
-[; ;ECU/LCD/ecu_lcd.c: 199:     if(lcd_8bit == ((void*)0) || row > 4 || col > 80)
-[e $ ! || || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 316  ]
-"200
-[; ;ECU/LCD/ecu_lcd.c: 200:     {
+"324
+[; ;ECU/LCD/ecu_lcd.c: 324:     if(lcd_8bit == ((void*)0) || row > 4 || col > 80)
+[e $ ! || || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 331  ]
+"325
+[; ;ECU/LCD/ecu_lcd.c: 325:     {
 {
-"201
-[; ;ECU/LCD/ecu_lcd.c: 201:         state = (Std_ReturnType)0;
+"326
+[; ;ECU/LCD/ecu_lcd.c: 326:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"202
-[; ;ECU/LCD/ecu_lcd.c: 202:     }
+"327
+[; ;ECU/LCD/ecu_lcd.c: 327:     }
 }
-[e $U 317  ]
-"203
-[; ;ECU/LCD/ecu_lcd.c: 203:     else
-[e :U 316 ]
-"204
-[; ;ECU/LCD/ecu_lcd.c: 204:     {
+[e $U 332  ]
+"328
+[; ;ECU/LCD/ecu_lcd.c: 328:     else
+[e :U 331 ]
+"329
+[; ;ECU/LCD/ecu_lcd.c: 329:     {
 {
-"206
-[; ;ECU/LCD/ecu_lcd.c: 206:     }
+"330
+[; ;ECU/LCD/ecu_lcd.c: 330:         state &= lcd_8bit_set_position(lcd_8bit,row,col);
+[e =& _state -> ( _lcd_8bit_set_position (3 , , _lcd_8bit _row _col `uc ]
+"331
+[; ;ECU/LCD/ecu_lcd.c: 331:         state &= lcd_8bit_send_char_data(lcd_8bit,ch);
+[e =& _state -> ( _lcd_8bit_send_char_data (2 , _lcd_8bit _ch `uc ]
+"332
+[; ;ECU/LCD/ecu_lcd.c: 332:     }
 }
-[e :U 317 ]
-"207
-[; ;ECU/LCD/ecu_lcd.c: 207: }
-[e :UE 315 ]
+[e :U 332 ]
+"333
+[; ;ECU/LCD/ecu_lcd.c: 333:     return state;
+[e ) _state ]
+[e $UE 330  ]
+"334
+[; ;ECU/LCD/ecu_lcd.c: 334: }
+[e :UE 330 ]
 }
-"209
-[; ;ECU/LCD/ecu_lcd.c: 209: Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const uint8* str)
+"336
+[; ;ECU/LCD/ecu_lcd.c: 336: Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const char* str)
 [v _lcd_8bit_send_string_data `(uc ~T0 @X0 1 ef2`*CS275`*Cuc ]
-"210
-[; ;ECU/LCD/ecu_lcd.c: 210: {
+"337
+[; ;ECU/LCD/ecu_lcd.c: 337: {
 {
 [e :U _lcd_8bit_send_string_data ]
-"209
-[; ;ECU/LCD/ecu_lcd.c: 209: Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const uint8* str)
+"336
+[; ;ECU/LCD/ecu_lcd.c: 336: Std_ReturnType lcd_8bit_send_string_data(const lcd_8bit_t* lcd_8bit, const char* str)
 [v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
 [v _str `*Cuc ~T0 @X0 1 r2 ]
-"210
-[; ;ECU/LCD/ecu_lcd.c: 210: {
+"337
+[; ;ECU/LCD/ecu_lcd.c: 337: {
 [f ]
-"211
-[; ;ECU/LCD/ecu_lcd.c: 211:     Std_ReturnType state = (Std_ReturnType)1;
+"338
+[; ;ECU/LCD/ecu_lcd.c: 338:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"212
-[; ;ECU/LCD/ecu_lcd.c: 212:     if(lcd_8bit == ((void*)0) || str == ((void*)0))
-[e $ ! || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 == _str -> -> -> 0 `i `*v `*Cuc 319  ]
-"213
-[; ;ECU/LCD/ecu_lcd.c: 213:     {
+"339
+[; ;ECU/LCD/ecu_lcd.c: 339:     if(lcd_8bit == ((void*)0) || str == ((void*)0))
+[e $ ! || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 == _str -> -> -> 0 `i `*v `*Cuc 334  ]
+"340
+[; ;ECU/LCD/ecu_lcd.c: 340:     {
 {
-"214
-[; ;ECU/LCD/ecu_lcd.c: 214:         state = (Std_ReturnType)0;
+"341
+[; ;ECU/LCD/ecu_lcd.c: 341:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"215
-[; ;ECU/LCD/ecu_lcd.c: 215:     }
+"342
+[; ;ECU/LCD/ecu_lcd.c: 342:     }
 }
-[e $U 320  ]
-"216
-[; ;ECU/LCD/ecu_lcd.c: 216:     else
-[e :U 319 ]
-"217
-[; ;ECU/LCD/ecu_lcd.c: 217:     {
+[e $U 335  ]
+"343
+[; ;ECU/LCD/ecu_lcd.c: 343:     else
+[e :U 334 ]
+"344
+[; ;ECU/LCD/ecu_lcd.c: 344:     {
 {
-"219
-[; ;ECU/LCD/ecu_lcd.c: 219:     }
+"345
+[; ;ECU/LCD/ecu_lcd.c: 345:         while(*str != '\0')
+[e $U 336  ]
+[e :U 337 ]
+"346
+[; ;ECU/LCD/ecu_lcd.c: 346:         {
+{
+"347
+[; ;ECU/LCD/ecu_lcd.c: 347:             state &= lcd_8bit_send_char_data(lcd_8bit, *str);
+[e =& _state -> ( _lcd_8bit_send_char_data (2 , _lcd_8bit -> *U _str `uc `uc ]
+"348
+[; ;ECU/LCD/ecu_lcd.c: 348:             str++;
+[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
+"349
+[; ;ECU/LCD/ecu_lcd.c: 349:         }
 }
-[e :U 320 ]
-"220
-[; ;ECU/LCD/ecu_lcd.c: 220: }
-[e :UE 318 ]
+[e :U 336 ]
+"345
+[; ;ECU/LCD/ecu_lcd.c: 345:         while(*str != '\0')
+[e $ != -> *U _str `ui -> 0 `ui 337  ]
+[e :U 338 ]
+"350
+[; ;ECU/LCD/ecu_lcd.c: 350:     }
 }
-"222
-[; ;ECU/LCD/ecu_lcd.c: 222: Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str)
+[e :U 335 ]
+"351
+[; ;ECU/LCD/ecu_lcd.c: 351:     return state;
+[e ) _state ]
+[e $UE 333  ]
+"352
+[; ;ECU/LCD/ecu_lcd.c: 352: }
+[e :UE 333 ]
+}
+"354
+[; ;ECU/LCD/ecu_lcd.c: 354: Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const char* str)
 [v _lcd_8bit_send_string_at_position `(uc ~T0 @X0 1 ef4`*CS275`Cuc`Cuc`*Cuc ]
-"223
-[; ;ECU/LCD/ecu_lcd.c: 223: {
+"355
+[; ;ECU/LCD/ecu_lcd.c: 355: {
 {
 [e :U _lcd_8bit_send_string_at_position ]
-"222
-[; ;ECU/LCD/ecu_lcd.c: 222: Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str)
+"354
+[; ;ECU/LCD/ecu_lcd.c: 354: Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const char* str)
 [v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
 [v _row `Cuc ~T0 @X0 1 r2 ]
 [v _col `Cuc ~T0 @X0 1 r3 ]
 [v _str `*Cuc ~T0 @X0 1 r4 ]
-"223
-[; ;ECU/LCD/ecu_lcd.c: 223: {
+"355
+[; ;ECU/LCD/ecu_lcd.c: 355: {
 [f ]
-"224
-[; ;ECU/LCD/ecu_lcd.c: 224:     Std_ReturnType state = (Std_ReturnType)1;
+"356
+[; ;ECU/LCD/ecu_lcd.c: 356:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"225
-[; ;ECU/LCD/ecu_lcd.c: 225:     if(lcd_8bit == ((void*)0) || row > 4 || col > 80 || str == ((void*)0))
-[e $ ! || || || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 > -> _row `i -> 4 `i > -> _col `i -> 80 `i == _str -> -> -> 0 `i `*v `*Cuc 322  ]
-"226
-[; ;ECU/LCD/ecu_lcd.c: 226:     {
+"357
+[; ;ECU/LCD/ecu_lcd.c: 357:     if(lcd_8bit == ((void*)0) || row > 4 || col > 80 || str == ((void*)0))
+[e $ ! || || || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 > -> _row `i -> 4 `i > -> _col `i -> 80 `i == _str -> -> -> 0 `i `*v `*Cuc 340  ]
+"358
+[; ;ECU/LCD/ecu_lcd.c: 358:     {
 {
-"227
-[; ;ECU/LCD/ecu_lcd.c: 227:         state = (Std_ReturnType)0;
+"359
+[; ;ECU/LCD/ecu_lcd.c: 359:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"228
-[; ;ECU/LCD/ecu_lcd.c: 228:     }
+"360
+[; ;ECU/LCD/ecu_lcd.c: 360:     }
 }
-[e $U 323  ]
-"229
-[; ;ECU/LCD/ecu_lcd.c: 229:     else
-[e :U 322 ]
-"230
-[; ;ECU/LCD/ecu_lcd.c: 230:     {
+[e $U 341  ]
+"361
+[; ;ECU/LCD/ecu_lcd.c: 361:     else
+[e :U 340 ]
+"362
+[; ;ECU/LCD/ecu_lcd.c: 362:     {
 {
-"232
-[; ;ECU/LCD/ecu_lcd.c: 232:     }
+"363
+[; ;ECU/LCD/ecu_lcd.c: 363:         state &= lcd_8bit_set_position(lcd_8bit, row, col);
+[e =& _state -> ( _lcd_8bit_set_position (3 , , _lcd_8bit _row _col `uc ]
+"364
+[; ;ECU/LCD/ecu_lcd.c: 364:         state &= lcd_8bit_send_string_data(lcd_8bit, str);
+[e =& _state -> ( _lcd_8bit_send_string_data (2 , _lcd_8bit _str `uc ]
+"365
+[; ;ECU/LCD/ecu_lcd.c: 365:     }
 }
-[e :U 323 ]
-"233
-[; ;ECU/LCD/ecu_lcd.c: 233: }
-[e :UE 321 ]
+[e :U 341 ]
+"366
+[; ;ECU/LCD/ecu_lcd.c: 366:     return state;
+[e ) _state ]
+[e $UE 339  ]
+"367
+[; ;ECU/LCD/ecu_lcd.c: 367: }
+[e :UE 339 ]
 }
-"235
-[; ;ECU/LCD/ecu_lcd.c: 235: Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos)
+"369
+[; ;ECU/LCD/ecu_lcd.c: 369: Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const char* str, uint8 mem_pos)
 [v _lcd_8bit_send_custome_char `(uc ~T0 @X0 1 ef5`*CS275`Cuc`Cuc`*Cuc`uc ]
-"236
-[; ;ECU/LCD/ecu_lcd.c: 236: {
+"370
+[; ;ECU/LCD/ecu_lcd.c: 370: {
 {
 [e :U _lcd_8bit_send_custome_char ]
-"235
-[; ;ECU/LCD/ecu_lcd.c: 235: Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const uint8* str, uint8 mem_pos)
+"369
+[; ;ECU/LCD/ecu_lcd.c: 369: Std_ReturnType lcd_8bit_send_custome_char(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const char* str, uint8 mem_pos)
 [v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
 [v _row `Cuc ~T0 @X0 1 r2 ]
 [v _col `Cuc ~T0 @X0 1 r3 ]
 [v _str `*Cuc ~T0 @X0 1 r4 ]
 [v _mem_pos `uc ~T0 @X0 1 r5 ]
-"236
-[; ;ECU/LCD/ecu_lcd.c: 236: {
+"370
+[; ;ECU/LCD/ecu_lcd.c: 370: {
 [f ]
-"237
-[; ;ECU/LCD/ecu_lcd.c: 237:     Std_ReturnType state = (Std_ReturnType)1;
+"371
+[; ;ECU/LCD/ecu_lcd.c: 371:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"238
-[; ;ECU/LCD/ecu_lcd.c: 238:     if(lcd_8bit == ((void*)0) || row > 4 || col > 80 || str == ((void*)0))
-[e $ ! || || || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 > -> _row `i -> 4 `i > -> _col `i -> 80 `i == _str -> -> -> 0 `i `*v `*Cuc 325  ]
-"239
-[; ;ECU/LCD/ecu_lcd.c: 239:     {
+"372
+[; ;ECU/LCD/ecu_lcd.c: 372:     if(lcd_8bit == ((void*)0) || row > 4 || col > 80 || str == ((void*)0))
+[e $ ! || || || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 > -> _row `i -> 4 `i > -> _col `i -> 80 `i == _str -> -> -> 0 `i `*v `*Cuc 343  ]
+"373
+[; ;ECU/LCD/ecu_lcd.c: 373:     {
 {
-"240
-[; ;ECU/LCD/ecu_lcd.c: 240:         state = (Std_ReturnType)0;
+"374
+[; ;ECU/LCD/ecu_lcd.c: 374:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"241
-[; ;ECU/LCD/ecu_lcd.c: 241:     }
+"375
+[; ;ECU/LCD/ecu_lcd.c: 375:     }
 }
-[e $U 326  ]
-"242
-[; ;ECU/LCD/ecu_lcd.c: 242:     else
-[e :U 325 ]
-"243
-[; ;ECU/LCD/ecu_lcd.c: 243:     {
+[e $U 344  ]
+"376
+[; ;ECU/LCD/ecu_lcd.c: 376:     else
+[e :U 343 ]
+"377
+[; ;ECU/LCD/ecu_lcd.c: 377:     {
 {
-"245
-[; ;ECU/LCD/ecu_lcd.c: 245:     }
+"379
+[; ;ECU/LCD/ecu_lcd.c: 379:     }
 }
-[e :U 326 ]
-"246
-[; ;ECU/LCD/ecu_lcd.c: 246: }
-[e :UE 324 ]
+[e :U 344 ]
+"380
+[; ;ECU/LCD/ecu_lcd.c: 380:     return state;
+[e ) _state ]
+[e $UE 342  ]
+"381
+[; ;ECU/LCD/ecu_lcd.c: 381: }
+[e :UE 342 ]
 }
-"248
-[; ;ECU/LCD/ecu_lcd.c: 248: Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col)
+"383
+[; ;ECU/LCD/ecu_lcd.c: 383: Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, uint8 row, uint8 col)
 [v _lcd_8bit_set_position `(uc ~T0 @X0 1 ef3`*CS275`Cuc`Cuc ]
-"249
-[; ;ECU/LCD/ecu_lcd.c: 249: {
+"384
+[; ;ECU/LCD/ecu_lcd.c: 384: {
 {
 [e :U _lcd_8bit_set_position ]
-"248
-[; ;ECU/LCD/ecu_lcd.c: 248: Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col)
+"383
+[; ;ECU/LCD/ecu_lcd.c: 383: Std_ReturnType lcd_8bit_set_position(const lcd_8bit_t* lcd_8bit, uint8 row, uint8 col)
+[v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
+[v _row `uc ~T0 @X0 1 r2 ]
+[v _col `uc ~T0 @X0 1 r3 ]
+"384
+[; ;ECU/LCD/ecu_lcd.c: 384: {
+[f ]
+"385
+[; ;ECU/LCD/ecu_lcd.c: 385:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"386
+[; ;ECU/LCD/ecu_lcd.c: 386:     if(lcd_8bit == ((void*)0) || row > 4 || col > 80)
+[e $ ! || || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 346  ]
+"387
+[; ;ECU/LCD/ecu_lcd.c: 387:     {
+{
+"388
+[; ;ECU/LCD/ecu_lcd.c: 388:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"389
+[; ;ECU/LCD/ecu_lcd.c: 389:     }
+}
+[e $U 347  ]
+"390
+[; ;ECU/LCD/ecu_lcd.c: 390:     else
+[e :U 346 ]
+"391
+[; ;ECU/LCD/ecu_lcd.c: 391:     {
+{
+"392
+[; ;ECU/LCD/ecu_lcd.c: 392:         col--;
+[e -- _col -> -> 1 `i `uc ]
+"393
+[; ;ECU/LCD/ecu_lcd.c: 393:         switch(row)
+[e $U 349  ]
+"394
+[; ;ECU/LCD/ecu_lcd.c: 394:         {
+{
+"395
+[; ;ECU/LCD/ecu_lcd.c: 395:             case 1:
+[e :U 350 ]
+"396
+[; ;ECU/LCD/ecu_lcd.c: 396:                 state &= lcd_8bit_send_command(lcd_8bit, (0x80 + col));
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> + -> 128 `i -> _col `i `uc `uc ]
+"397
+[; ;ECU/LCD/ecu_lcd.c: 397:                 break;
+[e $U 348  ]
+"398
+[; ;ECU/LCD/ecu_lcd.c: 398:             case 2:
+[e :U 351 ]
+"399
+[; ;ECU/LCD/ecu_lcd.c: 399:                 state &= lcd_8bit_send_command(lcd_8bit, (0xC0 + col));
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> + -> 192 `i -> _col `i `uc `uc ]
+"400
+[; ;ECU/LCD/ecu_lcd.c: 400:                 break;
+[e $U 348  ]
+"401
+[; ;ECU/LCD/ecu_lcd.c: 401:             case 3:
+[e :U 352 ]
+"402
+[; ;ECU/LCD/ecu_lcd.c: 402:                 state &= lcd_8bit_send_command(lcd_8bit, (0x94 + col));
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> + -> 148 `i -> _col `i `uc `uc ]
+"403
+[; ;ECU/LCD/ecu_lcd.c: 403:                 break;
+[e $U 348  ]
+"404
+[; ;ECU/LCD/ecu_lcd.c: 404:             case 4:
+[e :U 353 ]
+"405
+[; ;ECU/LCD/ecu_lcd.c: 405:                 state &= lcd_8bit_send_command(lcd_8bit, (0xD4 + col));
+[e =& _state -> ( _lcd_8bit_send_command (2 , _lcd_8bit -> + -> 212 `i -> _col `i `uc `uc ]
+"406
+[; ;ECU/LCD/ecu_lcd.c: 406:                 break;
+[e $U 348  ]
+"407
+[; ;ECU/LCD/ecu_lcd.c: 407:         }
+}
+[e $U 348  ]
+[e :U 349 ]
+[e [\ -> _row `i , $ -> 1 `i 350
+ , $ -> 2 `i 351
+ , $ -> 3 `i 352
+ , $ -> 4 `i 353
+ 348 ]
+[e :U 348 ]
+"408
+[; ;ECU/LCD/ecu_lcd.c: 408:     }
+}
+[e :U 347 ]
+"409
+[; ;ECU/LCD/ecu_lcd.c: 409:     return state;
+[e ) _state ]
+[e $UE 345  ]
+"410
+[; ;ECU/LCD/ecu_lcd.c: 410: }
+[e :UE 345 ]
+}
+"412
+[; ;ECU/LCD/ecu_lcd.c: 412: Std_ReturnType lcd_8bit_send_number_data(const lcd_8bit_t* lcd_8bit, sint32 value)
+[v _lcd_8bit_send_number_data `(uc ~T0 @X0 1 ef2`*CS275`l ]
+"413
+[; ;ECU/LCD/ecu_lcd.c: 413: {
+{
+[e :U _lcd_8bit_send_number_data ]
+"412
+[; ;ECU/LCD/ecu_lcd.c: 412: Std_ReturnType lcd_8bit_send_number_data(const lcd_8bit_t* lcd_8bit, sint32 value)
+[v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
+[v _value `l ~T0 @X0 1 r2 ]
+"413
+[; ;ECU/LCD/ecu_lcd.c: 413: {
+[f ]
+"414
+[; ;ECU/LCD/ecu_lcd.c: 414:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"415
+[; ;ECU/LCD/ecu_lcd.c: 415:     if(lcd_8bit == ((void*)0))
+[e $ ! == _lcd_8bit -> -> -> 0 `i `*v `*CS275 355  ]
+"416
+[; ;ECU/LCD/ecu_lcd.c: 416:     {
+{
+"417
+[; ;ECU/LCD/ecu_lcd.c: 417:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"418
+[; ;ECU/LCD/ecu_lcd.c: 418:     }
+}
+[e $U 356  ]
+"419
+[; ;ECU/LCD/ecu_lcd.c: 419:     else
+[e :U 355 ]
+"420
+[; ;ECU/LCD/ecu_lcd.c: 420:     {
+{
+[v F3088 `uc ~T0 @X0 -> 12 `i s ]
+[i F3088
+:U ..
+"421
+[; ;ECU/LCD/ecu_lcd.c: 421:          uint8 str[12] = {0};
+-> -> 0 `i `uc
+..
+]
+[v _str `uc ~T0 @X0 -> 12 `i a ]
+[e = _str F3088 ]
+"422
+[; ;ECU/LCD/ecu_lcd.c: 422:          state &= lcd_convert_number_to_string(value, str);
+[e =& _state -> ( _lcd_convert_number_to_string (2 , _value &U _str `uc ]
+"423
+[; ;ECU/LCD/ecu_lcd.c: 423:          state &= lcd_8bit_send_string_data(lcd_8bit, str);
+[e =& _state -> ( _lcd_8bit_send_string_data (2 , _lcd_8bit -> &U _str `*Cuc `uc ]
+"424
+[; ;ECU/LCD/ecu_lcd.c: 424:     }
+}
+[e :U 356 ]
+"425
+[; ;ECU/LCD/ecu_lcd.c: 425:     return state;
+[e ) _state ]
+[e $UE 354  ]
+"426
+[; ;ECU/LCD/ecu_lcd.c: 426: }
+[e :UE 354 ]
+}
+"428
+[; ;ECU/LCD/ecu_lcd.c: 428: Std_ReturnType lcd_8bit_send_number_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, sint32 value)
+[v _lcd_8bit_send_number_at_position `(uc ~T0 @X0 1 ef4`*CS275`Cuc`Cuc`l ]
+"429
+[; ;ECU/LCD/ecu_lcd.c: 429: {
+{
+[e :U _lcd_8bit_send_number_at_position ]
+"428
+[; ;ECU/LCD/ecu_lcd.c: 428: Std_ReturnType lcd_8bit_send_number_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, sint32 value)
 [v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
 [v _row `Cuc ~T0 @X0 1 r2 ]
 [v _col `Cuc ~T0 @X0 1 r3 ]
-"249
-[; ;ECU/LCD/ecu_lcd.c: 249: {
+[v _value `l ~T0 @X0 1 r4 ]
+"429
+[; ;ECU/LCD/ecu_lcd.c: 429: {
 [f ]
-"250
-[; ;ECU/LCD/ecu_lcd.c: 250:     Std_ReturnType state = (Std_ReturnType)1;
+"430
+[; ;ECU/LCD/ecu_lcd.c: 430:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"251
-[; ;ECU/LCD/ecu_lcd.c: 251:     if(lcd_8bit == ((void*)0) || row > 4 || col > 80)
-[e $ ! || || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 328  ]
-"252
-[; ;ECU/LCD/ecu_lcd.c: 252:     {
+"431
+[; ;ECU/LCD/ecu_lcd.c: 431:     if(lcd_8bit == ((void*)0) || row > 4 || col > 80)
+[e $ ! || || == _lcd_8bit -> -> -> 0 `i `*v `*CS275 > -> _row `i -> 4 `i > -> _col `i -> 80 `i 358  ]
+"432
+[; ;ECU/LCD/ecu_lcd.c: 432:     {
 {
-"253
-[; ;ECU/LCD/ecu_lcd.c: 253:         state = (Std_ReturnType)0;
+"433
+[; ;ECU/LCD/ecu_lcd.c: 433:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"254
-[; ;ECU/LCD/ecu_lcd.c: 254:     }
+"434
+[; ;ECU/LCD/ecu_lcd.c: 434:     }
 }
-[e $U 329  ]
-"255
-[; ;ECU/LCD/ecu_lcd.c: 255:     else
-[e :U 328 ]
-"256
-[; ;ECU/LCD/ecu_lcd.c: 256:     {
+[e $U 359  ]
+"435
+[; ;ECU/LCD/ecu_lcd.c: 435:     else
+[e :U 358 ]
+"436
+[; ;ECU/LCD/ecu_lcd.c: 436:     {
 {
-"258
-[; ;ECU/LCD/ecu_lcd.c: 258:     }
+[v F3096 `uc ~T0 @X0 -> 12 `i s ]
+[i F3096
+:U ..
+"437
+[; ;ECU/LCD/ecu_lcd.c: 437:         uint8 str[12] = {0};
+-> -> 0 `i `uc
+..
+]
+[v _str `uc ~T0 @X0 -> 12 `i a ]
+[e = _str F3096 ]
+"438
+[; ;ECU/LCD/ecu_lcd.c: 438:         state &= lcd_convert_number_to_string(value, str);
+[e =& _state -> ( _lcd_convert_number_to_string (2 , _value &U _str `uc ]
+"439
+[; ;ECU/LCD/ecu_lcd.c: 439:         state &= lcd_8bit_send_string_at_position(lcd_8bit, row, col, str);
+[e =& _state -> ( _lcd_8bit_send_string_at_position (4 , , , _lcd_8bit _row _col -> &U _str `*Cuc `uc ]
+"440
+[; ;ECU/LCD/ecu_lcd.c: 440:     }
 }
-[e :U 329 ]
-"259
-[; ;ECU/LCD/ecu_lcd.c: 259: }
-[e :UE 327 ]
+[e :U 359 ]
+"441
+[; ;ECU/LCD/ecu_lcd.c: 441:     return state;
+[e ) _state ]
+[e $UE 357  ]
+"442
+[; ;ECU/LCD/ecu_lcd.c: 442: }
+[e :UE 357 ]
 }
-"261
-[; ;ECU/LCD/ecu_lcd.c: 261: static Std_ReturnType LCD_send_4bits(const lcd_4bit_t *lcd_4bit, uint8 data_or_command)
-[v _LCD_send_4bits `(uc ~T0 @X0 1 sf2`*CS274`uc ]
-"262
-[; ;ECU/LCD/ecu_lcd.c: 262: {
+"444
+[; ;ECU/LCD/ecu_lcd.c: 444: static Std_ReturnType lcd_send_higher_nibble(const lcd_4bit_t* lcd_4bit, uint8 data)
+[v _lcd_send_higher_nibble `(uc ~T0 @X0 1 sf2`*CS274`uc ]
+"445
+[; ;ECU/LCD/ecu_lcd.c: 445: {
 {
-[e :U _LCD_send_4bits ]
-"261
-[; ;ECU/LCD/ecu_lcd.c: 261: static Std_ReturnType LCD_send_4bits(const lcd_4bit_t *lcd_4bit, uint8 data_or_command)
+[e :U _lcd_send_higher_nibble ]
+"444
+[; ;ECU/LCD/ecu_lcd.c: 444: static Std_ReturnType lcd_send_higher_nibble(const lcd_4bit_t* lcd_4bit, uint8 data)
+[v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
+[v _data `uc ~T0 @X0 1 r2 ]
+"445
+[; ;ECU/LCD/ecu_lcd.c: 445: {
+[f ]
+"446
+[; ;ECU/LCD/ecu_lcd.c: 446:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"447
+[; ;ECU/LCD/ecu_lcd.c: 447:     if(lcd_4bit == ((void*)0)) return (Std_ReturnType)0;
+[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 361  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 360  ]
+[e :U 361 ]
+[v F3102 `S272 ~T0 @X0 1 s ]
+[i F3102
+:U ..
+:U ..
+"449
+[; ;ECU/LCD/ecu_lcd.c: 449:     pin_config_t rs_pin = {
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _rs_pin `S272 ~T0 @X0 1 a ]
+[e = _rs_pin F3102 ]
+[e ; = . _rs_pin 0 . . *U _lcd_4bit 0 0 ; = . _rs_pin 1 . . *U _lcd_4bit 0 1 ; = . _rs_pin 2 -> . `E2805 0 `uc = . _rs_pin 3 -> . `E2801 0 `uc ]
+"455
+[; ;ECU/LCD/ecu_lcd.c: 455:     gpio_pin_write_logic(&rs_pin, GPIO_LOW);
+[e ( _gpio_pin_write_logic (2 , -> &U _rs_pin `*CS272 -> . `E2801 0 `uc ]
+"457
+[; ;ECU/LCD/ecu_lcd.c: 457:     state &= lcd_send_4bits(lcd_4bit, data >> 4);
+[e =& _state -> ( _lcd_send_4bits (2 , _lcd_4bit -> >> -> _data `i -> 4 `i `uc `uc ]
+"458
+[; ;ECU/LCD/ecu_lcd.c: 458:     state &= lcd_4bit_send_enable_signal(lcd_4bit);
+[e =& _state -> ( _lcd_4bit_send_enable_signal (1 _lcd_4bit `uc ]
+"459
+[; ;ECU/LCD/ecu_lcd.c: 459:     return state;
+[e ) _state ]
+[e $UE 360  ]
+"460
+[; ;ECU/LCD/ecu_lcd.c: 460: }
+[e :UE 360 ]
+}
+"463
+[; ;ECU/LCD/ecu_lcd.c: 463: static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *lcd_4bit, uint8 data_or_command)
+[v _lcd_send_4bits `(uc ~T0 @X0 1 sf2`*CS274`uc ]
+"464
+[; ;ECU/LCD/ecu_lcd.c: 464: {
+{
+[e :U _lcd_send_4bits ]
+"463
+[; ;ECU/LCD/ecu_lcd.c: 463: static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *lcd_4bit, uint8 data_or_command)
 [v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
 [v _data_or_command `uc ~T0 @X0 1 r2 ]
-"262
-[; ;ECU/LCD/ecu_lcd.c: 262: {
+"464
+[; ;ECU/LCD/ecu_lcd.c: 464: {
 [f ]
-"263
-[; ;ECU/LCD/ecu_lcd.c: 263:     Std_ReturnType state = (Std_ReturnType)1;
+"465
+[; ;ECU/LCD/ecu_lcd.c: 465:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"264
-[; ;ECU/LCD/ecu_lcd.c: 264:     if(lcd_4bit == ((void*)0))
-[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 331  ]
-"265
-[; ;ECU/LCD/ecu_lcd.c: 265:     {
+"466
+[; ;ECU/LCD/ecu_lcd.c: 466:     if(lcd_4bit == ((void*)0))
+[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 363  ]
+"467
+[; ;ECU/LCD/ecu_lcd.c: 467:     {
 {
-"266
-[; ;ECU/LCD/ecu_lcd.c: 266:         state = (Std_ReturnType)0;
+"468
+[; ;ECU/LCD/ecu_lcd.c: 468:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"267
-[; ;ECU/LCD/ecu_lcd.c: 267:     }
+"469
+[; ;ECU/LCD/ecu_lcd.c: 469:     }
 }
-[e $U 332  ]
-"268
-[; ;ECU/LCD/ecu_lcd.c: 268:     else
-[e :U 331 ]
-"269
-[; ;ECU/LCD/ecu_lcd.c: 269:     {
+[e $U 364  ]
+"470
+[; ;ECU/LCD/ecu_lcd.c: 470:     else
+[e :U 363 ]
+"471
+[; ;ECU/LCD/ecu_lcd.c: 471:     {
 {
-"270
-[; ;ECU/LCD/ecu_lcd.c: 270:         for(uint8 local_index=0; local_index<4; local_index++)
+"472
+[; ;ECU/LCD/ecu_lcd.c: 472:         for(uint8 local_index=0; local_index<4; local_index++)
 {
 [v _local_index `uc ~T0 @X0 1 a ]
 [e = _local_index -> -> 0 `i `uc ]
-[e $ < -> _local_index `i -> 4 `i 333  ]
-[e $U 334  ]
-[e :U 333 ]
-"271
-[; ;ECU/LCD/ecu_lcd.c: 271:         {
+[e $ < -> _local_index `i -> 4 `i 365  ]
+[e $U 366  ]
+[e :U 365 ]
+"473
+[; ;ECU/LCD/ecu_lcd.c: 473:         {
 {
-[v F3040 `S272 ~T0 @X0 1 s ]
-[i F3040
+[v F3109 `S272 ~T0 @X0 1 s ]
+[i F3109
 :U ..
 :U ..
-"272
-[; ;ECU/LCD/ecu_lcd.c: 272:             pin_config_t data_pin = {.port = lcd_4bit->lcd_data_pins[local_index].port,
+"474
+[; ;ECU/LCD/ecu_lcd.c: 474:             pin_config_t data_pin = {.port = lcd_4bit->lcd_data_pins[local_index].port,
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -1420,112 +2198,445 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _data_pin `S272 ~T0 @X0 1 a ]
-[e = _data_pin F3040 ]
+[e = _data_pin F3109 ]
 [e ; = . _data_pin 0 . *U + &U . *U _lcd_4bit 2 * -> _local_index `ux -> -> # *U &U . *U _lcd_4bit 2 `ui `ux 0 = . _data_pin 1 . *U + &U . *U _lcd_4bit 2 * -> _local_index `ux -> -> # *U &U . *U _lcd_4bit 2 `ui `ux 1 ]
-"275
-[; ;ECU/LCD/ecu_lcd.c: 275:             state &= gpio_pin_write_logic(&data_pin, (data_or_command >> local_index) & 0x01);
+"476
+[; ;ECU/LCD/ecu_lcd.c: 476:             state &= gpio_pin_write_logic(&data_pin, (data_or_command >> local_index) & 0x01);
 [e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _data_pin `*CS272 -> & >> -> _data_or_command `i -> _local_index `i -> 1 `i `uc `uc ]
-"276
-[; ;ECU/LCD/ecu_lcd.c: 276:         }
+"477
+[; ;ECU/LCD/ecu_lcd.c: 477:         }
 }
 [e ++ _local_index -> -> 1 `i `uc ]
-[e $ < -> _local_index `i -> 4 `i 333  ]
-[e :U 334 ]
+[e $ < -> _local_index `i -> 4 `i 365  ]
+[e :U 366 ]
 }
-"277
-[; ;ECU/LCD/ecu_lcd.c: 277:     }
+"478
+[; ;ECU/LCD/ecu_lcd.c: 478:     }
 }
-[e :U 332 ]
-"278
-[; ;ECU/LCD/ecu_lcd.c: 278: }
-[e :UE 330 ]
+[e :U 364 ]
+"479
+[; ;ECU/LCD/ecu_lcd.c: 479:     return state;
+[e ) _state ]
+[e $UE 362  ]
+"480
+[; ;ECU/LCD/ecu_lcd.c: 480: }
+[e :UE 362 ]
 }
-"280
-[; ;ECU/LCD/ecu_lcd.c: 280: static Std_ReturnType LCD_send_4bit_enable_signal(const lcd_4bit_t *lcd_4bit)
-[v _LCD_send_4bit_enable_signal `(uc ~T0 @X0 1 sf1`*CS274 ]
-"281
-[; ;ECU/LCD/ecu_lcd.c: 281: {
+"482
+[; ;ECU/LCD/ecu_lcd.c: 482: static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *lcd_4bit)
+[v _lcd_4bit_send_enable_signal `(uc ~T0 @X0 1 sf1`*CS274 ]
+"483
+[; ;ECU/LCD/ecu_lcd.c: 483: {
 {
-[e :U _LCD_send_4bit_enable_signal ]
-"280
-[; ;ECU/LCD/ecu_lcd.c: 280: static Std_ReturnType LCD_send_4bit_enable_signal(const lcd_4bit_t *lcd_4bit)
+[e :U _lcd_4bit_send_enable_signal ]
+"482
+[; ;ECU/LCD/ecu_lcd.c: 482: static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *lcd_4bit)
 [v _lcd_4bit `*CS274 ~T0 @X0 1 r1 ]
-"281
-[; ;ECU/LCD/ecu_lcd.c: 281: {
+"483
+[; ;ECU/LCD/ecu_lcd.c: 483: {
 [f ]
-"282
-[; ;ECU/LCD/ecu_lcd.c: 282:     Std_ReturnType state = (Std_ReturnType)1;
+"484
+[; ;ECU/LCD/ecu_lcd.c: 484:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"283
-[; ;ECU/LCD/ecu_lcd.c: 283:     if(lcd_4bit == ((void*)0))
-[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 337  ]
-"284
-[; ;ECU/LCD/ecu_lcd.c: 284:     {
+"485
+[; ;ECU/LCD/ecu_lcd.c: 485:     if(lcd_4bit == ((void*)0))
+[e $ ! == _lcd_4bit -> -> -> 0 `i `*v `*CS274 369  ]
+"486
+[; ;ECU/LCD/ecu_lcd.c: 486:     {
 {
-"285
-[; ;ECU/LCD/ecu_lcd.c: 285:         state = (Std_ReturnType)0;
+"487
+[; ;ECU/LCD/ecu_lcd.c: 487:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"286
-[; ;ECU/LCD/ecu_lcd.c: 286:     }
+"488
+[; ;ECU/LCD/ecu_lcd.c: 488:     }
 }
-[e $U 338  ]
-"287
-[; ;ECU/LCD/ecu_lcd.c: 287:     else
-[e :U 337 ]
-"288
-[; ;ECU/LCD/ecu_lcd.c: 288:     {
+[e $U 370  ]
+"489
+[; ;ECU/LCD/ecu_lcd.c: 489:     else
+[e :U 369 ]
+"490
+[; ;ECU/LCD/ecu_lcd.c: 490:     {
 {
-"290
-[; ;ECU/LCD/ecu_lcd.c: 290:     }
+[v F3114 `S272 ~T0 @X0 1 s ]
+[i F3114
+:U ..
+:U ..
+"491
+[; ;ECU/LCD/ecu_lcd.c: 491:         pin_config_t en_pin={.port=lcd_4bit->lcd_en_pin.port,.pin=lcd_4bit->lcd_en_pin.pin,.direction=GPIO_OUTPUT,.logic=GPIO_LOW};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _en_pin `S272 ~T0 @X0 1 a ]
+[e = _en_pin F3114 ]
+[e ; = . _en_pin 0 . . *U _lcd_4bit 1 0 ; = . _en_pin 1 . . *U _lcd_4bit 1 1 ; = . _en_pin 2 -> . `E2805 0 `uc = . _en_pin 3 -> . `E2801 0 `uc ]
+"492
+[; ;ECU/LCD/ecu_lcd.c: 492:         state &= gpio_pin_write_logic(&en_pin,GPIO_HIGH);
+[e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _en_pin `*CS272 -> . `E2801 1 `uc `uc ]
+"493
+[; ;ECU/LCD/ecu_lcd.c: 493:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"494
+[; ;ECU/LCD/ecu_lcd.c: 494:         state &= gpio_pin_write_logic(&en_pin,GPIO_LOW);
+[e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _en_pin `*CS272 -> . `E2801 0 `uc `uc ]
+"495
+[; ;ECU/LCD/ecu_lcd.c: 495:         _delay((unsigned long)((100)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"496
+[; ;ECU/LCD/ecu_lcd.c: 496:     }
 }
-[e :U 338 ]
-"291
-[; ;ECU/LCD/ecu_lcd.c: 291: }
-[e :UE 336 ]
+[e :U 370 ]
+"497
+[; ;ECU/LCD/ecu_lcd.c: 497:     return state;
+[e ) _state ]
+[e $UE 368  ]
+"498
+[; ;ECU/LCD/ecu_lcd.c: 498: }
+[e :UE 368 ]
 }
-"292
-[; ;ECU/LCD/ecu_lcd.c: 292: static Std_ReturnType LCD_convert_number_to_string(int value,uint8 *str)
-[v _LCD_convert_number_to_string `(uc ~T0 @X0 1 sf2`i`*uc ]
-"293
-[; ;ECU/LCD/ecu_lcd.c: 293: {
+"499
+[; ;ECU/LCD/ecu_lcd.c: 499: static Std_ReturnType lcd_convert_number_to_string(sint32 value,uint8 *str)
+[v _lcd_convert_number_to_string `(uc ~T0 @X0 1 sf2`l`*uc ]
+"500
+[; ;ECU/LCD/ecu_lcd.c: 500: {
 {
-[e :U _LCD_convert_number_to_string ]
-"292
-[; ;ECU/LCD/ecu_lcd.c: 292: static Std_ReturnType LCD_convert_number_to_string(int value,uint8 *str)
-[v _value `i ~T0 @X0 1 r1 ]
+[e :U _lcd_convert_number_to_string ]
+"499
+[; ;ECU/LCD/ecu_lcd.c: 499: static Std_ReturnType lcd_convert_number_to_string(sint32 value,uint8 *str)
+[v _value `l ~T0 @X0 1 r1 ]
 [v _str `*uc ~T0 @X0 1 r2 ]
-"293
-[; ;ECU/LCD/ecu_lcd.c: 293: {
+"500
+[; ;ECU/LCD/ecu_lcd.c: 500: {
 [f ]
-"294
-[; ;ECU/LCD/ecu_lcd.c: 294:     Std_ReturnType state = (Std_ReturnType)1;
+"501
+[; ;ECU/LCD/ecu_lcd.c: 501:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"295
-[; ;ECU/LCD/ecu_lcd.c: 295:     if(str == ((void*)0))
-[e $ ! == _str -> -> -> 0 `i `*v `*uc 340  ]
-"296
-[; ;ECU/LCD/ecu_lcd.c: 296:     {
+"502
+[; ;ECU/LCD/ecu_lcd.c: 502:     if (str == ((void*)0)) {
+[e $ ! == _str -> -> -> 0 `i `*v `*uc 372  ]
 {
-"297
-[; ;ECU/LCD/ecu_lcd.c: 297:         state = (Std_ReturnType)0;
+"503
+[; ;ECU/LCD/ecu_lcd.c: 503:         state = (Std_ReturnType)0;
 [e = _state -> -> 0 `i `uc ]
-"298
-[; ;ECU/LCD/ecu_lcd.c: 298:     }
+"504
+[; ;ECU/LCD/ecu_lcd.c: 504:     } else {
 }
-[e $U 341  ]
-"299
-[; ;ECU/LCD/ecu_lcd.c: 299:     else
-[e :U 340 ]
-"300
-[; ;ECU/LCD/ecu_lcd.c: 300:     {
+[e $U 373  ]
+[e :U 372 ]
 {
-"302
-[; ;ECU/LCD/ecu_lcd.c: 302:     }
+"505
+[; ;ECU/LCD/ecu_lcd.c: 505:         uint8 local_index = 0;
+[v _local_index `uc ~T0 @X0 1 a ]
+[e = _local_index -> -> 0 `i `uc ]
+"506
+[; ;ECU/LCD/ecu_lcd.c: 506:         uint8 is_negative = 0;
+[v _is_negative `uc ~T0 @X0 1 a ]
+[e = _is_negative -> -> 0 `i `uc ]
+"507
+[; ;ECU/LCD/ecu_lcd.c: 507:         if (value < 0) {
+[e $ ! < _value -> -> 0 `i `l 374  ]
+{
+"508
+[; ;ECU/LCD/ecu_lcd.c: 508:             is_negative = 1;
+[e = _is_negative -> -> 1 `i `uc ]
+"509
+[; ;ECU/LCD/ecu_lcd.c: 509:             value = -value;
+[e = _value -U _value ]
+"510
+[; ;ECU/LCD/ecu_lcd.c: 510:             str[local_index++] = '-';
+[e = *U + _str * -> ++ _local_index -> -> 1 `i `uc `ux -> -> # *U _str `ui `ux -> -> 45 `ui `uc ]
+"511
+[; ;ECU/LCD/ecu_lcd.c: 511:         }
 }
-[e :U 341 ]
-"303
-[; ;ECU/LCD/ecu_lcd.c: 303: }
-[e :UE 339 ]
+[e :U 374 ]
+"513
+[; ;ECU/LCD/ecu_lcd.c: 513:         if (value == 0) {
+[e $ ! == _value -> -> 0 `i `l 375  ]
+{
+"514
+[; ;ECU/LCD/ecu_lcd.c: 514:             str[local_index++] = '0';
+[e = *U + _str * -> ++ _local_index -> -> 1 `i `uc `ux -> -> # *U _str `ui `ux -> -> 48 `ui `uc ]
+"515
+[; ;ECU/LCD/ecu_lcd.c: 515:         } else {
+}
+[e $U 376  ]
+[e :U 375 ]
+{
+"516
+[; ;ECU/LCD/ecu_lcd.c: 516:             while (value > 0) {
+[e $U 377  ]
+[e :U 378 ]
+{
+"517
+[; ;ECU/LCD/ecu_lcd.c: 517:                 str[local_index++] = (value % 10) + '0';
+[e = *U + _str * -> ++ _local_index -> -> 1 `i `uc `ux -> -> # *U _str `ui `ux -> + % _value -> -> 10 `i `l -> -> 48 `ui `l `uc ]
+"518
+[; ;ECU/LCD/ecu_lcd.c: 518:                 value /= 10;
+[e =/ _value -> -> 10 `i `l ]
+"519
+[; ;ECU/LCD/ecu_lcd.c: 519:             }
+}
+[e :U 377 ]
+"516
+[; ;ECU/LCD/ecu_lcd.c: 516:             while (value > 0) {
+[e $ > _value -> -> 0 `i `l 378  ]
+[e :U 379 ]
+"520
+[; ;ECU/LCD/ecu_lcd.c: 520:         }
+}
+[e :U 376 ]
+"522
+[; ;ECU/LCD/ecu_lcd.c: 522:         if (is_negative) {
+[e $ ! != -> _is_negative `i -> 0 `i 380  ]
+{
+"523
+[; ;ECU/LCD/ecu_lcd.c: 523:             reverse_string(str + 1, local_index - 1);
+[e ( _reverse_string (2 , + _str * -> -> 1 `i `x -> -> # *U _str `i `x -> - -> _local_index `i -> 1 `i `uc ]
+"524
+[; ;ECU/LCD/ecu_lcd.c: 524:         } else {
+}
+[e $U 381  ]
+[e :U 380 ]
+{
+"525
+[; ;ECU/LCD/ecu_lcd.c: 525:             reverse_string(str, local_index);
+[e ( _reverse_string (2 , _str _local_index ]
+"526
+[; ;ECU/LCD/ecu_lcd.c: 526:         }
+}
+[e :U 381 ]
+"527
+[; ;ECU/LCD/ecu_lcd.c: 527:         str[local_index] = '\0';
+[e = *U + _str * -> _local_index `ux -> -> # *U _str `ui `ux -> -> 0 `ui `uc ]
+"528
+[; ;ECU/LCD/ecu_lcd.c: 528:     }
+}
+[e :U 373 ]
+"529
+[; ;ECU/LCD/ecu_lcd.c: 529:     return state;
+[e ) _state ]
+[e $UE 371  ]
+"530
+[; ;ECU/LCD/ecu_lcd.c: 530: }
+[e :UE 371 ]
+}
+"532
+[; ;ECU/LCD/ecu_lcd.c: 532: static void reverse_string(uint8 *str, uint8 len)
+[v _reverse_string `(v ~T0 @X0 1 sf2`*uc`uc ]
+"533
+[; ;ECU/LCD/ecu_lcd.c: 533: {
+{
+[e :U _reverse_string ]
+"532
+[; ;ECU/LCD/ecu_lcd.c: 532: static void reverse_string(uint8 *str, uint8 len)
+[v _str `*uc ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+"533
+[; ;ECU/LCD/ecu_lcd.c: 533: {
+[f ]
+"534
+[; ;ECU/LCD/ecu_lcd.c: 534:     uint8 i = 0, j = len - 1, temp;
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[v _j `uc ~T0 @X0 1 a ]
+[e = _j -> - -> _len `i -> 1 `i `uc ]
+[v _temp `uc ~T0 @X0 1 a ]
+"535
+[; ;ECU/LCD/ecu_lcd.c: 535:     while (i < j) {
+[e $U 383  ]
+[e :U 384 ]
+{
+"536
+[; ;ECU/LCD/ecu_lcd.c: 536:         temp = str[i];
+[e = _temp *U + _str * -> _i `ux -> -> # *U _str `ui `ux ]
+"537
+[; ;ECU/LCD/ecu_lcd.c: 537:         str[i] = str[j];
+[e = *U + _str * -> _i `ux -> -> # *U _str `ui `ux *U + _str * -> _j `ux -> -> # *U _str `ui `ux ]
+"538
+[; ;ECU/LCD/ecu_lcd.c: 538:         str[j] = temp;
+[e = *U + _str * -> _j `ux -> -> # *U _str `ui `ux _temp ]
+"539
+[; ;ECU/LCD/ecu_lcd.c: 539:         i++;
+[e ++ _i -> -> 1 `i `uc ]
+"540
+[; ;ECU/LCD/ecu_lcd.c: 540:         j--;
+[e -- _j -> -> 1 `i `uc ]
+"541
+[; ;ECU/LCD/ecu_lcd.c: 541:     }
+}
+[e :U 383 ]
+"535
+[; ;ECU/LCD/ecu_lcd.c: 535:     while (i < j) {
+[e $ < -> _i `i -> _j `i 384  ]
+[e :U 385 ]
+"542
+[; ;ECU/LCD/ecu_lcd.c: 542: }
+[e :UE 382 ]
+}
+"571
+[; ;ECU/LCD/ecu_lcd.c: 571: static Std_ReturnType lcd_send_8bits(const lcd_8bit_t *lcd_8bit, uint8 data_or_command)
+[v _lcd_send_8bits `(uc ~T0 @X0 1 sf2`*CS275`uc ]
+"572
+[; ;ECU/LCD/ecu_lcd.c: 572: {
+{
+[e :U _lcd_send_8bits ]
+"571
+[; ;ECU/LCD/ecu_lcd.c: 571: static Std_ReturnType lcd_send_8bits(const lcd_8bit_t *lcd_8bit, uint8 data_or_command)
+[v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
+[v _data_or_command `uc ~T0 @X0 1 r2 ]
+"572
+[; ;ECU/LCD/ecu_lcd.c: 572: {
+[f ]
+"573
+[; ;ECU/LCD/ecu_lcd.c: 573:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"574
+[; ;ECU/LCD/ecu_lcd.c: 574:     if(lcd_8bit == ((void*)0))
+[e $ ! == _lcd_8bit -> -> -> 0 `i `*v `*CS275 387  ]
+"575
+[; ;ECU/LCD/ecu_lcd.c: 575:     {
+{
+"576
+[; ;ECU/LCD/ecu_lcd.c: 576:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"577
+[; ;ECU/LCD/ecu_lcd.c: 577:     }
+}
+[e $U 388  ]
+"578
+[; ;ECU/LCD/ecu_lcd.c: 578:     else
+[e :U 387 ]
+"579
+[; ;ECU/LCD/ecu_lcd.c: 579:     {
+{
+"580
+[; ;ECU/LCD/ecu_lcd.c: 580:         for(uint8 local_index=0; local_index<8; local_index++)
+{
+[v _local_index `uc ~T0 @X0 1 a ]
+[e = _local_index -> -> 0 `i `uc ]
+[e $ < -> _local_index `i -> 8 `i 389  ]
+[e $U 390  ]
+[e :U 389 ]
+"581
+[; ;ECU/LCD/ecu_lcd.c: 581:         {
+{
+[v F3133 `S272 ~T0 @X0 1 s ]
+[i F3133
+:U ..
+:U ..
+"582
+[; ;ECU/LCD/ecu_lcd.c: 582:             pin_config_t data_pin = {.port = lcd_8bit->lcd_data_pins[local_index].port,
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _data_pin `S272 ~T0 @X0 1 a ]
+[e = _data_pin F3133 ]
+[e ; = . _data_pin 0 . *U + &U . *U _lcd_8bit 2 * -> _local_index `ux -> -> # *U &U . *U _lcd_8bit 2 `ui `ux 0 = . _data_pin 1 . *U + &U . *U _lcd_8bit 2 * -> _local_index `ux -> -> # *U &U . *U _lcd_8bit 2 `ui `ux 1 ]
+"584
+[; ;ECU/LCD/ecu_lcd.c: 584:             state &= gpio_pin_write_logic(&data_pin, (data_or_command >> local_index) & 0x01);
+[e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _data_pin `*CS272 -> & >> -> _data_or_command `i -> _local_index `i -> 1 `i `uc `uc ]
+"585
+[; ;ECU/LCD/ecu_lcd.c: 585:         }
+}
+[e ++ _local_index -> -> 1 `i `uc ]
+[e $ < -> _local_index `i -> 8 `i 389  ]
+[e :U 390 ]
+}
+"586
+[; ;ECU/LCD/ecu_lcd.c: 586:     }
+}
+[e :U 388 ]
+"587
+[; ;ECU/LCD/ecu_lcd.c: 587:     return state;
+[e ) _state ]
+[e $UE 386  ]
+"588
+[; ;ECU/LCD/ecu_lcd.c: 588: }
+[e :UE 386 ]
+}
+"590
+[; ;ECU/LCD/ecu_lcd.c: 590: static Std_ReturnType lcd_8bit_send_enable_signal(const lcd_8bit_t *lcd_8bit)
+[v _lcd_8bit_send_enable_signal `(uc ~T0 @X0 1 sf1`*CS275 ]
+"591
+[; ;ECU/LCD/ecu_lcd.c: 591: {
+{
+[e :U _lcd_8bit_send_enable_signal ]
+"590
+[; ;ECU/LCD/ecu_lcd.c: 590: static Std_ReturnType lcd_8bit_send_enable_signal(const lcd_8bit_t *lcd_8bit)
+[v _lcd_8bit `*CS275 ~T0 @X0 1 r1 ]
+"591
+[; ;ECU/LCD/ecu_lcd.c: 591: {
+[f ]
+"592
+[; ;ECU/LCD/ecu_lcd.c: 592:     Std_ReturnType state = (Std_ReturnType)1;
+[v _state `uc ~T0 @X0 1 a ]
+[e = _state -> -> 1 `i `uc ]
+"593
+[; ;ECU/LCD/ecu_lcd.c: 593:     if(lcd_8bit == ((void*)0))
+[e $ ! == _lcd_8bit -> -> -> 0 `i `*v `*CS275 393  ]
+"594
+[; ;ECU/LCD/ecu_lcd.c: 594:     {
+{
+"595
+[; ;ECU/LCD/ecu_lcd.c: 595:         state = (Std_ReturnType)0;
+[e = _state -> -> 0 `i `uc ]
+"596
+[; ;ECU/LCD/ecu_lcd.c: 596:     }
+}
+[e $U 394  ]
+"597
+[; ;ECU/LCD/ecu_lcd.c: 597:     else
+[e :U 393 ]
+"598
+[; ;ECU/LCD/ecu_lcd.c: 598:     {
+{
+[v F3138 `S272 ~T0 @X0 1 s ]
+[i F3138
+:U ..
+:U ..
+"599
+[; ;ECU/LCD/ecu_lcd.c: 599:         pin_config_t en_pin={.port=lcd_8bit->lcd_en_pin.port,.pin=lcd_8bit->lcd_en_pin.pin,.direction=GPIO_OUTPUT,.logic=GPIO_LOW};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[v _en_pin `S272 ~T0 @X0 1 a ]
+[e = _en_pin F3138 ]
+[e ; = . _en_pin 0 . . *U _lcd_8bit 1 0 ; = . _en_pin 1 . . *U _lcd_8bit 1 1 ; = . _en_pin 2 -> . `E2805 0 `uc = . _en_pin 3 -> . `E2801 0 `uc ]
+"600
+[; ;ECU/LCD/ecu_lcd.c: 600:         state &= gpio_pin_write_logic(&en_pin,GPIO_HIGH);
+[e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _en_pin `*CS272 -> . `E2801 1 `uc `uc ]
+"601
+[; ;ECU/LCD/ecu_lcd.c: 601:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"602
+[; ;ECU/LCD/ecu_lcd.c: 602:         state &= gpio_pin_write_logic(&en_pin,GPIO_LOW);
+[e =& _state -> ( _gpio_pin_write_logic (2 , -> &U _en_pin `*CS272 -> . `E2801 0 `uc `uc ]
+"603
+[; ;ECU/LCD/ecu_lcd.c: 603:         _delay((unsigned long)((100)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"604
+[; ;ECU/LCD/ecu_lcd.c: 604:     }
+}
+[e :U 394 ]
+"605
+[; ;ECU/LCD/ecu_lcd.c: 605:     return state;
+[e ) _state ]
+[e $UE 392  ]
+"606
+[; ;ECU/LCD/ecu_lcd.c: 606: }
+[e :UE 392 ]
 }

@@ -17,67 +17,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E2819 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 [c E2809 0 1 2 3 4 5 6 7 .. ]
 [n E2809 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
-"45 ./ECU/LCD/ecu_lcd.h
-[; ;./ECU/LCD/ecu_lcd.h: 45: {
+"51 ./ECU/LCD/ecu_lcd.h
+[; ;./ECU/LCD/ecu_lcd.h: 51: {
 [s S284 :3 `uc 1 :3 `uc 1 ]
 [n S284 . port pin ]
-"51
-[; ;./ECU/LCD/ecu_lcd.h: 51: {
+"57
+[; ;./ECU/LCD/ecu_lcd.h: 57: {
 [s S285 `S284 1 `S284 1 `S284 -> 4 `i ]
 [n S285 . lcd_rs_pin lcd_en_pin lcd_data_pins ]
-"58
-[; ;./ECU/LCD/ecu_lcd.h: 58: {
+"64
+[; ;./ECU/LCD/ecu_lcd.h: 64: {
 [s S286 `S284 1 `S284 1 `S284 -> 8 `i ]
 [n S286 . lcd_rs_pin lcd_en_pin lcd_data_pins ]
 [p mainexit ]
 "27 ./application.h
 [; ;./application.h: 27: Std_ReturnType application_initialize(void);
 [v _application_initialize `(uc ~T0 @X0 0 ef ]
-"28 ./ECU/LED/ecu_led.h
-[; ;./ECU/LED/ecu_led.h: 28: {
-[s S274 :3 `uc 1 :1 `uc 1 ]
-[n S274 . port state ]
-"40 application.c
-[; ;application.c: 40:     leds_in_port_t LEDs1={.port=PORTD_INDEX,.state=GPIO_LOW};
-[c E2801 0 1 .. ]
-[n E2801 . GPIO_LOW GPIO_HIGH  ]
-"38 ./ECU/LED/ecu_led.h
-[; ;./ECU/LED/ecu_led.h: 38: Std_ReturnType led_port_initialize(const leds_in_port_t* LEDs);
-[v _led_port_initialize `(uc ~T0 @X0 0 ef1`*CS274 ]
-"86 ./ECU/LCD/../../MCAL/GPIO/hal_gpio.h
-[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S272 . port pin direction logic ]
-"20 ./ECU/Keypad/ecu_keypad.h
-[; ;./ECU/Keypad/ecu_keypad.h: 20: {
-[s S281 `S272 -> 4 `i `S272 -> 4 `i ]
-[n S281 . Keypad_row_pins Keypad_col_pins ]
-"42 application.c
-[; ;application.c: 42:     keypad_t keypad={
-[c E2805 0 1 .. ]
-[n E2805 . GPIO_OUTPUT GPIO_INPUT  ]
-[v F2967 `Cuc ~T0 @X0 -> 4 `i t ]
-"25 ./ECU/Keypad/ecu_keypad.h
-[; ;./ECU/Keypad/ecu_keypad.h: 25: Std_ReturnType keypad_initialize(const keypad_t* keypad , const uint8 keypad_chars[4][4]);
-[v _keypad_initialize `(uc ~T0 @X0 0 ef2`*CS281`*F2967 ]
-"107 application.c
-[; ;application.c: 107:         rgb_led_turn_on(&rgb_led,RED);
-[c E2978 0 1 2 3 4 5 6 .. ]
-[n E2978 . RED GREEN BLUE YELLOW ORANGE PURPLE WHITE  ]
-"46 ./ECU/RGB_LED/ecu_rgb_led.h
-[; ;./ECU/RGB_LED/ecu_rgb_led.h: 46:  Std_ReturnType rgb_led_turn_on(const rgb_led_t* RGB_LED, rgb_color_t color);
-[v _rgb_led_turn_on `(uc ~T0 @X0 0 ef2`*CS283`E2978 ]
+"87 ./ECU/LCD/ecu_lcd.h
+[; ;./ECU/LCD/ecu_lcd.h: 87: Std_ReturnType lcd_8bit_send_string_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, const char* str);
+[v _lcd_8bit_send_string_at_position `(uc ~T0 @X0 0 ef4`*CS286`Cuc`Cuc`*Cuc ]
+"75
+[; ;./ECU/LCD/ecu_lcd.h: 75: Std_ReturnType lcd_4bit_send_string_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, const char* str);
+[v _lcd_4bit_send_string_at_position `(uc ~T0 @X0 0 ef4`*CS285`Cuc`Cuc`*Cuc ]
+"91
+[; ;./ECU/LCD/ecu_lcd.h: 91: Std_ReturnType lcd_8bit_send_number_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, sint32 value);
+[v _lcd_8bit_send_number_at_position `(uc ~T0 @X0 0 ef4`*CS286`Cuc`Cuc`l ]
+"79
+[; ;./ECU/LCD/ecu_lcd.h: 79: Std_ReturnType lcd_4bit_send_number_at_position(const lcd_4bit_t* lcd_4bit, const uint8 row, const uint8 col, sint32 value);
+[v _lcd_4bit_send_number_at_position `(uc ~T0 @X0 0 ef4`*CS285`Cuc`Cuc`l ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"47 ./ECU/RGB_LED/ecu_rgb_led.h
-[; ;./ECU/RGB_LED/ecu_rgb_led.h: 47:  Std_ReturnType rgb_led_turn_off(const rgb_led_t* RGB_LED);
-[v _rgb_led_turn_off `(uc ~T0 @X0 0 ef1`*CS283 ]
-"64 ./ECU/LCD/ecu_lcd.h
-[; ;./ECU/LCD/ecu_lcd.h: 64: Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit);
+"70 ./ECU/LCD/ecu_lcd.h
+[; ;./ECU/LCD/ecu_lcd.h: 70: Std_ReturnType lcd_4bit_initialize(const lcd_4bit_t* lcd_4bit);
 [v _lcd_4bit_initialize `(uc ~T0 @X0 0 ef1`*CS285 ]
-"74
-[; ;./ECU/LCD/ecu_lcd.h: 74: Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit);
+"82
+[; ;./ECU/LCD/ecu_lcd.h: 82: Std_ReturnType lcd_8bit_initialize(const lcd_8bit_t* lcd_8bit);
 [v _lcd_8bit_initialize `(uc ~T0 @X0 0 ef1`*CS286 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
@@ -556,38 +532,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "11 application.c
-[; ;application.c: 11: lcd_4bit_t lcd_4bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
+[; ;application.c: 11: lcd_4bit_t lcd_4bit={.lcd_rs_pin.port=PORTB_INDEX,.lcd_rs_pin.pin=PIN0,
 [v _lcd_4bit `S285 ~T0 @X0 1 e ]
 [i _lcd_4bit
 :U ..
 :U ..
 :U ..
 :U ..
--> . `E2819 2 `uc
+-> . `E2819 1 `uc
 -> . `E2809 0 `uc
 ..
 ..
 :U ..
 :U ..
--> . `E2819 2 `uc
+-> . `E2819 1 `uc
 -> . `E2809 1 `uc
 ..
 ..
 :U ..
 :U ..
--> . `E2819 2 `uc
+-> . `E2819 1 `uc
 -> . `E2809 2 `uc
 ..
 :U ..
--> . `E2819 2 `uc
+-> . `E2819 1 `uc
 -> . `E2809 3 `uc
 ..
 :U ..
--> . `E2819 2 `uc
+-> . `E2819 1 `uc
 -> . `E2809 4 `uc
 ..
 :U ..
--> . `E2819 2 `uc
+-> . `E2819 1 `uc
 -> . `E2809 5 `uc
 ..
 ..
@@ -661,217 +637,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 "39
 [; ;application.c: 39:     application_initialize();
 [e ( _application_initialize ..  ]
-[v F3087 `S274 ~T0 @X0 1 s ]
-[i F3087
-:U ..
-:U ..
 "40
-[; ;application.c: 40:     leds_in_port_t LEDs1={.port=PORTD_INDEX,.state=GPIO_LOW};
--> . `E2819 3 `uc
--> . `E2801 0 `uc
-..
-..
-]
-[v _LEDs1 `S274 ~T0 @X0 1 a ]
-[e = _LEDs1 F3087 ]
+[; ;application.c: 40:     lcd_8bit_send_string_at_position(&lcd_8bit, 1, 4, "Hello World");
+[e ( _lcd_8bit_send_string_at_position (4 , , , -> &U _lcd_8bit `*CS286 -> -> 1 `i `uc -> -> 4 `i `uc :s 1C ]
 "41
-[; ;application.c: 41:     led_port_initialize(&LEDs1);
-[e ( _led_port_initialize (1 -> &U _LEDs1 `*CS274 ]
-[v F3089 `S281 ~T0 @X0 1 s ]
-[i F3089
-:U ..
-:U ..
-:U ..
-:U ..
-"42
-[; ;application.c: 42:     keypad_t keypad={
--> . `E2819 1 `uc
--> . `E2809 0 `uc
--> . `E2805 0 `uc
--> . `E2801 0 `uc
-..
-:U ..
--> . `E2819 1 `uc
--> . `E2809 1 `uc
--> . `E2805 0 `uc
--> . `E2801 0 `uc
-..
-:U ..
--> . `E2819 1 `uc
--> . `E2809 2 `uc
--> . `E2805 0 `uc
--> . `E2801 0 `uc
-..
-:U ..
--> . `E2819 1 `uc
--> . `E2809 3 `uc
--> . `E2805 0 `uc
--> . `E2801 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2819 1 `uc
--> . `E2809 4 `uc
--> . `E2805 1 `uc
-..
-:U ..
--> . `E2819 1 `uc
--> . `E2809 5 `uc
--> . `E2805 1 `uc
-..
-:U ..
--> . `E2819 1 `uc
--> . `E2809 6 `uc
--> . `E2805 1 `uc
-..
-:U ..
--> . `E2819 1 `uc
--> . `E2809 7 `uc
--> . `E2805 1 `uc
-..
-..
-..
-..
-]
-[v _keypad `S281 ~T0 @X0 1 a ]
-[e = _keypad F3089 ]
-[v F3092 `uc ~T0 @X0 -> 4 `i t ]
-[v F3091 `F3092 ~T0 @X0 -> 4 `i s ]
-[i F3091
-:U ..
-:U ..
-"53
-[; ;application.c: 53:     uint8 keypad_chars[4][4]={{'7','8','9','/'},{'4','5','6','X'},{'1','2','3','-'},{'#','0','=','+'}};
--> -> 55 `ui `uc
--> -> 56 `ui `uc
--> -> 57 `ui `uc
--> -> 47 `ui `uc
-..
-:U ..
--> -> 52 `ui `uc
--> -> 53 `ui `uc
--> -> 54 `ui `uc
--> -> 88 `ui `uc
-..
-:U ..
--> -> 49 `ui `uc
--> -> 50 `ui `uc
--> -> 51 `ui `uc
--> -> 45 `ui `uc
-..
-:U ..
--> -> 35 `ui `uc
--> -> 48 `ui `uc
--> -> 61 `ui `uc
--> -> 43 `ui `uc
-..
-..
-]
-[v F3094 `uc ~T0 @X0 -> 4 `i t ]
-[v _keypad_chars `F3094 ~T0 @X0 -> 4 `i a ]
-[e = _keypad_chars F3091 ]
-[v F3095 `Cuc ~T0 @X0 -> 4 `i t ]
-"55
-[; ;application.c: 55:     keypad_initialize(&keypad,keypad_chars);
-[e ( _keypad_initialize (2 , -> &U _keypad `*CS281 -> &U _keypad_chars `*F3095 ]
-"103
-[; ;application.c: 103:     uint8 chr;
-[v _chr `uc ~T0 @X0 1 a ]
-"104
-[; ;application.c: 104:     uint8 ledNUm;
-[v _ledNUm `uc ~T0 @X0 1 a ]
-"105
-[; ;application.c: 105:     while(1)
+[; ;application.c: 41:     lcd_4bit_send_string_at_position(&lcd_4bit, 1, 4, "Hello World");
+[e ( _lcd_4bit_send_string_at_position (4 , , , -> &U _lcd_4bit `*CS285 -> -> 1 `i `uc -> -> 4 `i `uc :s 2C ]
+"43
+[; ;application.c: 43:     lcd_8bit_send_string_at_position(&lcd_8bit, 2, 5, "Counter = ");
+[e ( _lcd_8bit_send_string_at_position (4 , , , -> &U _lcd_8bit `*CS286 -> -> 2 `i `uc -> -> 5 `i `uc :s 3C ]
+"44
+[; ;application.c: 44:     lcd_4bit_send_string_at_position(&lcd_4bit, 2, 5, "Counter = ");
+[e ( _lcd_4bit_send_string_at_position (4 , , , -> &U _lcd_4bit `*CS285 -> -> 2 `i `uc -> -> 5 `i `uc :s 4C ]
+"46
+[; ;application.c: 46:     sint32 counter1 = 0;
+[v _counter1 `l ~T0 @X0 1 a ]
+[e = _counter1 -> -> 0 `i `l ]
+"47
+[; ;application.c: 47:     sint32 counter2 = 0;
+[v _counter2 `l ~T0 @X0 1 a ]
+[e = _counter2 -> -> 0 `i `l ]
+"48
+[; ;application.c: 48:     while(1)
 [e :U 289 ]
-"106
-[; ;application.c: 106:     {
+"49
+[; ;application.c: 49:     {
 {
-"107
-[; ;application.c: 107:         rgb_led_turn_on(&rgb_led,RED);
-[e ( _rgb_led_turn_on (2 , -> &U _rgb_led `*CS283 . `E2978 0 ]
-"108
-[; ;application.c: 108:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"109
-[; ;application.c: 109:         rgb_led_turn_on(&rgb_led,GREEN);
-[e ( _rgb_led_turn_on (2 , -> &U _rgb_led `*CS283 . `E2978 1 ]
-"110
-[; ;application.c: 110:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"111
-[; ;application.c: 111:         rgb_led_turn_on(&rgb_led,BLUE);
-[e ( _rgb_led_turn_on (2 , -> &U _rgb_led `*CS283 . `E2978 2 ]
-"112
-[; ;application.c: 112:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"113
-[; ;application.c: 113:         rgb_led_turn_on(&rgb_led,YELLOW);
-[e ( _rgb_led_turn_on (2 , -> &U _rgb_led `*CS283 . `E2978 3 ]
-"114
-[; ;application.c: 114:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"115
-[; ;application.c: 115:         rgb_led_turn_on(&rgb_led,ORANGE);
-[e ( _rgb_led_turn_on (2 , -> &U _rgb_led `*CS283 . `E2978 4 ]
-"116
-[; ;application.c: 116:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"117
-[; ;application.c: 117:         rgb_led_turn_on(&rgb_led,PURPLE);
-[e ( _rgb_led_turn_on (2 , -> &U _rgb_led `*CS283 . `E2978 5 ]
-"118
-[; ;application.c: 118:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"119
-[; ;application.c: 119:         rgb_led_turn_on(&rgb_led,WHITE);
-[e ( _rgb_led_turn_on (2 , -> &U _rgb_led `*CS283 . `E2978 6 ]
-"120
-[; ;application.c: 120:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"121
-[; ;application.c: 121:         rgb_led_turn_off(&rgb_led);
-[e ( _rgb_led_turn_off (1 -> &U _rgb_led `*CS283 ]
-"122
-[; ;application.c: 122:         _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"204
-[; ;application.c: 204:     }
+"50
+[; ;application.c: 50:         counter1++;
+[e ++ _counter1 -> -> 1 `i `l ]
+"51
+[; ;application.c: 51:         counter2--;
+[e -- _counter2 -> -> 1 `i `l ]
+"52
+[; ;application.c: 52:         lcd_8bit_send_number_at_position(&lcd_8bit, 2, 15, counter1);
+[e ( _lcd_8bit_send_number_at_position (4 , , , -> &U _lcd_8bit `*CS286 -> -> 2 `i `uc -> -> 15 `i `uc _counter1 ]
+"53
+[; ;application.c: 53:         lcd_4bit_send_number_at_position(&lcd_4bit, 2, 15, counter2);
+[e ( _lcd_4bit_send_number_at_position (4 , , , -> &U _lcd_4bit `*CS285 -> -> 2 `i `uc -> -> 15 `i `uc _counter2 ]
+"54
+[; ;application.c: 54:         _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"55
+[; ;application.c: 55:     }
 }
 [e :U 288 ]
 [e $U 289  ]
 [e :U 290 ]
-"205
-[; ;application.c: 205:     return (0);
+"56
+[; ;application.c: 56:     return (0);
 [e ) -> 0 `i ]
 [e $UE 287  ]
-"206
-[; ;application.c: 206: }
+"57
+[; ;application.c: 57: }
 [e :UE 287 ]
 }
-"208
-[; ;application.c: 208: Std_ReturnType application_initialize(void)
+"59
+[; ;application.c: 59: Std_ReturnType application_initialize(void)
 [v _application_initialize `(uc ~T0 @X0 1 ef ]
-"209
-[; ;application.c: 209: {
+"60
+[; ;application.c: 60: {
 {
 [e :U _application_initialize ]
 [f ]
-"210
-[; ;application.c: 210:     Std_ReturnType state = (Std_ReturnType)1;
+"61
+[; ;application.c: 61:     Std_ReturnType state = (Std_ReturnType)1;
 [v _state `uc ~T0 @X0 1 a ]
 [e = _state -> -> 1 `i `uc ]
-"211
-[; ;application.c: 211:     state &= lcd_4bit_initialize(&lcd_4bit);
+"62
+[; ;application.c: 62:     state &= lcd_4bit_initialize(&lcd_4bit);
 [e =& _state -> ( _lcd_4bit_initialize (1 -> &U _lcd_4bit `*CS285 `uc ]
-"212
-[; ;application.c: 212:     state &= lcd_8bit_initialize(&lcd_8bit);
+"63
+[; ;application.c: 63:     state &= lcd_8bit_initialize(&lcd_8bit);
 [e =& _state -> ( _lcd_8bit_initialize (1 -> &U _lcd_8bit `*CS286 `uc ]
-"213
-[; ;application.c: 213:     return state;
+"64
+[; ;application.c: 64:     return state;
 [e ) _state ]
 [e $UE 291  ]
-"214
-[; ;application.c: 214: }
+"65
+[; ;application.c: 65: }
 [e :UE 291 ]
 }
+[a 1C 72 101 108 108 111 32 87 111 114 108 100 0 ]
+[a 2C 72 101 108 108 111 32 87 111 114 108 100 0 ]
+[a 3C 67 111 117 110 116 101 114 32 61 32 0 ]
+[a 4C 67 111 117 110 116 101 114 32 61 32 0 ]
