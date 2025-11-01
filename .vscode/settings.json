@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "ecu_7_segment.h": "c",
+        "mcal_interrupt_manager.h": "c",
+        "std_types.h": "c"
+    }
+}

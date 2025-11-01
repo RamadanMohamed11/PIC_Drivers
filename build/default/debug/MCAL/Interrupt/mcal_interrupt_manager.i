@@ -1,4 +1,4 @@
-# 1 "MCAL/GPIO/hal_gpio.c"
+# 1 "MCAL/Interrupt/mcal_interrupt_manager.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL/GPIO/hal_gpio.c" 2
+# 1 "MCAL/Interrupt/mcal_interrupt_manager.c" 2
 
 
 
@@ -15,17 +15,12 @@
 
 
 
-# 1 "MCAL/GPIO/hal_gpio.h" 1
-# 14 "MCAL/GPIO/hal_gpio.h"
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\proc\\../pic18.h" 1 3
-
-
-
-
-# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\htc.h" 1 3
-
-
-
+# 1 "MCAL/Interrupt/mcal_interrupt_manager.h" 1
+# 12 "MCAL/Interrupt/mcal_interrupt_manager.h"
+# 1 "MCAL/Interrupt/../std_types.h" 1
+# 12 "MCAL/Interrupt/../std_types.h"
+# 1 "MCAL/Interrupt/../compiler.h" 1
+# 12 "MCAL/Interrupt/../compiler.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -241,7 +236,15 @@ extern __attribute__((nonreentrant)) void _delay3(uint8_t);
 
 
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\pic18.h" 1 3
-# 34 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 2 3
+
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\htc.h" 1 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 1 3
 # 5 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\pic18.h" 2 3
 
@@ -4481,15 +4484,12 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 # 192 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\pic18.h" 3
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
-# 14 "MCAL/GPIO/hal_gpio.h" 2
+# 34 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 2 3
+# 12 "MCAL/Interrupt/../compiler.h" 2
+# 12 "MCAL/Interrupt/../std_types.h" 2
 
-# 1 "MCAL/GPIO/../std_types.h" 1
-# 12 "MCAL/GPIO/../std_types.h"
-# 1 "MCAL/GPIO/../compiler.h" 1
-# 12 "MCAL/GPIO/../std_types.h" 2
-
-# 1 "MCAL/GPIO/../std_libraries.h" 1
-# 12 "MCAL/GPIO/../std_libraries.h"
+# 1 "MCAL/Interrupt/../std_libraries.h" 1
+# 12 "MCAL/Interrupt/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4636,8 +4636,8 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "MCAL/GPIO/../std_libraries.h" 2
-# 13 "MCAL/GPIO/../std_types.h" 2
+# 12 "MCAL/Interrupt/../std_libraries.h" 2
+# 13 "MCAL/Interrupt/../std_types.h" 2
 
 
 typedef unsigned char uint8;
@@ -4649,243 +4649,9 @@ typedef signed short sint16;
 typedef signed long sint32;
 
 typedef uint8 Std_ReturnType;
-# 15 "MCAL/GPIO/hal_gpio.h" 2
+# 12 "MCAL/Interrupt/mcal_interrupt_manager.h" 2
 
-# 1 "MCAL/GPIO/../device_config.h" 1
-# 16 "MCAL/GPIO/hal_gpio.h" 2
-# 41 "MCAL/GPIO/hal_gpio.h"
-volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
-volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
-volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
-# 52 "MCAL/GPIO/hal_gpio.h"
-typedef enum
-{
-    GPIO_LOW,
-    GPIO_HIGH
-}logic_t;
+# 1 "MCAL/Interrupt/mcal_interrupt_config.h" 1
+# 13 "MCAL/Interrupt/mcal_interrupt_manager.h" 2
+# 9 "MCAL/Interrupt/mcal_interrupt_manager.c" 2
 
-typedef enum
-{
-    GPIO_OUTPUT,
-    GPIO_INPUT
-}direction_t;
-
-typedef enum
-{
-    PIN0,
-    PIN1,
-    PIN2,
-    PIN3,
-    PIN4,
-    PIN5,
-    PIN6,
-    PIN7
-}pin_index_t;
-
-typedef enum
-{
-    PORTA_INDEX,
-    PORTB_INDEX,
-    PORTC_INDEX,
-    PORTD_INDEX,
-    PORTE_INDEX
-}port_index_t;
-
-typedef struct
-{
-    uint8 port : 3;
-    uint8 pin : 3;
-    uint8 direction : 1;
-    uint8 logic : 1;
-}pin_config_t;
-
-Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config);
-Std_ReturnType gpio_pin_get_direction_status(const pin_config_t* _pin_config , uint8* direction);
-Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic);
-Std_ReturnType gpio_pin_read_logic(const pin_config_t* _pin_config , uint8* logic);
-Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
-
-Std_ReturnType gpio_port_direction_initialize(port_index_t _port , uint8 direction);
-Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direction);
-Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
-Std_ReturnType gpio_port_read_logic(port_index_t _port , volatile uint8* logic);
-Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
-# 10 "MCAL/GPIO/hal_gpio.c" 2
-Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(_pin_config==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        switch(_pin_config->direction)
-        {
-            case GPIO_OUTPUT:
-                (*tris_regesters[_pin_config->port] &= ~(1<<_pin_config->pin));
-                switch(_pin_config->logic)
-                {
-                    case GPIO_HIGH:
-                        (*lat_regesters[_pin_config->port] |= (1<<_pin_config->pin));
-                        break;
-                    case GPIO_LOW:
-                        (*lat_regesters[_pin_config->port] &= ~(1<<_pin_config->pin));
-                        break;
-                }
-                break;
-            case GPIO_INPUT:
-                (*tris_regesters[_pin_config->port] |= (1<<_pin_config->pin));
-                break;
-            default:
-                state=(Std_ReturnType)0;
-        }
-    }
-    return state;
-}
-
-
-
-
-
-
-Std_ReturnType gpio_pin_get_direction_status(const pin_config_t* _pin_config , uint8* direction)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(_pin_config==((void*)0) || direction==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        *direction=((*tris_regesters[_pin_config->port] >> _pin_config->pin) & 1);
-    }
-    return state;
-}
-
-
-
-
-
-
-Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(_pin_config==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        switch(logic)
-        {
-            case GPIO_HIGH:
-                (*lat_regesters[_pin_config->port] |= (1<<_pin_config->pin));
-                break;
-            case GPIO_LOW:
-                (*lat_regesters[_pin_config->port] &= ~(1<<_pin_config->pin));
-                break;
-            default:
-                state=(Std_ReturnType)0;
-        }
-    }
-    return state;
-}
-
-
-
-
-
-
-Std_ReturnType gpio_pin_read_logic(const pin_config_t* _pin_config , uint8* logic)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(_pin_config==((void*)0) || logic==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        *logic=((*port_regesters[_pin_config->port] >> _pin_config->pin) & 1);
-    }
-    return state;
-}
-
-
-
-
-
-
-Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(_pin_config==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        (*lat_regesters[_pin_config->port] ^= (1<<_pin_config->pin));
-    }
-    return state;
-}
-
-
-
-
-
-
-Std_ReturnType gpio_port_direction_initialize( port_index_t _port, uint8 direction)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    *tris_regesters[_port]=direction;
-    return state;
-}
-
-
-
-
-
-
-Std_ReturnType gpio_port_get_direction_status( port_index_t _port , uint8* direction)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(direction==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        *direction=*tris_regesters[_port];
-    }
-    return state;
-}
-
-
-
-
-
-
-Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    *lat_regesters[_port]=logic;
-    return state;
-}
-
-
-
-
-
-
-Std_ReturnType gpio_port_read_logic( port_index_t _port , volatile uint8* logic)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    if(logic==((void*)0))
-        state=(Std_ReturnType)0;
-    else
-    {
-        *logic=*port_regesters[_port];
-    }
-    return state;
-}
-
-
-
-
-
-
-Std_ReturnType gpio_port_toggle_logic( port_index_t _port)
-{
-    Std_ReturnType state=(Std_ReturnType)1;
-    *lat_regesters[_port]^=0xff;
-    return state;
-}

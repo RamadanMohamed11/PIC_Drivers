@@ -1,14 +1,16 @@
-Microchip MPLAB XC8 Compiler V2.36
+Microchip MPLAB XC8 Compiler V2.41
 
 Linker command line:
 
--W-3 --edf=C:\Program Files\Microchip\xc8\v2.36\pic\dat\en_msgs.txt -cn \
-  -h+dist/default/debug\PIC_Drivers.debug.sym \
+-W-3 \
+  --edf=C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\dat\20230323171731_en.msgs \
+  -cn -h+dist/default/debug\PIC_Drivers.debug.sym \
   --cmf=dist/default/debug\PIC_Drivers.debug.cmf -z -Q18F4620 \
-  -oC:\Users\elkin\AppData\Local\Temp\xcAs140o.4 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\RAMADA~1\AppData\Local\Temp\xcAs4ag.\driver_tmp_3.o \
+  --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/debug/PIC_Drivers.debug.map \
-  --md=C:\Users\elkin\AppData\Local\Temp\xcAs140o.dat -E1 -ver=XC8 Compiler \
-  --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
+  --md=C:\Users\RAMADA~1\AppData\Local\Temp\xcAs4ag.\driver_tmp_0.dat -E1 \
+  -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-07Fh -AABS1=00h-0F7Fh -ABIGRAM=01h-0F7Fh \
   -ARAM=080h-0FFh,0100h-01FFhx14,0F00h-0F7Fh -ABANK0=080h-0FFh \
@@ -26,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\elkin\AppData\Local\Temp\xcAs140o.o \
+  C:\Users\RAMADA~1\AppData\Local\Temp\xcAs4ag.\driver_tmp_9.o \
   dist/default/debug\PIC_Drivers.debug.o 
 
 Object code version is 3.11
@@ -36,7 +38,7 @@ Machine type is 18F4620
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\elkin\AppData\Local\Temp\xcAs140o.o
+C:\Users\RAMADA~1\AppData\Local\Temp\xcAs4ag.\driver_tmp_9.o
                 config                           300000   300000        E        0       4
                 init                                  4        4        4        0       0
                 reset_vec                             0        0        4        0       0
@@ -244,11 +246,12 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
-Relay_initialize@F2876                    bssCOMRAM    000053
-Relay_toggle@F2891                        bssCOMRAM    000050
-Relay_turn_off@F2886                      bssCOMRAM    000051
-Relay_turn_on@F2881                       bssCOMRAM    000052
+Relay_initialize@F2879                    bssCOMRAM    000044
+Relay_toggle@F2894                        bssCOMRAM    000041
+Relay_turn_off@F2889                      bssCOMRAM    000042
+Relay_turn_on@F2884                       bssCOMRAM    000043
 __HRAM                                    (abs)        000000
+__H__absolute__                           __absolute__ 000000
 __Habs1                                   abs1         000000
 __Hbank0                                  bank0        000000
 __Hbank1                                  bank1        000000
@@ -347,6 +350,7 @@ __Htext7                                  text7        000000
 __Htext8                                  text8        000000
 __Htext9                                  text9        000000
 __LRAM                                    (abs)        000001
+__L__absolute__                           __absolute__ 000000
 __Labs1                                   abs1         000000
 __Lbank0                                  bank0        000000
 __Lbank1                                  bank1        000000
@@ -544,14 +548,14 @@ _port_regesters                           dataBANK0    0000C4
 _rgb_led                                  dataBANK0    0000CE
 _tris_regesters                           dataCOMRAM   00006D
 application_initialize@state              cstackCOMRAM 000024
-button_initialize@F2880                   bssCOMRAM    00005F
-button_read_state@F2886                   bssCOMRAM    00005E
-dc_motor_initialize@F2878                 bssCOMRAM    00005D
-dc_motor_initialize@F2880                 bssCOMRAM    00005C
-dc_motor_move_left@F2892                  bssCOMRAM    000059
-dc_motor_move_left@F2894                  bssCOMRAM    000058
-dc_motor_move_right@F2885                 bssCOMRAM    00005B
-dc_motor_move_right@F2887                 bssCOMRAM    00005A
+button_initialize@F2883                   bssCOMRAM    00005F
+button_read_state@F2889                   bssCOMRAM    00005E
+dc_motor_initialize@F2881                 bssCOMRAM    00005D
+dc_motor_initialize@F2883                 bssCOMRAM    00005C
+dc_motor_move_left@F2895                  bssCOMRAM    000059
+dc_motor_move_left@F2897                  bssCOMRAM    000058
+dc_motor_move_right@F2888                 bssCOMRAM    00005B
+dc_motor_move_right@F2890                 bssCOMRAM    00005A
 end_of_initialization                     cinit        00EF80
 gpio_pin_direction_initialize@_pin_config cstackCOMRAM 000001
 gpio_pin_direction_initialize@state       cstackCOMRAM 000009
@@ -564,9 +568,9 @@ intlevel2                                 text         000000
 intlevel3                                 text         000000
 isa$std                                   (abs)        000001
 isa$xinst                                 (abs)        000000
-lcd_4bit_initialize@F2973                 bssCOMRAM    000046
-lcd_4bit_initialize@F2975                 bssCOMRAM    000045
-lcd_4bit_initialize@F2978                 bssCOMRAM    000044
+lcd_4bit_initialize@F2976                 bssCOMRAM    000057
+lcd_4bit_initialize@F2978                 bssCOMRAM    000056
+lcd_4bit_initialize@F2981                 bssCOMRAM    000055
 lcd_4bit_initialize@data_pin              cstackCOMRAM 000023
 lcd_4bit_initialize@en_pin                cstackCOMRAM 000022
 lcd_4bit_initialize@lcd_4bit              cstackCOMRAM 00001A
@@ -578,12 +582,12 @@ lcd_4bit_send_char_at_position@col        cstackCOMRAM 000024
 lcd_4bit_send_char_at_position@lcd_4bit   cstackCOMRAM 000021
 lcd_4bit_send_char_at_position@row        cstackCOMRAM 000023
 lcd_4bit_send_char_at_position@state      cstackCOMRAM 000026
-lcd_4bit_send_char_data@F2990             bssCOMRAM    000042
+lcd_4bit_send_char_data@F2993             bssCOMRAM    000053
 lcd_4bit_send_char_data@ch                cstackCOMRAM 000016
 lcd_4bit_send_char_data@lcd_4bit          cstackCOMRAM 000014
 lcd_4bit_send_char_data@rs_pin            cstackCOMRAM 000019
 lcd_4bit_send_char_data@state             cstackCOMRAM 000018
-lcd_4bit_send_command@F2984               bssCOMRAM    000043
+lcd_4bit_send_command@F2987               bssCOMRAM    000054
 lcd_4bit_send_command@command             cstackCOMRAM 000016
 lcd_4bit_send_command@lcd_4bit            cstackCOMRAM 000014
 lcd_4bit_send_command@rs_pin              cstackCOMRAM 000019
@@ -595,7 +599,7 @@ lcd_4bit_send_custome_char@mem_pos        cstackCOMRAM 00002D
 lcd_4bit_send_custome_char@row            cstackCOMRAM 000029
 lcd_4bit_send_custome_char@state          cstackCOMRAM 00002E
 lcd_4bit_send_custome_char@str            cstackCOMRAM 00002B
-lcd_4bit_send_enable_signal@F3116         bssCOMRAM    00003A
+lcd_4bit_send_enable_signal@F3119         bssCOMRAM    00004B
 lcd_4bit_send_enable_signal@en_pin        cstackCOMRAM 00000F
 lcd_4bit_send_enable_signal@lcd_4bit      cstackCOMRAM 00000B
 lcd_4bit_send_enable_signal@state         cstackCOMRAM 00000E
@@ -603,9 +607,9 @@ lcd_4bit_set_position@col                 cstackCOMRAM 00001D
 lcd_4bit_set_position@lcd_4bit            cstackCOMRAM 00001A
 lcd_4bit_set_position@row                 cstackCOMRAM 00001C
 lcd_4bit_set_position@state               cstackCOMRAM 000020
-lcd_8bit_initialize@F3038                 bssCOMRAM    000041
-lcd_8bit_initialize@F3040                 bssCOMRAM    000040
-lcd_8bit_initialize@F3043                 bssCOMRAM    00003F
+lcd_8bit_initialize@F3041                 bssCOMRAM    000052
+lcd_8bit_initialize@F3043                 bssCOMRAM    000051
+lcd_8bit_initialize@F3046                 bssCOMRAM    000050
 lcd_8bit_initialize@data_pin              cstackCOMRAM 000023
 lcd_8bit_initialize@en_pin                cstackCOMRAM 000022
 lcd_8bit_initialize@lcd_8bit              cstackCOMRAM 00001A
@@ -617,12 +621,12 @@ lcd_8bit_send_char_at_position@col        cstackCOMRAM 000024
 lcd_8bit_send_char_at_position@lcd_8bit   cstackCOMRAM 000021
 lcd_8bit_send_char_at_position@row        cstackCOMRAM 000023
 lcd_8bit_send_char_at_position@state      cstackCOMRAM 000026
-lcd_8bit_send_char_data@F3055             bssCOMRAM    00003D
+lcd_8bit_send_char_data@F3058             bssCOMRAM    00004E
 lcd_8bit_send_char_data@ch                cstackCOMRAM 000016
 lcd_8bit_send_char_data@lcd_8bit          cstackCOMRAM 000014
 lcd_8bit_send_char_data@rs_pin            cstackCOMRAM 000019
 lcd_8bit_send_char_data@state             cstackCOMRAM 000018
-lcd_8bit_send_command@F3049               bssCOMRAM    00003E
+lcd_8bit_send_command@F3052               bssCOMRAM    00004F
 lcd_8bit_send_command@command             cstackCOMRAM 000016
 lcd_8bit_send_command@lcd_8bit            cstackCOMRAM 000014
 lcd_8bit_send_command@rs_pin              cstackCOMRAM 000019
@@ -634,7 +638,7 @@ lcd_8bit_send_custome_char@mem_pos        cstackCOMRAM 00002D
 lcd_8bit_send_custome_char@row            cstackCOMRAM 000029
 lcd_8bit_send_custome_char@state          cstackCOMRAM 00002E
 lcd_8bit_send_custome_char@str            cstackCOMRAM 00002B
-lcd_8bit_send_enable_signal@F3141         bssCOMRAM    000038
+lcd_8bit_send_enable_signal@F3144         bssCOMRAM    000049
 lcd_8bit_send_enable_signal@en_pin        cstackCOMRAM 00000F
 lcd_8bit_send_enable_signal@lcd_8bit      cstackCOMRAM 00000B
 lcd_8bit_send_enable_signal@state         cstackCOMRAM 00000E
@@ -642,41 +646,41 @@ lcd_8bit_set_position@col                 cstackCOMRAM 00001D
 lcd_8bit_set_position@lcd_8bit            cstackCOMRAM 00001A
 lcd_8bit_set_position@row                 cstackCOMRAM 00001C
 lcd_8bit_set_position@state               cstackCOMRAM 000020
-lcd_send_4bits@F3111                      bssCOMRAM    00003B
+lcd_send_4bits@F3114                      bssCOMRAM    00004C
 lcd_send_4bits@data_or_command            cstackCOMRAM 00000D
 lcd_send_4bits@data_pin                   cstackCOMRAM 000012
 lcd_send_4bits@lcd_4bit                   cstackCOMRAM 00000B
 lcd_send_4bits@local_index                cstackCOMRAM 000013
 lcd_send_4bits@state                      cstackCOMRAM 000011
-lcd_send_8bits@F3136                      bssCOMRAM    000039
+lcd_send_8bits@F3139                      bssCOMRAM    00004A
 lcd_send_8bits@data_or_command            cstackCOMRAM 00000D
 lcd_send_8bits@data_pin                   cstackCOMRAM 000012
 lcd_send_8bits@lcd_8bit                   cstackCOMRAM 00000B
 lcd_send_8bits@local_index                cstackCOMRAM 000013
 lcd_send_8bits@state                      cstackCOMRAM 000011
-lcd_send_higher_nibble@F3104              bssCOMRAM    00003C
+lcd_send_higher_nibble@F3107              bssCOMRAM    00004D
 lcd_send_higher_nibble@data               cstackCOMRAM 000016
 lcd_send_higher_nibble@lcd_4bit           cstackCOMRAM 000014
 lcd_send_higher_nibble@rs_pin             cstackCOMRAM 000019
 lcd_send_higher_nibble@state              cstackCOMRAM 000018
-led_initialize@F2888                      bssCOMRAM    000057
-led_toggle@F2903                          bssCOMRAM    000054
-led_turn_off@F2898                        bssCOMRAM    000055
-led_turn_on@F2893                         bssCOMRAM    000056
+led_initialize@F2891                      bssCOMRAM    000048
+led_toggle@F2906                          bssCOMRAM    000045
+led_turn_off@F2901                        bssCOMRAM    000046
+led_turn_on@F2896                         bssCOMRAM    000047
 main@local_index                          cstackCOMRAM 000033
-main@local_index_919                      cstackCOMRAM 000032
-rgb_led_initialize@F2892                  bssCOMRAM    00004F
-rgb_led_initialize@F2894                  bssCOMRAM    00004E
-rgb_led_initialize@F2896                  bssCOMRAM    00004D
-rgb_led_turn_off@F2911                    bssCOMRAM    000049
-rgb_led_turn_off@F2913                    bssCOMRAM    000048
-rgb_led_turn_off@F2915                    bssCOMRAM    000047
-rgb_led_turn_on@F2902                     bssCOMRAM    00004C
-rgb_led_turn_on@F2904                     bssCOMRAM    00004B
-rgb_led_turn_on@F2906                     bssCOMRAM    00004A
-segment_multi_disable@F2912               bssCOMRAM    000060
-segment_multi_enable@F2907                bssCOMRAM    000061
-segment_multi_initialize@F2902            bssCOMRAM    000062
+main@local_index_1364                     cstackCOMRAM 000032
+rgb_led_initialize@F2895                  bssCOMRAM    000040
+rgb_led_initialize@F2897                  bssCOMRAM    00003F
+rgb_led_initialize@F2899                  bssCOMRAM    00003E
+rgb_led_turn_off@F2914                    bssCOMRAM    00003A
+rgb_led_turn_off@F2916                    bssCOMRAM    000039
+rgb_led_turn_off@F2918                    bssCOMRAM    000038
+rgb_led_turn_on@F2905                     bssCOMRAM    00003D
+rgb_led_turn_on@F2907                     bssCOMRAM    00003C
+rgb_led_turn_on@F2909                     bssCOMRAM    00003B
+segment_multi_disable@F2915               bssCOMRAM    000060
+segment_multi_enable@F2910                bssCOMRAM    000061
+segment_multi_initialize@F2905            bssCOMRAM    000062
 stackhi                                   (abs)        000000
 stacklo                                   (abs)        000000
 start                                     init         000004

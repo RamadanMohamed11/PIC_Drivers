@@ -33,6 +33,12 @@
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
           <itemPath>MCAL/GPIO/hal_gpio.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="Interrupt" displayName="Interrupt" projectFiles="true">
+          <itemPath>MCAL/Interrupt/mcal_external_interrupt.h</itemPath>
+          <itemPath>MCAL/Interrupt/mcal_internal_interrrupt.h</itemPath>
+          <itemPath>MCAL/Interrupt/mcal_interrupt_config.h</itemPath>
+          <itemPath>MCAL/Interrupt/mcal_interrupt_manager.h</itemPath>
+        </logicalFolder>
         <itemPath>MCAL/std_types.h</itemPath>
         <itemPath>MCAL/compiler.h</itemPath>
         <itemPath>MCAL/std_libraries.h</itemPath>
@@ -76,6 +82,11 @@
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
           <itemPath>MCAL/GPIO/hal_gpio.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="Interrupt" displayName="Interrupt" projectFiles="true">
+          <itemPath>MCAL/Interrupt/mcal_external_interrupt.c</itemPath>
+          <itemPath>MCAL/Interrupt/mcal_internal_interrupt.c</itemPath>
+          <itemPath>MCAL/Interrupt/mcal_interrupt_manager.c</itemPath>
+        </logicalFolder>
         <itemPath>MCAL/device_config.c</itemPath>
       </logicalFolder>
       <itemPath>application.c</itemPath>
@@ -100,7 +111,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.36</languageToolchainVersion>
+        <languageToolchainVersion>2.41</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
