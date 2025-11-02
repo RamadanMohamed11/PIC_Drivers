@@ -30,13 +30,35 @@
 #define EXT_INT2_RISING_EDGE_SET() (INTCON2bits.INTEDG2 = 1)
 #define EXT_INT2_FALLING_EDGE_SET() (INTCON2bits.INTEDG2 = 0)
 
+#define EXT_RBx_INTERRUPT_ENABLE() (INTCONbits.RBIE = 1)
+#define EXT_RBx_INTERRUPT_DISABLE() (INTCONbits.RBIE = 0)
+#define EXT_RBx_INTERRUPT_FLAG_CLEAR() (INTCONbits.RBIF = 0)
+
+
 #if INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE
 #define EXT_INT1_HIGH_PRIORITY_SET() (INTCON3bits.INT1IP = 1)
 #define EXT_INT1_LOW_PRIORITY_SET() (INTCON3bits.INT1IP = 0 )
 
 #define EXT_INT2_HIGH_PRIORITY_SET() (INTCON3bits.INT2IP = 1)
 #define EXT_INT2_LOW_PRIORITY_SET() (INTCON3bits.INT2IP = 0 )
+
+#define EXT_RBx_HIGH_PRIORITY_SET() (INTCON2bits.RBIP = 1)
+#define EXT_RBx_LOW_PRIORITY_SET() (INTCON2bits.RBIP = 0 )
 #endif /* INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE */
+
+typedef struct
+{
+
+}ext_INTx_config_t;
+
+typedef struct
+{
+
+}ext_RBx_config_t;
+
+
+Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* config);
+Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* config);
 
 #endif /* MCAL_EXTERNAL_INTERRUPT_H */
 
