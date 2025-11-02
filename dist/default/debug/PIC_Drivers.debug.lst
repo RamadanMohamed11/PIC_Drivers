@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Sun Nov 02 01:08:07 2025
+                                                                                               Sun Nov 02 03:37:15 2025
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	18F4620
@@ -5053,7 +5053,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Sun Nov 02 01:08:07 2025
+Symbol Table                                                                                   Sun Nov 02 03:37:15 2025
 
              application_initialize@state 0024                           ?_lcd_send_4bits 000B  
                          ?_lcd_send_8bits 000B                                       l200 FDDC  

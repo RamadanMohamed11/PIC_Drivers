@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\RAMADA~1\AppData\Local\Temp\xcAse5o.\driver_tmp_3.o
+ C:\Users\RAMADA~1\AppData\Local\Temp\xcAsjrk.\driver_tmp_3.o
  -Odist/default/debug\PIC_Drivers.debug.hex
  -logfile=dist/default/debug\PIC_Drivers.debug.hxl
  -addressing=1
@@ -10,9 +10,9 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 7h		(C:\Users\RAMADA~1\AppData\Local\Temp\xcAse5o.\driver_tmp_3.o)
-  ED26h - FFFFh		(C:\Users\RAMADA~1\AppData\Local\Temp\xcAse5o.\driver_tmp_3.o)
-  300000h - 30000Dh		(C:\Users\RAMADA~1\AppData\Local\Temp\xcAse5o.\driver_tmp_3.o)
+  0h - 7h		(C:\Users\RAMADA~1\AppData\Local\Temp\xcAsjrk.\driver_tmp_3.o)
+  ED26h - FFFFh		(C:\Users\RAMADA~1\AppData\Local\Temp\xcAsjrk.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\RAMADA~1\AppData\Local\Temp\xcAsjrk.\driver_tmp_3.o)
  Filled ROM ranges:
   8h - Fh		(-FILL=0xFF@0:0xFFFF,data)
   ED20h - ED25h		(-FILL=0xFF@0:0xFFFF,data)
@@ -23,7 +23,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\RAMADA~1\AppData\Local\Temp\xcAse5o.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\RAMADA~1\AppData\Local\Temp\xcAsjrk.\driver_tmp_3.o)
   F1 = Filled ROM             (-FILL=0xFF@0:0xFFFF,data)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F

@@ -4653,5 +4653,19 @@ typedef uint8 Std_ReturnType;
 
 # 1 "MCAL/Interrupt/mcal_interrupt_config.h" 1
 # 13 "MCAL/Interrupt/mcal_external_interrupt.h" 2
+# 49 "MCAL/Interrupt/mcal_external_interrupt.h"
+typedef struct
+{
+
+}ext_INTx_config_t;
+
+typedef struct
+{
+
+}ext_RBx_config_t;
+
+
+Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* config);
+Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* config);
 # 9 "MCAL/Interrupt/mcal_external_interrupt.c" 2
 

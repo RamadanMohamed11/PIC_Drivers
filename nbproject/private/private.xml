@@ -4,8 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Embedded%202025/PIC_Drivers/MCAL/Interrupt/mcal_external_interrupt.h</file>
-            <file>file:/D:/Embedded%202025/PIC_Drivers/MCAL/Interrupt/mcal_internal_interrrupt.h</file>
-            <file>file:/D:/Embedded%202025/PIC_Drivers/MCAL/Interrupt/mcal_interrupt_manager.h</file>
+            <file>file:/D:/Embedded%202025/PIC_Drivers/MCAL/Interrupt/mcal_interrupt_config.h</file>
         </group>
     </open-files>
 </project-private>

@@ -11,6 +11,7 @@
 
 #include "../std_types.h"
 #include "mcal_interrupt_config.h"
+#include "../MCAL/GPIO/hal_gpio.h"
 
 #define EXT_INT0_INTERRUPT_ENABLE() (INTCONbits.INT0IE = 1)
 #define EXT_INT0_INTERRUPT_DISABLE() (INTCONbits.INT0IE = 0)
@@ -46,13 +47,35 @@
 #define EXT_RBx_LOW_PRIORITY_SET() (INTCON2bits.RBIP = 0 )
 #endif /* INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE */
 
+typedef enum
+{
+    EXT_INT0,
+    EXT_INT1,
+    EXT_INT2
+}ext_INTx_source_t;
+
+typedef enum
+{
+    RISING_EDGE,
+    FALLING_EDGE
+}ext_INTx_edge_t;
+
 typedef struct
 {
+    void (*int_handler)(void);
+    pin_config_t       pin_config;
+    ext_INTx_source_t  int_source;
+    ext_INTx_edge_t    int_edge;
+    interrupt_priority_t priority;
 
 }ext_INTx_config_t;
 
 typedef struct
 {
+    void (*int_handler)(void);
+    pin_config_t       pin_config;
+    ext_INTx_edge_t    int_edge;
+    interrupt_priority_t priority;
 
 }ext_RBx_config_t;
 

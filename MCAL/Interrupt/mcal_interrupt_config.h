@@ -40,5 +40,11 @@
 
 #endif /* INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE */
 
+typedef enum 
+{
+    HIGH_PRIORITY,
+    LOW_PRIORITY
+}interrupt_priority_t
+
 #endif /* MCAL_INTERRUPT_CONFIG_H */
 
