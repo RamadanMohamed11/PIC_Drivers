@@ -4652,20 +4652,357 @@ typedef uint8 Std_ReturnType;
 # 12 "MCAL/Interrupt/mcal_external_interrupt.h" 2
 
 # 1 "MCAL/Interrupt/mcal_interrupt_config.h" 1
+# 43 "MCAL/Interrupt/mcal_interrupt_config.h"
+typedef enum
+{
+    HIGH_PRIORITY,
+    LOW_PRIORITY
+}interrupt_priority_t;
 # 13 "MCAL/Interrupt/mcal_external_interrupt.h" 2
-# 49 "MCAL/Interrupt/mcal_external_interrupt.h"
+
+# 1 "MCAL/Interrupt/../GPIO/hal_gpio.h" 1
+# 16 "MCAL/Interrupt/../GPIO/hal_gpio.h"
+# 1 "MCAL/Interrupt/../GPIO/../device_config.h" 1
+# 16 "MCAL/Interrupt/../GPIO/hal_gpio.h" 2
+# 41 "MCAL/Interrupt/../GPIO/hal_gpio.h"
+volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
+volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
+volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
+# 52 "MCAL/Interrupt/../GPIO/hal_gpio.h"
+typedef enum
+{
+    GPIO_LOW,
+    GPIO_HIGH
+}logic_t;
+
+typedef enum
+{
+    GPIO_OUTPUT,
+    GPIO_INPUT
+}direction_t;
+
+typedef enum
+{
+    PIN0,
+    PIN1,
+    PIN2,
+    PIN3,
+    PIN4,
+    PIN5,
+    PIN6,
+    PIN7
+}pin_index_t;
+
+typedef enum
+{
+    PORTA_INDEX,
+    PORTB_INDEX,
+    PORTC_INDEX,
+    PORTD_INDEX,
+    PORTE_INDEX
+}port_index_t;
+
 typedef struct
 {
+    uint8 port : 3;
+    uint8 pin : 3;
+    uint8 direction : 1;
+    uint8 logic : 1;
+}pin_config_t;
+
+Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config);
+Std_ReturnType gpio_pin_get_direction_status(const pin_config_t* _pin_config , uint8* direction);
+Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic);
+Std_ReturnType gpio_pin_read_logic(const pin_config_t* _pin_config , uint8* logic);
+Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
+
+Std_ReturnType gpio_port_direction_initialize(port_index_t _port , uint8 direction);
+Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direction);
+Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
+Std_ReturnType gpio_port_read_logic(port_index_t _port , volatile uint8* logic);
+Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
+# 14 "MCAL/Interrupt/mcal_external_interrupt.h" 2
+# 50 "MCAL/Interrupt/mcal_external_interrupt.h"
+typedef enum
+{
+    EXT_INT0,
+    EXT_INT1,
+    EXT_INT2
+}ext_INTx_source_t;
+
+typedef enum
+{
+    RISING_EDGE,
+    FALLING_EDGE
+}ext_INTx_edge_t;
+
+typedef struct
+{
+    void (*int_handler)(void);
+    pin_config_t pin_config;
+    ext_INTx_source_t int_source;
+    ext_INTx_edge_t int_edge;
+    interrupt_priority_t priority;
 
 }ext_INTx_config_t;
 
 typedef struct
 {
+    void (*int_handler)(void);
+    pin_config_t pin_config;
+    ext_INTx_edge_t int_edge;
+    interrupt_priority_t priority;
 
 }ext_RBx_config_t;
 
 
-Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* config);
-Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* config);
+Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx);
+Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx);
 # 9 "MCAL/Interrupt/mcal_external_interrupt.c" 2
 
+
+static Std_ReturnType EXT_INTx_PIN_Init(const ext_INTx_config_t* ext_INTx);
+static Std_ReturnType EXT_INTx_Enable(const ext_INTx_config_t* ext_INTx);
+static Std_ReturnType EXT_INTx_Disable(const ext_INTx_config_t* ext_INTx);
+static Std_ReturnType EXT_INTx_edge_Init(const ext_INTx_config_t* ext_INTx);
+static Std_ReturnType EXT_INTx_Clear_Flag(const ext_INTx_config_t* ext_INTx);
+static Std_ReturnType EXT_INTx_Set_Callback(const ext_INTx_config_t* ext_INTx);
+
+static Std_ReturnType EXT_INTx_priority_Init(const ext_INTx_config_t* ext_INTx);
+
+
+static Std_ReturnType EXT_RBx_PIN_Init(const ext_RBx_config_t* ext_INTx);
+static Std_ReturnType EXT_RBx_Enable(const ext_RBx_config_t* ext_INTx);
+static Std_ReturnType EXT_RBx_Disable(const ext_RBx_config_t* ext_INTx);
+static Std_ReturnType EXT_RBx_edge_Init(const ext_RBx_config_t* ext_INTx);
+
+static Std_ReturnType EXT_RBx_priority_Init(const ext_RBx_config_t* ext_INTx);
+
+
+
+Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+
+        state &= EXT_INTx_Disable(ext_INTx);
+
+        state &= EXT_INTx_Clear_Flag(ext_INTx);
+
+        state &= EXT_INTx_PIN_Init(ext_INTx);
+
+        state &= EXT_INTx_edge_Init(ext_INTx);
+
+        state &= EXT_INTx_priority_Init(ext_INTx);
+
+        state &= EXT_INTx_Set_Callback(ext_INTx);
+
+        state &= EXT_INTx_Enable(ext_INTx);
+    }
+    return state;
+}
+
+Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+
+    }
+    return state;
+}
+
+static Std_ReturnType EXT_INTx_PIN_Init(const ext_INTx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        state &= gpio_pin_direction_initialize(&ext_INTx->pin_config);
+    }
+    return state;
+}
+
+static Std_ReturnType EXT_INTx_Enable(const ext_INTx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        switch(ext_INTx->int_source)
+        {
+            case EXT_INT0:
+                (INTCONbits.INT0IE = 1);
+                break;
+            case EXT_INT1:
+                (INTCON3bits.INT1IE = 1);
+                break;
+            case EXT_INT2:
+                (INTCON3bits.INT2IE = 1);
+                break;
+            default:
+                state=(Std_ReturnType)0;
+                break;
+        }
+    }
+    return state;
+}
+
+static Std_ReturnType EXT_INTx_Disable(const ext_INTx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        switch(ext_INTx->int_source)
+        {
+            case EXT_INT0:
+                (INTCONbits.INT0IE = 0);
+                break;
+            case EXT_INT1:
+                (INTCON3bits.INT1IE = 0);
+                break;
+            case EXT_INT2:
+                (INTCON3bits.INT2IE = 0);
+                break;
+            default:
+                state=(Std_ReturnType)0;
+                break;
+        }
+    }
+    return state;
+}
+
+static Std_ReturnType EXT_INTx_edge_Init(const ext_INTx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        switch(ext_INTx->int_source)
+        {
+            case EXT_INT0:
+                if(ext_INTx->int_edge==RISING_EDGE)
+                {
+                    (INTCON2bits.INTEDG0 = 1);
+                }
+                else
+                {
+                    (INTCON2bits.INTEDG0 = 0);
+                }
+                break;
+            case EXT_INT1:
+                if(ext_INTx->int_edge==RISING_EDGE)
+                {
+                    (INTCON2bits.INTEDG1 = 1);
+                }
+                else
+                {
+                    (INTCON2bits.INTEDG1 = 0);
+                }
+                break;
+            case EXT_INT2:
+                if(ext_INTx->int_edge==RISING_EDGE)
+                {
+                    (INTCON2bits.INTEDG2 = 1);
+                }
+                else
+                {
+                    (INTCON2bits.INTEDG2 = 0);
+                }
+                break;
+            default:
+                state=(Std_ReturnType)0;
+                break;
+        }
+    }
+    return state;
+}
+
+static Std_ReturnType EXT_INTx_Clear_Flag(const ext_INTx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        switch(ext_INTx->int_source)
+        {
+            case EXT_INT0:
+                (INTCONbits.INT0IF = 0);
+                break;
+            case EXT_INT1:
+                (INTCON3bits.INT1IF = 0);
+                break;
+            case EXT_INT2:
+                (INTCON3bits.INT2IF = 0);
+                break;
+            default:
+                state=(Std_ReturnType)0;
+                break;
+        }
+    }
+    return state;
+}
+
+static Std_ReturnType EXT_INTx_Set_Callback(const ext_INTx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+
+    }
+    return state;
+}
+
+
+static Std_ReturnType EXT_INTx_priority_Init(const ext_INTx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        switch(ext_INTx->int_source)
+        {
+            case EXT_INT0:
+                state = (Std_ReturnType)0;
+                break;
+            case EXT_INT1:
+                if(ext_INTx->priority==HIGH_PRIORITY)
+                {
+                    (INTCON3bits.INT1IP = 1);
+                }
+                else
+                {
+                    (INTCON3bits.INT1IP = 0 );
+                }
+                break;
+            case EXT_INT2:
+                if(ext_INTx->priority==HIGH_PRIORITY)
+                {
+                    (INTCON3bits.INT2IP = 1);
+                }
+                else
+                {
+                    (INTCON3bits.INT2IP = 0 );
+                }
+                break;
+            default:
+                state=(Std_ReturnType)0;
+                break;
+        }
+    }
+    return state;
+}

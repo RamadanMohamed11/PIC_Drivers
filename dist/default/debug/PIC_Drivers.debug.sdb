@@ -150,6 +150,20 @@ PIN5 5
 PIN6 6
 PIN7 7
 ]
+"30 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
+[e E2866 . `uc
+EXT_INT0 0
+EXT_INT1 1
+EXT_INT2 2
+]
+[e E2871 . `uc
+RISING_EDGE 0
+FALLING_EDGE 1
+]
+[e E2801 . `uc
+HIGH_PRIORITY 0
+LOW_PRIORITY 1
+]
 "45 D:\Embedded 2025\PIC_Drivers\application.c
 [v _main main `(i  1 e 2 0 ]
 "70
@@ -242,14 +256,22 @@ PIN7 7
 [v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
 "153
 [v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
+"67 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
+[v _EXT_INTx_PIN_Init EXT_INTx_PIN_Init `(uc  1 s 1 EXT_INTx_PIN_Init ]
+"79
+[v _EXT_INTx_Enable EXT_INTx_Enable `(uc  1 s 1 EXT_INTx_Enable ]
+"105
+[v _EXT_INTx_Disable EXT_INTx_Disable `(uc  1 s 1 EXT_INTx_Disable ]
+"131
+[v _EXT_INTx_edge_Init EXT_INTx_edge_Init `(uc  1 s 1 EXT_INTx_edge_Init ]
+"178
+[v _EXT_INTx_Clear_Flag EXT_INTx_Clear_Flag `(uc  1 s 1 EXT_INTx_Clear_Flag ]
+"204
+[v _EXT_INTx_Set_Callback EXT_INTx_Set_Callback `(uc  1 s 1 EXT_INTx_Set_Callback ]
+"217
+[v _EXT_INTx_priority_Init EXT_INTx_priority_Init `(uc  1 s 1 EXT_INTx_priority_Init ]
 "17 D:\Embedded 2025\PIC_Drivers/ECU/Keypad/ecu_keypad.h
 [v _local_keypad_chars local_keypad_chars `[4][4]uc  1 e 16 0 ]
-"41 D:\Embedded 2025\PIC_Drivers/MCAL/GPIO/hal_gpio.h
-[v _tris_regesters tris_regesters `[5]*.39VEuc  1 e 10 0 ]
-"42
-[v _lat_regesters lat_regesters `[5]*.39VEuc  1 e 10 0 ]
-"43
-[v _port_regesters port_regesters `[5]*.39VEuc  1 e 10 0 ]
 "11 D:\Embedded 2025\PIC_Drivers\application.c
 [v _customChars customChars `[7][8]uc  1 e 56 0 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
@@ -261,7 +283,77 @@ PIN7 7
 "26
 [s S407 . 10 `S24 1 lcd_rs_pin 1 0 `S24 1 lcd_en_pin 1 1 `[8]S24 1 lcd_data_pins 8 2 ]
 [v _lcd_8bit lcd_8bit `S407  1 e 10 0 ]
-"45
+[s S1482 . 1 `uc 1 INT1IF 1 0 :1:0 
+`uc 1 INT2IF 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 INT1IE 1 0 :1:3 
+`uc 1 INT2IE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 INT1IP 1 0 :1:6 
+`uc 1 INT2IP 1 0 :1:7 
+]
+"6239 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
+[s S1491 . 1 `uc 1 INT1F 1 0 :1:0 
+`uc 1 INT2F 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 INT1E 1 0 :1:3 
+`uc 1 INT2E 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 INT1P 1 0 :1:6 
+`uc 1 INT2P 1 0 :1:7 
+]
+[u S1500 . 1 `S1482 1 . 1 0 `S1491 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES1500  1 e 1 @4080 ]
+[s S1522 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"6329
+[s S1525 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S1534 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S1537 . 1 `S1522 1 . 1 0 `S1525 1 . 1 0 `S1534 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES1537  1 e 1 @4081 ]
+[s S1433 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6406
+[s S1442 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S1451 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S1455 . 1 `S1433 1 . 1 0 `S1442 1 . 1 0 `S1451 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1455  1 e 1 @4082 ]
+"41 D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.h
+[v _tris_regesters tris_regesters `[5]*.39VEuc  1 e 10 0 ]
+"42
+[v _lat_regesters lat_regesters `[5]*.39VEuc  1 e 10 0 ]
+"43
+[v _port_regesters port_regesters `[5]*.39VEuc  1 e 10 0 ]
+"45 D:\Embedded 2025\PIC_Drivers\application.c
 [v _main main `(i  1 e 2 0 ]
 {
 "58

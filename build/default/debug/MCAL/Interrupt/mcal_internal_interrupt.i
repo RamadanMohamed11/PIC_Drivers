@@ -4652,6 +4652,12 @@ typedef uint8 Std_ReturnType;
 # 12 "MCAL/Interrupt/mcal_internal_interrrupt.h" 2
 
 # 1 "MCAL/Interrupt/mcal_interrupt_config.h" 1
+# 43 "MCAL/Interrupt/mcal_interrupt_config.h"
+typedef enum
+{
+    HIGH_PRIORITY,
+    LOW_PRIORITY
+}interrupt_priority_t;
 # 13 "MCAL/Interrupt/mcal_internal_interrrupt.h" 2
 # 9 "MCAL/Interrupt/mcal_internal_interrupt.c" 2
 

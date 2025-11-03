@@ -11,7 +11,7 @@
 
 #include "../std_types.h"
 #include "mcal_interrupt_config.h"
-#include "../MCAL/GPIO/hal_gpio.h"
+#include "../GPIO/hal_gpio.h"
 
 #define EXT_INT0_INTERRUPT_ENABLE() (INTCONbits.INT0IE = 1)
 #define EXT_INT0_INTERRUPT_DISABLE() (INTCONbits.INT0IE = 0)
