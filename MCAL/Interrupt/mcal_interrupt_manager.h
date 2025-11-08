@@ -11,6 +11,7 @@
 
 #include "../std_types.h"
 #include "mcal_interrupt_config.h"
+#include "mcal_external_interrupt.h"
 
 
 /* Manager API prototypes go here */

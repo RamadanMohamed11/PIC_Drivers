@@ -4758,8 +4758,16 @@ typedef struct
 
 Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx);
 Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx);
+
+void INT0_ISR(void);
+void INT1_ISR(void);
+void INT2_ISR(void);
 # 9 "MCAL/Interrupt/mcal_external_interrupt.c" 2
 
+
+static void (*INT0_InterruptHandler) (void) = ((void*)0);
+static void (*INT1_InterruptHandler) (void) = ((void*)0);
+static void (*INT2_InterruptHandler) (void) = ((void*)0);
 
 static Std_ReturnType EXT_INTx_PIN_Init(const ext_INTx_config_t* ext_INTx);
 static Std_ReturnType EXT_INTx_Enable(const ext_INTx_config_t* ext_INTx);
@@ -4770,6 +4778,10 @@ static Std_ReturnType EXT_INTx_Set_Callback(const ext_INTx_config_t* ext_INTx);
 
 static Std_ReturnType EXT_INTx_priority_Init(const ext_INTx_config_t* ext_INTx);
 
+static Std_ReturnType INT0_SetInterruptHandler(const void (*handler)(void));
+static Std_ReturnType INT1_SetInterruptHandler(const void (*handler)(void));
+static Std_ReturnType INT2_SetInterruptHandler(const void (*handler)(void));
+static Std_ReturnType Interrupt_INTx_SetInterruptHandler(const ext_INTx_config_t* ext_INTx);
 
 static Std_ReturnType EXT_RBx_PIN_Init(const ext_RBx_config_t* ext_INTx);
 static Std_ReturnType EXT_RBx_Enable(const ext_RBx_config_t* ext_INTx);
@@ -4815,6 +4827,33 @@ Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx)
 
     }
     return state;
+}
+
+void INT0_ISR(void)
+{
+    (INTCONbits.INT0IF = 0);
+    if(INT0_InterruptHandler != ((void*)0))
+    {
+        INT0_InterruptHandler();
+    }
+}
+
+void INT1_ISR(void)
+{
+    (INTCON3bits.INT1IF = 0);
+    if(INT1_InterruptHandler != ((void*)0))
+    {
+        INT1_InterruptHandler();
+    }
+}
+
+void INT2_ISR(void)
+{
+    (INTCON3bits.INT2IF = 0);
+    if(INT2_InterruptHandler != ((void*)0))
+    {
+        INT2_InterruptHandler();
+    }
 }
 
 static Std_ReturnType EXT_INTx_PIN_Init(const ext_INTx_config_t* ext_INTx)
@@ -5001,6 +5040,69 @@ static Std_ReturnType EXT_INTx_priority_Init(const ext_INTx_config_t* ext_INTx)
                 break;
             default:
                 state=(Std_ReturnType)0;
+                break;
+        }
+    }
+    return state;
+}
+
+
+static Std_ReturnType INT0_SetInterruptHandler(const void (*handler)(void))
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(handler==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        INT0_InterruptHandler=handler;
+    }
+    return state;
+}
+
+static Std_ReturnType INT1_SetInterruptHandler(const void (*handler)(void))
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(handler==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        INT1_InterruptHandler=handler;
+    }
+    return state;
+}
+static Std_ReturnType INT2_SetInterruptHandler(const void (*handler)(void))
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(handler==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        INT2_InterruptHandler=handler;
+    }
+    return state;
+}
+
+
+static Std_ReturnType Interrupt_INTx_SetInterruptHandler(const ext_INTx_config_t* ext_INTx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_INTx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        switch(ext_INTx->int_source)
+        {
+            case EXT_INT0:
+                state &= INT0_SetInterruptHandler(ext_INTx->int_handler);
+                break;
+            case EXT_INT1:
+                state &= INT0_SetInterruptHandler(ext_INTx->int_handler);
+                break;
+            case EXT_INT2:
+                state &= INT0_SetInterruptHandler(ext_INTx->int_handler);
+                break;
+            default:
+                state = (Std_ReturnType)0;
                 break;
         }
     }

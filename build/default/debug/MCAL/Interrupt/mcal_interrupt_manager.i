@@ -4659,5 +4659,122 @@ typedef enum
     LOW_PRIORITY
 }interrupt_priority_t;
 # 13 "MCAL/Interrupt/mcal_interrupt_manager.h" 2
+
+# 1 "MCAL/Interrupt/mcal_external_interrupt.h" 1
+# 14 "MCAL/Interrupt/mcal_external_interrupt.h"
+# 1 "MCAL/Interrupt/../GPIO/hal_gpio.h" 1
+# 16 "MCAL/Interrupt/../GPIO/hal_gpio.h"
+# 1 "MCAL/Interrupt/../GPIO/../device_config.h" 1
+# 16 "MCAL/Interrupt/../GPIO/hal_gpio.h" 2
+# 41 "MCAL/Interrupt/../GPIO/hal_gpio.h"
+volatile uint8* tris_regesters[]={&((*((volatile uint8*)0xF92))),&((*((volatile uint8*)0xF93))),&((*((volatile uint8*)0xF94))),&((*((volatile uint8*)0xF95))),&((*((volatile uint8*)0xF96)))};
+volatile uint8* lat_regesters[]={&((*((volatile uint8*)0xF89))),&((*((volatile uint8*)0xF8A))),&((*((volatile uint8*)0xF8B))),&((*((volatile uint8*)0xF8C))),&((*((volatile uint8*)0xF8D)))};
+volatile uint8* port_regesters[]={&((*((volatile uint8*)0xF80))),&((*((volatile uint8*)0xF81))),&((*((volatile uint8*)0xF82))),&((*((volatile uint8*)0xF83))),&((*((volatile uint8*)0xF84)))};
+# 52 "MCAL/Interrupt/../GPIO/hal_gpio.h"
+typedef enum
+{
+    GPIO_LOW,
+    GPIO_HIGH
+}logic_t;
+
+typedef enum
+{
+    GPIO_OUTPUT,
+    GPIO_INPUT
+}direction_t;
+
+typedef enum
+{
+    PIN0,
+    PIN1,
+    PIN2,
+    PIN3,
+    PIN4,
+    PIN5,
+    PIN6,
+    PIN7
+}pin_index_t;
+
+typedef enum
+{
+    PORTA_INDEX,
+    PORTB_INDEX,
+    PORTC_INDEX,
+    PORTD_INDEX,
+    PORTE_INDEX
+}port_index_t;
+
+typedef struct
+{
+    uint8 port : 3;
+    uint8 pin : 3;
+    uint8 direction : 1;
+    uint8 logic : 1;
+}pin_config_t;
+
+Std_ReturnType gpio_pin_direction_initialize(const pin_config_t* _pin_config);
+Std_ReturnType gpio_pin_get_direction_status(const pin_config_t* _pin_config , uint8* direction);
+Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config , uint8 logic);
+Std_ReturnType gpio_pin_read_logic(const pin_config_t* _pin_config , uint8* logic);
+Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
+
+Std_ReturnType gpio_port_direction_initialize(port_index_t _port , uint8 direction);
+Std_ReturnType gpio_port_get_direction_status(port_index_t _port , uint8* direction);
+Std_ReturnType gpio_port_write_logic(port_index_t _port , uint8 logic);
+Std_ReturnType gpio_port_read_logic(port_index_t _port , volatile uint8* logic);
+Std_ReturnType gpio_port_toggle_logic(port_index_t _port);
+# 14 "MCAL/Interrupt/mcal_external_interrupt.h" 2
+# 50 "MCAL/Interrupt/mcal_external_interrupt.h"
+typedef enum
+{
+    EXT_INT0,
+    EXT_INT1,
+    EXT_INT2
+}ext_INTx_source_t;
+
+typedef enum
+{
+    RISING_EDGE,
+    FALLING_EDGE
+}ext_INTx_edge_t;
+
+typedef struct
+{
+    void (*int_handler)(void);
+    pin_config_t pin_config;
+    ext_INTx_source_t int_source;
+    ext_INTx_edge_t int_edge;
+    interrupt_priority_t priority;
+
+}ext_INTx_config_t;
+
+typedef struct
+{
+    void (*int_handler)(void);
+    pin_config_t pin_config;
+    ext_INTx_edge_t int_edge;
+    interrupt_priority_t priority;
+
+}ext_RBx_config_t;
+
+
+Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx);
+Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx);
+
+void INT0_ISR(void);
+void INT1_ISR(void);
+void INT2_ISR(void);
+# 14 "MCAL/Interrupt/mcal_interrupt_manager.h" 2
 # 9 "MCAL/Interrupt/mcal_interrupt_manager.c" 2
 
+
+
+void __attribute__((picinterrupt(("")))) interruptManagerHighPriority(void)
+{
+
+}
+
+void __attribute__((picinterrupt(("low_priority")))) interruptManagerLowPriority(void)
+{
+
+}

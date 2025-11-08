@@ -83,5 +83,10 @@ typedef struct
 Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx);
 Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx);
 
+void INT0_ISR(void);
+void INT1_ISR(void);
+void INT2_ISR(void);
+
+
 #endif /* MCAL_EXTERNAL_INTERRUPT_H */
 
