@@ -4652,7 +4652,7 @@ typedef uint8 Std_ReturnType;
 # 12 "MCAL/Interrupt/mcal_interrupt_manager.h" 2
 
 # 1 "MCAL/Interrupt/mcal_interrupt_config.h" 1
-# 43 "MCAL/Interrupt/mcal_interrupt_config.h"
+# 42 "MCAL/Interrupt/mcal_interrupt_config.h"
 typedef enum
 {
     HIGH_PRIORITY,
@@ -4766,14 +4766,30 @@ void INT1_ISR(void);
 void INT2_ISR(void);
 # 14 "MCAL/Interrupt/mcal_interrupt_manager.h" 2
 # 9 "MCAL/Interrupt/mcal_interrupt_manager.c" 2
-# 24 "MCAL/Interrupt/mcal_interrupt_manager.c"
-void __attribute__((picinterrupt(("")))) interruptManager(void)
+
+
+
+void __attribute__((picinterrupt(("")))) interruptManagerHighPriority(void)
 {
+
     if(INTCONbits.INT0IF && INTCONbits.INT0IE)
     {
         INT0_ISR();
     }
     else if(INTCON3bits.INT1IF && INTCON3bits.INT1IE)
+    {
+        INT1_ISR();
+    }
+    else if(INTCON3bits.INT2IF && INTCON3bits.INT2IE)
+    {
+        INT2_ISR();
+    }
+}
+
+void __attribute__((picinterrupt(("low_priority")))) interruptManagerLowPriority(void)
+{
+
+    if(INTCON3bits.INT1IF && INTCON3bits.INT1IE)
     {
         INT1_ISR();
     }

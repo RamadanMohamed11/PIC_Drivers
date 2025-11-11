@@ -40,15 +40,44 @@ lcd_8bit_t lcd_8bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
  */
 
 void INT0_Function(void);
+void INT1_Function(void);
+void INT2_Function(void);
 led_t led1={.port=PORTA_INDEX,.pin=PIN0, .state=LED_OFF};
+led_t led2={.port=PORTA_INDEX,.pin=PIN1, .state=LED_OFF};
+led_t led3={.port=PORTA_INDEX,.pin=PIN2, .state=LED_OFF};
 
 ext_INTx_config_t ext_INT0_config={
     .int_source=EXT_INT0,
     .int_edge=RISING_EDGE,
     .int_handler=INT0_Function,
+    .priority=HIGH_PRIORITY,
     .pin_config={
         .port=PORTB_INDEX,
         .pin=PIN0,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
+ext_INTx_config_t ext_INT1_config={
+    .int_source=EXT_INT1,
+    .int_edge=RISING_EDGE,
+    .int_handler=INT1_Function,
+    .priority=LOW_PRIORITY,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN1,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
+ext_INTx_config_t ext_INT2_config={
+    .int_source=EXT_INT2,
+    .int_edge=RISING_EDGE,
+    .priority=HIGH_PRIORITY,
+    .int_handler=INT2_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN2,
         .direction=GPIO_INPUT,
         .logic=GPIO_LOW
     }
@@ -62,6 +91,8 @@ int main(void)
 {    
     application_initialize();
     EXT_INTx_Init(&ext_INT0_config);
+    EXT_INTx_Init(&ext_INT1_config);
+    EXT_INTx_Init(&ext_INT2_config);
     // // lcd_8bit_send_string_at_position(&lcd_8bit, 1, 4, "Hello World");
     // // lcd_4bit_send_string_at_position(&lcd_4bit, 1, 4, "Hello World");
     // for(uint8 local_index=0; local_index<7; local_index++)
@@ -90,10 +121,23 @@ Std_ReturnType application_initialize(void)
     // state &= lcd_4bit_initialize(&lcd_4bit);
     // state &= lcd_8bit_initialize(&lcd_8bit);
     state &= led_initialize(&led1);
+    state &= led_initialize(&led2);
+    state &= led_initialize(&led3);
     return state;
 }
 
 void INT0_Function(void)
 {
     led_toggle(&led1);
+    __delay_ms(1000);
+}
+void INT1_Function(void)
+{
+    led_toggle(&led2);
+    __delay_ms(1000);
+}
+void INT2_Function(void)
+{
+    led_toggle(&led3);
+    __delay_ms(1000);
 }

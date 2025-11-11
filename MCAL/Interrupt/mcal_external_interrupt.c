@@ -52,7 +52,14 @@ Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx)
         state &= EXT_INTx_edge_Init(ext_INTx);
         // Initialize interrupt priority
         #if INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE
-        state &= EXT_INTx_priority_Init(ext_INTx);
+        INTERRUPT_INTERRUPT_PRIORITY_ENABLE();
+        if(ext_INTx->int_source!=EXT_INT0)
+        {
+            // INT0 is always high priority
+            state &= EXT_INTx_priority_Init(ext_INTx);
+        }
+        #else
+        INTERRUPT_INTERRUPT_PRIORITY_DISABLE();
         #endif /* INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE */
 
         // Interrupt Callback function assignment would go here
@@ -125,18 +132,44 @@ static Std_ReturnType EXT_INTx_Enable(const ext_INTx_config_t* ext_INTx)
         {
             case EXT_INT0:
                 EXT_INT0_INTERRUPT_ENABLE();
+                #if INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE
+                INTERRUPT_GLOBAL_HIGH_ENABLE();
+                #else
                 INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
                 INTERRUPT_ENABLE_GLOBAL_INTERRUPT();
+                #endif /* INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE */
                 break;
             case EXT_INT1:
                 EXT_INT1_INTERRUPT_ENABLE();
+                #if INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE
+                if(ext_INTx->priority==HIGH_PRIORITY)
+                {
+                    INTERRUPT_GLOBAL_HIGH_ENABLE();
+                }
+                else
+                {
+                    INTERRUPT_GLOBAL_LOW_ENABLE();
+                }
+                #else
                 INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
                 INTERRUPT_ENABLE_GLOBAL_INTERRUPT();
+                #endif /* INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE */
                 break;
             case EXT_INT2:
                 EXT_INT2_INTERRUPT_ENABLE();
+                #if INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE
+                if(ext_INTx->priority==HIGH_PRIORITY)
+                {
+                    INTERRUPT_GLOBAL_HIGH_ENABLE();
+                }
+                else
+                {
+                    INTERRUPT_GLOBAL_LOW_ENABLE();
+                }
+                #else
                 INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
                 INTERRUPT_ENABLE_GLOBAL_INTERRUPT();
+                #endif /* INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE */
                 break;
             default:
                 state=E_NOT_OK;
@@ -336,10 +369,10 @@ static Std_ReturnType Interrupt_INTx_SetInterruptHandler(const ext_INTx_config_t
                 state &= INT0_SetInterruptHandler(ext_INTx->int_handler);
                 break;
             case EXT_INT1:
-                state &= INT0_SetInterruptHandler(ext_INTx->int_handler);
+                state &= INT1_SetInterruptHandler(ext_INTx->int_handler);
                 break;
             case EXT_INT2:
-                state &= INT0_SetInterruptHandler(ext_INTx->int_handler);
+                state &= INT2_SetInterruptHandler(ext_INTx->int_handler);
                 break;
             default:
                 state = E_NOT_OK;

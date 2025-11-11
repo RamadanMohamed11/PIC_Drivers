@@ -12,11 +12,31 @@
 void __interrupt() interruptManagerHighPriority(void)
 {
     // High priority interrupt handling logic would go here
+    if(INTCONbits.INT0IF && INTCONbits.INT0IE)
+    {
+        INT0_ISR();
+    }
+    else if(INTCON3bits.INT1IF && INTCON3bits.INT1IE)
+    {
+        INT1_ISR();
+    }
+    else if(INTCON3bits.INT2IF && INTCON3bits.INT2IE)
+    {
+        INT2_ISR();
+    }
 }
 
 void __interrupt(low_priority) interruptManagerLowPriority(void)
 {
     // Low priority interrupt handling logic would go here
+    if(INTCON3bits.INT1IF && INTCON3bits.INT1IE)
+    {
+        INT1_ISR();
+    }
+    else if(INTCON3bits.INT2IF && INTCON3bits.INT2IE)
+    {
+        INT2_ISR();
+    }
 }
 
 #else
