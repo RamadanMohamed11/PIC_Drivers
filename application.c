@@ -42,9 +42,20 @@ lcd_8bit_t lcd_8bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
 void INT0_Function(void);
 void INT1_Function(void);
 void INT2_Function(void);
+
+void RB4_HIGH_Function(void);
+void RB4_LOW_Function(void);
+void RB5_HIGH_Function(void);
+void RB5_LOW_Function(void);
+void RB6_HIGH_Function(void);
+void RB6_LOW_Function(void);
+void RB7_HIGH_Function(void);
+void RB7_LOW_Function(void);
+
 led_t led1={.port=PORTA_INDEX,.pin=PIN0, .state=LED_OFF};
 led_t led2={.port=PORTA_INDEX,.pin=PIN1, .state=LED_OFF};
 led_t led3={.port=PORTA_INDEX,.pin=PIN2, .state=LED_OFF};
+led_t led4={.port=PORTA_INDEX,.pin=PIN3, .state=LED_OFF};
 
 ext_INTx_config_t ext_INT0_config={
     .int_source=EXT_INT0,
@@ -83,8 +94,54 @@ ext_INTx_config_t ext_INT2_config={
     }
 };
 
-
-
+ext_RBx_config_t ext_RB4_config={
+    .int_edge=RISING_EDGE,
+    .priority=LOW_PRIORITY,
+    .int_handler_high=RB4_HIGH_Function,
+    .int_handler_low=RB4_LOW_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN4,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
+ext_RBx_config_t ext_RB5_config={
+    .int_edge=RISING_EDGE,
+    .priority=LOW_PRIORITY,
+    .int_handler_high=RB5_HIGH_Function,
+    .int_handler_low=RB5_LOW_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN5,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
+ext_RBx_config_t ext_RB6_config={
+    .int_edge=RISING_EDGE,
+    .priority=LOW_PRIORITY,
+    .int_handler_high=RB6_HIGH_Function,
+    .int_handler_low=RB6_LOW_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN6,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
+ext_RBx_config_t ext_RB7_config={
+    .int_edge=RISING_EDGE,
+    .priority=LOW_PRIORITY,
+    .int_handler_high=RB7_HIGH_Function,
+    .int_handler_low=RB7_LOW_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN7,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
 
 
 int main(void) 
@@ -93,24 +150,15 @@ int main(void)
     EXT_INTx_Init(&ext_INT0_config);
     EXT_INTx_Init(&ext_INT1_config);
     EXT_INTx_Init(&ext_INT2_config);
-    // // lcd_8bit_send_string_at_position(&lcd_8bit, 1, 4, "Hello World");
-    // // lcd_4bit_send_string_at_position(&lcd_4bit, 1, 4, "Hello World");
-    // for(uint8 local_index=0; local_index<7; local_index++)
-    // {
-    //     lcd_8bit_send_custome_char(&lcd_8bit, 1, 1, customChars[local_index], local_index);
-    //     lcd_4bit_send_custome_char(&lcd_4bit, 1, 1, customChars[local_index], local_index);
-    // }
-
+   
+    EXT_RBx_Init(&ext_RB4_config);
+    EXT_RBx_Init(&ext_RB5_config);
+    EXT_RBx_Init(&ext_RB6_config);
+    EXT_RBx_Init(&ext_RB7_config);
+    
     while(1)
     {
-//         for(uint8 local_index=0; local_index<7; local_index++)
-//         {
-// //            lcd_4bit_send_command(&lcd_4bit, LCD_CGRAM_START + 0);
-// //            lcd_8bit_send_command(&lcd_8bit, LCD_CGRAM_START + 0);
-//             lcd_4bit_send_char_at_position(&lcd_4bit, 4, 4, local_index);
-//             lcd_8bit_send_char_at_position(&lcd_8bit, 4, 4, local_index);
-//             __delay_ms(500);
-//         }
+
     }
     return (EXIT_SUCCESS);
 }
@@ -140,4 +188,37 @@ void INT2_Function(void)
 {
     led_toggle(&led3);
     __delay_ms(1000);
+}
+
+void RB4_HIGH_Function(void)
+{
+    led_turn_on(&led1);
+}
+void RB4_LOW_Function(void)
+{
+    led_turn_off(&led1);
+}
+void RB5_HIGH_Function(void)
+{
+    led_turn_on(&led2);
+}
+void RB5_LOW_Function(void)
+{
+    led_turn_off(&led2);
+}
+void RB6_HIGH_Function(void)
+{
+    led_turn_on(&led3);
+}
+void RB6_LOW_Function(void)
+{
+    led_turn_off(&led3);
+}
+void RB7_HIGH_Function(void)
+{
+    led_turn_on(&led4);
+}
+void RB7_LOW_Function(void)
+{
+    led_turn_off(&led4);
 }

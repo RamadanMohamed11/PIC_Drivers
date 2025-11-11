@@ -4748,7 +4748,8 @@ typedef struct
 
 typedef struct
 {
-    void (*int_handler)(void);
+    void (*int_handler_high)(void);
+    void (*int_handler_low)(void);
     pin_config_t pin_config;
     ext_INTx_edge_t int_edge;
     interrupt_priority_t priority;
@@ -4762,12 +4763,26 @@ Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx);
 void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
+
+void RB4_ISR(uint8 edge);
+void RB5_ISR(uint8 edge);
+void RB6_ISR(uint8 edge);
+void RB7_ISR(uint8 edge);
 # 9 "MCAL/Interrupt/mcal_external_interrupt.c" 2
 
 
 static void (*INT0_InterruptHandler) (void) = ((void*)0);
 static void (*INT1_InterruptHandler) (void) = ((void*)0);
 static void (*INT2_InterruptHandler) (void) = ((void*)0);
+
+static void (*RB4_InterruptHandler_HIGH) (void) = ((void*)0);
+static void (*RB4_InterruptHandler_LOW) (void) = ((void*)0);
+static void (*RB5_InterruptHandler_HIGH) (void) = ((void*)0);
+static void (*RB5_InterruptHandler_LOW) (void) = ((void*)0);
+static void (*RB6_InterruptHandler_HIGH) (void) = ((void*)0);
+static void (*RB6_InterruptHandler_LOW) (void) = ((void*)0);
+static void (*RB7_InterruptHandler_HIGH) (void) = ((void*)0);
+static void (*RB7_InterruptHandler_LOW) (void) = ((void*)0);
 
 static Std_ReturnType EXT_INTx_PIN_Init(const ext_INTx_config_t* ext_INTx);
 static Std_ReturnType EXT_INTx_Enable(const ext_INTx_config_t* ext_INTx);
@@ -4783,13 +4798,18 @@ static Std_ReturnType INT1_SetInterruptHandler(const void (*handler)(void));
 static Std_ReturnType INT2_SetInterruptHandler(const void (*handler)(void));
 static Std_ReturnType Interrupt_INTx_SetInterruptHandler(const ext_INTx_config_t* ext_INTx);
 
-static Std_ReturnType EXT_RBx_PIN_Init(const ext_RBx_config_t* ext_INTx);
-static Std_ReturnType EXT_RBx_Enable(const ext_RBx_config_t* ext_INTx);
-static Std_ReturnType EXT_RBx_Disable(const ext_RBx_config_t* ext_INTx);
-static Std_ReturnType EXT_RBx_edge_Init(const ext_RBx_config_t* ext_INTx);
+static Std_ReturnType EXT_RBx_PIN_Init(const ext_RBx_config_t* ext_RBx);
+static Std_ReturnType EXT_RBx_Enable(const ext_RBx_config_t* ext_RBx);
+static Std_ReturnType EXT_RBx_Disable(const ext_RBx_config_t* ext_RBx);
 
-static Std_ReturnType EXT_RBx_priority_Init(const ext_RBx_config_t* ext_INTx);
 
+static Std_ReturnType EXT_RBx_priority_Init(const ext_RBx_config_t* ext_RBx);
+
+static Std_ReturnType RB4_SetInterruptHandler(const void (*handler_high)(void), const void (*handler_low )(void));
+static Std_ReturnType RB5_SetInterruptHandler(const void (*handler_high)(void), const void (*handler_low )(void));
+static Std_ReturnType RB6_SetInterruptHandler(const void (*handler_high)(void), const void (*handler_low )(void));
+static Std_ReturnType RB7_SetInterruptHandler(const void (*handler_high)(void), const void (*handler_low )(void));
+static Std_ReturnType Interrupt_RBx_SetInterruptHandler(const ext_RBx_config_t* ext_RBx);
 
 
 Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx)
@@ -4827,14 +4847,30 @@ Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx)
     return state;
 }
 
-Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx)
+Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_RBx)
 {
     Std_ReturnType state=(Std_ReturnType)1;
-    if(ext_INTx==((void*)0))
+    if(ext_RBx==((void*)0))
         state=(Std_ReturnType)0;
     else
     {
 
+        state &= EXT_RBx_Disable(ext_RBx);
+
+        (INTCONbits.RBIF = 0);
+
+        state &= EXT_RBx_PIN_Init(ext_RBx);
+
+
+        (RCONbits.IPEN = 1);
+        state &= EXT_RBx_priority_Init(ext_RBx);
+
+
+
+
+        state &= Interrupt_RBx_SetInterruptHandler(ext_RBx);
+
+        state &= EXT_RBx_Enable(ext_RBx);
     }
     return state;
 }
@@ -4863,6 +4899,80 @@ void INT2_ISR(void)
     if(INT2_InterruptHandler != ((void*)0))
     {
         INT2_InterruptHandler();
+    }
+}
+
+void RB4_ISR(uint8 edge)
+{
+    (INTCONbits.RBIF = 0);
+    if(edge==RISING_EDGE)
+    {
+        if(RB4_InterruptHandler_HIGH != ((void*)0))
+        {
+            RB4_InterruptHandler_HIGH();
+        }
+    }
+    else
+    {
+        if(RB4_InterruptHandler_LOW != ((void*)0))
+        {
+            RB4_InterruptHandler_LOW();
+        }
+    }
+}
+
+void RB5_ISR(uint8 edge)
+{
+    (INTCONbits.RBIF = 0);
+    if(edge==RISING_EDGE)
+    {
+        if(RB5_InterruptHandler_HIGH != ((void*)0))
+        {
+            RB5_InterruptHandler_HIGH();
+        }
+    }
+    else
+    {
+        if(RB5_InterruptHandler_LOW != ((void*)0))
+        {
+            RB5_InterruptHandler_LOW();
+        }
+    }
+}
+void RB6_ISR(uint8 edge)
+{
+    (INTCONbits.RBIF = 0);
+    if(edge==RISING_EDGE)
+    {
+        if(RB6_InterruptHandler_HIGH != ((void*)0))
+        {
+            RB6_InterruptHandler_HIGH();
+        }
+    }
+    else
+    {
+        if(RB6_InterruptHandler_LOW != ((void*)0))
+        {
+            RB6_InterruptHandler_LOW();
+        }
+    }
+}
+void RB7_ISR(uint8 edge)
+{
+    (INTCONbits.RBIF = 0);
+    if(edge==RISING_EDGE)
+    {
+        if(RB7_InterruptHandler_HIGH != ((void*)0))
+        {
+            RB7_InterruptHandler_HIGH();
+        }
+    }
+    else
+    {
+        if(RB7_InterruptHandler_LOW != ((void*)0))
+        {
+            RB7_InterruptHandler_LOW();
+        }
     }
 }
 
@@ -5112,7 +5222,6 @@ static Std_ReturnType INT2_SetInterruptHandler(const void (*handler)(void))
     return state;
 }
 
-
 static Std_ReturnType Interrupt_INTx_SetInterruptHandler(const ext_INTx_config_t* ext_INTx)
 {
     Std_ReturnType state=(Std_ReturnType)1;
@@ -5130,6 +5239,155 @@ static Std_ReturnType Interrupt_INTx_SetInterruptHandler(const ext_INTx_config_t
                 break;
             case EXT_INT2:
                 state &= INT2_SetInterruptHandler(ext_INTx->int_handler);
+                break;
+            default:
+                state = (Std_ReturnType)0;
+                break;
+        }
+    }
+    return state;
+}
+
+static Std_ReturnType EXT_RBx_Disable(const ext_RBx_config_t* ext_RBx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_RBx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        (INTCONbits.RBIE = 0);
+    }
+    return state;
+}
+
+static Std_ReturnType EXT_RBx_PIN_Init(const ext_RBx_config_t* ext_RBx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_RBx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        state &= gpio_pin_direction_initialize(&ext_RBx->pin_config);
+    }
+    return state;
+}
+
+static Std_ReturnType EXT_RBx_Enable(const ext_RBx_config_t* ext_RBx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_RBx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        (INTCONbits.RBIE = 1);
+
+        if(ext_RBx->priority==HIGH_PRIORITY)
+        {
+            (INTCONbits.GIEH = 1);
+        }
+        else
+        {
+            (INTCONbits.GIEL = 1);
+        }
+
+
+
+
+    }
+}
+
+
+static Std_ReturnType EXT_RBx_priority_Init(const ext_RBx_config_t* ext_RBx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_RBx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        if(ext_RBx->priority==HIGH_PRIORITY)
+        {
+            (INTCON2bits.RBIP = 1);
+        }
+        else
+        {
+            (INTCON2bits.RBIP = 0 );
+        }
+    }
+    return state;
+}
+
+
+static Std_ReturnType RB4_SetInterruptHandler(const void (*handler_high)(void), const void (*handler_low )(void))
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(handler_high==((void*)0) || handler_low==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        RB4_InterruptHandler_HIGH=handler_high;
+        RB4_InterruptHandler_LOW=handler_low;
+    }
+    return state;
+}
+
+static Std_ReturnType RB5_SetInterruptHandler(const void (*handler_high)(void), const void (*handler_low )(void))
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(handler_high==((void*)0) || handler_low==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        RB5_InterruptHandler_HIGH=handler_high;
+        RB5_InterruptHandler_LOW=handler_low;
+    }
+    return state;
+}
+
+static Std_ReturnType RB6_SetInterruptHandler(const void (*handler_high)(void), const void (*handler_low )(void))
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(handler_high==((void*)0) || handler_low==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        RB6_InterruptHandler_HIGH=handler_high;
+        RB6_InterruptHandler_LOW=handler_low;
+    }
+    return state;
+}
+static Std_ReturnType RB7_SetInterruptHandler(const void (*handler_high)(void), const void (*handler_low )(void))
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(handler_high==((void*)0) || handler_low==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        RB7_InterruptHandler_HIGH=handler_high;
+        RB7_InterruptHandler_LOW=handler_low;
+    }
+    return state;
+}
+
+static Std_ReturnType Interrupt_RBx_SetInterruptHandler(const ext_RBx_config_t* ext_RBx)
+{
+    Std_ReturnType state=(Std_ReturnType)1;
+    if(ext_RBx==((void*)0))
+        state=(Std_ReturnType)0;
+    else
+    {
+        switch(ext_RBx->pin_config.pin)
+        {
+            case PIN4:
+                state &= RB4_SetInterruptHandler(ext_RBx->int_handler_high, ext_RBx->int_handler_low);
+                break;
+            case PIN5:
+                state &= RB5_SetInterruptHandler(ext_RBx->int_handler_high, ext_RBx->int_handler_low);
+                break;
+            case PIN6:
+                state &= RB6_SetInterruptHandler(ext_RBx->int_handler_high, ext_RBx->int_handler_low);
+                break;
+            case PIN7:
+                state &= RB7_SetInterruptHandler(ext_RBx->int_handler_high, ext_RBx->int_handler_low);
                 break;
             default:
                 state = (Std_ReturnType)0;

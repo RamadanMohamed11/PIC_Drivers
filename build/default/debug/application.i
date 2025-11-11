@@ -4978,7 +4978,8 @@ typedef struct
 
 typedef struct
 {
-    void (*int_handler)(void);
+    void (*int_handler_high)(void);
+    void (*int_handler_low)(void);
     pin_config_t pin_config;
     ext_INTx_edge_t int_edge;
     interrupt_priority_t priority;
@@ -4992,6 +4993,11 @@ Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx);
 void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
+
+void RB4_ISR(uint8 edge);
+void RB5_ISR(uint8 edge);
+void RB6_ISR(uint8 edge);
+void RB7_ISR(uint8 edge);
 # 20 "./application.h" 2
 
 
@@ -5040,9 +5046,20 @@ lcd_8bit_t lcd_8bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
 void INT0_Function(void);
 void INT1_Function(void);
 void INT2_Function(void);
+
+void RB4_HIGH_Function(void);
+void RB4_LOW_Function(void);
+void RB5_HIGH_Function(void);
+void RB5_LOW_Function(void);
+void RB6_HIGH_Function(void);
+void RB6_LOW_Function(void);
+void RB7_HIGH_Function(void);
+void RB7_LOW_Function(void);
+
 led_t led1={.port=PORTA_INDEX,.pin=PIN0, .state=LED_OFF};
 led_t led2={.port=PORTA_INDEX,.pin=PIN1, .state=LED_OFF};
 led_t led3={.port=PORTA_INDEX,.pin=PIN2, .state=LED_OFF};
+led_t led4={.port=PORTA_INDEX,.pin=PIN3, .state=LED_OFF};
 
 ext_INTx_config_t ext_INT0_config={
     .int_source=EXT_INT0,
@@ -5081,8 +5098,54 @@ ext_INTx_config_t ext_INT2_config={
     }
 };
 
-
-
+ext_RBx_config_t ext_RB4_config={
+    .int_edge=RISING_EDGE,
+    .priority=LOW_PRIORITY,
+    .int_handler_high=RB4_HIGH_Function,
+    .int_handler_low=RB4_LOW_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN4,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
+ext_RBx_config_t ext_RB5_config={
+    .int_edge=RISING_EDGE,
+    .priority=LOW_PRIORITY,
+    .int_handler_high=RB5_HIGH_Function,
+    .int_handler_low=RB5_LOW_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN5,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
+ext_RBx_config_t ext_RB6_config={
+    .int_edge=RISING_EDGE,
+    .priority=LOW_PRIORITY,
+    .int_handler_high=RB6_HIGH_Function,
+    .int_handler_low=RB6_LOW_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN6,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
+ext_RBx_config_t ext_RB7_config={
+    .int_edge=RISING_EDGE,
+    .priority=LOW_PRIORITY,
+    .int_handler_high=RB7_HIGH_Function,
+    .int_handler_low=RB7_LOW_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN7,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
 
 
 int main(void)
@@ -5091,10 +5154,15 @@ int main(void)
     EXT_INTx_Init(&ext_INT0_config);
     EXT_INTx_Init(&ext_INT1_config);
     EXT_INTx_Init(&ext_INT2_config);
-# 104 "application.c"
+
+    EXT_RBx_Init(&ext_RB4_config);
+    EXT_RBx_Init(&ext_RB5_config);
+    EXT_RBx_Init(&ext_RB6_config);
+    EXT_RBx_Init(&ext_RB7_config);
+
     while(1)
     {
-# 114 "application.c"
+
     }
     return (0);
 }
@@ -5124,4 +5192,37 @@ void INT2_Function(void)
 {
     led_toggle(&led3);
     _delay((unsigned long)((1000)*(8000000/4000.0)));
+}
+
+void RB4_HIGH_Function(void)
+{
+    led_turn_on(&led1);
+}
+void RB4_LOW_Function(void)
+{
+    led_turn_off(&led1);
+}
+void RB5_HIGH_Function(void)
+{
+    led_turn_on(&led2);
+}
+void RB5_LOW_Function(void)
+{
+    led_turn_off(&led2);
+}
+void RB6_HIGH_Function(void)
+{
+    led_turn_on(&led3);
+}
+void RB6_LOW_Function(void)
+{
+    led_turn_off(&led3);
+}
+void RB7_HIGH_Function(void)
+{
+    led_turn_on(&led4);
+}
+void RB7_LOW_Function(void)
+{
+    led_turn_off(&led4);
 }

@@ -150,12 +150,12 @@ PIN5 5
 PIN6 6
 PIN7 7
 ]
-"45 D:\Embedded 2025\PIC_Drivers\application.c
+"55 D:\Embedded 2025\PIC_Drivers\application.c
 [e E2862 . `uc
 LED_OFF 0
 LED_ON 1
 ]
-"49
+"60
 [e E3103 . `uc
 EXT_INT0 0
 EXT_INT1 1
@@ -177,7 +177,7 @@ GPIO_INPUT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"38 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
+"52 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
 [e E2866 . `uc
 EXT_INT0 0
 EXT_INT1 1
@@ -191,19 +191,46 @@ FALLING_EDGE 1
 HIGH_PRIORITY 0
 LOW_PRIORITY 1
 ]
-"90 D:\Embedded 2025\PIC_Drivers\application.c
+"632
+[e E2816 . `uc
+PIN0 0
+PIN1 1
+PIN2 2
+PIN3 3
+PIN4 4
+PIN5 5
+PIN6 6
+PIN7 7
+]
+"147 D:\Embedded 2025\PIC_Drivers\application.c
 [v _main main `(i  1 e 2 0 ]
-"118
+"166
 [v _application_initialize application_initialize `(uc  1 e 1 0 ]
-"129
+"177
 [v _INT0_Function INT0_Function `(v  1 e 1 0 ]
 [v i2_INT0_Function INT0_Function `(v  1 e 1 0 ]
-"134
+"182
 [v _INT1_Function INT1_Function `(v  1 e 1 0 ]
 [v i2_INT1_Function INT1_Function `(v  1 e 1 0 ]
-"139
+"187
 [v _INT2_Function INT2_Function `(v  1 e 1 0 ]
 [v i2_INT2_Function INT2_Function `(v  1 e 1 0 ]
+"193
+[v _RB4_HIGH_Function RB4_HIGH_Function `(v  1 e 1 0 ]
+"197
+[v _RB4_LOW_Function RB4_LOW_Function `(v  1 e 1 0 ]
+"201
+[v _RB5_HIGH_Function RB5_HIGH_Function `(v  1 e 1 0 ]
+"205
+[v _RB5_LOW_Function RB5_LOW_Function `(v  1 e 1 0 ]
+"209
+[v _RB6_HIGH_Function RB6_HIGH_Function `(v  1 e 1 0 ]
+"213
+[v _RB6_LOW_Function RB6_LOW_Function `(v  1 e 1 0 ]
+"217
+[v _RB7_HIGH_Function RB7_HIGH_Function `(v  1 e 1 0 ]
+"221
+[v _RB7_LOW_Function RB7_LOW_Function `(v  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fleq.c
@@ -274,6 +301,10 @@ LOW_PRIORITY 1
 [v _lcd_8bit_send_enable_signal lcd_8bit_send_enable_signal `(uc  1 s 1 lcd_8bit_send_enable_signal ]
 "16 D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
 [v _led_initialize led_initialize `(uc  1 e 1 0 ]
+"36
+[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
+"56
+[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
 "76
 [v _led_toggle led_toggle `(uc  1 e 1 0 ]
 [v i2_led_toggle led_toggle `(uc  1 e 1 0 ]
@@ -290,39 +321,59 @@ LOW_PRIORITY 1
 [v _gpio_port_direction_initialize gpio_port_direction_initialize `(uc  1 e 1 0 ]
 "153
 [v _gpio_port_write_logic gpio_port_write_logic `(uc  1 e 1 0 ]
-"38 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
+"52 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
 [v _EXT_INTx_Init EXT_INTx_Init `(uc  1 e 1 0 ]
-"85
+"87
+[v _EXT_RBx_Init EXT_RBx_Init `(uc  1 e 1 0 ]
+"115
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
-"94
+"124
 [v _INT1_ISR INT1_ISR `(v  1 e 1 0 ]
 [v i2_INT1_ISR INT1_ISR `(v  1 e 1 0 ]
-"103
+"133
 [v _INT2_ISR INT2_ISR `(v  1 e 1 0 ]
 [v i2_INT2_ISR INT2_ISR `(v  1 e 1 0 ]
-"112
+"216
 [v _EXT_INTx_PIN_Init EXT_INTx_PIN_Init `(uc  1 s 1 EXT_INTx_PIN_Init ]
-"124
+"228
 [v _EXT_INTx_Enable EXT_INTx_Enable `(uc  1 s 1 EXT_INTx_Enable ]
-"182
+"286
 [v _EXT_INTx_Disable EXT_INTx_Disable `(uc  1 s 1 EXT_INTx_Disable ]
-"208
+"312
 [v _EXT_INTx_edge_Init EXT_INTx_edge_Init `(uc  1 s 1 EXT_INTx_edge_Init ]
-"255
-[v _EXT_INTx_Clear_Flag EXT_INTx_Clear_Flag `(uc  1 s 1 EXT_INTx_Clear_Flag ]
-"282
-[v _EXT_INTx_priority_Init EXT_INTx_priority_Init `(uc  1 s 1 EXT_INTx_priority_Init ]
-"323
-[v _INT0_SetInterruptHandler INT0_SetInterruptHandler `(uc  1 s 1 INT0_SetInterruptHandler ]
-"335
-[v _INT1_SetInterruptHandler INT1_SetInterruptHandler `(uc  1 s 1 INT1_SetInterruptHandler ]
-"346
-[v _INT2_SetInterruptHandler INT2_SetInterruptHandler `(uc  1 s 1 INT2_SetInterruptHandler ]
 "359
+[v _EXT_INTx_Clear_Flag EXT_INTx_Clear_Flag `(uc  1 s 1 EXT_INTx_Clear_Flag ]
+"386
+[v _EXT_INTx_priority_Init EXT_INTx_priority_Init `(uc  1 s 1 EXT_INTx_priority_Init ]
+"427
+[v _INT0_SetInterruptHandler INT0_SetInterruptHandler `(uc  1 s 1 INT0_SetInterruptHandler ]
+"439
+[v _INT1_SetInterruptHandler INT1_SetInterruptHandler `(uc  1 s 1 INT1_SetInterruptHandler ]
+"450
+[v _INT2_SetInterruptHandler INT2_SetInterruptHandler `(uc  1 s 1 INT2_SetInterruptHandler ]
+"462
 [v _Interrupt_INTx_SetInterruptHandler Interrupt_INTx_SetInterruptHandler `(uc  1 s 1 Interrupt_INTx_SetInterruptHandler ]
-"12 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_interrupt_manager.c
+"488
+[v _EXT_RBx_Disable EXT_RBx_Disable `(uc  1 s 1 EXT_RBx_Disable ]
+"500
+[v _EXT_RBx_PIN_Init EXT_RBx_PIN_Init `(uc  1 s 1 EXT_RBx_PIN_Init ]
+"512
+[v _EXT_RBx_Enable EXT_RBx_Enable `(uc  1 s 1 EXT_RBx_Enable ]
+"537
+[v _EXT_RBx_priority_Init EXT_RBx_priority_Init `(uc  1 s 1 EXT_RBx_priority_Init ]
+"557
+[v _RB4_SetInterruptHandler RB4_SetInterruptHandler `(uc  1 s 1 RB4_SetInterruptHandler ]
+"570
+[v _RB5_SetInterruptHandler RB5_SetInterruptHandler `(uc  1 s 1 RB5_SetInterruptHandler ]
+"583
+[v _RB6_SetInterruptHandler RB6_SetInterruptHandler `(uc  1 s 1 RB6_SetInterruptHandler ]
+"595
+[v _RB7_SetInterruptHandler RB7_SetInterruptHandler `(uc  1 s 1 RB7_SetInterruptHandler ]
+"608
+[v _Interrupt_RBx_SetInterruptHandler Interrupt_RBx_SetInterruptHandler `(uc  1 s 1 Interrupt_RBx_SetInterruptHandler ]
+"17 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_interrupt_manager.c
 [v _interruptManagerHighPriority interruptManagerHighPriority `IIH(v  1 e 1 0 ]
-"29
+"34
 [v _interruptManagerLowPriority interruptManagerLowPriority `IIL(v  1 e 1 0 ]
 "17 D:\Embedded 2025\PIC_Drivers/ECU/Keypad/ecu_keypad.h
 [v _local_keypad_chars local_keypad_chars `[4][4]uc  1 e 16 0 ]
@@ -330,40 +381,51 @@ LOW_PRIORITY 1
 `uc 1 pin 1 0 :3:3 
 `uc 1 state 1 0 :1:6 
 ]
-"45 D:\Embedded 2025\PIC_Drivers\application.c
+"55 D:\Embedded 2025\PIC_Drivers\application.c
 [v _led1 led1 `S830  1 e 1 0 ]
-"46
+"56
 [v _led2 led2 `S830  1 e 1 0 ]
-"47
+"57
 [v _led3 led3 `S830  1 e 1 0 ]
+"58
+[v _led4 led4 `S830  1 e 1 0 ]
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"49
+"60
 [s S1333 . 6 `*.37(v 1 int_handler 2 0 `S33 1 pin_config 1 2 `E3103 1 int_source 1 3 `E3108 1 int_edge 1 4 `E3099 1 priority 1 5 ]
 [v _ext_INT0_config ext_INT0_config `S1333  1 e 6 0 ]
-"61
+"72
 [v _ext_INT1_config ext_INT1_config `S1333  1 e 6 0 ]
-"73
+"84
 [v _ext_INT2_config ext_INT2_config `S1333  1 e 6 0 ]
-[s S1506 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+"97
+[s S1359 . 7 `*.37(v 1 int_handler_high 2 0 `*.37(v 1 int_handler_low 2 2 `S33 1 pin_config 1 4 `E3108 1 int_edge 1 5 `E3099 1 priority 1 6 ]
+[v _ext_RB4_config ext_RB4_config `S1359  1 e 7 0 ]
+"109
+[v _ext_RB5_config ext_RB5_config `S1359  1 e 7 0 ]
+"121
+[v _ext_RB6_config ext_RB6_config `S1359  1 e 7 0 ]
+"133
+[v _ext_RB7_config ext_RB7_config `S1359  1 e 7 0 ]
+[s S1623 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "5391 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
-[s S1508 . 1 `uc 1 . 1 0 :1:0 
+[s S1625 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S1511 . 1 `uc 1 . 1 0 :2:0 
+[s S1628 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S1514 . 1 `uc 1 . 1 0 :3:0 
+[s S1631 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S1517 . 1 `uc 1 . 1 0 :4:0 
+[s S1634 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S1520 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S1637 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -372,15 +434,15 @@ LOW_PRIORITY 1
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S1529 . 1 `uc 1 BOR 1 0 :1:0 
+[s S1646 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S1535 . 1 `S1506 1 . 1 0 `S1508 1 . 1 0 `S1511 1 . 1 0 `S1514 1 . 1 0 `S1517 1 . 1 0 `S1520 1 . 1 0 `S1529 1 . 1 0 ]
-[v _RCONbits RCONbits `VES1535  1 e 1 @4048 ]
-[s S1644 . 1 `uc 1 INT1IF 1 0 :1:0 
+[u S1652 . 1 `S1623 1 . 1 0 `S1625 1 . 1 0 `S1628 1 . 1 0 `S1631 1 . 1 0 `S1634 1 . 1 0 `S1637 1 . 1 0 `S1646 1 . 1 0 ]
+[v _RCONbits RCONbits `VES1652  1 e 1 @4048 ]
+[s S1788 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -390,7 +452,7 @@ LOW_PRIORITY 1
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "6239
-[s S1653 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S1797 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -399,13 +461,13 @@ LOW_PRIORITY 1
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S1662 . 1 `S1644 1 . 1 0 `S1653 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES1662  1 e 1 @4080 ]
-[s S1687 . 1 `uc 1 . 1 0 :7:0 
+[u S1806 . 1 `S1788 1 . 1 0 `S1797 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES1806  1 e 1 @4080 ]
+[s S1839 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6329
-[s S1690 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S1842 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -414,12 +476,12 @@ LOW_PRIORITY 1
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S1699 . 1 `uc 1 . 1 0 :7:0 
+[s S1851 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S1702 . 1 `S1687 1 . 1 0 `S1690 1 . 1 0 `S1699 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES1702  1 e 1 @4081 ]
-[s S1594 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S1854 . 1 `S1839 1 . 1 0 `S1842 1 . 1 0 `S1851 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES1854  1 e 1 @4081 ]
+[s S1718 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -429,7 +491,7 @@ LOW_PRIORITY 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6406
-[s S1603 . 1 `uc 1 . 1 0 :1:0 
+[s S1727 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -438,12 +500,12 @@ LOW_PRIORITY 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1612 . 1 `uc 1 . 1 0 :6:0 
+[s S1736 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1616 . 1 `S1594 1 . 1 0 `S1603 1 . 1 0 `S1612 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1616  1 e 1 @4082 ]
+[u S1740 . 1 `S1718 1 . 1 0 `S1727 1 . 1 0 `S1736 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1740  1 e 1 @4082 ]
 "41 D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.h
 [v _tris_regesters tris_regesters `[5]*.39VEuc  1 e 10 0 ]
 "42
@@ -456,17 +518,33 @@ LOW_PRIORITY 1
 [v _INT1_InterruptHandler INT1_InterruptHandler `*.37(v  1 s 2 INT1_InterruptHandler ]
 "13
 [v _INT2_InterruptHandler INT2_InterruptHandler `*.37(v  1 s 2 INT2_InterruptHandler ]
-"90 D:\Embedded 2025\PIC_Drivers\application.c
+"15
+[v _RB4_InterruptHandler_HIGH RB4_InterruptHandler_HIGH `*.37(v  1 s 2 RB4_InterruptHandler_HIGH ]
+"16
+[v _RB4_InterruptHandler_LOW RB4_InterruptHandler_LOW `*.37(v  1 s 2 RB4_InterruptHandler_LOW ]
+"17
+[v _RB5_InterruptHandler_HIGH RB5_InterruptHandler_HIGH `*.37(v  1 s 2 RB5_InterruptHandler_HIGH ]
+"18
+[v _RB5_InterruptHandler_LOW RB5_InterruptHandler_LOW `*.37(v  1 s 2 RB5_InterruptHandler_LOW ]
+"19
+[v _RB6_InterruptHandler_HIGH RB6_InterruptHandler_HIGH `*.37(v  1 s 2 RB6_InterruptHandler_HIGH ]
+"20
+[v _RB6_InterruptHandler_LOW RB6_InterruptHandler_LOW `*.37(v  1 s 2 RB6_InterruptHandler_LOW ]
+"21
+[v _RB7_InterruptHandler_HIGH RB7_InterruptHandler_HIGH `*.37(v  1 s 2 RB7_InterruptHandler_HIGH ]
+"22
+[v _RB7_InterruptHandler_LOW RB7_InterruptHandler_LOW `*.37(v  1 s 2 RB7_InterruptHandler_LOW ]
+"147 D:\Embedded 2025\PIC_Drivers\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"116
+"164
 } 0
-"118
+"166
 [v _application_initialize application_initialize `(uc  1 e 1 0 ]
 {
-"120
-[v application_initialize@state state `uc  1 a 1 17 ]
-"127
+"168
+[v application_initialize@state state `uc  1 a 1 19 ]
+"175
 } 0
 "16 D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
 [v _led_initialize led_initialize `(uc  1 e 1 0 ]
@@ -477,120 +555,247 @@ LOW_PRIORITY 1
 `uc 1 logic 1 0 :1:7 
 ]
 "25
-[v led_initialize@led led `S33  1 a 1 16 ]
+[v led_initialize@led led `S33  1 a 1 18 ]
 "18
-[v led_initialize@state state `uc  1 a 1 15 ]
+[v led_initialize@state state `uc  1 a 1 17 ]
 [s S830 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 state 1 0 :1:6 
 ]
 "16
-[v led_initialize@LED LED `*.39CS830  1 p 2 3 ]
+[v led_initialize@LED LED `*.39CS830  1 p 2 15 ]
 "24
 [v led_initialize@F2891 F2891 `S33  1 s 1 F2891 ]
 "29
 } 0
-"38 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
+"87 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
+[v _EXT_RBx_Init EXT_RBx_Init `(uc  1 e 1 0 ]
+{
+"89
+[v EXT_RBx_Init@state state `uc  1 a 1 19 ]
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"87
+[s S1359 . 7 `*.37(v 1 int_handler_high 2 0 `*.37(v 1 int_handler_low 2 2 `S33 1 pin_config 1 4 `E3108 1 int_edge 1 5 `E3099 1 priority 1 6 ]
+[v EXT_RBx_Init@ext_RBx ext_RBx `*.39CS1359  1 p 2 17 ]
+"113
+} 0
+"608
+[v _Interrupt_RBx_SetInterruptHandler Interrupt_RBx_SetInterruptHandler `(uc  1 s 1 Interrupt_RBx_SetInterruptHandler ]
+{
+"610
+[v Interrupt_RBx_SetInterruptHandler@state state `uc  1 a 1 14 ]
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"608
+[s S1359 . 7 `*.37(v 1 int_handler_high 2 0 `*.37(v 1 int_handler_low 2 2 `S33 1 pin_config 1 4 `E3108 1 int_edge 1 5 `E3099 1 priority 1 6 ]
+[v Interrupt_RBx_SetInterruptHandler@ext_RBx ext_RBx `*.39CS1359  1 p 2 10 ]
+"635
+} 0
+"595
+[v _RB7_SetInterruptHandler RB7_SetInterruptHandler `(uc  1 s 1 RB7_SetInterruptHandler ]
+{
+"597
+[v RB7_SetInterruptHandler@state state `uc  1 a 1 9 ]
+"595
+[v RB7_SetInterruptHandler@handler_high handler_high `*.37(Cv  1 p 2 0 ]
+[v RB7_SetInterruptHandler@handler_low handler_low `*.37(Cv  1 p 2 2 ]
+"606
+} 0
+"583
+[v _RB6_SetInterruptHandler RB6_SetInterruptHandler `(uc  1 s 1 RB6_SetInterruptHandler ]
+{
+"585
+[v RB6_SetInterruptHandler@state state `uc  1 a 1 9 ]
+"583
+[v RB6_SetInterruptHandler@handler_high handler_high `*.37(Cv  1 p 2 0 ]
+[v RB6_SetInterruptHandler@handler_low handler_low `*.37(Cv  1 p 2 2 ]
+"594
+} 0
+"570
+[v _RB5_SetInterruptHandler RB5_SetInterruptHandler `(uc  1 s 1 RB5_SetInterruptHandler ]
+{
+"572
+[v RB5_SetInterruptHandler@state state `uc  1 a 1 9 ]
+"570
+[v RB5_SetInterruptHandler@handler_high handler_high `*.37(Cv  1 p 2 0 ]
+[v RB5_SetInterruptHandler@handler_low handler_low `*.37(Cv  1 p 2 2 ]
+"581
+} 0
+"557
+[v _RB4_SetInterruptHandler RB4_SetInterruptHandler `(uc  1 s 1 RB4_SetInterruptHandler ]
+{
+"559
+[v RB4_SetInterruptHandler@state state `uc  1 a 1 9 ]
+"557
+[v RB4_SetInterruptHandler@handler_high handler_high `*.37(Cv  1 p 2 0 ]
+[v RB4_SetInterruptHandler@handler_low handler_low `*.37(Cv  1 p 2 2 ]
+"568
+} 0
+"537
+[v _EXT_RBx_priority_Init EXT_RBx_priority_Init `(uc  1 s 1 EXT_RBx_priority_Init ]
+{
+"539
+[v EXT_RBx_priority_Init@state state `uc  1 a 1 2 ]
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"537
+[s S1359 . 7 `*.37(v 1 int_handler_high 2 0 `*.37(v 1 int_handler_low 2 2 `S33 1 pin_config 1 4 `E3108 1 int_edge 1 5 `E3099 1 priority 1 6 ]
+[v EXT_RBx_priority_Init@ext_RBx ext_RBx `*.39CS1359  1 p 2 0 ]
+"554
+} 0
+"500
+[v _EXT_RBx_PIN_Init EXT_RBx_PIN_Init `(uc  1 s 1 EXT_RBx_PIN_Init ]
+{
+"502
+[v EXT_RBx_PIN_Init@state state `uc  1 a 1 3 ]
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"500
+[s S1359 . 7 `*.37(v 1 int_handler_high 2 0 `*.37(v 1 int_handler_low 2 2 `S33 1 pin_config 1 4 `E3108 1 int_edge 1 5 `E3099 1 priority 1 6 ]
+[v EXT_RBx_PIN_Init@ext_RBx ext_RBx `*.39CS1359  1 p 2 15 ]
+"510
+} 0
+"512
+[v _EXT_RBx_Enable EXT_RBx_Enable `(uc  1 s 1 EXT_RBx_Enable ]
+{
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[s S1359 . 7 `*.37(v 1 int_handler_high 2 0 `*.37(v 1 int_handler_low 2 2 `S33 1 pin_config 1 4 `E3108 1 int_edge 1 5 `E3099 1 priority 1 6 ]
+[v EXT_RBx_Enable@ext_RBx ext_RBx `*.39CS1359  1 p 2 0 ]
+"534
+} 0
+"488
+[v _EXT_RBx_Disable EXT_RBx_Disable `(uc  1 s 1 EXT_RBx_Disable ]
+{
+"490
+[v EXT_RBx_Disable@state state `uc  1 a 1 2 ]
+[s S33 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"488
+[s S1359 . 7 `*.37(v 1 int_handler_high 2 0 `*.37(v 1 int_handler_low 2 2 `S33 1 pin_config 1 4 `E3108 1 int_edge 1 5 `E3099 1 priority 1 6 ]
+[v EXT_RBx_Disable@ext_RBx ext_RBx `*.39CS1359  1 p 2 0 ]
+"498
+} 0
+"52
 [v _EXT_INTx_Init EXT_INTx_Init `(uc  1 e 1 0 ]
 {
-"40
-[v EXT_INTx_Init@state state `uc  1 a 1 17 ]
+"54
+[v EXT_INTx_Init@state state `uc  1 a 1 19 ]
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"38
+"52
 [s S1333 . 6 `*.37(v 1 int_handler 2 0 `S33 1 pin_config 1 2 `E3103 1 int_source 1 3 `E3108 1 int_edge 1 4 `E3099 1 priority 1 5 ]
-[v EXT_INTx_Init@ext_INTx ext_INTx `*.39CS1333  1 p 2 15 ]
-"71
+[v EXT_INTx_Init@ext_INTx ext_INTx `*.39CS1333  1 p 2 17 ]
+"85
 } 0
-"359
+"462
 [v _Interrupt_INTx_SetInterruptHandler Interrupt_INTx_SetInterruptHandler `(uc  1 s 1 Interrupt_INTx_SetInterruptHandler ]
 {
-"361
-[v Interrupt_INTx_SetInterruptHandler@state state `uc  1 a 1 5 ]
+"464
+[v Interrupt_INTx_SetInterruptHandler@state state `uc  1 a 1 3 ]
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"359
+"462
 [s S1333 . 6 `*.37(v 1 int_handler 2 0 `S33 1 pin_config 1 2 `E3103 1 int_source 1 3 `E3108 1 int_edge 1 4 `E3099 1 priority 1 5 ]
-[v Interrupt_INTx_SetInterruptHandler@ext_INTx ext_INTx `*.39CS1333  1 p 2 3 ]
-"383
+[v Interrupt_INTx_SetInterruptHandler@ext_INTx ext_INTx `*.39CS1333  1 p 2 9 ]
+"486
 } 0
-"346
+"450
 [v _INT2_SetInterruptHandler INT2_SetInterruptHandler `(uc  1 s 1 INT2_SetInterruptHandler ]
 {
-"348
+"452
 [v INT2_SetInterruptHandler@state state `uc  1 a 1 2 ]
-"346
+"450
 [v INT2_SetInterruptHandler@handler handler `*.37(Cv  1 p 2 0 ]
-"356
+"460
 } 0
-"335
+"439
 [v _INT1_SetInterruptHandler INT1_SetInterruptHandler `(uc  1 s 1 INT1_SetInterruptHandler ]
 {
-"337
+"441
 [v INT1_SetInterruptHandler@state state `uc  1 a 1 2 ]
-"335
+"439
 [v INT1_SetInterruptHandler@handler handler `*.37(Cv  1 p 2 0 ]
-"345
+"449
 } 0
-"323
+"427
 [v _INT0_SetInterruptHandler INT0_SetInterruptHandler `(uc  1 s 1 INT0_SetInterruptHandler ]
 {
-"325
+"429
 [v INT0_SetInterruptHandler@state state `uc  1 a 1 2 ]
-"323
+"427
 [v INT0_SetInterruptHandler@handler handler `*.37(Cv  1 p 2 0 ]
-"333
+"437
 } 0
-"282
+"386
 [v _EXT_INTx_priority_Init EXT_INTx_priority_Init `(uc  1 s 1 EXT_INTx_priority_Init ]
 {
-"284
-[v EXT_INTx_priority_Init@state state `uc  1 a 1 4 ]
+"388
+[v EXT_INTx_priority_Init@state state `uc  1 a 1 9 ]
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"282
+"386
 [s S1333 . 6 `*.37(v 1 int_handler 2 0 `S33 1 pin_config 1 2 `E3103 1 int_source 1 3 `E3108 1 int_edge 1 4 `E3099 1 priority 1 5 ]
 [v EXT_INTx_priority_Init@ext_INTx ext_INTx `*.39CS1333  1 p 2 0 ]
-"320
+"424
 } 0
-"208
+"312
 [v _EXT_INTx_edge_Init EXT_INTx_edge_Init `(uc  1 s 1 EXT_INTx_edge_Init ]
 {
-"210
-[v EXT_INTx_edge_Init@state state `uc  1 a 1 4 ]
+"314
+[v EXT_INTx_edge_Init@state state `uc  1 a 1 9 ]
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"208
+"312
 [s S1333 . 6 `*.37(v 1 int_handler 2 0 `S33 1 pin_config 1 2 `E3103 1 int_source 1 3 `E3108 1 int_edge 1 4 `E3099 1 priority 1 5 ]
 [v EXT_INTx_edge_Init@ext_INTx ext_INTx `*.39CS1333  1 p 2 0 ]
-"253
+"357
 } 0
-"112
+"216
 [v _EXT_INTx_PIN_Init EXT_INTx_PIN_Init `(uc  1 s 1 EXT_INTx_PIN_Init ]
 {
-"114
-[v EXT_INTx_PIN_Init@state state `uc  1 a 1 5 ]
+"218
+[v EXT_INTx_PIN_Init@state state `uc  1 a 1 3 ]
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"112
+"216
 [s S1333 . 6 `*.37(v 1 int_handler 2 0 `S33 1 pin_config 1 2 `E3103 1 int_source 1 3 `E3108 1 int_edge 1 4 `E3099 1 priority 1 5 ]
-[v EXT_INTx_PIN_Init@ext_INTx ext_INTx `*.39CS1333  1 p 2 3 ]
-"122
+[v EXT_INTx_PIN_Init@ext_INTx ext_INTx `*.39CS1333  1 p 2 15 ]
+"226
 } 0
 "10 D:\Embedded 2025\PIC_Drivers\MCAL/GPIO/hal_gpio.c
 [v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
@@ -606,80 +811,80 @@ LOW_PRIORITY 1
 [v gpio_pin_direction_initialize@_pin_config _pin_config `*.39CS33  1 p 2 0 ]
 "39
 } 0
-"124 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
+"228 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
 [v _EXT_INTx_Enable EXT_INTx_Enable `(uc  1 s 1 EXT_INTx_Enable ]
 {
-"126
-[v EXT_INTx_Enable@state state `uc  1 a 1 4 ]
+"230
+[v EXT_INTx_Enable@state state `uc  1 a 1 9 ]
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"124
+"228
 [s S1333 . 6 `*.37(v 1 int_handler 2 0 `S33 1 pin_config 1 2 `E3103 1 int_source 1 3 `E3108 1 int_edge 1 4 `E3099 1 priority 1 5 ]
 [v EXT_INTx_Enable@ext_INTx ext_INTx `*.39CS1333  1 p 2 0 ]
-"180
+"284
 } 0
-"182
+"286
 [v _EXT_INTx_Disable EXT_INTx_Disable `(uc  1 s 1 EXT_INTx_Disable ]
 {
-"184
-[v EXT_INTx_Disable@state state `uc  1 a 1 4 ]
+"288
+[v EXT_INTx_Disable@state state `uc  1 a 1 9 ]
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"182
+"286
 [s S1333 . 6 `*.37(v 1 int_handler 2 0 `S33 1 pin_config 1 2 `E3103 1 int_source 1 3 `E3108 1 int_edge 1 4 `E3099 1 priority 1 5 ]
 [v EXT_INTx_Disable@ext_INTx ext_INTx `*.39CS1333  1 p 2 0 ]
-"206
+"310
 } 0
-"255
+"359
 [v _EXT_INTx_Clear_Flag EXT_INTx_Clear_Flag `(uc  1 s 1 EXT_INTx_Clear_Flag ]
 {
-"257
-[v EXT_INTx_Clear_Flag@state state `uc  1 a 1 4 ]
+"361
+[v EXT_INTx_Clear_Flag@state state `uc  1 a 1 9 ]
 [s S33 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"255
+"359
 [s S1333 . 6 `*.37(v 1 int_handler 2 0 `S33 1 pin_config 1 2 `E3103 1 int_source 1 3 `E3108 1 int_edge 1 4 `E3099 1 priority 1 5 ]
 [v EXT_INTx_Clear_Flag@ext_INTx ext_INTx `*.39CS1333  1 p 2 0 ]
-"279
+"383
 } 0
-"29 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_interrupt_manager.c
+"34 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_interrupt_manager.c
 [v _interruptManagerLowPriority interruptManagerLowPriority `IIL(v  1 e 1 0 ]
 {
-"40
+"45
 } 0
-"103 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
+"133 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
 [v _INT2_ISR INT2_ISR `(v  1 e 1 0 ]
 {
-"110
+"140
 } 0
-"94
+"124
 [v _INT1_ISR INT1_ISR `(v  1 e 1 0 ]
 {
-"101
+"131
 } 0
-"134 D:\Embedded 2025\PIC_Drivers\application.c
+"182 D:\Embedded 2025\PIC_Drivers\application.c
 [v _INT1_Function INT1_Function `(v  1 e 1 0 ]
 {
-"138
+"186
 } 0
-"129
+"177
 [v _INT0_Function INT0_Function `(v  1 e 1 0 ]
 {
-"133
+"181
 } 0
-"139
+"187
 [v _INT2_Function INT2_Function `(v  1 e 1 0 ]
 {
-"143
+"191
 } 0
 "76 D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
 [v _led_toggle led_toggle `(uc  1 e 1 0 ]
@@ -712,40 +917,40 @@ LOW_PRIORITY 1
 [v gpio_pin_toggle_logic@_pin_config _pin_config `*.39CS33  1 p 2 19 ]
 "117
 } 0
-"12 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_interrupt_manager.c
+"17 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_interrupt_manager.c
 [v _interruptManagerHighPriority interruptManagerHighPriority `IIH(v  1 e 1 0 ]
 {
-"27
+"32
 } 0
-"103 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
+"133 D:\Embedded 2025\PIC_Drivers\MCAL/Interrupt/mcal_external_interrupt.c
 [v i2_INT2_ISR INT2_ISR `(v  1 e 1 0 ]
 {
-"110
+"140
 } 0
-"94
+"124
 [v i2_INT1_ISR INT1_ISR `(v  1 e 1 0 ]
 {
-"101
+"131
 } 0
-"85
+"115
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
 {
-"92
+"122
 } 0
-"134 D:\Embedded 2025\PIC_Drivers\application.c
+"182 D:\Embedded 2025\PIC_Drivers\application.c
 [v i2_INT1_Function INT1_Function `(v  1 e 1 0 ]
 {
-"138
+"186
 } 0
-"129
+"177
 [v i2_INT0_Function INT0_Function `(v  1 e 1 0 ]
 {
-"133
+"181
 } 0
-"139
+"187
 [v i2_INT2_Function INT2_Function `(v  1 e 1 0 ]
 {
-"143
+"191
 } 0
 "76 D:\Embedded 2025\PIC_Drivers\ECU/LED/ecu_led.c
 [v i2_led_toggle led_toggle `(uc  1 e 1 0 ]

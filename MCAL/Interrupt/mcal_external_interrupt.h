@@ -72,7 +72,8 @@ typedef struct
 
 typedef struct
 {
-    void (*int_handler)(void);
+    void (*int_handler_high)(void);
+    void (*int_handler_low)(void);
     pin_config_t       pin_config;
     ext_INTx_edge_t    int_edge;
     interrupt_priority_t priority;
@@ -86,6 +87,12 @@ Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx);
 void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
+
+void RB4_ISR(uint8 edge);
+void RB5_ISR(uint8 edge);
+void RB6_ISR(uint8 edge);
+void RB7_ISR(uint8 edge);
+
 
 
 #endif /* MCAL_EXTERNAL_INTERRUPT_H */
