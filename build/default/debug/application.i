@@ -4942,9 +4942,62 @@ Std_ReturnType lcd_8bit_send_number_data(const lcd_8bit_t* lcd_8bit, sint32 valu
 Std_ReturnType lcd_8bit_send_number_at_position(const lcd_8bit_t* lcd_8bit, const uint8 row, const uint8 col, sint32 value);
 # 19 "./application.h" 2
 
+# 1 "./MCAL/Interrupt/mcal_external_interrupt.h" 1
+# 13 "./MCAL/Interrupt/mcal_external_interrupt.h"
+# 1 "./MCAL/Interrupt/mcal_interrupt_config.h" 1
+# 43 "./MCAL/Interrupt/mcal_interrupt_config.h"
+typedef enum
+{
+    HIGH_PRIORITY,
+    LOW_PRIORITY
+}interrupt_priority_t;
+# 13 "./MCAL/Interrupt/mcal_external_interrupt.h" 2
+# 50 "./MCAL/Interrupt/mcal_external_interrupt.h"
+typedef enum
+{
+    EXT_INT0,
+    EXT_INT1,
+    EXT_INT2
+}ext_INTx_source_t;
+
+typedef enum
+{
+    RISING_EDGE,
+    FALLING_EDGE
+}ext_INTx_edge_t;
+
+typedef struct
+{
+    void (*int_handler)(void);
+    pin_config_t pin_config;
+    ext_INTx_source_t int_source;
+    ext_INTx_edge_t int_edge;
+    interrupt_priority_t priority;
+
+}ext_INTx_config_t;
+
+typedef struct
+{
+    void (*int_handler)(void);
+    pin_config_t pin_config;
+    ext_INTx_edge_t int_edge;
+    interrupt_priority_t priority;
+
+}ext_RBx_config_t;
+
+
+Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx);
+Std_ReturnType EXT_RBx_Init(const ext_RBx_config_t* ext_INTx);
+
+void INT0_ISR(void);
+void INT1_ISR(void);
+void INT2_ISR(void);
+# 20 "./application.h" 2
+
 
 
 rgb_led_t rgb_led={.red_channel.port=PORTC_INDEX,.red_channel.pin=PIN0,.green_channel.port=PORTC_INDEX,.green_channel.pin=PIN1,.blue_channel.port=PORTC_INDEX,.blue_channel.pin=PIN2,.state=rgb_led_off};
+
 extern lcd_4bit_t lcd_4bit;
 extern lcd_8bit_t lcd_8bit;
 
@@ -4978,28 +5031,39 @@ lcd_8bit_t lcd_8bit={.lcd_rs_pin.port=PORTC_INDEX,.lcd_rs_pin.pin=PIN0,
                     .lcd_data_pins[5].port=PORTD_INDEX,.lcd_data_pins[5].pin=PIN5,
                     .lcd_data_pins[6].port=PORTD_INDEX,.lcd_data_pins[6].pin=PIN6,
                     .lcd_data_pins[7].port=PORTD_INDEX,.lcd_data_pins[7].pin=PIN7};
-# 45 "application.c"
+
+
+
+
+
+
+void INT0_Function(void);
+led_t led1={.port=PORTA_INDEX,.pin=PIN0, .state=LED_OFF};
+
+ext_INTx_config_t ext_INT0_config={
+    .int_source=EXT_INT0,
+    .int_edge=RISING_EDGE,
+    .int_handler=INT0_Function,
+    .pin_config={
+        .port=PORTB_INDEX,
+        .pin=PIN0,
+        .direction=GPIO_INPUT,
+        .logic=GPIO_LOW
+    }
+};
+
+
+
+
+
 int main(void)
 {
     application_initialize();
-
-
-    for(uint8 local_index=0; local_index<7; local_index++)
-    {
-        lcd_8bit_send_custome_char(&lcd_8bit, 1, 1, customChars[local_index], local_index);
-        lcd_4bit_send_custome_char(&lcd_4bit, 1, 1, customChars[local_index], local_index);
-    }
-
+    EXT_INTx_Init(&ext_INT0_config);
+# 73 "application.c"
     while(1)
     {
-        for(uint8 local_index=0; local_index<7; local_index++)
-        {
-
-
-            lcd_4bit_send_char_at_position(&lcd_4bit, 4, 4, local_index);
-            lcd_8bit_send_char_at_position(&lcd_8bit, 4, 4, local_index);
-            _delay((unsigned long)((500)*(8000000/4000.0)));
-        }
+# 83 "application.c"
     }
     return (0);
 }
@@ -5007,7 +5071,13 @@ int main(void)
 Std_ReturnType application_initialize(void)
 {
     Std_ReturnType state = (Std_ReturnType)1;
-    state &= lcd_4bit_initialize(&lcd_4bit);
-    state &= lcd_8bit_initialize(&lcd_8bit);
+
+
+    state &= led_initialize(&led1);
     return state;
+}
+
+void INT0_Function(void)
+{
+    led_toggle(&led1);
 }

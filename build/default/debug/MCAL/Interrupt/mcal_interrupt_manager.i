@@ -4766,15 +4766,19 @@ void INT1_ISR(void);
 void INT2_ISR(void);
 # 14 "MCAL/Interrupt/mcal_interrupt_manager.h" 2
 # 9 "MCAL/Interrupt/mcal_interrupt_manager.c" 2
-
-
-
-void __attribute__((picinterrupt(("")))) interruptManagerHighPriority(void)
+# 24 "MCAL/Interrupt/mcal_interrupt_manager.c"
+void __attribute__((picinterrupt(("")))) interruptManager(void)
 {
-
-}
-
-void __attribute__((picinterrupt(("low_priority")))) interruptManagerLowPriority(void)
-{
-
+    if(INTCONbits.INT0IF && INTCONbits.INT0IE)
+    {
+        INT0_ISR();
+    }
+    else if(INTCON3bits.INT1IF && INTCON3bits.INT1IE)
+    {
+        INT1_ISR();
+    }
+    else if(INTCON3bits.INT2IF && INTCON3bits.INT2IE)
+    {
+        INT2_ISR();
+    }
 }

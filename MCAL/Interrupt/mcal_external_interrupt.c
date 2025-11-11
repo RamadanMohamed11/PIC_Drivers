@@ -51,9 +51,12 @@ Std_ReturnType EXT_INTx_Init(const ext_INTx_config_t* ext_INTx)
         // Initialize interrupt edge
         state &= EXT_INTx_edge_Init(ext_INTx);
         // Initialize interrupt priority
+        #if INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE
         state &= EXT_INTx_priority_Init(ext_INTx);
+        #endif /* INTERRUPT_PRIORITY_FEATURE_ENABLE == INTERRUPT_PRIORITY_ENABLE */
+
         // Interrupt Callback function assignment would go here
-        state &= EXT_INTx_Set_Callback(ext_INTx);
+        state &= Interrupt_INTx_SetInterruptHandler(ext_INTx);
         // Enable interrupt
         state &= EXT_INTx_Enable(ext_INTx);
     }
@@ -122,12 +125,18 @@ static Std_ReturnType EXT_INTx_Enable(const ext_INTx_config_t* ext_INTx)
         {
             case EXT_INT0:
                 EXT_INT0_INTERRUPT_ENABLE();
+                INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
+                INTERRUPT_ENABLE_GLOBAL_INTERRUPT();
                 break;
             case EXT_INT1:
                 EXT_INT1_INTERRUPT_ENABLE();
+                INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
+                INTERRUPT_ENABLE_GLOBAL_INTERRUPT();
                 break;
             case EXT_INT2:
                 EXT_INT2_INTERRUPT_ENABLE();
+                INTERRUPT_ENABLE_PERIPHERAL_INTERRUPT();
+                INTERRUPT_ENABLE_GLOBAL_INTERRUPT();
                 break;
             default:
                 state=E_NOT_OK;
@@ -232,18 +241,6 @@ static Std_ReturnType EXT_INTx_Clear_Flag(const ext_INTx_config_t* ext_INTx)
                 state=E_NOT_OK;
                 break;
         }
-    }
-    return state;
-}
-
-static Std_ReturnType EXT_INTx_Set_Callback(const ext_INTx_config_t* ext_INTx)
-{
-    Std_ReturnType state=E_OK;
-    if(ext_INTx==NULL)
-        state=E_NOT_OK;
-    else
-    {
-
     }
     return state;
 }

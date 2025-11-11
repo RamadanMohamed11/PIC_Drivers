@@ -17,9 +17,11 @@
 #include "ECU/Keypad/ecu_keypad.h"
 #include "ECU/RGB_LED/ecu_rgb_led.h"
 #include "ECU/LCD/ecu_lcd.h"
+#include "MCAL/Interrupt/mcal_external_interrupt.h"
 
 
 rgb_led_t rgb_led={.red_channel.port=PORTC_INDEX,.red_channel.pin=PIN0,.green_channel.port=PORTC_INDEX,.green_channel.pin=PIN1,.blue_channel.port=PORTC_INDEX,.blue_channel.pin=PIN2,.state=rgb_led_off};
+
 extern lcd_4bit_t lcd_4bit;
 extern lcd_8bit_t lcd_8bit;
 

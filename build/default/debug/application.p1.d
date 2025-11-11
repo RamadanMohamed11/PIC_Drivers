@@ -13,4 +13,6 @@ ECU/DC_MOTOR/ecu_dc_motor.h  \
 ECU/RELAY/ecu_relay.h  \
 ECU/Keypad/ecu_keypad.h  \
 ECU/RGB_LED/ecu_rgb_led.h  \
-ECU/LCD/ecu_lcd.h 
+ECU/LCD/ecu_lcd.h  \
+MCAL/Interrupt/mcal_external_interrupt.h  \
+MCAL/Interrupt/mcal_interrupt_config.h 
